@@ -21,4 +21,17 @@ export default tseslint.config(
     files: ['eslint.config.js'],
     ...tseslint.configs.disableTypeChecked,
   },
+  {
+    // The site's scripts run in the browser as they are, without a build step.
+    files: ['src/site/assets/**/*.js'],
+    ...tseslint.configs.disableTypeChecked,
+    languageOptions: {
+      ...tseslint.configs.disableTypeChecked.languageOptions,
+      sourceType: 'script',
+      globals: {
+        window: 'readonly', document: 'readonly', location: 'readonly', history: 'readonly',
+        fetch: 'readonly', AbortController: 'readonly', Map: 'readonly', setTimeout: 'readonly', clearTimeout: 'readonly',
+      },
+    },
+  },
 );

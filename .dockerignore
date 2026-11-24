@@ -1,0 +1,8 @@
+.git
+.cache
+node_modules
+out/private
+out/site.db*
+test
+summaries
+overrides
