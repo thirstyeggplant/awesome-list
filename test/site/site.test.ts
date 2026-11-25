@@ -57,7 +57,7 @@ describe('routes', () => {
       '/', '/lists', '/lists?category=tools', '/lists/alpha/awesome-widgets', '/lists/gamma/awesome-broken', '/items',
       '/items?lang=go&stars=1000', '/items?q=rocket', '/items?topic=cli&topic=web&sort=name&page=1', '/gh/acme/rocket',
       `/item/${shortHash('https://example.com/hostile')}`, '/gh/acme', '/gh/alpha', '/search?q=rocket', '/search', '/about',
-      '/api/quick?q=ro', '/sitemap.xml', '/sitemaps/pages.xml', '/sitemaps/lists.xml', '/sitemaps/owners.xml',
+      '/api/quick?q=ro', '/sitemap.xml', '/sitemaps/pages.xml', '/sitemaps/lists-en.xml', '/sitemaps/owners.xml',
       '/sitemaps/items-1.xml', '/robots.txt', '/healthz', css, '/_data/facets.bin', '/_data/terms.json',
     ];
     for (const p of paths) expect((await get(p)).status, p).toBe(200);
@@ -75,7 +75,7 @@ describe('routes', () => {
 
   it('says why an unparsed list has no entries', async () => {
     expect(await body('/lists/gamma/awesome-broken')).toContain(
-      "We could not read this list's entries yet (the readme is in reStructuredText).",
+      'We could not read this list&#39;s entries yet (the readme is in reStructuredText).',
     );
   });
 
@@ -89,8 +89,8 @@ describe('routes', () => {
     const along = await body('/gh/own0/proj0');
     expect(along).toContain('Listed alongside');
     expect(along).toContain('href="/gh/own4/proj4"');
-    expect(page).toContain('href="/items?lang=go">Go</a>');
-    expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘Hostile’');
+    expect(page).toContain('href="/items?lang=go"><span translate="no">Go</span></a>');
+    expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘<span translate="no">Hostile</span>’');
     expect(await body('/lists/alpha/awesome-widgets')).toContain('Named by');
     const owner = await body('/gh/own1');
     expect(owner).toContain('Their projects named by lists');
@@ -200,7 +200,7 @@ describe('routes', () => {
     expect(asset.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable');
     expect(asset.headers.get('X-Content-Type-Options')).toBe('nosniff');
     expect(asset.headers.get('Content-Type')).toBe('text/css; charset=utf-8');
-    for (const p of ['/sitemap.xml', '/sitemaps/lists.xml', '/robots.txt']) {
+    for (const p of ['/sitemap.xml', '/sitemaps/lists-en.xml', '/robots.txt']) {
       const r = await get(p);
       expect(r.headers.get('Cache-Control'), p).toBe('public, max-age=3600, s-maxage=86400');
       expect(r.headers.get('X-Content-Type-Options'), p).toBe('nosniff');
@@ -211,7 +211,7 @@ describe('routes', () => {
   it('writes no inline script or style', async () => {
     for (const p of ['/', '/lists/alpha/awesome-widgets', '/items', '/gh/acme/rocket', '/search?q=rocket']) {
       const page = await body(p);
-      expect(page, p).not.toMatch(/<script(?![^>]*\ssrc=)/);
+      expect(page, p).not.toMatch(/<script(?![^>]*\s(src=|type="application\/ld\+json"))/);
       expect(page, p).not.toMatch(/<style|<[^>]*\s(style|on[a-z]+)=/i);
     }
   });
@@ -245,14 +245,14 @@ describe('sitemaps', () => {
       expect(row.n).toBeLessThan(all.n);
       const files = Math.ceil(row.n / 10);
       const index = (await get('/sitemap.xml', {}, small)).body;
-      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(3 + files);
+      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(12 + files);
       expect(index).toContain('<loc>https://example.test/sitemaps/items-1.xml</loc>');
       let urls = 0;
       for (let n = 1; n <= files; n++) {
         const r = await get(`/sitemaps/items-${n}.xml`, {}, small);
         expect(r.status).toBe(200);
         urls += [...r.body.matchAll(/<url>/g)].length;
-        expect(r.body).toContain('<lastmod>2026-06-02</lastmod>');
+        expect(r.body).not.toContain('<lastmod>');
       }
       expect(urls).toBe(row.n);
       expect((await get(`/sitemaps/items-${files + 1}.xml`, {}, small)).status).toBe(404);

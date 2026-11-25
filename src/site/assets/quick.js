@@ -1,6 +1,31 @@
 // Quick search: Ctrl/⌘-K or / opens a dialog with a combobox. Without script the header's form goes to /search.
+// The words come from data-* attributes the server wrote in the page's language; numbers follow <html lang>;
+// links keep the page's language prefix (data-prefix on <html>). Below: the suggestion of a better language.
 (function () {
   'use strict';
+  var root = document.documentElement;
+  var prefix = root.getAttribute('data-prefix') || '';
+  var lang = root.lang || 'en';
+
+  function num(n) {
+    try { return n.toLocaleString(lang); } catch { return String(n); }
+  }
+
+  /** A plural from a data attribute holding {"one": "{n} list", "other": "{n} lists", …}. */
+  function plural(json, n) {
+    var forms = {};
+    try { forms = JSON.parse(json || '{}'); } catch { /* the English below */ }
+    var cat = 'other';
+    try { cat = new Intl.PluralRules(lang).select(n); } catch { /* other */ }
+    return (forms[cat] || forms.other || '{n}').replace('{n}', num(n));
+  }
+
+  function local(href) {
+    return href.charAt(0) === '/' && href.charAt(1) !== '/' ? prefix + href : href;
+  }
+
+  suggest();
+
   var dialog = document.getElementById('quick');
   var input = document.getElementById('quick-input');
   var list = document.getElementById('quick-options');
@@ -71,20 +96,21 @@
   function show(data) {
     list.textContent = '';
     options = [];
+    var d = dialog.dataset;
     if (data.lists.length) {
-      list.appendChild(group('Lists'));
-      data.lists.forEach(function (l) { list.appendChild(option('/lists/' + l.slug, l.name, l.items + ' items')); });
+      list.appendChild(group(d.lists || 'Lists'));
+      data.lists.forEach(function (l) { list.appendChild(option(local('/lists/' + l.slug), l.name, plural(d.nItems, l.items))); });
     }
     if (data.items.length) {
-      list.appendChild(group('Items'));
+      list.appendChild(group(d.items || 'Items'));
       data.items.forEach(function (i) {
-        list.appendChild(option('/' + i.key, i.name + ' · ' + i.sub + (i.status === 'archived' || i.status === 'gone' ? ' · ' + i.status : ''),
-          i.lists + (i.lists === 1 ? ' list' : ' lists')));
+        list.appendChild(option(local('/' + i.key), i.name + ' · ' + i.sub + (i.status === 'archived' || i.status === 'gone' ? ' · ' + i.status : ''),
+          plural(d.nLists, i.lists)));
       });
     }
     if (data.tags.length) {
-      list.appendChild(group('Tags'));
-      data.tags.forEach(function (t) { list.appendChild(option(t.href, t.label, String(t.count))); });
+      list.appendChild(group(d.tags || 'Tags'));
+      data.tags.forEach(function (t) { list.appendChild(option(local(t.href), t.label, num(t.count))); });
     }
     input.setAttribute('aria-expanded', options.length ? 'true' : 'false');
     setActive(-1);
@@ -128,4 +154,46 @@
     if (controller) controller.abort();
     setActive(-1);
   });
+
+  /**
+   * When the browser prefers a language the page is not in, a one-line bar offers the same page in it, until it
+   * is closed (remembered in localStorage). The sentence is on the switcher's link (data-suggest); without script
+   * or storage there is no bar, and the switcher in the footer is always there.
+   */
+  function suggest() {
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.langs a[hreflang]'));
+    var key = 'lang-suggest-closed';
+    var closed;
+    try { closed = localStorage.getItem(key); } catch { return; }
+    if (closed || !navigator.languages) return;
+    var here = (lang.split('-')[0] || '').toLowerCase();
+    var best = null;
+    for (var i = 0; i < navigator.languages.length && !best; i++) {
+      var want = String(navigator.languages[i]).split('-')[0].toLowerCase();
+      if (want === here) return;
+      for (var j = 0; j < links.length; j++) {
+        if ((links[j].getAttribute('hreflang') || '').split('-')[0].toLowerCase() === want) { best = links[j]; break; }
+      }
+    }
+    if (!best || !best.dataset.suggest) return;
+    var bar = document.createElement('p');
+    bar.className = 'lang-bar';
+    bar.lang = best.lang;
+    var a = document.createElement('a');
+    a.href = best.getAttribute('href');
+    a.hreflang = best.getAttribute('hreflang');
+    a.textContent = best.dataset.suggest;
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.textContent = '×';
+    close.setAttribute('aria-label', best.dataset.close || 'Close');
+    close.addEventListener('click', function () {
+      try { localStorage.setItem(key, '1'); } catch { /* the bar still goes */ }
+      bar.remove();
+    });
+    bar.appendChild(a);
+    bar.appendChild(close);
+    var header = document.querySelector('header.top');
+    if (header && header.parentNode) header.parentNode.insertBefore(bar, header.nextSibling);
+  }
 })();

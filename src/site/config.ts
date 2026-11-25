@@ -38,5 +38,7 @@ export const CACHE = {
   asset: 'public, max-age=31536000, immutable',
   crawl: 'public, max-age=3600, s-maxage=86400',
   notFound: 'public, max-age=60',
+  /** The icons and the manifest, at fixed addresses. */
+  icon: 'public, max-age=86400',
   health: 'no-store',
 } as const;

@@ -28,7 +28,9 @@ The site runs as a Cloudflare Worker on the Workers Paid plan ($5 a month), with
 
 - `/_data/facets.bin`: the facet arrays.
 - `/_data/terms.json`: every term.
-- `/assets/{hash}/…`: CSS and JS.
+- `/assets/{hash}/…`: CSS, JS and the share image.
+- `/_data/i18n/{lang}.json`: translated summaries and category names, one per language but English.
+- `/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png`, `/site.webmanifest`.
 - `/robots.txt`, `/sitemap.xml`, `/sitemaps/*.xml`: written at build with `SITE_ORIGIN`.
 
 There is no R2 and no KV.
@@ -84,7 +86,7 @@ Nothing in the shared path uses Node: no gzip, `Buffer`, LRU, `node:fs` or `node
 7. Switch on read replication with the API.
 8. Write `wrangler.deploy.json` (ignored by git) from `wrangler.json` with `jq`: the database's id and name, and `BUILD_ID`.
 9. `wrangler deploy --config wrangler.deploy.json`.
-10. Smoke test `/healthz`, `/` and `/items?lang=go`; on failure, `wrangler rollback`.
+10. Smoke test `/healthz`, `/` and `/items?lang=go`, then `scripts/smoke-languages.ts`: `/de` groups the items count as German does, `/ru/lists` has the Russian plural Node chooses, `/es` has `<html lang="es"` (whether the runtime has ICU data for the languages); on failure, `wrangler rollback`.
 11. Delete all but the newest three `shelf-*` databases.
 
 - **Secrets:** `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `PIPELINE_GITHUB_TOKEN` (a fine-grained token with no scopes).

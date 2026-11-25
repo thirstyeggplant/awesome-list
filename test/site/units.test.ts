@@ -10,6 +10,7 @@ import {
   EMPTY_ITEMS, liftNamespaces, parseItemsQuery, parseListsQuery, serialiseItems, serialiseLists, withLifted,
 } from '../../src/site/query.js';
 import { ftsQuery, quickFtsQuery } from '../../src/site/search.js';
+import { LOCALES } from '../../src/site/i18n/locales.js';
 
 describe('item keys', () => {
   it('goes from an item to a path and back', () => {
@@ -186,15 +187,23 @@ describe('facets.bin', () => {
 describe('sitemaps', () => {
   it('puts 40,000 items in each items-n.xml', () => {
     const keys = Array.from({ length: 85_000 }, (_, i) => `gh/o/r${i}`);
-    const files = sitemaps({ origin: 'https://example.test', lastmod: '2026-06-02', listSlugs: ['a/b'], owners: ['o'], itemKeys: keys });
+    const files = sitemaps({
+      origin: 'https://example.test', dataDay: '2026-06-02', categories: ['tools'], lists: [{ slug: 'a/b', pushedDay: 20000 }],
+      owners: ['o'], itemKeys: keys,
+    });
     expect([...files.keys()]).toEqual([
-      '/sitemap.xml', '/sitemaps/pages.xml', '/sitemaps/lists.xml', '/sitemaps/owners.xml',
+      '/sitemap.xml', '/sitemaps/pages.xml', ...LOCALES.map((l) => `/sitemaps/lists-${l}.xml`), '/sitemaps/owners.xml',
       '/sitemaps/items-1.xml', '/sitemaps/items-2.xml', '/sitemaps/items-3.xml',
     ]);
     const urls = (p: string): number => [...(files.get(p) ?? '').matchAll(/<url>/g)].length;
     expect([urls('/sitemaps/items-1.xml'), urls('/sitemaps/items-2.xml'), urls('/sitemaps/items-3.xml')]).toEqual([40_000, 40_000, 5_000]);
     expect(files.get('/sitemaps/items-3.xml')).toContain('<loc>https://example.test/gh/o/r84999</loc>');
-    expect([...(files.get('/sitemap.xml') ?? '').matchAll(/<sitemap>/g)]).toHaveLength(6);
+    expect([...(files.get('/sitemap.xml') ?? '').matchAll(/<sitemap>/g)]).toHaveLength(15);
+    expect(files.get('/sitemaps/items-1.xml')).not.toContain('<lastmod>');
+    // A list's lastmod is its last push, and the index's is the latest in the file.
+    expect(files.get('/sitemaps/lists-de.xml')).toContain('<loc>https://example.test/de/lists/a/b</loc><lastmod>2024-10-04</lastmod>');
+    expect(files.get('/sitemap.xml')).toContain('<loc>https://example.test/sitemaps/lists-de.xml</loc><lastmod>2024-10-04</lastmod>');
+    expect(files.get('/sitemap.xml')).toContain('<loc>https://example.test/sitemaps/owners.xml</loc></sitemap>');
   });
 
   it('gives the static files their headers', () => {
@@ -205,5 +214,7 @@ describe('sitemaps', () => {
     expect(of('/sitemaps/items-1.xml')['Cache-Control']).toBe('public, max-age=3600, s-maxage=86400');
     expect(of('/robots.txt')['Cache-Control']).toBe('public, max-age=3600, s-maxage=86400');
     expect(of('/_data/facets.bin')).toEqual({ 'X-Content-Type-Options': 'nosniff' });
+    expect(of('/favicon.ico')['Cache-Control']).toBe('public, max-age=86400');
+    expect(of('/site.webmanifest')['Cache-Control']).toBe('public, max-age=86400');
   });
 });

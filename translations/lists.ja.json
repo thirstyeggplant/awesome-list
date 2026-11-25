@@ -1,0 +1,2686 @@
+{
+  "0pandadev/awesome-windows": {
+    "summary": "開発者向けユーティリティ、ブラウザ、ファイルマネージャー、バックアップ、メディア、カスタマイズ、セキュリティなど、カテゴリ別のWindows用ソフトウェア",
+    "enHash": "b07a54db04bf"
+  },
+  "44bits/awesome-opensource-documents": {
+    "summary": "プログラミング言語、ツール、ライブラリに関するオープンライセンスの書籍、チュートリアル、ドキュメント（日本語のものも含む）",
+    "enHash": "133d3fdd88a8"
+  },
+  "aaronhma/awesome-tensorflow-js": {
+    "summary": "JavaScriptで機械学習を動かすTensorFlow.jsのドキュメント、ツール、モデル、書籍、コミュニティ",
+    "enHash": "1a9e5e942607"
+  },
+  "academic/awesome-datascience": {
+    "summary": "データサイエンスを学び実践するためのコース、ツール、文献、コミュニティ、エージェントのプロジェクト",
+    "enHash": "0d1b8b942825"
+  },
+  "accelerated-text/awesome-nlg": {
+    "summary": "データからテキストを生成する自然言語生成のためのデータセット、ライブラリ、論文、製品、テンプレート言語",
+    "enHash": "ee95a48029aa"
+  },
+  "achoarnold/discount-for-student-dev": {
+    "summary": "コードホスティング、エディタ、クラウドホスティング、デザインソフトなど、学生が無料または割安で使える開発者向けツールとサービス",
+    "enHash": "8ed01be57886"
+  },
+  "adafruit/awesome-adafruitio": {
+    "summary": "センサーデータをグラフ化するクラウドサービスAdafruit IOのガイド、ライブラリ、ボード、コミュニティ",
+    "enHash": "ee6b31617482"
+  },
+  "adafruit/awesome-circuitpython": {
+    "summary": "マイコンボード向けのAdafruit製PythonであるCircuitPythonのガイド、ライブラリ、ハードウェア、動画、書籍、コミュニティ",
+    "enHash": "d8df37a3b852"
+  },
+  "addyosmani/critical-path-css-tools": {
+    "summary": "ページの描画を早めるため、最初に必要なCSSを抽出してインライン化するツール",
+    "enHash": "246a73dc1467"
+  },
+  "addyosmani/es6-tools": {
+    "summary": "ES6（JavaScript）が新しかった頃のトランスパイラ、モジュールローダー、polyfill、ボイラープレート、プラグイン",
+    "enHash": "b1eac9252699"
+  },
+  "adrientorris/awesome-blazor": {
+    "summary": "C#でWeb UIを書くMicrosoftのフレームワークBlazorのライブラリ、テンプレート、サンプル、チュートリアル、動画、書籍",
+    "enHash": "5bc13708152f"
+  },
+  "afonsopacifer/awesome-flexbox": {
+    "summary": "要素を一列に並べるレイアウトモデルであるCSS flexboxの仕様、ガイド、記事、ツール、フレームワーク",
+    "enHash": "7e77529f8f79"
+  },
+  "agamm/awesome-developer-first": {
+    "summary": "認証、データベース、デプロイ、テスト、ドキュメントなど、用途別に分類した開発者向けの製品とサービス",
+    "enHash": "39e9f20dc79b"
+  },
+  "agarrharr/awesome-cli-apps": {
+    "summary": "開発、生産性、ファイル操作、バージョン管理、画像、エンターテインメントなどに使えるターミナル上のプログラム",
+    "enHash": "e1e3115e670f"
+  },
+  "agarrharr/awesome-macos-screensavers": {
+    "summary": "無料かつオープンソースのmacOS用スクリーンセーバー",
+    "enHash": "12029fcc6401"
+  },
+  "agarrharr/awesome-static-website-services": {
+    "summary": "フォーム、コメント、検索、決済、地図などの機能を静的サイトに追加するホスティング型サービス",
+    "enHash": "2e9b2e6a58bd"
+  },
+  "agucova/awesome-esp": {
+    "summary": "安価なWi-FiマイコンESP8266とESP32向けのファームウェア、ツール、ライブラリ、プロジェクト",
+    "enHash": "936e4e8aa229"
+  },
+  "ahkscript/awesome-autohotkey": {
+    "summary": "Windowsを自動化するスクリプト言語AutoHotkeyのライブラリ、スクリプト、ツール、チュートリアル",
+    "enHash": "70bf5ad0e7bc"
+  },
+  "airscripts/awesome-steam-deck": {
+    "summary": "Valveの携帯型ゲーミングPCであるSteam Deckのガイド、アクセサリ、ソフトウェア、エミュレーター、プラグイン、コミュニティ",
+    "enHash": "83fc5c4e9d77"
+  },
+  "akullpp/awesome-java": {
+    "summary": "開発のあらゆる分野に対応するJavaのライブラリ、フレームワーク、ツールと、書籍やサイトなどのリソース",
+    "enHash": "3937f8a7303d"
+  },
+  "alebcay/awesome-shell": {
+    "summary": "bashやzshなどUnixシェルで作業するためのシェル、コマンドラインユーティリティ、カスタマイズ、フレームワーク、ガイド",
+    "enHash": "468178e11813"
+  },
+  "aleixmorgadas/awesome-engineering-strategy": {
+    "summary": "ソフトウェアエンジニアリング組織の戦略を立てて実行するための書籍、記事、動画、手法、テンプレート",
+    "enHash": "152f14c413f1"
+  },
+  "alexk111/awesome-bitcoin-payment-processors": {
+    "summary": "企業がBitcoinでの支払いを受け付けられるホスティング型およびセルフホスト型のサービス",
+    "enHash": "fcdecde3e5c2"
+  },
+  "alferov/awesome-gulp": {
+    "summary": "フロントエンドのビルドに使うJavaScriptタスクランナーgulpのプラグイン、スキャフォールディング、リソース",
+    "enHash": "566772e1e8e0"
+  },
+  "aliesbelik/awesome-gatling": {
+    "summary": "Webアプリケーション向け負荷テストツールGatlingのチュートリアル、ツール、CI連携、コース",
+    "enHash": "6f0f9034f189"
+  },
+  "aliesbelik/awesome-jmeter": {
+    "summary": "負荷テストツールApache JMeterのチュートリアル、プラグイン、CI連携、クラウドサービス、書籍",
+    "enHash": "76470c664bc9"
+  },
+  "allthingssmitty/css-protips": {
+    "summary": "すっきりと堅牢なスタイルシートを書くための短いCSSテクニック集（多言語の翻訳あり）",
+    "enHash": "91198fc07258"
+  },
+  "allthingssmitty/jquery-tips-everyone-should-know": {
+    "summary": "よくある処理のための短いjQueryスニペット集（多言語の翻訳あり）",
+    "enHash": "3b1f36c7d9af"
+  },
+  "allthingssmitty/must-watch-css": {
+    "summary": "CSSに関するカンファレンストークを新しい年から順に並べたもの",
+    "enHash": "f773d8fb4ace"
+  },
+  "altamiracorp/awesome-xai": {
+    "summary": "機械学習モデルの判断理由を示す説明可能なAIに関する論文、コード、動画、人物",
+    "enHash": "efc8b6a20282"
+  },
+  "ambster-public/awesome-qlik": {
+    "summary": "分析・ダッシュボード製品Qlik SenseとQlikViewのドキュメント、ブログ、書籍、拡張機能",
+    "enHash": "149b34715e04"
+  },
+  "analysis-tools-dev/static-analysis": {
+    "summary": "コードを実行せずに検査するリンター、コードチェッカー、品質ツールをプログラミング言語別にまとめたもの",
+    "enHash": "0a923039cb4e"
+  },
+  "analyticalmonk/awesome-neuroscience": {
+    "summary": "脳と神経系を研究するためのソフトウェア、ブログなどのリソース",
+    "enHash": "62fcb9835f23"
+  },
+  "andrewda/awesome-frc": {
+    "summary": "FIRST Robotics Competitionのチーム向けのサプライヤー、プログラミングライブラリ、ビジョン・スカウティングツール、コミュニティ",
+    "enHash": "7c56d30d7c8b"
+  },
+  "angrykoala/awesome-esolangs": {
+    "summary": "冗談や実験として作られた難解プログラミング言語と、それに関するアルゴリズム、記事、コミュニティ",
+    "enHash": "77cf68575bbe"
+  },
+  "aniftyco/awesome-tailwindcss": {
+    "summary": "小さなユーティリティクラスでページをスタイリングするTailwind CSSのプラグイン、UIキット、テンプレート、エディタ拡張、ツール",
+    "enHash": "46644e8f9d1a"
+  },
+  "ansible-community/awesome-ansible": {
+    "summary": "サーバー構成を自動化するAnsibleのドキュメント、チュートリアル、書籍、動画、ツール、ロール、エディタ連携",
+    "enHash": "47c694cbe146"
+  },
+  "antontarasenko/awesome-economics": {
+    "summary": "経済学の学生と研究者向けのコース、データ、研究ツール、議論の場、キャリアアドバイス",
+    "enHash": "ab10ddd59e39"
+  },
+  "aorumbayev/awesome-omarchy": {
+    "summary": "Hyprlandを使った既製のArch Linux環境Omarchyのプラグイン、テーマ、ツール、派生ビルド、ガイド",
+    "enHash": "6488f18e8f0d"
+  },
+  "apa-technology-division/urban-and-regional-planning-resources": {
+    "summary": "都市・地域計画の担当者向けの公開データ、データ標準、コード、ソフトウェア、学習教材",
+    "enHash": "083df9bff73c"
+  },
+  "appimagecommunity/awesome-appimage": {
+    "summary": "Linuxアプリケーションを単一ファイルにまとめたAppImageを探し、実行し、ビルドし、更新するためのツール",
+    "enHash": "ba3be003d8dc"
+  },
+  "apsdehal/awesome-ctf": {
+    "summary": "セキュリティコンテストCTFの作問と解答のためのツールとリソース",
+    "enHash": "3e611496dc2e"
+  },
+  "arbox/machine-learning-with-ruby": {
+    "summary": "Rubyで機械学習を行うためのチュートリアル、ライブラリ、サンプルプロジェクト、書籍、コミュニティ",
+    "enHash": "d169bf5b2e0f"
+  },
+  "arbox/nlp-with-ruby": {
+    "summary": "トークン化、タグ付け、構文解析、検索、OCRなど自然言語処理のためのRubyライブラリと言語リソース、書籍、コミュニティ",
+    "enHash": "6700baa735b3"
+  },
+  "arslanbilal/git-cheat-sheet": {
+    "summary": "日常的に使うGitコマンドのクイックリファレンス（Git Flowブランチモデルの解説付き）",
+    "enHash": "23e644f68ec1"
+  },
+  "ashishb/android-security-awesome": {
+    "summary": "Androidアプリと端末のセキュリティに関する解析ツール、研究論文、エクスプロイト",
+    "enHash": "37c38f00f801"
+  },
+  "atblueprints/awesome-atproto": {
+    "summary": "Blueskyを支えるオープンネットワークAT Protocolのアプリ、ツール、プラットフォーム、ガイド",
+    "enHash": "6c35ceef1eb7"
+  },
+  "atkirtland/awesome-computational-geometry": {
+    "summary": "幾何問題のアルゴリズムに関する書籍、講義ノート、ライブラリ、可視化、コース、学術誌",
+    "enHash": "c6a1d4b03ebd"
+  },
+  "aurelia-contrib/awesome-aurelia": {
+    "summary": "Webアプリを作るJavaScriptフレームワークAureliaのプラグイン、チュートリアル、スターターキット、記事",
+    "enHash": "8773c73a6807"
+  },
+  "automata/awesome-jamstack": {
+    "summary": "ビルド済みページとJavaScriptを配信するJamstackサイト向けの静的サイトジェネレーター、ヘッドレスCMS、API、ホスティング、チュートリアル",
+    "enHash": "dea4089c352c"
+  },
+  "avajs/awesome-ava": {
+    "summary": "Node.js用テストランナーAVAの記事、動画、パッケージ、チュートリアル",
+    "enHash": "ae8d27dd1df5"
+  },
+  "avelino/awesome-go": {
+    "summary": "用途別に整理された数千のGoパッケージ、フレームワーク、ツールと学習リソース",
+    "enHash": "f439849a4b51"
+  },
+  "aviaryan/awesome-no-login-web-apps": {
+    "summary": "お絵描き、文書作成、ファイル変換、共有、音楽、ゲームなどにアカウントなしで使えるWebアプリ",
+    "enHash": "f3b7b2640545"
+  },
+  "awesome-algorand/awesome-algorand": {
+    "summary": "スマートコントラクトを備えたブロックチェーンAlgorandの学習リソース、開発者ツール、ウォレット、インフラ、標準規格",
+    "enHash": "b8b9f462b7c0"
+  },
+  "awesome-css-group/awesome-css": {
+    "summary": "Webページをスタイリングする言語CSSのフレームワーク、プリプロセッサ、ツール、スタイルガイド、命名手法、学習教材",
+    "enHash": "fcf3089c1707"
+  },
+  "awesome-mqtt/awesome-mqtt": {
+    "summary": "IoT機器で使われる軽量メッセージングプロトコルMQTTのブローカー、クライアント、プラットフォーム、ツール、ダッシュボード",
+    "enHash": "10e84b1862b7"
+  },
+  "awesome-roblox/awesome-roblox": {
+    "summary": "オンラインゲームプラットフォームRobloxで体験を作るためのソフトウェア、プラグイン、モジュール、ライブラリ、開発者ツール",
+    "enHash": "a6bfcb5952e2"
+  },
+  "awesome-scripts/awesome-userscripts": {
+    "summary": "ブラウザ上でWebサイトを変更する小さなプログラムであるユーザースクリプトと、そのチュートリアルやカタログ",
+    "enHash": "4604d6c33221"
+  },
+  "awesome-selfhosted/awesome-selfhosted": {
+    "summary": "ホスティング型サービスの代わりに自分のサーバーで動かせる1000以上のフリーソフトウェア",
+    "enHash": "c128ffabd5b8"
+  },
+  "awesome-spark/awesome-spark": {
+    "summary": "クラスタ上で大規模データを処理するエンジンApache Sparkのパッケージと学習リソース",
+    "enHash": "53ad0a736927"
+  },
+  "awesomedata/awesome-public-datasets": {
+    "summary": "生物学や気候から経済、スポーツ、交通まで、さまざまな分野の無料で使えるデータセット",
+    "enHash": "7df77831e574"
+  },
+  "awkward/awesome-netherlands-events": {
+    "summary": "アムステルダム、ロッテルダム、ユトレヒトなどオランダ各地で開かれるテクノロジー系のミートアップとカンファレンス",
+    "enHash": "ff40659c22de"
+  },
+  "ayr-ton/awesome-geek-podcasts": {
+    "summary": "プログラミング、テクノロジー、科学に関するポッドキャストを話される言語別にまとめたもの",
+    "enHash": "053f91b1e6d0"
+  },
+  "balintkissdev/awesome-dos": {
+    "summary": "MS-DOSと互換システム向けの開発ツール、チュートリアル、書籍、動画、ソースコード、ドライバ、エミュレーター",
+    "enHash": "14cd7311de78"
+  },
+  "bcoe/awesome-cross-platform-nodejs": {
+    "summary": "Windows、macOS、Linuxで動くNode.jsコードを書くためのリソース、ライブラリ、CIサービス、既知の問題",
+    "enHash": "fa6d341147e4"
+  },
+  "beardicus/awesome-plotters": {
+    "summary": "コンピュータ制御で絵を描く機械であるペンプロッターのハードウェア、ソフトウェア、マニュアル、コース、コミュニティ",
+    "enHash": "0f65d7dacbd5"
+  },
+  "benallfree/awesome-pocketbase": {
+    "summary": "データベースと認証のバックエンドを一つのGoプログラムにまとめたPocketBaseのクライアントライブラリ、プラグイン、プロジェクト、ホスティングガイド",
+    "enHash": "aa3708a8aa99"
+  },
+  "bnb/awesome-hyper": {
+    "summary": "Web技術で作られたターミナルアプリHyperのプラグインとテーマ",
+    "enHash": "6db6035719bc"
+  },
+  "bolshchikov/js-must-watch": {
+    "summary": "JavaScriptに関するカンファレンストークを年別に並べたもの",
+    "enHash": "5dad7f5ddcdd"
+  },
+  "brabadu/awesome-fonts": {
+    "summary": "無料フォント、アイコンフォント、絵文字セット、プログラミング用フォントと、文字を扱うJavaScriptライブラリ",
+    "enHash": "d592c5fc35b2"
+  },
+  "briatte/awesome-network-analysis": {
+    "summary": "社会科学と自然科学でネットワークを研究するための書籍、コース、データセット、学術誌、論文、ソフトウェア",
+    "enHash": "b9142625e26b"
+  },
+  "brillout/awesome-redux": {
+    "summary": "アプリの状態を一つのストアで管理するJavaScriptライブラリReduxのユーティリティ、開発者ツール、連携、ボイラープレート",
+    "enHash": "c30ae690dc56"
+  },
+  "brootware/awesome-cyber-security-university": {
+    "summary": "攻撃側と防御側の両方に向けた、セキュリティを学ぶための無料のハンズオン講座と演習環境",
+    "enHash": "7e8badb421ec"
+  },
+  "browserify/awesome-browserify": {
+    "summary": "Node形式のモジュールをブラウザ向けにバンドルするBrowserifyのチュートリアル、記事、デモ、ツール",
+    "enHash": "035e32dc8553"
+  },
+  "brunopulis/awesome-a11y": {
+    "summary": "障害のある人にも使いやすいWebサイトを作るためのツール、記事、ガイドラインなどのリソース",
+    "enHash": "66383ad59cd9"
+  },
+  "brycejohnston/awesome-agriculture": {
+    "summary": "農業、作物、土壌、食料システムのためのオープンソースソフトウェア、データ、ハードウェア、機械学習プロジェクト",
+    "enHash": "5cc4c5a9ac97"
+  },
+  "bs-community/awesome-minecraft": {
+    "summary": "Minecraftのmod、modローダー、サーバープラグイン、リソースパック、シェーダー、開発ツール",
+    "enHash": "1498430d9e52"
+  },
+  "bubuanabelas/awesome-markdown": {
+    "summary": "Markdown形式のためのパーサー、エディタ、ツール、サービス、ブログエンジン",
+    "enHash": "ab691419bef2"
+  },
+  "burningtree/awesome-json": {
+    "summary": "JSONデータを扱うためのライブラリ、コマンドラインツール、エディタ、スキーマ仕様、データセット、オンラインツール",
+    "enHash": "0a29a4db2c6b"
+  },
+  "busterc/awesome-cordova": {
+    "summary": "WebアプリをモバイルアプリとしてパッケージするApache Cordovaのプラグイン、UIフレームワーク、ツール、学習教材",
+    "enHash": "61c0f2a58ab3"
+  },
+  "bytecauldron/awesome-gamemaker": {
+    "summary": "入力、UI、物理演算、オーディオ、シェーダーなどに使うGameMakerエンジン用のライブラリ、拡張機能、ツール、チュートリアル",
+    "enHash": "a30a5e1c601d"
+  },
+  "caesar0301/awesome-pcaptools": {
+    "summary": "pcapファイルに保存したネットワークトラフィックを取得・解析するツール（DNSやファイルの抽出を含む）",
+    "enHash": "6c1a9b7365cc"
+  },
+  "calinou/awesome-godot": {
+    "summary": "オープンソースのゲームエンジンGodotのゲーム、テンプレート、デモ、プラグイン、モジュール、エディタサポート",
+    "enHash": "04157fdba181"
+  },
+  "cap-go/awesome-ionic": {
+    "summary": "Web技術でモバイルアプリを作るIonicとCapacitorのプラグイン、チュートリアル、スターターアプリ、ツール",
+    "enHash": "f207e6cfd8ad"
+  },
+  "carpedm20/awesome-hacking": {
+    "summary": "リバースエンジニアリング、Web、ネットワーク、フォレンジック、暗号、演習用ウォーゲームなどハッキングのツールとチュートリアル",
+    "enHash": "e8eafcad449c"
+  },
+  "catalinmiron/awesome-prisma": {
+    "summary": "Node.jsとTypeScript向けORMであるPrismaのドキュメント、チュートリアル、ツール、プロジェクト",
+    "enHash": "35cb989d7ce4"
+  },
+  "caufieldjh/awesome-bioie": {
+    "summary": "生物医学のテキストから事実を抽出するための論文、研究グループ、ツール、モデル、データセット、オントロジー",
+    "enHash": "b9c1514d6a18"
+  },
+  "cenoura/awesome-ads": {
+    "summary": "アドサーバー、プログラマティック広告、Prebidによるヘッダービディングなど、Webサイトの広告技術に関する記事とツール",
+    "enHash": "658c06432ef3"
+  },
+  "cerberauth/awesome-openid-connect": {
+    "summary": "OAuth上のシングルサインオンであるOpenID ConnectのIDプロバイダ、クライアントライブラリ、ソフトウェア、仕様",
+    "enHash": "af640f5a2eaf"
+  },
+  "chainstacklabs/awesome-corda": {
+    "summary": "企業向けブロックチェーンプラットフォームCordaのドキュメント、ツール、チュートリアル、コース、サンプルアプリケーション",
+    "enHash": "cd4677de0d71"
+  },
+  "chalarangelo/30-seconds-of-code": {
+    "summary": "小さな問題を一つずつ解く短いコードスニペット集（主にJavaScript、解説付き）",
+    "enHash": "80c0c6f85512"
+  },
+  "chentsulin/awesome-graphql": {
+    "summary": "API用クエリ言語GraphQLの仕様、サーバー・クライアント実装、ツール、サービス、チュートリアル、書籍",
+    "enHash": "7a0a24336015"
+  },
+  "chiraggude/awesome-laravel": {
+    "summary": "PHPのWebフレームワークLaravelのパッケージ、ホスティング・デプロイ手段、チュートリアル、書籍、ポッドキャスト、スタータープロジェクト",
+    "enHash": "543822861b0d"
+  },
+  "choojs/awesome-choo": {
+    "summary": "フロントエンドアプリ向けの小さなJavaScriptフレームワークChooのプラグイン、コンポーネント、テンプレート、デモ、プロジェクト",
+    "enHash": "6e8b6fe6baf9"
+  },
+  "chrissimpkins/codeface": {
+    "summary": "テキストエディタやターミナルでコードを書くための等幅フォント（サンプル付き）",
+    "enHash": "fddc552668dd"
+  },
+  "christian-bromann/awesome-selenium": {
+    "summary": "自動テストのためにWebブラウザを操作するSeleniumのライブラリ、フレームワーク、サービス、リソース",
+    "enHash": "f4563f93bd01"
+  },
+  "christoschristofidis/awesome-deep-learning": {
+    "summary": "ニューラルネットワークによるディープラーニングを学ぶための書籍、コース、講義、論文、チュートリアル、研究者",
+    "enHash": "97107c81f2f6"
+  },
+  "chromedevtools/awesome-chrome-devtools": {
+    "summary": "Chrome内蔵の開発者ツールのヒント、プロファイリングツール、拡張機能と、DevTools Protocolを使ったプロジェクト",
+    "enHash": "e04547dcdc3d"
+  },
+  "cicdops/awesome-ciandcd": {
+    "summary": "ビルドサーバー、コードレビュー、テスト、パッケージング、デプロイなど継続的インテグレーションとデリバリーのツールと理論",
+    "enHash": "756a2ed566c1"
+  },
+  "cjbarber/toolsofthetrade": {
+    "summary": "プロジェクト管理や分析から給与計算まで、スタートアップが事業運営に使うソフトウェアサービス",
+    "enHash": "563f28215ca2"
+  },
+  "cjwirth/awesome-ios-ui": {
+    "summary": "アニメーション、カレンダー、メニュー、アラート、プログレス表示、入力コントロールなどiOSアプリ向けのオープンソースUIコンポーネント",
+    "enHash": "db7b5100ce59"
+  },
+  "code-and-sorts/awesome-copilot-agents": {
+    "summary": "AIコーディングアシスタントGitHub Copilot向けの指示ファイル、プロンプト、カスタムエージェント、スキル、MCPサーバー",
+    "enHash": "79356f5f53ea"
+  },
+  "codepoints/awesome-codepoints": {
+    "summary": "不可視の記号、他の文字を変化させる文字、記録的な文字など、珍しいUnicode文字",
+    "enHash": "d8da50083efb"
+  },
+  "coderabbitai/awesome-coderabbit": {
+    "summary": "AIでプルリクエストをレビューするサービスCodeRabbitのドキュメント、連携ガイド、チュートリアル、プロジェクト",
+    "enHash": "f64a20052f96"
+  },
+  "codyreichert/awesome-cl": {
+    "summary": "AIやデータベースからグラフィックス、Webまで分野別のCommon Lispライブラリ、処理系、ツールと学習教材",
+    "enHash": "9fb7fa64d0d5"
+  },
+  "collective/awesome-plone": {
+    "summary": "Pythonで書かれたCMSであるPloneのアドオンを、編集やテーマなどの機能別にまとめたもの",
+    "enHash": "7ace94b5b1d3"
+  },
+  "componently-com/awesome-building-blocks-for-web-apps": {
+    "summary": "ログイン、予約、チャット、フォーム、通知、同意バナーなど、Webアプリに組み込める既製のサービス",
+    "enHash": "0ebff387916c"
+  },
+  "compscilauren/awesome-git-hooks": {
+    "summary": "Gitのコミットやプッシュ時に自動でチェックを実行するための既製フックスクリプト、ツール、ガイド",
+    "enHash": "4b879dedc458"
+  },
+  "constructcommunity/awesome-construct": {
+    "summary": "ビジュアルイベントでプログラムするゲームエンジンConstructのアドオン、ツール、ホスティング・エクスポート手段、チュートリアル、チャンネル",
+    "enHash": "c123daa58d31"
+  },
+  "cosmos/awesome-cosmos": {
+    "summary": "ブロックチェーンを構築するGoフレームワークCosmos SDKのモジュール、クライアントライブラリ、エクスプローラー、バリデーター用ツール、テンプレート",
+    "enHash": "87a327bec5c8"
+  },
+  "cpuu/awesome-fuzzing": {
+    "summary": "ランダムまたは細工した入力を与えてバグを見つけるファジングに関する書籍、講演、論文、ツール",
+    "enHash": "030a8bf75d3b"
+  },
+  "craftcms/awesome": {
+    "summary": "PHPで書かれたCMSであるCraft CMSのプラグイン、チュートリアル、コミュニティ、事例サイト",
+    "enHash": "616b992fd761"
+  },
+  "cristianoliveira/awesome4girls": {
+    "summary": "女性や少女のプログラミングへの参加を後押しするイベント、プログラム、団体、ツールキット",
+    "enHash": "17622025746f"
+  },
+  "csabapalfi/awesome-pagespeed-metrics": {
+    "summary": "Webページの読み込みと応答の速さを測る指標の解説、ドキュメント、ツール",
+    "enHash": "afec6cd35778"
+  },
+  "cvyl/awesome-transgender": {
+    "summary": "トランスジェンダーの人々のためのWebサイト、コミュニティ、ボイストレーニング、医療情報、団体、研究",
+    "enHash": "f74c3b8d80b1"
+  },
+  "cyclejs-community/awesome-cyclejs": {
+    "summary": "リアクティブストリームを基盤とするJavaScriptフレームワークCycle.jsのチュートリアル、ツール、ライブラリ、コミュニティ",
+    "enHash": "a77922f02824"
+  },
+  "cytodata/awesome-cytodata": {
+    "summary": "顕微鏡画像から細胞をプロファイリングするためのソフトウェア、データセット、論文などのリソース",
+    "enHash": "4a713623bc45"
+  },
+  "dahlia/awesome-sqlalchemy": {
+    "summary": "データベースとORMのためのPythonツールキットSQLAlchemyと組み合わせて使う拡張機能とライブラリ",
+    "enHash": "d036295ef25e"
+  },
+  "danailminchev/awesome-eosio": {
+    "summary": "分散型アプリのためのブロックチェーンプラットフォームEOSIOの公式リソース、ツール、ブロックプロデューサー、開発者向け資料、アプリケーション",
+    "enHash": "ee782b1e491f"
+  },
+  "danailminchev/awesome-payload": {
+    "summary": "Next.js向けオープンソースのヘッドレスCMSであるPayloadの公式リンク、チュートリアル、コンポーネント、テンプレート、プラグイン",
+    "enHash": "1aff24d9d9b1"
+  },
+  "danielecook/awesome-bioinformatics": {
+    "summary": "生物データを解析するためのソフトウェア、データツール、シーケンス解析パイプライン、可視化ツール、データベース",
+    "enHash": "37b58c48db37"
+  },
+  "danvoyce/awesome-creative-tech-events": {
+    "summary": "クリエイティブコーディング、デジタルアート、デザイン、音楽テクノロジーに関する世界各地のフェスティバル、ミートアップ、カンファレンス",
+    "enHash": "7727c22b3954"
+  },
+  "dariubs/gobooks": {
+    "summary": "入門書や上級書からWeb開発まで、Go言語に関する書籍",
+    "enHash": "ff8f757a8d1e"
+  },
+  "dastergon/awesome-sre": {
+    "summary": "監視、オンコール、ポストモーテム、キャパシティ、サービスレベルなどSREに関する記事、書籍、講演、ツール",
+    "enHash": "2980383d46bb"
+  },
+  "datadaode/awesome-foss-apps": {
+    "summary": "企業の本番環境で実際に使われているオープンソースのWebアプリとデスクトップアプリ",
+    "enHash": "c81c6e742420"
+  },
+  "dav009/awesome-spanish-nlp": {
+    "summary": "音声処理やクラスタリングを含む、スペイン語をコンピュータで処理するためのコーパス、ツール、研究",
+    "enHash": "53b9bc189b7a"
+  },
+  "daviddias/awesome-hacking-locations": {
+    "summary": "コーディングに向いている世界各地のカフェやスポットを国別にまとめたもの",
+    "enHash": "837e2baff71c"
+  },
+  "davidsonfellipe/awesome-wpo": {
+    "summary": "Webサイトの表示を速くするための書籍、事例、解析ツール、監視サービス、CDN、最適化ツール",
+    "enHash": "efcc61470418"
+  },
+  "davidtheclark/scalable-css-reading-list": {
+    "summary": "サイトが大きくなっても管理しやすいCSSを書くための記事、スタイルガイド、講演",
+    "enHash": "ba054a823243"
+  },
+  "davisonio/awesome-gif": {
+    "summary": "アニメーションGIFを作成、編集、ホスティングするためのツール、ライブラリ、アプリ、オンラインサービス",
+    "enHash": "d7023fac74eb"
+  },
+  "davisonio/awesome-irc": {
+    "summary": "歴史あるチャットプロトコルIRCのクライアント、バウンサー、サーバー、ボット、フレームワーク、ネットワーク、ガイド",
+    "enHash": "32d1fc0542e8"
+  },
+  "dawdle-deer/awesome-learn-gamedev": {
+    "summary": "プログラミング、アート、デザイン、オーディオ、シナリオ、制作、キャリアなどゲーム制作を学ぶための記事、書籍、講演",
+    "enHash": "d2864d1204f2"
+  },
+  "deanhume/typography": {
+    "summary": "Webフォントの高速な読み込みを含む、Webタイポグラフィに関する記事、ツール、書籍、講演",
+    "enHash": "2b08facec776"
+  },
+  "deephacks/awesome-jvm": {
+    "summary": "バイトコード、GC、言語、プロファイラ、ランタイム、並行処理などJVM向けのツールとライブラリ",
+    "enHash": "2d9c07b0a2c0"
+  },
+  "delftopenhardware/awesome-open-hardware": {
+    "summary": "設計が公開されているオープンハードウェアのプロジェクト、設計ツール、講演、論文、プラットフォーム、書籍",
+    "enHash": "8f157445f202"
+  },
+  "dend/awesome-product-management": {
+    "summary": "ソフトウェアのプロダクトマネージャー向けの記事、書籍、コミュニティ、カンファレンス",
+    "enHash": "c2d986704652"
+  },
+  "denolib/awesome-deno": {
+    "summary": "パーミッション機能を内蔵したJavaScript/TypeScriptランタイムDenoのモジュール、ツール、連携、記事、講演",
+    "enHash": "0e783963b057"
+  },
+  "dersvenhesse/awesome-scriptable": {
+    "summary": "JavaScriptでタスクを自動化するiPhoneアプリScriptableのウィジェットとスクリプトをトピック別にまとめたもの",
+    "enHash": "adb08f861a2b"
+  },
+  "desireevl/awesome-quantum-computing": {
+    "summary": "量子コンピュータを学びプログラミングするためのコース、開発ツール、書籍、ブログ、動画、ポッドキャスト",
+    "enHash": "0ee47c236c90"
+  },
+  "devopshivehq/awesome-kustomize": {
+    "summary": "テンプレートなしでKubernetesの設定ファイルをカスタマイズするKustomizeのプラグイン、ガイド、スニペット",
+    "enHash": "b49b4718e750"
+  },
+  "dh-tech/awesome-digital-humanities": {
+    "summary": "コンピュータとデータを使う人文学研究のためのソフトウェア、プラットフォーム、研究センター、学術誌、ガイド",
+    "enHash": "ddc0d973024d"
+  },
+  "dhamaniasad/awesome-postgres": {
+    "summary": "高可用性、バックアップ、GUI・CLIクライアント、拡張機能、監視、マネージドサービス、Kubernetes OperatorなどPostgreSQL向けツール",
+    "enHash": "b95e42d1270f"
+  },
+  "diegocard/awesome-html5": {
+    "summary": "メディア、セマンティック要素、ストレージ、Worker、アクセシビリティ、オフラインアプリなどHTML5機能の記事、仕様、サンプル",
+    "enHash": "03efbb10e59a"
+  },
+  "directus-labs/awesome-directus": {
+    "summary": "SQLデータベースにAPIと管理画面を提供するDirectusのドキュメント、SDK、連携、拡張機能、事例",
+    "enHash": "92fce5f9b01f"
+  },
+  "dlang-community/awesome-d": {
+    "summary": "D言語のコンパイラ、ツール、エディタ、ライブラリ、書籍、チュートリアル、コミュニティ",
+    "enHash": "5dbdb0dd7bce"
+  },
+  "dok/awesome-text-editing": {
+    "summary": "リッチテキスト、コード、Markdownなど、ブラウザ上でテキストエディタを作るためのライブラリ",
+    "enHash": "fa9aaec169ec"
+  },
+  "domenicosolazzo/awesome-okr": {
+    "summary": "OKR（Objectives and Key Results）で目標を設定するための記事、書籍、ガイド、テンプレート、ソフトウェア",
+    "enHash": "063d8b2c612c"
+  },
+  "donbarbos/awesome-standards": {
+    "summary": "Web、API、プログラミング言語、セキュリティ、ハードウェア、データベース、通信に関する標準規格と正式な提案",
+    "enHash": "6a93c738e699"
+  },
+  "donnemartin/awesome-aws": {
+    "summary": "サービス別にまとめたAmazon Web ServicesのSDK、コマンドラインツール、オープンソースプロジェクト、ガイド",
+    "enHash": "43e82076969b"
+  },
+  "dotintent/awesome-ble": {
+    "summary": "iOS、Android、Flutter、Web、マイコン向けのBluetooth Low Energyライブラリ、ツール、記事",
+    "enHash": "abd98d778780"
+  },
+  "dreamingechoes/awesome-mental-health": {
+    "summary": "ソフトウェア業界で働く人のメンタルヘルスに関する記事、アプリ、書籍、講演、ポッドキャスト、団体",
+    "enHash": "9a3cdacf7004"
+  },
+  "dreikanter/sublime-bookmarks": {
+    "summary": "Sublime Textエディタのパッケージ、ヒント、書籍、スクリーンキャスト、コミュニティ",
+    "enHash": "7e5ad90f5578"
+  },
+  "drewrwilson/toolsforactivism": {
+    "summary": "署名活動、連絡ツール、キャンペーン用データベースなど、活動家や運動の組織者向けのソフトウェアとサービス",
+    "enHash": "ceb9ec31bb69"
+  },
+  "dribdat/awesome-hackathon": {
+    "summary": "ハッカソンを企画・運営するためのプラットフォーム、ツール、ガイド",
+    "enHash": "3884074662c4"
+  },
+  "drmonkeyninja/awesome-textpattern": {
+    "summary": "PHPで書かれた小さなオープンソースCMSであるTextpatternのプラグイン、テーマ、学習リソース",
+    "enHash": "8a209f3fc19d"
+  },
+  "drobakowski/awesome-erlang": {
+    "summary": "Webフレームワーク、HTTP、テスト、ロギング、デプロイ、分散システムなどのErlangライブラリとツール",
+    "enHash": "83868917f575"
+  },
+  "dspinellis/awesome-msr": {
+    "summary": "リポジトリ、バグ、開発履歴からソフトウェアを研究するためのデータセット、ツール、研究発表の場",
+    "enHash": "d9b0175d111a"
+  },
+  "dstdev/awesome-hpc": {
+    "summary": "クラスタ構築、ジョブスケジューラ、MPI、コンパイラ、並列ファイルシステム、ベンチマークなどHPC向けソフトウェア",
+    "enHash": "d5a61d3cbd83"
+  },
+  "dustinspecker/awesome-eslint": {
+    "summary": "JavaScriptリンターESLintの共有設定、プラグイン、パーサー、フォーマッター、チュートリアル",
+    "enHash": "041c094b59e0"
+  },
+  "dvergar/awesome-haxe-gamedev": {
+    "summary": "マルチプラットフォーム言語Haxeでゲームを作るためのエンジン、物理演算・ネットワークライブラリ、ゲーム、記事",
+    "enHash": "c8a8e0a05f9a"
+  },
+  "dylanrees/citizen-science": {
+    "summary": "研究機関の外で行う科学のためのソフトウェア、機材、研究ガイド、コミュニティラボ、資金、イベント",
+    "enHash": "87be03b540f6"
+  },
+  "dypsilon/frontend-dev-bookmarks": {
+    "summary": "フロントエンド開発者向けの幅広いトピックに関する記事、ツール、リファレンスのリンク集",
+    "enHash": "2b0e48f79c15"
+  },
+  "ebookfoundation/free-programming-books": {
+    "summary": "多くの言語で無料で読めるプログラミングの書籍、コースなどの学習教材",
+    "enHash": "cbc424fc0a12"
+  },
+  "ebraminio/awesome-qsharp": {
+    "summary": "Microsoftの量子プログラミング言語Q#のドキュメント、チュートリアル、書籍、動画、コンテスト、サンプル",
+    "enHash": "8bb966656eda"
+  },
+  "ebu/awesome-broadcasting": {
+    "summary": "グラフィックス、コーデック、プレーヤー、制御システム、IPメディア、監視、ラジオなど放送局向けのオープンソースソフトウェア",
+    "enHash": "79c8ed023fff"
+  },
+  "ecohealthalliance/awesome-parasite": {
+    "summary": "寄生生物とその宿主に関するデータベース、博物館の収蔵品、報告システム、分類学、学術誌",
+    "enHash": "c7dd7e4ddaf8"
+  },
+  "edm00se/awesome-board-games": {
+    "summary": "家族向け、戦略ゲーム好き向け、パーティー向けのボードゲーム",
+    "enHash": "9e6cacdd5f8c"
+  },
+  "edobashira/speech-language-processing": {
+    "summary": "音声認識と自然言語処理のためのソフトウェア、コーパス、書籍、コース、研究発表の場",
+    "enHash": "90a2184ad537"
+  },
+  "egeerardyn/awesome-latex": {
+    "summary": "文書組版システムLaTeXのディストリビューション、エディタ、ビルドツール、パッケージ、テンプレート、チュートリアル、書籍",
+    "enHash": "236c62487384"
+  },
+  "eleventigers/awesome-rxjava": {
+    "summary": "JVM上でストリームによるリアクティブプログラミングを行うRxJavaのバインディング、ユーティリティ、テスト用ヘルパー、ガイド、記事",
+    "enHash": "5a188b81c354"
+  },
+  "ellisonleao/magictools": {
+    "summary": "ゲーム制作のためのグラフィックス・オーディオ・コードのツール、エンジン、アセット、学習リソース",
+    "enHash": "813c8b51a50a"
+  },
+  "emacs-tw/awesome-emacs": {
+    "summary": "拡張可能なテキストエディタEmacsのパッケージと設定リソースを用途別にまとめたもの",
+    "enHash": "ecccbafc6b40"
+  },
+  "ember-community-russia/awesome-ember": {
+    "summary": "大規模なWebアプリケーション向けJavaScriptフレームワークEmber.jsのアドオン、ツール、ガイド、チュートリアル",
+    "enHash": "5d4e9356d2d8"
+  },
+  "eminyagiz42/awesome-sap-commerce": {
+    "summary": "Javaで書かれたECプラットフォームSAP Commerce（旧Hybris）のドキュメント、ブログ、関連技術",
+    "enHash": "f77049ed08f3"
+  },
+  "emptymalei/awesome-research": {
+    "summary": "作業管理、ノート、執筆と出版、プレゼン、データ可視化、LaTeXなど研究者向けのソフトウェア",
+    "enHash": "e36122ad5a03"
+  },
+  "enaqx/awesome-react": {
+    "summary": "UI構築用JavaScriptライブラリReactとReact Nativeのライブラリ、ツール、学習リソース",
+    "enHash": "a1efe1946c0c"
+  },
+  "enjalot/algovis": {
+    "summary": "インタラクティブな可視化でアルゴリズムを解説するプロジェクト、ライブラリ、サンプル",
+    "enHash": "1f2f4ab02939"
+  },
+  "eozer/awesome-snmp": {
+    "summary": "ネットワーク機器を監視するプロトコルSNMPのライブラリ、ツール、論文、テストサーバー、MIB集",
+    "enHash": "08b7637a303f"
+  },
+  "erictleung/awesome-nosql-guides": {
+    "summary": "データモデリング、CAPのトレードオフ、グラフデータベースとその論争など、NoSQLデータベースに関する記事とガイド",
+    "enHash": "b39a763b647a"
+  },
+  "erwanlemerrer/awesome-audit-algorithms": {
+    "summary": "レコメンダーの偏りの検証など、アルゴリズムを外部から監査することに関する論文とイベント",
+    "enHash": "e0b5079d0a0f"
+  },
+  "eselkin/awesome-computational-neuroscience": {
+    "summary": "ヨーロッパと北米の計算論的神経科学の大学研究室と研究グループ",
+    "enHash": "01b36f2ce408"
+  },
+  "esri/awesome-arcgis-developers": {
+    "summary": "EsriのArcGISプラットフォームで地図アプリを作るためのAPI、SDK、サンプル、データツール、ガイド",
+    "enHash": "f001d3d8bdcc"
+  },
+  "eug/awesome-opengl": {
+    "summary": "グラフィックスAPIであるOpenGLの記事、書籍、デバッガ、シェーダーエディタ、ライブラリ、リファレンス、講演",
+    "enHash": "0d2b42aa6787"
+  },
+  "exaspark/awesome-chatops": {
+    "summary": "チャットルームで運用作業を行うChatOpsに関する記事、講演、書籍、サービス、ボットフレームワーク",
+    "enHash": "095a98df57f8"
+  },
+  "expede/awesome-relay": {
+    "summary": "React向けのFacebook製GraphQLデータフレームワークRelayの学習リソース、ライブラリ、サーバー対応、テストツール",
+    "enHash": "68b643ca7494"
+  },
+  "fabacab/awesome-cybersecurity-blueteam": {
+    "summary": "ハードニング、監視、インシデント対応、ハニーポット、ID管理、脅威インテリジェンスなどシステム防御のためのツールとガイド",
+    "enHash": "87b2dbba1841"
+  },
+  "fabacab/awesome-lockpicking": {
+    "summary": "ロックピッキングとロックスポーツのガイド、書籍、コミュニティ、イベント、趣味のプロジェクト、販売店",
+    "enHash": "989a26c8679a"
+  },
+  "famolus/awesome-sass": {
+    "summary": "CSSにコンパイルされる言語Sassのガイド、フレームワーク、mixinライブラリ、ツール、書籍、動画",
+    "enHash": "98e97a65fc5c"
+  },
+  "faroit/awesome-python-scientific-audio": {
+    "summary": "オーディオ、音声、音楽の研究のためのPythonパッケージ、チュートリアル、書籍、論文",
+    "enHash": "183f9c03922a"
+  },
+  "fcambus/nginx-resources": {
+    "summary": "LuaやOpenRestyを含む、nginx Webサーバーの設定、セキュリティ強化、拡張に関する記事、チュートリアル、講演",
+    "enHash": "547df0301c41"
+  },
+  "feross/awesome-mad-science": {
+    "summary": "P2P通信から仮想マシンまで、一見不可能なことを実現する驚きのnpmパッケージ",
+    "enHash": "8c035a90e517"
+  },
+  "fffaraz/awesome-cpp": {
+    "summary": "オーディオや圧縮からデータベース、ネットワーク、グラフィックスまで分野別のC/C++ライブラリ、フレームワーク、ツール",
+    "enHash": "8c2d580e1464"
+  },
+  "filipelinhares/awesome-slack": {
+    "summary": "開発者とデザイナー向けのSlackワークスペースをトピック別・地域別にまとめたもの",
+    "enHash": "87bfd3bc9eb3"
+  },
+  "fityanos/awesome-quality-assurance-roadmap": {
+    "summary": "ソフトウェアテスターになるための学習ロードマップ（テスト計画のサンプルと実践的なアドバイス付き）",
+    "enHash": "a7743a356cea"
+  },
+  "fkie-cad/awesome-embedded-and-iot-security": {
+    "summary": "組み込み機器やIoT機器のセキュリティに関するソフトウェア・ハードウェアツール、事例、トレーニング、Webサイト",
+    "enHash": "178e05f10220"
+  },
+  "flame-engine/awesome-flame": {
+    "summary": "Flutter上に作られた2DゲームエンジンFlameのチュートリアル、プラグイン、サンプルプロジェクト",
+    "enHash": "bbdd4737804f"
+  },
+  "fliptheweb/motion-ui-design": {
+    "summary": "UIアニメーションのためのインスピレーション、記事、ソフトウェア、ライブラリ、講演、ガイドライン",
+    "enHash": "046948733cac"
+  },
+  "folkswhocode/awesome-diversity": {
+    "summary": "テクノロジー業界の多様性とインクルージョンを高めるための団体、イベント、記事、講演、書籍",
+    "enHash": "3bf9cd85716f"
+  },
+  "foxfil/awesome-geocaching": {
+    "summary": "GPSで隠された容器を探すアウトドアゲーム、ジオキャッシングのためのWebサイト、アプリ、ツール",
+    "enHash": "f9f05a24bbd4"
+  },
+  "fr0st-brutal/awesome-pascal": {
+    "summary": "グラフィックス、ネットワーク、データベース、GUIなどをカバーするDelphiとFree Pascal向けのライブラリ、コンポーネント、ツール",
+    "enHash": "8cedb73af4d4"
+  },
+  "francoism90/awesome-kde": {
+    "summary": "LinuxデスクトップKDEとそのソフトウェアのアプリケーション、カスタマイズ、ドキュメント、コミュニティ",
+    "enHash": "925f2de054ef"
+  },
+  "fregante/awesome-webextensions": {
+    "summary": "複数のブラウザで動く拡張機能を作るためのドキュメント、ライブラリ、ツール、テスト用ヘルパー、ボイラープレート、サンプル",
+    "enHash": "88cbceaa909b"
+  },
+  "frenck/awesome-home-assistant": {
+    "summary": "オープンソースのホームオートメーションハブHome Assistantの連携、ダッシュボード、カード、テーマ、アプリ、ツール、公開設定",
+    "enHash": "4416af9c9a71"
+  },
+  "friedger/awesome-stacks-chain": {
+    "summary": "Bitcoinにスマートコントラクトを加えるStacksとそのClarity言語のアプリ、開発ツール、学習教材",
+    "enHash": "aab01f8e06f8"
+  },
+  "friendsofcake/awesome-cakephp": {
+    "summary": "PHPで書かれたWebフレームワークCakePHPのプラグイン、アプリケーション、学習リソース",
+    "enHash": "c0288604194f"
+  },
+  "friz-zy/awesome-linux-containers": {
+    "summary": "Linuxコンテナのための仕様、ランタイム、サンドボックス、ハイパーバイザー、ファイルシステム、セキュリティツール",
+    "enHash": "0ecb78ceba25"
+  },
+  "fsprojects/awesome-fsharp": {
+    "summary": "ビルドツールからデータサイエンスまで、.NET上の関数型言語F#のライブラリ、フレームワーク、ツール",
+    "enHash": "10c1c52c42b3"
+  },
+  "fukuball/awesome-laravel-education": {
+    "summary": "PHPフレームワークLaravelの学習教材（ドキュメントの各章、スクリーンキャスト、記事、書籍、英語と中国語）",
+    "enHash": "649d8125a26a"
+  },
+  "fuse-compound/awesome-fuse": {
+    "summary": "モバイルアプリ構築ツールキットFuseで作られたアプリ、記事、プラグイン、オープンソースプロジェクト",
+    "enHash": "3e0ecd972545"
+  },
+  "gaerae/awesome-algorithms-education": {
+    "summary": "アルゴリズムを学ぶためのコース、練習サイト、可視化、書籍、動画、面接対策の資料",
+    "enHash": "cb709aa83da8"
+  },
+  "gamontal/awesome-katas": {
+    "summary": "設計とテスト駆動開発を練習するための、カタと呼ばれるプログラミング課題",
+    "enHash": "219277ec3e74"
+  },
+  "gbdev/awesome-gbdev": {
+    "summary": "任天堂ゲームボーイ向け開発のためのドキュメント、エミュレーター、開発ツール、自作ゲーム、リバースエンジニアリングのメモ",
+    "enHash": "679df995492a"
+  },
+  "georgezouq/awesome-ai-in-finance": {
+    "summary": "機械学習を市場に応用するためのトレーディングエージェント、言語モデル、戦略、論文、データソース、取引所API",
+    "enHash": "f0c665f3dada"
+  },
+  "git-tips/tips": {
+    "summary": "日常的な作業やあまり知られていない機能のための短いGitコマンド集",
+    "enHash": "090db5fa6717"
+  },
+  "gitfrage/guitarspecs": {
+    "summary": "ネック、ボディ、ブリッジ、電装系、弦、木材などエレキギターの各部に関する参考リンク",
+    "enHash": "71d48c4daeb3"
+  },
+  "glauberfc/awesome-react-hooks": {
+    "summary": "Reactのカスタムフックのドキュメント、チュートリアル、議論、サンプル、ライブラリ",
+    "enHash": "287595eea041"
+  },
+  "gofiber/awesome-fiber": {
+    "summary": "Express風のGo WebフレームワークFiberのミドルウェア、ボイラープレート、レシピ、ツール、記事、ベンチマーク",
+    "enHash": "a88db3ff02a2"
+  },
+  "gokayfem/awesome-vlm-architectures": {
+    "summary": "画像とテキストの両方を扱う視覚言語モデル（VLM）のアーキテクチャの解説と参考資料",
+    "enHash": "28a6ad388a22"
+  },
+  "golemfactory/awesome-golem": {
+    "summary": "余った計算資源を貸し出すネットワークGolemのリクエスター・プロバイダー向けツールとガイド",
+    "enHash": "579caa0eb626"
+  },
+  "grafana/awesome-k6": {
+    "summary": "JavaScriptでスクリプトを書くGrafanaの負荷テストツールk6の記事、動画、サンプル、拡張機能、CI連携",
+    "enHash": "babab37abda6"
+  },
+  "gramantin/awesome-rails": {
+    "summary": "RubyのWebフレームワークRuby on Railsの学習リソース、オープンソースアプリ、gem、スターターテンプレート",
+    "enHash": "a3b23584b9a2"
+  },
+  "granze/awesome-polymer": {
+    "summary": "Web Componentsを作るGoogleのライブラリPolymerのチュートリアル、記事、動画、エレメント、ツール",
+    "enHash": "32e9909189a0"
+  },
+  "gruhn/awesome-naming": {
+    "summary": "アルゴリズムやデザインパターンからセキュリティ用語まで、コンピューティングの概念の名前とその解説",
+    "enHash": "380a32da7274"
+  },
+  "guillaume-chevalier/awesome-deep-learning-resources": {
+    "summary": "リカレントネットワークを中心にディープラーニングを学ぶためのオンライン講座、書籍、記事、論文、動画",
+    "enHash": "7781cfa5f615"
+  },
+  "gustavbertram/awesome-common-lisp-learning": {
+    "summary": "Common Lispを学ぶための環境、リファレンス、オンライン・紙の書籍、コミュニティ、処理系",
+    "enHash": "2d854c4c7f9a"
+  },
+  "h2oai/awesome-h2o": {
+    "summary": "オープンソースの機械学習・AutoMLプラットフォームH2Oのチュートリアル、書籍、論文、ベンチマーク、関連ソフトウェア",
+    "enHash": "9b7febaa169a"
+  },
+  "h4cc/awesome-elixir": {
+    "summary": "アクターや認証からテスト、Webまで分野別に整理した1000以上のElixirライブラリとツール",
+    "enHash": "54266d41878f"
+  },
+  "hachiojipm/awesome-perl": {
+    "summary": "コマンドライン解析、データベース、日付、メール、テンプレート、Webフレームワークなど用途別のPerlモジュール",
+    "enHash": "6985a6216627"
+  },
+  "hackerkid/bots": {
+    "summary": "チャットボットを作るためのプラットフォーム、ツール、ライブラリ、分析、チュートリアル、コミュニティ",
+    "enHash": "c79aba14cf9e"
+  },
+  "hackerkid/mind-expanding-books": {
+    "summary": "科学、哲学、歴史、ビジネスなど、読者の考え方を変える書籍とその評価",
+    "enHash": "dab6457fe62f"
+  },
+  "hal9ai/awesome-dataviz": {
+    "summary": "JavaScriptやPythonからR、Rustまで多言語のグラフ描画・データ可視化ライブラリとダッシュボード",
+    "enHash": "0e6bfb553a14"
+  },
+  "hallvaaw/awesome-biological-image-analysis": {
+    "summary": "セグメンテーションや細胞追跡から病理学、神経科学まで、生物画像を解析するソフトウェア",
+    "enHash": "e014c4d1ac60"
+  },
+  "hantuzun/awesome-clojurescript": {
+    "summary": "JavaScriptにコンパイルされるClojureであるClojureScriptのライブラリ、フレームワーク、ツール、学習リソース",
+    "enHash": "ada32f1747bf"
+  },
+  "harpribot/awesome-information-retrieval": {
+    "summary": "検索エンジンを支える情報検索に関する書籍、コース、ソフトウェア、データセット、講演",
+    "enHash": "6a8f0d6025d3"
+  },
+  "heapy/awesome-kotlin": {
+    "summary": "kotlin.linkサイトで管理されている、Kotlinのライブラリ、フレームワーク、ツール、記事、動画",
+    "enHash": "bc48ffa0ee6c"
+  },
+  "henrikwirth/awesome-wordpress-gatsby": {
+    "summary": "WordPressからコンテンツを取得するGatsbyサイトを作るためのプラグイン、スターター、テーマ、コミュニティ",
+    "enHash": "65a5eab04565"
+  },
+  "hesreallyhim/awesome-claude-code": {
+    "summary": "ターミナル用コーディングエージェントClaude Codeのスキル、フック、プラグイン、代替クライアント、オーケストレーター、ガイド",
+    "enHash": "e4d7e93d5af2"
+  },
+  "heynickc/awesome-ddd": {
+    "summary": "ドメイン駆動設計に関する書籍、コース、動画、ブログ、サンプルプロジェクト、ライブラリ、カンファレンス",
+    "enHash": "2fe85f335017"
+  },
+  "hkirat/awesome-chess": {
+    "summary": "チェスに関する書籍、ボット、指し手の検証ツール、棋譜パーサー、盤と駒の画像、Webサイト",
+    "enHash": "bbf75cf6103e"
+  },
+  "hlaueriksson/awesome-powertoys-run-plugins": {
+    "summary": "Microsoft PowerToysのクイックランチャーPowerToys Run向けのコミュニティ製プラグインとガイド",
+    "enHash": "e14780c38bd1"
+  },
+  "hollyadele/awesome-programming-for-kids": {
+    "summary": "幼い子どもにプログラミングを教えるアプリ、ゲーム、ロボット、Webサイトを年齢別にまとめたもの",
+    "enHash": "52e96b5f525e"
+  },
+  "homematic-community/awesome-homematic": {
+    "summary": "ホームオートメーションシステムHomematicのドキュメント、アプリ、アドオン、代替ハードウェアとソフトウェア",
+    "enHash": "38529122eb7c"
+  },
+  "hothero/awesome-rails-gem": {
+    "summary": "認証、Active Record、アップロード、バックグラウンドジョブ、管理画面、テストなど用途別のRailsアプリ向けRuby gem",
+    "enHash": "6c90e593ee48"
+  },
+  "hqarroum/awesome-iot": {
+    "summary": "ネットワークにつながる機器、IoTのためのハードウェア、ソフトウェア、プロトコル、標準規格、読み物",
+    "enHash": "8bd17bdb5106"
+  },
+  "hsavit1/awesome-swift-education": {
+    "summary": "Apple製プラットフォーム向けのプログラミング言語Swiftの学習教材",
+    "enHash": "c2a12acb2119"
+  },
+  "hsiaoyi0504/awesome-cheminformatics": {
+    "summary": "化学にコンピューティングを応用するためのアプリケーション、ライブラリ、学術誌などのリソース",
+    "enHash": "0ea05a50a210"
+  },
+  "hstsethi/awesome-j2me": {
+    "summary": "旧来の携帯電話向けJavaであるJ2MEの開発キット、エミュレーター、アプリ、リバースエンジニアリングツール、保存プロジェクト",
+    "enHash": "86212617914f"
+  },
+  "hyperupcall/awesome-mastodon": {
+    "summary": "Twitterに代わる分散型SNSであるMastodonのインスタンス、クライアント、ツール、ライブラリ、ボット、ホスティングガイド",
+    "enHash": "3d15ed683f41"
+  },
+  "hzoo/awesome-gametalks": {
+    "summary": "ゲームデザインとゲーム制作に関するポッドキャストと講演",
+    "enHash": "cf9c1f384fef"
+  },
+  "iamcoder/awesome-lucid-dreams": {
+    "summary": "明晰夢に関する研究、書籍、アプリ、デバイス、音声プログラム、フォーラムなどのリソース",
+    "enHash": "7747e46fdc64"
+  },
+  "iamericfletcher/awesome-r-learning-resources": {
+    "summary": "R言語を学ぶためのトピック別チュートリアル、ブログ、書籍、コミュニティ、ポッドキャスト、YouTubeチャンネル",
+    "enHash": "b303cda73d41"
+  },
+  "ianstormtaylor/awesome-heroku": {
+    "summary": "アプリケーションをデプロイ・ホスティングするクラウドサービスHerokuのbuildpack、アドオン、ツール、ガイド",
+    "enHash": "df918a73bb15"
+  },
+  "ibaaj/awesome-opensourcephotography": {
+    "summary": "RAW現像、HDR、パノラマ、写真管理、EXIF編集、カメラファームウェアなどオープンソースの写真ソフトウェアとコミュニティ",
+    "enHash": "55d914ddbdd4"
+  },
+  "igorbarinov/awesome-bitcoin": {
+    "summary": "Bitcoin上でソフトウェアを作るためのサービス、API、ウォレット、エクスプローラー、多言語のライブラリ",
+    "enHash": "1d3e83b9d234"
+  },
+  "igorbarinov/awesome-data-engineering": {
+    "summary": "データパイプライン構築のためのデータベース、取り込み・ストリーム処理ツール、ファイル形式、ワークフロースケジューラ、監視ツール",
+    "enHash": "f87b8a01d4b5"
+  },
+  "iipc/awesome-web-archiving": {
+    "summary": "Webサイトをアーカイブとして保存するためのトレーニング、ツール、サービス、コミュニティリソース、公開データ",
+    "enHash": "2dfe22caae83"
+  },
+  "ijackua/awesome-vagrant": {
+    "summary": "再現可能な開発用仮想マシンを作るVagrantのBox、プロビジョニングツール、プラグイン、チュートリアル、既製環境",
+    "enHash": "a613d14c4500"
+  },
+  "ildoc/awesome-italy-events": {
+    "summary": "イタリアで開かれるテクノロジー系のカンファレンスとミートアップ",
+    "enHash": "d5bc1ff5bcb6"
+  },
+  "infosecb/awesome-detection-engineering": {
+    "summary": "攻撃を検知するルールを書くためのフレームワーク、検知ルール、ログソースなどのリソース",
+    "enHash": "fcbc1fcf5d4f"
+  },
+  "innocenzi/awesome-inertiajs": {
+    "summary": "サーバーサイドフレームワークとReactやVueのフロントエンドをつなぐInertia.jsのアダプター、フック、リソース",
+    "enHash": "68a4ece143a3"
+  },
+  "inoue0426/awesome-computational-biology": {
+    "summary": "計算生物学のためのデータベース、ベンチマーク、API、前処理ツール、機械学習モデル",
+    "enHash": "6f32d290aa6f"
+  },
+  "inspectit-labs/awesome-inspectit": {
+    "summary": "Javaアプリケーションの性能を監視するオープンソースツールinspectITのドキュメント、チュートリアル、動画、記事",
+    "enHash": "057d98282034"
+  },
+  "ipfs/awesome-ipfs": {
+    "summary": "ファイルを保存・共有するP2PネットワークIPFSのアプリ、ブラウザ、ツール、サービス、ピンニングプロバイダー",
+    "enHash": "fb12e6f21086"
+  },
+  "irazasyed/awesome-cloudflare": {
+    "summary": "Cloudflareのネットワーク・セキュリティサービス向けのツール、Workersプロジェクト、アプリ、DNSユーティリティ、コミュニティ",
+    "enHash": "a736c80673ef"
+  },
+  "ironcev/awesome-roslyn": {
+    "summary": "C#向け.NETコンパイラプラットフォームRoslynの書籍、チュートリアル、アナライザー、ソースジェネレーター、ライブラリ、講演",
+    "enHash": "4ffb05e357dd"
+  },
+  "isamorph/awesome-permacomputing": {
+    "summary": "消費電力を抑え長く使えるコンピュータを目指すパーマコンピューティングに関する読み物、プロジェクト、コミュニティ",
+    "enHash": "da9c2a78696a"
+  },
+  "isamorph/awesome-webassembly": {
+    "summary": "ブラウザなどで動くコンパクトなコード形式WebAssemblyのガイド、書籍、コンパイラ、ランタイム、プロジェクト",
+    "enHash": "323115b2fdcd"
+  },
+  "j0hnm4r5/awesome-creative-technology": {
+    "summary": "アート、デザイン、テクノロジーが交わる領域で活動するスタジオ、コレクティブ、制作会社、エージェンシー、美術館、フェスティバル",
+    "enHash": "83f53c93b74c"
+  },
+  "j2team/awesome-autoit": {
+    "summary": "Windowsを自動化するスクリプト言語AutoItのユーザー定義関数、ライブラリ、ツール",
+    "enHash": "4dfec8bb9252"
+  },
+  "jacobdjwilson/awesome-annual-security-reports": {
+    "summary": "ベンダー、政府、研究者が毎年発表するサイバーセキュリティのレポートと調査",
+    "enHash": "4938aee9655c"
+  },
+  "jagracey/awesome-unicode": {
+    "summary": "文字の標準規格Unicodeの癖、トラブルシューティングのメモ、文字体系とブロックの概要",
+    "enHash": "6180922a8c62"
+  },
+  "jakob-pennington/awesome-devsecops": {
+    "summary": "ソフトウェアのデリバリーと運用にセキュリティチェックを組み込むための記事、トレーニング、ツール",
+    "enHash": "35e0ea34fc47"
+  },
+  "jakoch/awesome-composer": {
+    "summary": "PHPの依存関係管理ツールComposerのプラグイン、ツール、サービス、チュートリアル、パッケージリポジトリ",
+    "enHash": "99f8991bb0f3"
+  },
+  "janvanryswyck/awesome-talks": {
+    "summary": "ソフトウェア開発、デザイン、アーキテクチャ、プログラミング文化に関する講演の録画",
+    "enHash": "a92c68ea5cc1"
+  },
+  "jaredthecoder/awesome-vehicle-security": {
+    "summary": "CANバス用ツールなど、自動車のセキュリティとハッキングに関する研究、プロジェクト、ハードウェア、ソフトウェア",
+    "enHash": "045b1f3e4e48"
+  },
+  "jaywcjlove/awesome-mac": {
+    "summary": "執筆、開発、デザイン、コミュニケーション、メディア、ユーティリティなどカテゴリ別の無料・有料macOSアプリ",
+    "enHash": "b3434c405763"
+  },
+  "jbhuang0604/awesome-computer-vision": {
+    "summary": "機械に画像を理解させるコンピュータビジョンの書籍、コース、論文、ソフトウェア、学習済みモデル、データセット",
+    "enHash": "6f8ddd92924b"
+  },
+  "jdrgoms/awesome-postcss": {
+    "summary": "JavaScriptプラグインでCSSを変換するツールPostCSSの記事、ガイド、プラグイン、講演、注目の人物",
+    "enHash": "cbbf45c84396"
+  },
+  "jetli/awesome-yew": {
+    "summary": "WebAssemblyでWebフロントエンドを作るRustフレームワークYewのプロジェクト、テンプレート、クレート、ツール、記事、コース",
+    "enHash": "beece6dd2747"
+  },
+  "joaomilho/awesome-idris": {
+    "summary": "依存型を持つ関数型言語Idrisの公式リソース、記事、書籍、論文、プロジェクト、バックエンド",
+    "enHash": "80002d0e814d"
+  },
+  "joe-b-security/awesome-prompt-injection": {
+    "summary": "言語モデルに対するプロンプトインジェクション攻撃に関する記事、チュートリアル、論文、ツール、練習用ゲーム",
+    "enHash": "601e4c115ad7"
+  },
+  "joewdavies/awesome-frontend-gis": {
+    "summary": "ブラウザで地図を表示するためのJavaScript地図ライブラリ、地理データソース、ノートブック、地図の例、読み物",
+    "enHash": "feb3658f9c45"
+  },
+  "johnjago/awesome-ad-free": {
+    "summary": "広告のないWebサイトとサービス、および広告なしの生活に関する読み物",
+    "enHash": "58225a72e47a"
+  },
+  "johnjago/awesome-free-software": {
+    "summary": "利用者が調べ、変更し、共有できる自由なソフトウェアとハードウェア、および関連する読み物",
+    "enHash": "fb52ffafd464"
+  },
+  "johnjago/awesome-theravada": {
+    "summary": "上座部仏教に関する経典、講話、書籍、フォーラム、団体、場所",
+    "enHash": "e916d45cac3b"
+  },
+  "johnjago/awesome-uncopyright": {
+    "summary": "パブリックドメインのアート、書籍、画像、ソフトウェアと、著作権のない暮らしについての文章",
+    "enHash": "7a3ab2aa796f"
+  },
+  "joho/awesome-code-review": {
+    "summary": "コードレビューに関する論文、記事、書籍、講演、ツール",
+    "enHash": "1ef3fa72a79f"
+  },
+  "jonathandion/awesome-emails": {
+    "summary": "HTMLメールを作るためのフレームワーク、テンプレート、テストツール、サービス、デザインの参考例、記事",
+    "enHash": "874596932146"
+  },
+  "jondot/awesome-devenv": {
+    "summary": "シェルのヘルパーからGit拡張まで、生産性の高い開発環境のためのツール、エディタプラグイン、設定",
+    "enHash": "a77b3d99362f"
+  },
+  "jondot/awesome-react-native": {
+    "summary": "React Nativeモバイルアプリのコンポーネント、ライブラリ、ツール、スターター、オープンソースアプリ、学習教材",
+    "enHash": "517bfae13ee0"
+  },
+  "jonleibowitz/awesome-digitalocean": {
+    "summary": "クラウドホスティング事業者DigitalOceanの構成ツール、クライアントライブラリ、連携、プロジェクト、チュートリアル",
+    "enHash": "75050b597f1e"
+  },
+  "jorgebucaran/awsm.fish": {
+    "summary": "fishシェルのプラグイン、プロンプト、パッケージマネージャー、ガイド",
+    "enHash": "c23bb5c97896"
+  },
+  "josedefreitas/awesome-youtubers": {
+    "summary": "プログラミング、コンピュータサイエンス、セキュリティ、ハードウェアなどを教えるYouTubeチャンネル",
+    "enHash": "c2907e290bbb"
+  },
+  "josephmisiti/awesome-machine-learning": {
+    "summary": "C++やJavaからPython、Rまで、プログラミング言語別の機械学習フレームワークとライブラリ",
+    "enHash": "4adc446406c6"
+  },
+  "joshwiens/awesome-rethinkdb": {
+    "summary": "クエリ結果をリアルタイムに配信するドキュメントデータベースRethinkDBのドキュメント、ドライバ、記事、講演、サンプル、管理ツール",
+    "enHash": "c687a9e8f5b4"
+  },
+  "jstumpp/awesome-android": {
+    "summary": "Androidアプリ開発のためのエミュレーター、ライブラリ、学習リソース、ビルドツール",
+    "enHash": "95d99e90b890"
+  },
+  "jthegedus/awesome-firebase": {
+    "summary": "Googleのアプリ向けバックエンドサービスFirebaseの拡張機能、Web・モバイル・サーバー向けライブラリ、エディタツール、ガイド",
+    "enHash": "cdd162ec473f"
+  },
+  "jtoy/awesome-tensorflow": {
+    "summary": "Googleの機械学習フレームワークTensorFlowに関するチュートリアル、モデル、ライブラリ、ツール、論文、書籍",
+    "enHash": "aee61e1766e3"
+  },
+  "jyguyomarch/awesome-conversational-ai": {
+    "summary": "チャットボットや音声アシスタントを作るための論文、メッセージングクライアント、設計のアドバイス、言語理解サービス、プラットフォーム",
+    "enHash": "eaa689197f73"
+  },
+  "jyguyomarch/awesome-productivity": {
+    "summary": "仕事を整理して成果を上げるためのWebサイト、書籍、アプリ",
+    "enHash": "4c85614a05d0"
+  },
+  "jzarca01/awesome-food": {
+    "summary": "レシピ集、食品API、植物性料理、栄養、コース、動画など、食に関するオープンソースプロジェクト",
+    "enHash": "e9fde9b3d275"
+  },
+  "k4m4/terminals-are-sexy": {
+    "summary": "ターミナルでの作業を好む人向けのシェル、ターミナルエミュレーター、パッケージマネージャー、エディタ、コマンドラインツール",
+    "enHash": "69680d8c8d77"
+  },
+  "kakoni/awesome-healthcare": {
+    "summary": "電子カルテ、医用画像、検査、遠隔医療、標準規格、ライブラリなど医療向けのオープンソースソフトウェア",
+    "enHash": "b48ad9e4477c"
+  },
+  "kalaiser/awesome-cdk": {
+    "summary": "通常のコードでクラウドリソースを定義するAWS Cloud Development KitのConstructライブラリ、ツール、トレーニング",
+    "enHash": "04c9c3cb093a"
+  },
+  "kareniel/awesome-evm-security": {
+    "summary": "Ethereumスマートコントラクトのセキュリティに関するガイド、標準、脅威一覧、脆弱性レジストリ",
+    "enHash": "23268ff1388b"
+  },
+  "karlhorky/awesome-speakers": {
+    "summary": "プログラミングやデザインのカンファレンスやミートアップで講演するスピーカー",
+    "enHash": "137c7368e5ab"
+  },
+  "karlhorky/learn-to-program": {
+    "summary": "初級、中級、上級に分けたプログラミング学習用のコースとWebサイト",
+    "enHash": "dbd382812a63"
+  },
+  "karneades/awesome-malware-persistence": {
+    "summary": "攻撃者が再起動後もマシンに居座るための手法と、それを検出・除去するツール",
+    "enHash": "372ef0ebe6fc"
+  },
+  "karneades/awesome-security-card-games": {
+    "summary": "脅威モデリング、インシデント対応、プライバシーなどセキュリティを学べるカードゲーム",
+    "enHash": "d34712fc8b3e"
+  },
+  "kazhnuz/awesome-gnome": {
+    "summary": "LinuxのGNOMEデスクトップ向けのアプリケーション、シェル拡張、テーマ、コミュニティ、開発者向けリソース",
+    "enHash": "28ee1c36a4b7"
+  },
+  "kdabir/awesome-groovy": {
+    "summary": "JVM上の動的言語Groovyのビルドツール、エディタサポート、Webフレームワーク、テストなどのライブラリ",
+    "enHash": "b78add4e1db5"
+  },
+  "kdeldycke/awesome-billing": {
+    "summary": "価格設定、請求書、税金、決済、会計、不正対策、収益分析など顧客への課金に関する記事とツール",
+    "enHash": "8a072b0080ec"
+  },
+  "kdeldycke/awesome-engineering-team-management": {
+    "summary": "チーム作り、採用、オンボーディング、文化、会議、リモートワーク、プロジェクト管理など、マネージャーになったエンジニア向けの読み物",
+    "enHash": "9c77e8269ad4"
+  },
+  "kdeldycke/awesome-falsehood": {
+    "summary": "名前、日付、住所、電話番号、お金など現実のデータについてプログラマーが抱きがちな誤った思い込みに関する記事",
+    "enHash": "a8f5f4f648a0"
+  },
+  "kdeldycke/awesome-iam": {
+    "summary": "アカウント、パスワード、多要素認証、OAuth、SAML、シークレット、プライバシーなどIDとアクセス管理に関する記事とツール",
+    "enHash": "567719cf8c2b"
+  },
+  "keller-mark/awesome-biological-visualizations": {
+    "summary": "ゲノム、タンパク質、細胞、顕微鏡画像など生物データを閲覧するためのインタラクティブなWebツール",
+    "enHash": "d587b0ba7286"
+  },
+  "kikobeats/awesome-network-js": {
+    "summary": "P2P、トレント、ディスカバリー、プロトコル実装などネットワーク向けのJavaScriptモジュール",
+    "enHash": "e48bd004cf11"
+  },
+  "kilimchoi/engineering-blogs": {
+    "summary": "企業、個人開発者、プロダクトチームが書いている技術ブログ",
+    "enHash": "6e8863979826"
+  },
+  "kiloreux/awesome-robotics": {
+    "summary": "ロボティクスのコース、書籍、論文、カンファレンス、学術誌、競技会、企業",
+    "enHash": "7141a30da8e7"
+  },
+  "kimberlymunoz/empathy-in-engineering": {
+    "summary": "コードレビューから非難しないポストモーテムまで、エンジニアリングチームにおける共感と思いやりに関する記事と講演",
+    "enHash": "b2cbf847b5df"
+  },
+  "kitspace/awesome-electronics": {
+    "summary": "電子工作のための学習教材、シミュレーター、回路設計ソフト、基板製造業者、部品検索エンジン、コミュニティ",
+    "enHash": "1d34264d870a"
+  },
+  "kjw0612/awesome-deep-vision": {
+    "summary": "認識、検出、セグメンテーションなどコンピュータビジョンのためのディープラーニングに関する論文、書籍、動画、ブログ",
+    "enHash": "0cf7afe44688"
+  },
+  "klaufel/awesome-design-systems": {
+    "summary": "企業が公開しているデザインシステムと、その構築のためのツール、デザイントークン、パターンライブラリ、書籍、講演",
+    "enHash": "84b5b004fa4b"
+  },
+  "koolamusic/awesome-imba": {
+    "summary": "JavaScriptにコンパイルされるWebアプリ向け言語Imbaのリソースとプロジェクト",
+    "enHash": "b1bbd172f286"
+  },
+  "krispo/awesome-haskell": {
+    "summary": "コンパイラ、並行処理、データ、データベース、エディタ、Webなど分野別のHaskellライブラリとリソース",
+    "enHash": "bd4546a7dff0"
+  },
+  "krzjoa/awesome-python-data-science": {
+    "summary": "機械学習、ディープラーニング、NLP、画像、時系列、統計、可視化などデータサイエンス向けのPythonライブラリ",
+    "enHash": "d02ab13bf7d6"
+  },
+  "kyleterry/awesome-radio": {
+    "summary": "市民バンド、ソフトウェア無線、アマチュア無線、非常時通信など無線に関するリソース",
+    "enHash": "9e259e2eca57"
+  },
+  "lauris/awesome-scala": {
+    "summary": "データベース、Webフレームワーク、JSON、テスト、ビッグデータ、関数型プログラミングなど分野別のScalaライブラリ",
+    "enHash": "14e98c038c4f"
+  },
+  "lauthieb/awesome-storybook": {
+    "summary": "UIコンポーネントを単独で開発するためのワークショップStorybookの公式リンク、サンプル、チュートリアル、講演、記事",
+    "enHash": "e9fdfdb000cd"
+  },
+  "leomaurodesenv/game-datasets": {
+    "summary": "ゲームに関するAI研究や市場調査のためのデータセット、API、ゲーム環境",
+    "enHash": "19b8aaddcf4a"
+  },
+  "lewisjellis/awesome-lua": {
+    "summary": "組み込み可能な小さなスクリプト言語Luaのライブラリ、実装、ツール",
+    "enHash": "67231f65dc5d"
+  },
+  "likedan/awesome-coreml-models": {
+    "summary": "Appleのオンデバイスフレームワーク、Core ML用の既製機械学習モデルと、その変換・検査ツール",
+    "enHash": "c3aa83220a25"
+  },
+  "liuchong/awesome-roadmaps": {
+    "summary": "プログラミング言語、Web、モバイル、運用、データ、セキュリティなどのキャリアに向けた段階的な学習ロードマップ",
+    "enHash": "735213a23f61"
+  },
+  "lnishan/awesome-competitive-programming": {
+    "summary": "競技プログラミングのためのチュートリアル、コース、書籍、練習サイト、実装例",
+    "enHash": "657189b72234"
+  },
+  "love2d-community/awesome-love2d": {
+    "summary": "アニメーション、カメラ、エンティティ、入力、ライティング、ネットワーク、物理演算など分野別のLÖVE（Luaゲームフレームワーク）向けライブラリ",
+    "enHash": "c47ad56f1564"
+  },
+  "loverajoel/jstips": {
+    "summary": "わかりやすく高速なコードを書くための短いJavaScriptのヒント集",
+    "enHash": "f328d9b38fc6"
+  },
+  "lucasbassetti/awesome-less": {
+    "summary": "CSSにコンパイルされる言語Lessのフレームワーク、mixinライブラリ、エディタ、オンラインコンパイラ、記事、動画",
+    "enHash": "a38afb1b474a"
+  },
+  "lucasviola/awesome-functional-programming": {
+    "summary": "言語を問わず関数型プログラミングを学ぶための記事、論文、書籍、講義、ツール、コミュニティ",
+    "enHash": "385718c791ba"
+  },
+  "lucasviola/awesome-tech-videos": {
+    "summary": "プログラミング言語、フロントエンド、関数型プログラミング、データベース、アーキテクチャ、エンジニアリング文化に関するカンファレンストーク",
+    "enHash": "b29b212f9842"
+  },
+  "lukasz-madon/awesome-remote-job": {
+    "summary": "リモートワークのための記事、求人サイト、企業、コミュニティ、ツール、法的アドバイス",
+    "enHash": "27f58a214680"
+  },
+  "lunohodov/awesome-astrophotography": {
+    "summary": "夜空の写真を撮るための記事、書籍、チュートリアル、ソフトウェア、YouTubeチャンネル、コミュニティ",
+    "enHash": "b88b4317ae6e"
+  },
+  "lutzh/awesome-event-driven-architecture": {
+    "summary": "サービスがイベントの発行と反応で連携するイベント駆動アーキテクチャに関する記事と動画",
+    "enHash": "ca2dbb28310f"
+  },
+  "lvwzhen/tools": {
+    "summary": "プレースホルダー、ファビコン、CDN、画像圧縮、配色、フォント、APIドキュメント、コードプレイグラウンドなどフロントエンド開発者向けWebツール",
+    "enHash": "c390e17dae8b"
+  },
+  "ly0n/awesome-robotic-tooling": {
+    "summary": "シミュレーション、センサー、自己位置推定、経路計画、制御、ミドルウェア、可視化などロボット開発のためのオープンソースツール",
+    "enHash": "ad9cfedafebb"
+  },
+  "lyqht/awesome-supabase": {
+    "summary": "Postgres上のオープンソースバックエンドSupabaseのスタータープロジェクト、移行・開発ツール、コース、動画、ガイド",
+    "enHash": "73cf0b91ca25"
+  },
+  "machinomy/awesome-non-financial-blockchain": {
+    "summary": "ID、IoT、エネルギー、メディアなど、お金以外の用途にブロックチェーンを使うプロジェクト",
+    "enHash": "5cf7a08d07d2"
+  },
+  "maehr/awesome-digital-history": {
+    "summary": "デジタル手法で歴史研究を行うためのオンラインアーカイブ、一次資料、学習教材",
+    "enHash": "8cee71eb896b"
+  },
+  "mailtoharshit/awesome-salesforce": {
+    "summary": "顧客管理プラットフォームSalesforceを扱う開発者と管理者向けのツール、ライブラリ、連携、リソース",
+    "enHash": "3d439d444b98"
+  },
+  "make-github-pseudonymous-again/awesome-qr-code": {
+    "summary": "QRコードを作成・読み取りするためのアプリ、コマンドラインツール、ライブラリ",
+    "enHash": "06849e39e454"
+  },
+  "manuzhang/awesome-streaming": {
+    "summary": "到着したイベントを順に処理するストリーム処理のためのエンジン、ライブラリ、連携ツール、ベンチマーク、読み物",
+    "enHash": "6af8104eb02c"
+  },
+  "marcobiedermann/search-engine-optimization": {
+    "summary": "URL、コンテンツ、画像、リンク、モバイルに関するSEOチェックリストと、ツールや書籍",
+    "enHash": "bfe8edba7d89"
+  },
+  "margaretmz/awesome-tensorflow-lite": {
+    "summary": "スマートフォンや機器で機械学習モデルを動かすTensorFlow Liteのモデル、サンプルアプリ、プラグイン、チュートリアル",
+    "enHash": "1f926299ee70"
+  },
+  "mark-rushakoff/awesome-influxdb": {
+    "summary": "時系列データベースInfluxDBのクライアントライブラリ、データ収集ツール、クエリ・可視化ツール、ホスティング手段",
+    "enHash": "356be4bf26ce"
+  },
+  "markets/awesome-ruby": {
+    "summary": "管理画面や認証からテスト、Webサーバーまで、用途別のRuby gemとツール",
+    "enHash": "38feed26b11e"
+  },
+  "markusschanta/awesome-jupyter": {
+    "summary": "Jupyter Notebookの拡張機能、ランタイム、可視化・公開ツール、ホスティングサービス、チュートリアル",
+    "enHash": "77b0b55e014d"
+  },
+  "marmelab/awesome-rest": {
+    "summary": "REST APIの設計ガイド、標準、クライアント・サーバーライブラリ、テストツール、ドキュメントツール",
+    "enHash": "63277e04fdf5"
+  },
+  "martinmiles/awesome-sitecore": {
+    "summary": ".NETのコンテンツ・マーケティングプラットフォームSitecoreのモジュール、ツール、記事、デモを分野別にまとめたもの",
+    "enHash": "47632e752e72"
+  },
+  "martinzikmund/awesome-uno-platform": {
+    "summary": ".NETのUIをあらゆる環境で動かすUno Platformのライブラリ、ツール、サンプル、アプリ、記事、コース、講演",
+    "enHash": "ec1d12bd8b12"
+  },
+  "master-co/awesome-master-css": {
+    "summary": "マークアップをスタイリングするユーティリティ型言語Master CSSの公式リソース、フレームワーク連携、エディタサポート、サンプル、記事",
+    "enHash": "4ebe20a8434a"
+  },
+  "matchai/awesome-pinned-gists": {
+    "summary": "最近聴いた音楽などのライブデータでGitHubプロフィールのピン留めgistを更新するプロジェクト",
+    "enHash": "fdc027fde868"
+  },
+  "matiassingers/awesome-readme": {
+    "summary": "実際のプロジェクトのREADMEの例と、良いREADMEを書くための記事やツール",
+    "enHash": "71960218ecfa"
+  },
+  "matiassingers/awesome-slack": {
+    "summary": "チームチャットサービスSlackのテーマ、ライブラリ、オープンソースアプリ",
+    "enHash": "e6fe3806d24c"
+  },
+  "matteocrippa/awesome-swift": {
+    "summary": "iOSとmacOS開発のための1000以上のSwiftライブラリ、ボイラープレート、ガイド、エディタサポート、ツール",
+    "enHash": "a711267c1b24"
+  },
+  "matteofigus/awesome-speaking": {
+    "summary": "カンファレンスで上手に講演するための記事、書籍、動画、クラブ、CFP（講演募集）サイト",
+    "enHash": "d3dfed56aaa8"
+  },
+  "matthias84/awesome-flying-fpv": {
+    "summary": "FPVドローン用のオープンなハードウェアとソフトウェア（フレーム、フライトコントローラー、無線、カメラ、テレメトリ、地上局）",
+    "enHash": "a51e80da08f1"
+  },
+  "max-mapper/maintenance-modules": {
+    "summary": "npmパッケージの作成、ドキュメント化、リリースを助けるコマンドラインツール",
+    "enHash": "e0cfa3d8b89b"
+  },
+  "mbiesiad/awesome-translations": {
+    "summary": "テキストやソフトウェアを翻訳するためのプラットフォーム、アプリ、ツール、記事、コース、書籍",
+    "enHash": "a85c4bb10926"
+  },
+  "mcanouil/awesome-quarto": {
+    "summary": "Pandocを基盤とする科学文書の出版システムQuartoのドキュメント、チュートリアル、講演、拡張機能、サンプル",
+    "enHash": "fbd77be47009"
+  },
+  "mcauser/awesome-micropython": {
+    "summary": "マイコン向けPythonであるMicroPythonのライブラリ、ドライバ、フレームワーク、チュートリアル、ツール",
+    "enHash": "ec06f3dacc1d"
+  },
+  "mdbootstrap/awesome-mdbootstrap": {
+    "summary": "Material DesignスタイルのBootstrap UIキットMDBootstrapのテンプレート、ツール、データグリッド、連携、記事",
+    "enHash": "295421132d1a"
+  },
+  "meirwah/awesome-incident-response": {
+    "summary": "フォレンジック、メモリ解析、ログ解析、トリアージ、プレイブックなどセキュリティインシデント対応のためのツール",
+    "enHash": "368c9832825b"
+  },
+  "melvin0008/awesome-projects-boilerplates": {
+    "summary": "Android、iOS、JavaScript、Python、PHP、Ruby、.NET、Go、ブラウザ拡張機能向けのスタータープロジェクト",
+    "enHash": "577b77347c55"
+  },
+  "mezod/awesome-indie": {
+    "summary": "一人で小さなビジネスを営む開発者向けのコミュニティ、ニュースレター、ポッドキャスト、事例、書籍、ツール",
+    "enHash": "5ee1dd0e68df"
+  },
+  "mfkl/awesome-vlc": {
+    "summary": "オープンソースのメディアプレーヤーVLCとlibvlcライブラリのドキュメント、プラグイン、拡張機能、アプリ、バインディング、チュートリアル",
+    "enHash": "94b94535d0ba"
+  },
+  "mfornos/awesome-microservices": {
+    "summary": "小さな独立したサービスでシステムを構築するためのプラットフォーム、フレームワーク、ツールキット、標準、理論",
+    "enHash": "ff2d7756387f"
+  },
+  "mgramin/awesome-db-tools": {
+    "summary": "エディタ、GUI・CLIクライアント、スキーマ、バックアップ、監視、テスト、セキュリティなどあらゆる種類のデータベースツール",
+    "enHash": "51516fb21e02"
+  },
+  "mhinz/vim-galore": {
+    "summary": "基本から日常的な使い方、あまり知られていない機能まで扱うVimの長いガイド（プラグインや読み物へのリンク付き）",
+    "enHash": "389ffef32ae7"
+  },
+  "mhxion/awesome-discord-communities": {
+    "summary": "プログラミング、言語、Web開発、セキュリティ、ハードウェア、ゲーム開発、キャリアに関するDiscordサーバー",
+    "enHash": "95618f05adc9"
+  },
+  "michaelbrusegard/awesome-wezterm": {
+    "summary": "Luaで設定するターミナルエミュレーターWezTermのプラグイン、テーマ、設定用ヘルパー",
+    "enHash": "ee1853400bac"
+  },
+  "michelpereira/awesome-games-of-coding": {
+    "summary": "プログラミングを教える、または腕を試すゲーム（任意の言語のものとPython、Java、JavaScript、アセンブリ用のもの）",
+    "enHash": "418f387be4ad"
+  },
+  "michelpereira/awesome-open-source-games": {
+    "summary": "ブラウザ、デスクトップ、モバイル向けのオープンソースゲームと、エンジンやmodツール",
+    "enHash": "14a0c4050d4e"
+  },
+  "micromata/awesome-css-learning": {
+    "summary": "単位、セレクタ、カスタムプロパティ、レイアウト、アニメーションなどCSSそのものを学ぶための記事とリファレンス",
+    "enHash": "ab06ddf22fb4"
+  },
+  "micromata/awesome-javascript-learning": {
+    "summary": "JavaScriptを学ぶためのリファレンス、チュートリアル、無料・有料の書籍、ブログ、動画、インタラクティブなコース",
+    "enHash": "83ae962e3333"
+  },
+  "mikbry/awesome-webgpu": {
+    "summary": "GPUでのグラフィックスと計算のためのブラウザAPI、WebGPUの記事、チュートリアル、書籍、ライブラリ、デバッガ、デモ",
+    "enHash": "3b6da3c7993b"
+  },
+  "mislavcimpersak/awesome-dev-fun": {
+    "summary": "プログラマーが作ったジョークライブラリ、おふざけツール、ユーモラスなプロジェクトを言語別にまとめたもの",
+    "enHash": "b4ab8f1520d3"
+  },
+  "mjhea0/awesome-fastapi": {
+    "summary": "Web APIを作るPythonフレームワークFastAPIの拡張機能、チュートリアル、ホスティング手段、サンプルプロジェクト",
+    "enHash": "e02f67232e98"
+  },
+  "mjhea0/awesome-flask": {
+    "summary": "小さなPython WebフレームワークFlaskの拡張機能、チュートリアル、ホスティング手段、オープンソースプロジェクト",
+    "enHash": "628cb80989d2"
+  },
+  "mmccaff/placestopostyourstartup": {
+    "summary": "新しいスタートアップや製品を最初のユーザーに告知できるWebサイトとRedditコミュニティ",
+    "enHash": "99e7a2fa6b11"
+  },
+  "mmcgrana/services-engineering": {
+    "summary": "ネットワークサービスと分散システムを本番環境で構築・運用するための論文、記事、書籍",
+    "enHash": "915c8651987c"
+  },
+  "mo-way/awesome-aoip": {
+    "summary": "DanteやAES67など、IPネットワークでプロ用オーディオを伝送するためのツール、標準、団体、トレーニング",
+    "enHash": "25decdead3fa"
+  },
+  "mobilitydata/awesome-transit": {
+    "summary": "GTFSを中心とした公共交通情報のためのデータ形式、API、アプリ、ツール、研究",
+    "enHash": "c73b33cd7658"
+  },
+  "mohataher/awesome-tinkerpop": {
+    "summary": "Gremlin言語を備えたグラフデータベースフレームワークApache TinkerPopのライブラリ、チュートリアル、コミュニティ、注目の人物",
+    "enHash": "bdea02998ab3"
+  },
+  "mojoaxel/awesome-regression-testing": {
+    "summary": "スクリーンショットを比較して意図しない変更を検出するビジュアルリグレッションテストのツール、サービス、記事、講演",
+    "enHash": "a2c4394d993b"
+  },
+  "mostafatouny/awesome-theoretical-computer-science": {
+    "summary": "計算、論理、アルゴリズム、暗号、学習理論などコンピューティングの数学的側面に関する書籍、講義ノート、サーベイ",
+    "enHash": "7801df1a685c"
+  },
+  "moul/awesome-ssh": {
+    "summary": "安全なリモートシェルとファイル転送のためのプロトコルSSHに関するアプリ、ライブラリ、読み物",
+    "enHash": "3d8da43dede3"
+  },
+  "mourarthur/awesome-credit-modeling": {
+    "summary": "特徴量選択や説明可能性を含む、信用スコアリングと信用リスクモデルに関する研究論文",
+    "enHash": "6d963a5c4a08"
+  },
+  "msmolyakov/awesome-waves": {
+    "summary": "分散型アプリのためのブロックチェーンプラットフォームWavesの公式リソース、記事、フレームワーク、ツール、製品",
+    "enHash": "04396e5a39c5"
+  },
+  "msub2/awesome-webxr": {
+    "summary": "ブラウザでのVR・ARを実現するWebXRのプロジェクト、開発ツール、学習リソース、コミュニティ",
+    "enHash": "0c87f0f113bf"
+  },
+  "mungell/awesome-for-beginners": {
+    "summary": "初めてのコントリビューターを歓迎するオープンソースプロジェクトをプログラミング言語別にまとめたもの",
+    "enHash": "b559994b8850"
+  },
+  "mxschmitt/awesome-playwright": {
+    "summary": "Microsoftのブラウザ自動化・テストツールPlaywrightの連携、他言語版、ユーティリティ、レポーター、ガイド",
+    "enHash": "0df23acb3f99"
+  },
+  "myhoneybadger/awesome-github-wiki": {
+    "summary": "GitHub Wikiの実例と、リポジトリのWikiでプロジェクトのドキュメントを書くためのヒント",
+    "enHash": "0c77fa762d92"
+  },
+  "myshov/awesome-mobile-web-development": {
+    "summary": "スマートフォンで快適に動くWebサイトを作るための記事、書籍、仕様、講演、テストツール",
+    "enHash": "6b017b5e907d"
+  },
+  "mystenlabs/awesome-move": {
+    "summary": "SuiとAptosのスマートコントラクト言語Moveの書籍、チュートリアル、コード、ツール、SDK、論文",
+    "enHash": "9d037496965f"
+  },
+  "n0kovo/awesome-password-cracking": {
+    "summary": "ハッシュからパスワードを復元するためのツール、単語リスト、書籍、研究、ガイド",
+    "enHash": "d76a8fbc01b8"
+  },
+  "n2cholas/awesome-jax": {
+    "summary": "高速な数値計算と機械学習のためのPythonライブラリJAXのライブラリ、モデル、論文、チュートリアル、動画",
+    "enHash": "df65f4abf077"
+  },
+  "nadunindunil/awesome-material-ui": {
+    "summary": "Material Designに沿ったReactコンポーネントライブラリMaterial UIを使ったコンポーネント、テーマ、ツール、ボイラープレート、アプリ",
+    "enHash": "80d17c45693c"
+  },
+  "naimo84/awesome-nodered": {
+    "summary": "機器やサービスをつなぐビジュアルツールNode-REDのインストールガイド、ドキュメント、追加ノード、コミュニティ",
+    "enHash": "a49b23030aa2"
+  },
+  "narkoz/guides": {
+    "summary": "マークアップ、プログラミング言語、フレームワーク、コミットメッセージのスタイルガイド",
+    "enHash": "aff0f7c2a201"
+  },
+  "nayafia/awesome-maintainers": {
+    "summary": "オープンソースプロジェクトをメンテナンスする経験に関する講演、記事、人物",
+    "enHash": "af2db3258e42"
+  },
+  "nekofar/awesome-slim": {
+    "summary": "WebアプリとAPI向けの軽量PHPフレームワークSlimのガイド、スケルトンプロジェクト、ミドルウェア、テンプレートパッケージ",
+    "enHash": "d93c77330925"
+  },
+  "neueda/awesome-neo4j": {
+    "summary": "グラフデータベースNeo4jのドライバ、拡張機能、インポート・可視化ツールなどのプロジェクト",
+    "enHash": "fbb96215e485"
+  },
+  "neutraltone/awesome-stock-resources": {
+    "summary": "プロジェクトで使える無料の写真、イラスト、ベクター画像、動画、テクスチャ、フォント、アイコン、テンプレート、効果音",
+    "enHash": "30c9e820efe0"
+  },
+  "nglgzz/awesome-clean-tech": {
+    "summary": "テクノロジーで気候変動や汚染に取り組む企業、団体、研究",
+    "enHash": "4dceeecdd3a8"
+  },
+  "nicolesaidy/awesome-web-design": {
+    "summary": "Webデザイナー向けのインスピレーション、配色、タイポグラフィ、アイコン、画像、デザイン・プロトタイピングツール、チュートリアル、書籍",
+    "enHash": "f0fdcfa644d3"
+  },
+  "nikgraf/awesome-draft-js": {
+    "summary": "リッチテキスト編集のためのFacebook製ReactフレームワークDraft.jsのエディタ、プラグイン、ユーティリティ、記事、デモ、講演",
+    "enHash": "3b70c24eec04"
+  },
+  "nirgn975/awesome-drupal": {
+    "summary": "PHPで書かれたオープンソースCMSであるDrupalのツール、モジュール、ディストリビューション、ドキュメント、書籍、動画、ポッドキャスト",
+    "enHash": "3452c180188c"
+  },
+  "nix-community/awesome-nix": {
+    "summary": "再現可能なパッケージマネージャーNixとNixOSのガイド、デプロイツール、言語連携、NixOSモジュール",
+    "enHash": "efbfe569d27a"
+  },
+  "noahbuscher/inspire": {
+    "summary": "Webデザイナーと開発者向けのデザイン参考サイト、制作ツール、コラボレーションサービス、バックエンド、テスト用ヘルパー",
+    "enHash": "a04646cf7cfb"
+  },
+  "noteflakes/awesome-music": {
+    "summary": "オーディオエディタ、ライブラリ、MIDIツール、楽譜作成、プログラミング言語、無料の楽譜など音楽制作のためのソフトウェア",
+    "enHash": "e52bfdc5f596"
+  },
+  "notlmn/awesome-icons": {
+    "summary": "SVG、PNG、フォントでダウンロードできるオープンなアイコンセット（ロゴや特定用途のセットを含む）",
+    "enHash": "292ad05083e8"
+  },
+  "notthetup/awesome-webaudio": {
+    "summary": "ブラウザで音を生成・処理するWeb Audio APIのパッケージ、チュートリアル、リソース",
+    "enHash": "3f26c8399d87"
+  },
+  "npacore/awesome-neuroimaging": {
+    "summary": "MRIなどの脳画像を解析するためのビューアー、パイプライン、ライブラリ、データ、チュートリアル",
+    "enHash": "8e5c4ed441c5"
+  },
+  "nschloe/awesome-scientific-computing": {
+    "summary": "線形代数、有限要素法、メッシュ生成、ソルバー、データ形式、可視化など科学技術計算のためのソフトウェア",
+    "enHash": "162c98928cd0"
+  },
+  "numetriclabz/awesome-db": {
+    "summary": "実装言語別に分類したオープンソースのデータベースエンジンと、データベースに関する研究論文",
+    "enHash": "a437b87b2e64"
+  },
+  "ocaml-community/awesome-ocaml": {
+    "summary": "分野別に整理したOCamlのライブラリ、ツール、コンパイラ、書籍、ブログ、コミュニティ",
+    "enHash": "fba969f15382"
+  },
+  "ohenley/awesome-ada": {
+    "summary": "AdaとSPARKのコンパイラ、エディタ、ライブラリ、フレームワーク、組み込み向けツール、学習教材",
+    "enHash": "0d625059bae4"
+  },
+  "oleksbard/awesome-knockout": {
+    "summary": "データをページにバインドするJavaScriptライブラリKnockoutのフレームワーク、プラグイン、カスタムバインディング、コンポーネント、サンプル",
+    "enHash": "d7d4bfceb55f"
+  },
+  "onqtam/awesome-cmake": {
+    "summary": "ビルドシステムジェネレーターCMakeのモジュール、スクリプト、ツールチェーン、テンプレート、パッケージマネージャー、学習リソース",
+    "enHash": "a00dd035b84e"
+  },
+  "opencompany/awesome-open-company": {
+    "summary": "財務、給与、戦略、ソースコードなど社内の仕組みを公開している企業",
+    "enHash": "531e976145a6"
+  },
+  "oppoverbakke/awesome-gdpr": {
+    "summary": "EUのデータ保護法GDPRの法令本文、公式ガイダンス、ツール、出版物",
+    "enHash": "0026d6d3e963"
+  },
+  "osmlab/awesome-openstreetmap": {
+    "summary": "誰でも編集できる地図OpenStreetMapを使ったエディタ、ツール、ライブラリ、API、地図",
+    "enHash": "911cfaabfe8d"
+  },
+  "ossu/computer-science": {
+    "summary": "大学のコンピュータサイエンス課程全体をカバーする、無料オンライン講座による独学カリキュラム",
+    "enHash": "734ed2ca08b8"
+  },
+  "owainlewis/awesome-artificial-intelligence": {
+    "summary": "AIを学ぶための書籍、論文、コースと、AIシステムやエージェント支援型ソフトウェア開発のためのツール",
+    "enHash": "41c6496e8a51"
+  },
+  "oxnr/awesome-analytics": {
+    "summary": "プライバシー重視のものを含む、Webサイト、モバイルアプリ、SEO、ヒートマップ、アトリビューション、SNSの分析ツール",
+    "enHash": "a6c0fcd7a056"
+  },
+  "oxnr/awesome-bigdata": {
+    "summary": "超大規模データのためのフレームワーク、分散ファイルシステム、各種データモデルのデータベース、取り込み・分析ツール",
+    "enHash": "d0935942a95e"
+  },
+  "packing-box/awesome-executable-packing": {
+    "summary": "マルウェアがよく使う実行ファイルの圧縮や偽装に関する論文、データセット、パッカー、ツール",
+    "enHash": "809aaba2e2c8"
+  },
+  "pajaydev/awesome-web-performance-budget": {
+    "summary": "Webサイトが守るべきページ容量や読み込み時間の上限、パフォーマンスバジェットに関する記事とツール",
+    "enHash": "c59a1c657648"
+  },
+  "pandafoss/awesome-arch": {
+    "summary": "Arch Linuxをベースにしたディストリビューション、インストーラー、AURヘルパーなどのプロジェクト",
+    "enHash": "2402a314b365"
+  },
+  "panxproject/awesome-certificates": {
+    "summary": "修了証が得られるコンピューティングと関連分野の無料オンライン講座",
+    "enHash": "e963386dff57"
+  },
+  "papers-we-love/papers-we-love": {
+    "summary": "おすすめのコンピュータサイエンス研究論文をトピック別にまとめたものと、関連する読書リスト",
+    "enHash": "be4e2063c268"
+  },
+  "paragonie/awesome-appsec": {
+    "summary": "セキュアなアプリケーションを書くための記事、書籍、ガイドをプログラミング言語別にまとめたもの",
+    "enHash": "9aef6d8f6b22"
+  },
+  "paralax/awesome-honeypots": {
+    "summary": "攻撃者をおびき寄せるおとりシステムであるハニーポットと、その収集結果を分析するツール",
+    "enHash": "1563923c4cb1"
+  },
+  "parro-it/awesome-micro-npm-packages": {
+    "summary": "一つのことだけを行う小さなnpmモジュールと、そうしたパッケージのスタイルに関する記事",
+    "enHash": "75cdc9f99665"
+  },
+  "passy/awesome-purescript": {
+    "summary": "JavaScript向けのHaskell風言語PureScriptのビルドツール、Prelude、UIライブラリ、ルーター、テスト、学習リソース",
+    "enHash": "0628186854fd"
+  },
+  "passy/awesome-recursion-schemes": {
+    "summary": "関数型コードで入れ子のデータを走査するパターンであるrecursion schemesの入門、記事、論文、講演、ライブラリ",
+    "enHash": "128e19496f5e"
+  },
+  "patrickjs/awesome-angular": {
+    "summary": "GoogleのTypeScript WebフレームワークAngularの数千のライブラリ、コンポーネント、ツール、チュートリアル、テンプレート",
+    "enHash": "da1b0f762f32"
+  },
+  "pazguille/offline-first": {
+    "summary": "ネットワーク接続がなくても動くWebアプリのための仕様、記事、講演、ツール、書籍、サンプル",
+    "enHash": "c5a675c54431"
+  },
+  "pehapkari/awesome-symfony-education": {
+    "summary": "フォームやセキュリティからDoctrineまで、PHPフレームワークSymfonyを学ぶためのチュートリアル、動画講座、記事、書籍",
+    "enHash": "fff428102a4f"
+  },
+  "perfectcarl/awesome-play1": {
+    "summary": "Java向けWebフレームワークPlay Frameworkのバージョン1用モジュールとリソース",
+    "enHash": "d76ad6139eaf"
+  },
+  "pest-parser/awesome-pest": {
+    "summary": "文法からパーサーを書くRustライブラリPestを使ったプロジェクトとツール",
+    "enHash": "e1121ac5746c"
+  },
+  "petk/awesome-dojo": {
+    "summary": "大規模Webアプリ向けJavaScriptライブラリDojo Toolkitのチュートリアル、ボイラープレート、パッケージ、連携、テーマ、アプリケーション",
+    "enHash": "fe96af83f42e"
+  },
+  "petk/awesome-jquery": {
+    "summary": "Webページを操作するJavaScriptライブラリjQueryのプラグイン、テストツール、チュートリアル、代替ライブラリ",
+    "enHash": "ae313f9982d0"
+  },
+  "pfarb/awesome-crypto-papers": {
+    "summary": "暗号の専門家ではないプログラマーやエンジニアに向けて暗号を解説する論文と記事",
+    "enHash": "c3ac3d2f3b24"
+  },
+  "phalcon/awesome-phalcon": {
+    "summary": "C拡張として提供されるPHPフレームワークPhalconのプラグイン、スケルトンアプリ、ライブラリを目的別にまとめたもの",
+    "enHash": "a274310971d1"
+  },
+  "phanan/htaccess": {
+    "summary": "リダイレクトとリライト、セキュリティ、パフォーマンスなどのサーバー設定に使うApache .htaccessのスニペット集",
+    "enHash": "5d19d8bf3ce9"
+  },
+  "phantomydn/awesome-wicket": {
+    "summary": "Java向けコンポーネントベースWebフレームワークApache Wicketのライブラリ、連携、プラグイン、ツール",
+    "enHash": "fed2a1c41dae"
+  },
+  "phillipadsmith/awesome-github": {
+    "summary": "GitHub初心者向けガイド、常用者向けのヒントとアドオン、サービスの変わった使い方",
+    "enHash": "9b7ad1bb11ae"
+  },
+  "philsturgeon/awesome-earth": {
+    "summary": "気候への影響を減らすのに役立つ製品、サービス、団体、メディア",
+    "enHash": "b7a3b9cfe608"
+  },
+  "pico-8/awesome-pico-8": {
+    "summary": "レトロゲームを作るための小さな架空のゲーム機PICO-8のチュートリアル、ツール、ライブラリ、アセット、講演、クローン",
+    "enHash": "01f4f7170250"
+  },
+  "piebald-ai/awesome-gemini-cli": {
+    "summary": "ターミナルで動くGoogleのAIコーディングアシスタントGemini CLIの拡張機能、連携、ツール",
+    "enHash": "4ebb6ef65f4f"
+  },
+  "playcanvas/awesome-playcanvas": {
+    "summary": "WebGLゲームエンジンPlayCanvasで作られたチュートリアル、拡張機能、デモ、ゲーム、製品事例",
+    "enHash": "b94b5997ef97"
+  },
+  "pmuens/awesome-serverless": {
+    "summary": "Serverless Frameworkとクラウド関数でのアプリケーション構築に関するブログ、記事、講演、プラグイン、プロジェクト",
+    "enHash": "f50deda669fe"
+  },
+  "podo/awesome-framer": {
+    "summary": "インタラクティブなプロトタイプを設計するツールFramerのチュートリアル、コース、モジュール、UIライブラリ、サンプル",
+    "enHash": "3ff5275c7a59"
+  },
+  "polkadot-developers/awesome-substrate": {
+    "summary": "ブロックチェーンを構築するRustフレームワークSubstrateのテンプレート、pallet、クライアントライブラリ、ツール、学習教材",
+    "enHash": "2dda9990fd28"
+  },
+  "polycarbohydrate/awesome-tor": {
+    "summary": "オンラインで誰が誰と通信しているかを隠すネットワークTorのアプリケーション、ブリッジ、検閲回避手段、ガイド、ニュース",
+    "enHash": "8154ac2eb764"
+  },
+  "prakhar1989/awesome-courses": {
+    "summary": "講義、読み物、課題がオンラインで公開されている大学のコンピュータサイエンス講座",
+    "enHash": "a8a7233e6c3c"
+  },
+  "preactjs/awesome-preact": {
+    "summary": "Reactの小さな代替であるPreactのツールキット、ボイラープレート、ルーター、コンポーネント、ライブラリ、サンプルアプリ",
+    "enHash": "2fb9a1fce6bf"
+  },
+  "qazbnm456/awesome-web-security": {
+    "summary": "Webアプリケーションセキュリティの入門、テクニック、チートシート、ツール、ブログ、練習サイト",
+    "enHash": "19d3cddf8e9e"
+  },
+  "qinwf/awesome-r": {
+    "summary": "データ処理、グラフィックス、再現可能な研究、Web、機械学習、統計など分野別のRパッケージとツール",
+    "enHash": "2e6972bfeb78"
+  },
+  "qmonnet/awesome-ebpf": {
+    "summary": "Linuxカーネル内で小さく安全なプログラムを動かすeBPFのドキュメント、記事、チュートリアル、サンプル、プロジェクト",
+    "enHash": "ceeb80442271"
+  },
+  "quangv/awesome-couchdb": {
+    "summary": "レプリカ間でデータを同期するドキュメントデータベースApache CouchDBの記事、ドキュメント、書籍、動画、ライブラリ",
+    "enHash": "860081998768"
+  },
+  "quozd/awesome-dotnet": {
+    "summary": "アルゴリズムからWebまでトピック別に整理した.NET開発向けのライブラリ、フレームワーク、ツール",
+    "enHash": "fe30c304374a"
+  },
+  "rabbiabram/awesome-fortran": {
+    "summary": "数学、グラフィックス、データ形式、テスト、ビルドのためのFortranライブラリとその他のリソース",
+    "enHash": "eccdeb738d0a"
+  },
+  "rabschi/awesome-beacon": {
+    "summary": "iBeaconやEddystoneなどBluetooth Low Energyビーコン向けの各種プラットフォームの仕様、SDK、アプリ",
+    "enHash": "1872cd55cac4"
+  },
+  "radek-sprta/awesome-game-remakes": {
+    "summary": "アクション、アドベンチャー、シューター、RPG、レース、ストラテジーなどジャンル別の名作ゲームのオープンソースリメイクと再実装",
+    "enHash": "d298804f4061"
+  },
+  "rafaskb/awesome-libgdx": {
+    "summary": "クロスプラットフォームゲーム向けJavaフレームワークlibGDXのライブラリ、チュートリアル、アセット、コミュニティ",
+    "enHash": "3a0969d03ff0"
+  },
+  "rahulbircodes/awesome-steam": {
+    "summary": "学校や大学の科学、技術、工学、芸術、数学（STEAM）の授業のための教材",
+    "enHash": "c7a7d3541f95"
+  },
+  "ramitsurana/awesome-kubernetes": {
+    "summary": "多数のマシンでコンテナを実行・管理するシステムKubernetesに関するプロジェクト、ツール、読み物",
+    "enHash": "1c009da16440"
+  },
+  "ramnes/awesome-mongodb": {
+    "summary": "JSON風のレコードを保存するドキュメントデータベースMongoDBのチュートリアル、ドライバ、ライブラリ、ツール、アプリケーション",
+    "enHash": "41157198c8df"
+  },
+  "raphamorim/awesome-canvas": {
+    "summary": "HTML5のcanvas要素でグラフィックスを描くためのデモ、ライブラリ、チュートリアル",
+    "enHash": "b23a162f9d2d"
+  },
+  "ravirupareliya/awesome-actions-on-google": {
+    "summary": "Googleアシスタントをアプリで拡張していたActions on Googleのドキュメント、ブログ、動画、コース、サンプルコード",
+    "enHash": "8926dc9fc272"
+  },
+  "raybb/awesome-social-enterprise": {
+    "summary": "収益を上げながら社会貢献を目指す組織を立ち上げる人向けの読み物、ポッドキャスト、コース、フェローシップ、機関、コミュニティ",
+    "enHash": "58c147b78aca"
+  },
+  "rayokota/awesome-hbase": {
+    "summary": "Hadoop上で動くカラムストアApache HBaseのプロジェクトと読み物",
+    "enHash": "b308847610e5"
+  },
+  "razum2um/awesome-clojure": {
+    "summary": "Webフレームワークやデータベースから並行処理、GUIまで分野別のClojureライブラリ、製品、ツール",
+    "enHash": "05a84a5ed172"
+  },
+  "readthedocs-examples/awesome-read-the-docs": {
+    "summary": "新しいドキュメントを始める際に参考にできる、SphinxやMkDocsで作られRead the Docsでホストされているドキュメントプロジェクト",
+    "enHash": "b5bec296d0e3"
+  },
+  "refinerycms-contrib/awesome-refinerycms": {
+    "summary": "Ruby on Railsで作られたCMSであるRefinery CMSの拡張機能（ショップ連携を含む）",
+    "enHash": "7df9564e33d4"
+  },
+  "reflex-dev/awesome-reflex": {
+    "summary": "純粋なPythonでWebアプリ全体を作るReflexのサンプルアプリ、テンプレート、コンポーネントライブラリ、ガイド",
+    "enHash": "0a0b98bb8ff3"
+  },
+  "rellaner/awesome-position-based-quantum-cryptography": {
+    "summary": "量子信号と相対論を使って自分の位置を証明する、位置ベース量子暗号に関する研究論文",
+    "enHash": "809a30d109cc"
+  },
+  "richardlitt/awesome-fantasy": {
+    "summary": "古典的なシリーズから最近の作品までのファンタジー小説と映画",
+    "enHash": "14899a7db687"
+  },
+  "richienb/awesome-ponyfills": {
+    "summary": "組み込みオブジェクトを変更せずに不足しているJavaScript機能を補うモジュール、ponyfill",
+    "enHash": "6ac3fcbbcb1c"
+  },
+  "rickstaa/awesome-adsb": {
+    "summary": "航空機が自機の位置を送信する無線信号ADS-Bのガイド、アグリゲーター、ソフトウェア、データ、受信機",
+    "enHash": "60299b288f06"
+  },
+  "riderx/awesome-capacitor": {
+    "summary": "WebアプリをモバイルアプリにするCapacitorの公式・コミュニティ製プラグイン、ツール、学習教材、アプリ",
+    "enHash": "9fcc8b835425"
+  },
+  "ripienaar/free-for-dev": {
+    "summary": "クラウドホスティング、コードホスティング、CI、テスト、監視、メール、ログなど開発者向けの無料プランがあるサービス",
+    "enHash": "3dd99cf40852"
+  },
+  "roaldnefs/awesome-prometheus": {
+    "summary": "オープンソースの監視・アラートシステムPrometheusのチュートリアル、書籍、講演、エクスポーター、ダッシュボード、デプロイツール",
+    "enHash": "ce10a2a379ff"
+  },
+  "robinrodricks/awesome-actionscript3": {
+    "summary": "FlashとAdobe AIRの言語ActionScript 3のフレームワーク、UIライブラリ、ツール、ランタイム、ネイティブ拡張",
+    "enHash": "9fdbed60506b"
+  },
+  "robinstickel/awesome-design-principles": {
+    "summary": "企業やデザインシステムが公開しているデザイン原則と、その書き方に関する記事",
+    "enHash": "255213414b8a"
+  },
+  "rockerboo/awesome-neovim": {
+    "summary": "言語サーバー、補完、カラースキーム、ファイルブラウザなど、Vimの拡張可能なフォークNeovimのプラグイン",
+    "enHash": "19dda62b1c5d"
+  },
+  "rocq-community/awesome-coq": {
+    "summary": "機械で検証される証明のための証明支援系Coq（現Rocq）のプロジェクト、ライブラリ、ツール、学習リソース",
+    "enHash": "4e480aa6a13a"
+  },
+  "romantseg/rbooks": {
+    "summary": "データサイエンス、金融、機械学習、可視化などに関する初心者から上級者向けのR言語の書籍",
+    "enHash": "810608de5fad"
+  },
+  "rossant/awesome-math": {
+    "summary": "論理や代数から解析、確率まで数学全般の無料教科書、講義ノート、コース",
+    "enHash": "4afd49d3b6a8"
+  },
+  "rshipp/awesome-malware-analysis": {
+    "summary": "マルウェアを研究するための検体、脅威インテリジェンス、サンドボックス、デバッガ、難読化解除ツール、フォレンジックツール",
+    "enHash": "9946d3790d95"
+  },
+  "rtckit/awesome-rtc": {
+    "summary": "SIPやWebRTCなどリアルタイムの音声、映像、データ通信のサーバー、クライアント、ツール、開発者向けリソース、講演",
+    "enHash": "8fd8b57de740"
+  },
+  "run-as-root/awesome-magento2": {
+    "summary": "オープンソースのPHP製ECプラットフォームMagento 2の拡張機能、ツール、フロントエンド、ブログ、ポッドキャスト、コミュニティ",
+    "enHash": "42f78f942938"
+  },
+  "rust-unofficial/awesome-rust": {
+    "summary": "数千に及ぶRustのアプリケーション、開発ツール、ライブラリ、学習リソース",
+    "enHash": "682245b4d974"
+  },
+  "ryanzim/awesome-npm-scripts": {
+    "summary": "GruntやGulpの代わりにnpm scriptsをビルドツールとして使うための記事、講演、ユーティリティ",
+    "enHash": "782d7dfae855"
+  },
+  "sachin1092/awesome-material": {
+    "summary": "さまざまなフロントエンド・デスクトップフレームワーク向けのGoogle Material Designスタイルのアイコン、フォント、配色、アニメーション、コンポーネント",
+    "enHash": "c9bf42a76374"
+  },
+  "sadcitizen/awesome-backbone": {
+    "summary": "Webアプリを構造化する初期のJavaScriptフレームワークBackbone.jsのチュートリアル、書籍、動画、ボイラープレート、ライブラリ",
+    "enHash": "b3ba6e7caa0e"
+  },
+  "sadcitizen/awesome-marionette": {
+    "summary": "Backbone.jsにアプリケーション構造を加えるMarionette.jsのチュートリアル、書籍、動画、サンプル、ライブラリ",
+    "enHash": "dbb37bb7ba75"
+  },
+  "sampart/awesome-tech-ethics": {
+    "summary": "テクノロジーの倫理と社会への害を扱うツールキット、メディア、コース、団体",
+    "enHash": "75ec8717fb8d"
+  },
+  "sancarn/awesome-vba": {
+    "summary": "Microsoft Officeのマクロ言語VBAのライブラリ、開発者ツール、サンプル、スタイルガイド、リファレンス",
+    "enHash": "5cc94ced5822"
+  },
+  "satta/awesome-suricata": {
+    "summary": "オープンソースのネットワーク侵入検知エンジンSuricataのツール、ルールセット、ダッシュボード、ガイド、トレーニング",
+    "enHash": "67a18ca8a1e5"
+  },
+  "sbilly/awesome-security": {
+    "summary": "ネットワーク、エンドポイント、Webのセキュリティ、脅威インテリジェンス、レッドチーム・ブルーチームのためのソフトウェア、ライブラリ、資料",
+    "enHash": "47c1dcdf42f0"
+  },
+  "scaleleap/awesome-amazon-seller": {
+    "summary": "Amazonで販売する人向けのソフトウェア、商品リサーチツール、ポッドキャスト、ブログ",
+    "enHash": "7fa369da13e2"
+  },
+  "schlessera/awesome-wp-cli": {
+    "summary": "WordPressサイトを管理するコマンドラインツールWP-CLIの公式リンク、サードパーティ製パッケージ、ガイド",
+    "enHash": "98ae216c60eb"
+  },
+  "scholtzm/awesome-steam": {
+    "summary": "ボットやAPIクライアントなど、ValveのゲームストアSteamで開発するためのパッケージとリソース",
+    "enHash": "618c64114e6f"
+  },
+  "sdassow/awesome-veganism": {
+    "summary": "植物性の食生活を送る人のための書籍、店舗、レストラン、ブランド、Webサイト、団体、ドキュメンタリー、アプリ",
+    "enHash": "7f68d48ee8ec"
+  },
+  "sdras/awesome-actions": {
+    "summary": "GitHubに組み込まれた自動化・CIサービスGitHub Actionsの既製アクション、チュートリアル、リソース",
+    "enHash": "990e3fa51a8a"
+  },
+  "sduff/awesome-splunk": {
+    "summary": "ログを検索・分析するプラットフォームSplunkのドキュメント、アプリ、可視化、ミートアップ、コミュニティリソース",
+    "enHash": "08c7f313721c"
+  },
+  "se-ml/awesome-seml": {
+    "summary": "機械学習システムを構築、デプロイ、運用するエンジニアリング実践に関する記事、論文、ツール",
+    "enHash": "3884281e4d83"
+  },
+  "seancoyne/awesome-coldfusion": {
+    "summary": "ColdFusionとCFMLのエンジン、フレームワーク、テストツール、ライブラリ、エディタ、リファレンス",
+    "enHash": "23c1a64fb991"
+  },
+  "secdev/awesome-scapy": {
+    "summary": "ネットワークパケットを作成・解析するPythonライブラリScapyで作られたツールとエクスプロイト",
+    "enHash": "eead6f1098b8"
+  },
+  "secretgeek/awesomecsv": {
+    "summary": "表のためのプレーンテキスト形式CSVに関するツール、スキーマ標準、エッセイ、データ、カンファレンス",
+    "enHash": "85ce5c75de7b"
+  },
+  "seed-rs/awesome-seed-rs": {
+    "summary": "WebAssemblyで動くWebアプリ用のRustフレームワークSeedの書籍、クイックスタート、サンプル、ライブラリ、プロジェクト",
+    "enHash": "698490e7c75f"
+  },
+  "seifrajhi/awesome-cilium": {
+    "summary": "eBPFでKubernetesのネットワークを扱うCiliumのドキュメント、関連プロジェクト、講演、イベント、ハンズオンラボ",
+    "enHash": "0565ab6ff5a1"
+  },
+  "sellisd/awesome-complexity": {
+    "summary": "複雑系科学の概念、学術誌、学会、モデル、ソフトウェア、書籍",
+    "enHash": "e89f4b55df85"
+  },
+  "sergey-pimenov/awesome-web-animation": {
+    "summary": "SVG、CSS、canvas、Reactを使ったWebページのアニメーションのためのライブラリとツール、動画",
+    "enHash": "afc2e17920e0"
+  },
+  "serhii-londar/open-source-mac-os-apps": {
+    "summary": "ソースコードへのリンク付きの、1000以上のオープンソースmacOSアプリケーション",
+    "enHash": "2d3bde0dd1f6"
+  },
+  "seriousran/awesome-qa": {
+    "summary": "自然言語の質問にソフトウェアが答える質問応答に関する論文、システム、コード、講義、データセット",
+    "enHash": "10a2b4bd65e3"
+  },
+  "sfischer13/awesome-ledger": {
+    "summary": "プレーンテキストで複式簿記を行うコマンドラインプログラムLedgerのドキュメント、エディタプラグイン、ツール、メディア",
+    "enHash": "93e0b92d274f"
+  },
+  "sger/elixirbooks": {
+    "summary": "Elixir言語、Phoenixフレームワーク、その基盤のErlangプラットフォームに関する書籍",
+    "enHash": "0b087f4502b6"
+  },
+  "shano/awesome-backstage": {
+    "summary": "Spotifyのオープンソース開発者ポータルフレームワークBackstageのプラグイン、チュートリアル、連携、講演",
+    "enHash": "abe93f5d4aea"
+  },
+  "shi-rudo/awesome-stock-trading": {
+    "summary": "株式トレーダー向けのリサーチサイト、スクリーナー、チャートツール、ポートフォリオ管理、バックテスト、API、書籍",
+    "enHash": "61d903c577cf"
+  },
+  "shi-yu-zhe/awesome-agi-cocosci": {
+    "summary": "汎用人工知能と計算認知科学が交わる領域の論文、ツール、研究者",
+    "enHash": "587aa151e47e"
+  },
+  "shlomi-noach/awesome-mysql": {
+    "summary": "バックアップ、レプリケーション、高可用性、プロキシ、スキーマ移行、監視、クライアント、コネクタなどMySQL運用のためのツール",
+    "enHash": "2459802f8ac1"
+  },
+  "shopify/awesome-hydrogen": {
+    "summary": "独自のオンラインショップを作るShopifyのReactフレームワークHydrogenのドキュメント、ツール、連携、サンプル、講演",
+    "enHash": "ea70e3f0f5cd"
+  },
+  "shuaibiyy/awesome-tf": {
+    "summary": "インフラをコードで記述するTerraformのモジュール、プロバイダー、レジストリ、テストツール、チュートリアル、書籍",
+    "enHash": "6ddb58862f99"
+  },
+  "siboehm/awesome-learn-datascience": {
+    "summary": "主要なアルゴリズム、Pythonツール、練習課題、参考文献などデータサイエンス初心者向けのチュートリアル",
+    "enHash": "f07c023e8cfb"
+  },
+  "siddharth11/colorful": {
+    "summary": "デザインの配色を選ぶためのツール、既製パレット、記事",
+    "enHash": "02a0579409c0"
+  },
+  "siilwyn/awesome-pixel-art": {
+    "summary": "ドット絵を描くためのチュートリアル、書籍、アーティスト、コミュニティ、ツール",
+    "enHash": "7e3072f0bcb8"
+  },
+  "simonaronsson/awesome-software-architecture": {
+    "summary": "ソフトウェアシステムの構造を設計するための原則、パターン、手法、ドキュメント、モデリングツール",
+    "enHash": "2815ea8c3b3c"
+  },
+  "sindresorhus/amas": {
+    "summary": "個人や組織が誰からでも質問を受け付ける、AMA形式のGitHubリポジトリ",
+    "enHash": "cae8eb925c67"
+  },
+  "sindresorhus/awesome": {
+    "summary": "プラットフォームや言語からセキュリティ、科学まで分類された、GitHub上の数百のトピック別リストの索引",
+    "enHash": "0cdf1cddf8e1"
+  },
+  "sindresorhus/awesome-chatgpt": {
+    "summary": "OpenAIの対話型AI ChatGPTのアプリ、ブラウザ拡張機能、コマンドラインツール、ボット、連携、パッケージ",
+    "enHash": "2e00ab1668ee"
+  },
+  "sindresorhus/awesome-electron": {
+    "summary": "Web技術でデスクトップアプリを作るElectronのアプリ、ボイラープレート、ツール、コンポーネント、学習教材",
+    "enHash": "95ce813e172c"
+  },
+  "sindresorhus/awesome-nodejs": {
+    "summary": "あらゆる用途のNode.jsパッケージと、パッケージマネージャー、チュートリアルなどJavaScriptランタイムのリソース",
+    "enHash": "c40120fa6cf8"
+  },
+  "sindresorhus/awesome-npm": {
+    "summary": "JavaScriptパッケージマネージャーnpmの記事、ツール、パッケージ、クライアント、ドキュメント",
+    "enHash": "189151acfdd9"
+  },
+  "sindresorhus/awesome-observables": {
+    "summary": "JavaScriptで時間とともに流れる値のストリーム、Observableに関する実装、パッケージ、記事、動画",
+    "enHash": "7a26e470b96f"
+  },
+  "sindresorhus/awesome-scifi": {
+    "summary": "SFの長編・短編小説、映画、テレビシリーズ、コミック、オーディオブック",
+    "enHash": "8f3adb19a48e"
+  },
+  "sindresorhus/awesome-tap": {
+    "summary": "テストランナーが結果出力に使うプレーンテキスト形式TAPのレポーター、プロデューサー、コンシューマー、ツール",
+    "enHash": "2e986e57b5e0"
+  },
+  "sindresorhus/awesome-whisper": {
+    "summary": "OpenAIのオープンな音声認識モデルWhisperの派生モデル、アプリ、コマンドラインツール、パッケージ、API",
+    "enHash": "4dfde43a967d"
+  },
+  "sindresorhus/quick-look-plugins": {
+    "summary": "JSONやMarkdownなど、macOSのQuick Lookでプレビューできるファイル形式を増やすプラグイン",
+    "enHash": "74eedec43ee0"
+  },
+  "sitepoint-editors/awesome-symfony": {
+    "summary": "管理画面、フォーム、決済、ストレージなど分野別のPHPフレームワークSymfony向けバンドルとライブラリ",
+    "enHash": "1a752bba62ff"
+  },
+  "sjfricke/awesome-webgl": {
+    "summary": "ブラウザで3Dグラフィックスを扱うAPIであるWebGL、WebGL 2、WebXRのチュートリアル、デモ、ライブラリ、コミュニティ",
+    "enHash": "adc5a1d0ebdb"
+  },
+  "slevithan/awesome-regex": {
+    "summary": "正規表現のテスター、ビルダー、可視化ツール、エンジン、パターン集、チュートリアル、書籍",
+    "enHash": "efe8cf6e926b"
+  },
+  "sobolevn/awesome-cryptography": {
+    "summary": "暗号の理論、ツール、多言語のライブラリ、学習リソース",
+    "enHash": "26da91c48834"
+  },
+  "solido/awesome-flutter": {
+    "summary": "GoogleのクロスプラットフォームUIツールキットFlutterのコンポーネント、プラグイン、テンプレート、フレームワーク、オープンソースアプリ、記事、動画",
+    "enHash": "d73144620972"
+  },
+  "sorrycc/awesome-javascript": {
+    "summary": "パッケージマネージャー、ローダー、バンドラー、フレームワーク、ユーティリティ、読み物など、あらゆる種類のJavaScriptライブラリとツール",
+    "enHash": "30b9a84e384f"
+  },
+  "sporto/awesome-elm": {
+    "summary": "Webフロントエンド向け関数型言語Elmのガイド、記事、講演、ライブラリ、ツール、エディタプラグイン",
+    "enHash": "e52849b4f6b7"
+  },
+  "srinivasantarget/awesome-appium": {
+    "summary": "モバイルアプリのテストを自動化するAppiumのクライアント、インスペクター、チュートリアル、クラウドサービス、サンプルアプリ",
+    "enHash": "25dc36b4fd45"
+  },
+  "stackshareio/awesome-stacks": {
+    "summary": "フロントエンド、バックエンド、フルアプリケーション、モバイルアプリの構築に向いたツールの組み合わせ",
+    "enHash": "58dc35837ee6"
+  },
+  "standard/awesome-standard": {
+    "summary": "ルールが固定されたリンターJavaScript Standard Styleのパッケージ、エディタ・ビルド連携、フォーマッター",
+    "enHash": "ce7f0886aad4"
+  },
+  "stefanbuck/awesome-browser-extensions-for-github": {
+    "summary": "通知からコード表示の改善まで、GitHubのWebサイトに機能を追加するブラウザ拡張機能",
+    "enHash": "45d463310b17"
+  },
+  "stetso/awesome-gideros": {
+    "summary": "モバイルゲーム向けLuaエンジンGiderosの入門ガイド、チュートリアル、Luaライブラリ",
+    "enHash": "be8109ede0b0"
+  },
+  "stevemao/awesome-git-addons": {
+    "summary": "git-extrasやGit TownなどGitのコマンドラインを拡張する追加コマンド",
+    "enHash": "ee4a2197018a"
+  },
+  "steven2358/awesome-blockchain-ai": {
+    "summary": "データ、計算、金融、医療、エージェントなど、ブロックチェーンとAIを組み合わせたプロジェクトと研究",
+    "enHash": "edc036877880"
+  },
+  "steven2358/awesome-generative-ai": {
+    "summary": "テキスト、コード、画像、動画、音声の生成AI製品とプロジェクト、エージェント、読み物、学習リソース",
+    "enHash": "9beb46427f18"
+  },
+  "stevesong/awesome-connectivity-info": {
+    "summary": "誰がどれだけのコストでインターネットや電話網を利用できるかに関する指標、地図、レポート、データ",
+    "enHash": "ae92f51d50fd"
+  },
+  "stevinz/awesome-game-engine-dev": {
+    "summary": "ゲームエンジンを自作する人向けのエンジン、ライブラリ、ツール、学習教材、専門トピック、アセット",
+    "enHash": "9df157d6264b"
+  },
+  "stingalleman/awesome-audiovisual": {
+    "summary": "劇場やイベントのプロ用照明、音響、映像のためのソフトウェア、ツール、ライブラリ、チュートリアル",
+    "enHash": "e26cddb081e8"
+  },
+  "stn1slv/awesome-integration": {
+    "summary": "API、メッセージング、イベントで別々のソフトウェアシステムをつなぐためのプロジェクト、連携パターン、リソース",
+    "enHash": "80199ff7d7ec"
+  },
+  "stoeffel/awesome-ama-answers": {
+    "summary": "GitHubのAMAリポジトリで寄せられた回答を質問ごとに集めたもの",
+    "enHash": "ef05d40917e9"
+  },
+  "stoeffel/awesome-fp-js": {
+    "summary": "JavaScriptで関数型プログラミングを行うためのライブラリ、JavaScriptにコンパイルされる言語、ツール、読み物",
+    "enHash": "b14d209d8eb4"
+  },
+  "strift/awesome-esports": {
+    "summary": "eスポーツのデータを扱うためのライブラリ、開発者ツール、非公式APIドキュメント、アプリケーション",
+    "enHash": "81fa9f125299"
+  },
+  "sturobson/bem-resources": {
+    "summary": "CSSクラスの命名手法BEMに関する記事、ツール、コード例、講演",
+    "enHash": "ca287b222fb8"
+  },
+  "stve/awesome-dropwizard": {
+    "summary": "REST Webサービスを作るJavaフレームワークDropwizardのバンドル、ツール、チュートリアル、ガイド",
+    "enHash": "096911a1bdcb"
+  },
+  "sublimino/awesome-funny-markov": {
+    "summary": "WebのおもちゃやTwitterボットから生成ツールまで、マルコフ連鎖で作られたおかしなテキスト",
+    "enHash": "3f33c9879f7d"
+  },
+  "svaksha/julia.jl": {
+    "summary": "AIやDevOpsから最適化、ユーティリティまでテーマ別にまとめたJuliaのパッケージとリソース",
+    "enHash": "e276cd5a7f7f"
+  },
+  "symbitic/awesome-babylonjs": {
+    "summary": "Web向け3DエンジンBabylon.jsのドキュメント、書籍、デモ、シーン、ゲーム、サンプル",
+    "enHash": "3fef3e6f6b8d"
+  },
+  "szenergy/awesome-lidar": {
+    "summary": "距離と形状を測るレーザーセンサー、LiDARのメーカー、データセット、ライブラリ、アルゴリズム、シミュレーター",
+    "enHash": "623cc1395f34"
+  },
+  "talater/awesome-book-authoring": {
+    "summary": "企画書、契約、印税、出版社、マーケティング、自費出版、執筆ツールなど技術書を書くためのアドバイス",
+    "enHash": "de8fa34cf77d"
+  },
+  "talater/awesome-progressive-web-apps": {
+    "summary": "インストールしたアプリのように動くWebサイト、PWAに関する記事、チュートリアル、動画、事例",
+    "enHash": "22243471460b"
+  },
+  "talater/awesome-service-workers": {
+    "summary": "オフラインキャッシュやプッシュ通知を支えるブラウザスクリプト、Service Workerの記事、リファレンス、ライブラリ、事例",
+    "enHash": "3b8ca4861657"
+  },
+  "tayllan/awesome-algorithms": {
+    "summary": "アルゴリズムとデータ構造を学ぶためのコース、コンテストサイト、書籍、チートシート",
+    "enHash": "eb3e26f0142f"
+  },
+  "terkelg/awesome-creative-coding": {
+    "summary": "プログラムでアートを作るクリエイティブコーディングのための書籍、コース、ツール、コミュニティ、イベント、インスピレーション",
+    "enHash": "9331a3c94334"
+  },
+  "terryum/awesome-deep-learning-papers": {
+    "summary": "モデル、最適化、応用などトピック別にまとめた、よく引用されるディープラーニングの研究論文",
+    "enHash": "4db694f5d1a0"
+  },
+  "thangchung/awesome-dotnet-core": {
+    "summary": ".NET Coreとその後継のためのフレームワーク、ライブラリ、ツール、スターターキット、サンプルプロジェクト、学習教材",
+    "enHash": "3c63eca8b152"
+  },
+  "thecomputerm/awesome-svelte": {
+    "summary": "コンパイラベースのフロントエンドフレームワークSvelteの連携、状態管理・UIライブラリ、コンポーネント、ルーター、ツール、サンプル",
+    "enHash": "354dc2297e4c"
+  },
+  "theimpossibleastronaut/awesome-linguistics": {
+    "summary": "言語学と言語技術のためのツールキット、アルゴリズム、データセット、モデル、書籍、コミュニティ",
+    "enHash": "01d7bde461f3"
+  },
+  "thejambo/awesome-testing": {
+    "summary": "ソフトウェアテスター向けのソフトウェア、書籍、トレーニング、ブログ、ニュースレター",
+    "enHash": "dcb44e6b3780"
+  },
+  "therebelrobot/awesome-workshopper": {
+    "summary": "主にNodeSchoolプロジェクトによるターミナルで動くインタラクティブな教材と、その作成ツール",
+    "enHash": "23818fd2e642"
+  },
+  "thibmaek/awesome-raspberry-pi": {
+    "summary": "シングルボードコンピュータRaspberry Piのモデル、OSイメージ、ツール、プロジェクト、コミュニティリソース",
+    "enHash": "c3e9276a4e65"
+  },
+  "thomasbnt/awesome-web-monetization": {
+    "summary": "ブラウザからWebサイトに支払うための標準案Web Monetizationのドキュメント、ライブラリ、プロジェクト",
+    "enHash": "8d802c79452c"
+  },
+  "thoughtspile/awesome-tiny-js": {
+    "summary": "フレームワーク、状態管理、ルーティング、日付、バリデーション、ID、配色、ジェスチャーなどフロントエンド向けのごく小さなJavaScriptライブラリ",
+    "enHash": "3ea60b68944d"
+  },
+  "tiimgreen/github-cheat-sheet": {
+    "summary": "GitとGitHubのあまり知られていない機能を短い例で解説したもの",
+    "enHash": "c94730b4e2cd"
+  },
+  "timofurrer/awesome-asyncio": {
+    "summary": "Pythonの非同期プログラミングライブラリasyncioのフレームワーク、データベースドライバ、ネットワーク・テストライブラリ、記事、講演",
+    "enHash": "e67b1147447b"
+  },
+  "tindzk/awesome-scala-native": {
+    "summary": "ScalaをマシンコードにコンパイルするScala Nativeのライブラリ、バインディング、ビルドツール、サンプル",
+    "enHash": "414d030e8cae"
+  },
+  "tmcw/awesome-geojson": {
+    "summary": "地図上の地物を表すJSON形式GeoJSONのエディタ、バリデーター、変換ツール、サービス、データ",
+    "enHash": "94334aa7550b"
+  },
+  "tobiasbueschel/awesome-pokemon": {
+    "summary": "ポケモンのゲームとPokémon GOの開発プロジェクト、API、コミュニティリソース",
+    "enHash": "3fa4b5ea3482"
+  },
+  "tobiasvl/awesome-chip-8": {
+    "summary": "1970年代のゲーム用シンプルな仮想マシンCHIP-8のドキュメント、エミュレーター、開発ツール、ゲーム",
+    "enHash": "1746d884e9c6"
+  },
+  "tomodachi94/awesome-computercraft": {
+    "summary": "Minecraftにプログラム可能なコンピュータを追加するComputerCraftのmod、Luaプログラム、読み物",
+    "enHash": "ff403d939acb"
+  },
+  "tramcar/awesome-job-boards": {
+    "summary": "AI、デザイン、DevOps、金融、ゲーム、オープンソース、リモートワークなど特定分野向けの求人サイト",
+    "enHash": "c6f481379ab4"
+  },
+  "transitive-bullshit/awesome-ffmpeg": {
+    "summary": "音声・動画用コマンドラインツールFFmpegのドキュメント、JavaScript・ネイティブラッパー、モバイル向けビルド、チュートリアル",
+    "enHash": "5ef133adbd7f"
+  },
+  "troxler/awesome-css-frameworks": {
+    "summary": "リセット、クラスレス、軽量、汎用、Material Design、ユーティリティクラスなど方針別に分類したCSSフレームワーク",
+    "enHash": "2a356c07c47b"
+  },
+  "ttt30ga/awesome-product-design": {
+    "summary": "リサーチ、UX、UI・ビジュアルデザイン、プロトタイピング、アクセシビリティ、ライティングに関するプロダクトデザイナー向けリソース",
+    "enHash": "b9bf3f90fc3b"
+  },
+  "ttumiel/awesome-ethereum": {
+    "summary": "スマートコントラクトを動かすブロックチェーンEthereumのドキュメント、開発ツール、チュートリアル、ウォレット、プロトコル、書籍",
+    "enHash": "0d0dbd0e77bc"
+  },
+  "tupletype/awesome-cicd-attacks": {
+    "summary": "ビルドパイプラインとソフトウェアサプライチェーンへの攻撃の手法、ツール、事例",
+    "enHash": "9c0a1a79ef87"
+  },
+  "tvvocold/foss-for-dev": {
+    "summary": "コードホスティング、エディタ、CI、バグトラッカー、ドキュメント、チャットなど開発者向けの無料・オープンソースソフトウェア",
+    "enHash": "ec226d309501"
+  },
+  "tyaga001/awesome-neon": {
+    "summary": "ホスティング型のサーバーレスPostgresサービスNeonのドキュメント、ガイド、サンプル、動画、記事",
+    "enHash": "bcbcf2c12561"
+  },
+  "typedb/typedb-awesome": {
+    "summary": "型付きスキーマと論理クエリを持つデータベースTypeDBのプロジェクト、ドキュメント、クライアントドライバ、エディタサポート、講演",
+    "enHash": "c2d96acba587"
+  },
+  "typeddjango/awesome-python-typing": {
+    "summary": "Pythonの型ヒントのための型チェッカー、スタブパッケージ、追加の型、ツール、記事",
+    "enHash": "1995968fcfa1"
+  },
+  "ucg8j/awesome-dash": {
+    "summary": "データダッシュボード用PythonフレームワークPlotly Dashのコンポーネントライブラリ、サンプルアプリ、チュートリアル、講演、デプロイ手段",
+    "enHash": "715650f2031e"
+  },
+  "ujjwalkarn/machine-learning-tutorials": {
+    "summary": "回帰からディープラーニングまで、機械学習の手法に関するチュートリアル、記事、チートシート、面接対策資料",
+    "enHash": "3c4d7e9d1fbf"
+  },
+  "umbraco-community/awesome-umbraco": {
+    "summary": ".NET上のCMSであるUmbracoの公式リンク、コミュニティリソース、拡張機能、開発者ツール、スターターキット",
+    "enHash": "6b89016161e1"
+  },
+  "unicodeveloper/awesome-lumen": {
+    "summary": "Laravelベースの小さなAPI向けPHPフレームワークLumenのチュートリアル、パッケージ、ミドルウェア、デモ、書籍",
+    "enHash": "c52120b901a4"
+  },
+  "unicodeveloper/awesome-nextjs": {
+    "summary": "サーバーレンダリングサイト向けReactフレームワークNext.jsのボイラープレート、拡張機能、記事、書籍、動画、サンプルアプリ",
+    "enHash": "024679ae17ea"
+  },
+  "unixorn/awesome-zsh-plugins": {
+    "summary": "数千に及ぶzshシェルのフレームワーク、プラグイン、補完、テーマ、チュートリアル",
+    "enHash": "1a2378b0ebde"
+  },
+  "uraimo/awesome-software-patreons": {
+    "summary": "Patreonなどのサービスで支援を受け付けているオープンソースプロジェクトとプログラマー",
+    "enHash": "91de0fe4f377"
+  },
+  "uraimo/awesome-swift-playgrounds": {
+    "summary": "言語を学び、グラフィックス、オーディオ、数学、AppleのAPIを試すためのSwift Playground",
+    "enHash": "27c8ac5aef32"
+  },
+  "uralbash/awesome-pyramid": {
+    "summary": "認証、キャッシュ、フォーム、REST、検索、テンプレート、テストなど用途別のPython WebフレームワークPyramid向けアドオンパッケージ",
+    "enHash": "a24fd9bd073b"
+  },
+  "urigo/awesome-meteor": {
+    "summary": "アカウント、フォーム、ルーティング、デプロイ、テスト、検索など用途別のJavaScriptプラットフォームMeteor向けパッケージ",
+    "enHash": "93ac1d8c8b65"
+  },
+  "vala-lang/awesome-vala": {
+    "summary": "GNOME向けのC風言語Valaのアプリ、ツール、エディタプラグイン、言語サーバー、ライブラリ",
+    "enHash": "55519d6a9e03"
+  },
+  "vapor-community/awesome-vapor": {
+    "summary": "Swift言語のWebフレームワークVaporのライブラリ、ツール、サービス、チュートリアル、オープンソースプロジェクト",
+    "enHash": "67d50e4788a6"
+  },
+  "veelenga/awesome-crystal": {
+    "summary": "アルゴリズムやキャッシュからWebフレームワークまで用途別のCrystalライブラリとツール",
+    "enHash": "5efb08b3ae51"
+  },
+  "veggiemonk/awesome-docker": {
+    "summary": "Dockerコンテナのビルド、実行、ネットワーク、監視、セキュリティのためのツールなどのプロジェクトと学習教材",
+    "enHash": "fe0abf74b782"
+  },
+  "vert-x3/vertx-awesome": {
+    "summary": "JVMでリアクティブなプログラムを作るイベント駆動ツールキットVert.xのライブラリ、フレームワーク、データベースクライアント、連携",
+    "enHash": "f5ac68de15af"
+  },
+  "vhladiienko/awesome-game-production": {
+    "summary": "企画からリリースまで、ゲーム制作のプロデュースに関する書籍、記事、動画、ツール、テンプレート",
+    "enHash": "5a871fbd64ec"
+  },
+  "vhpoet/awesome-ripple": {
+    "summary": "XRP Ledger上に作られた決済ネットワークRippleの公式リソース、ゲートウェイ、ライブラリ、ホスティング型ツール",
+    "enHash": "30d410fd1741"
+  },
+  "viatsko/awesome-vscode": {
+    "summary": "Microsoftの無料コードエディタVisual Studio Codeの拡張機能、テーマ、注目の人物、コース",
+    "enHash": "f45f384fea65"
+  },
+  "victorlaerte/awesome-it-quotes": {
+    "summary": "この分野の著名人によるプログラミング、ソフトウェア、コンピューティングに関する名言",
+    "enHash": "86aac52c6719"
+  },
+  "victorshinya/awesome-ibmcloud": {
+    "summary": "IBM Cloudの開発者向けコマンドラインツール、SDK、サービス、コミュニティ",
+    "enHash": "e8f7219899cf"
+  },
+  "vinjn/awesome-vulkan": {
+    "summary": "低レベルのグラフィックス・計算APIであるVulkanのSDK、チュートリアル、サンプル、ライブラリ、バインディング、ツール、論文",
+    "enHash": "63ea4403acb9"
+  },
+  "vinta/awesome-python": {
+    "summary": "トピック別に整理したPythonのフレームワーク、ライブラリ、ツールと学習リソース",
+    "enHash": "3dc0cd538934"
+  },
+  "virtualroot/awesome-opentofu": {
+    "summary": "Terraformのオープンソースフォーク、OpenTofuのツール、機能、コース、コミュニティリソース",
+    "enHash": "84860be045e6"
+  },
+  "vitalets/awesome-smart-tv": {
+    "summary": "スマートテレビ向けアプリを作るためのプラットフォーム、フレームワーク、リモコン用プロトコル、ツール、ライブラリ",
+    "enHash": "9d10d13c2f99"
+  },
+  "vlang/awesome-v": {
+    "summary": "小さなコンパイル型プログラミング言語Vで書かれたアプリケーションとライブラリ",
+    "enHash": "a7f8ee7eae6e"
+  },
+  "voorhoede/progressive-enhancement-resources": {
+    "summary": "まず基本機能が動き、ブラウザの対応に応じて改善されるページを作るための記事、戦略、機能検出ツール、サンプル",
+    "enHash": "270c913ae7fe"
+  },
+  "vorpaljs/awesome-vorpal": {
+    "summary": "Node.jsで対話型コマンドラインアプリを作るフレームワークVorpalの拡張機能、チュートリアル、プロジェクト",
+    "enHash": "e75731c1a42f"
+  },
+  "vsouza/awesome-ios": {
+    "summary": "分析からUIまでトピック別に整理した、数千に及ぶiOSアプリ開発向けのライブラリ、フレームワーク、ツール",
+    "enHash": "fad91bb01395"
+  },
+  "vuejs/awesome-vue": {
+    "summary": "UI向けJavaScriptフレームワークVue.jsの1000以上のコンポーネント、ライブラリ、プロジェクト、学習リソース",
+    "enHash": "81c1fb0a00f6"
+  },
+  "wagtail/awesome-wagtail": {
+    "summary": "Django上のCMSであるWagtailのアプリ、ツール、エディタガイド、講演、オープンソースサイト",
+    "enHash": "5037e0740c12"
+  },
+  "wardley-maps-community/awesome-wardley-maps": {
+    "summary": "ビジネスの全体像を図にする手法、ウォードリーマップの入門、書籍、動画、コース、アプリ、イベント",
+    "enHash": "b10c53031449"
+  },
+  "wasabeef/awesome-android-ui": {
+    "summary": "レイアウト、ボタン、リスト、画像、メニュー、ダイアログ、チャート、アニメーションなどAndroidアプリ向けのオープンソースUIコンポーネント",
+    "enHash": "25a7741d7525"
+  },
+  "watson/awesome-computer-history": {
+    "summary": "コンピューティングの歴史に関するドキュメンタリー、録音、文章、歴史的なソースコード、Webサイト",
+    "enHash": "7b178906502e"
+  },
+  "wbinnssmith/awesome-promises": {
+    "summary": "JavaScriptのPromiseに関する記事、書籍、実装、ヘルパーライブラリ",
+    "enHash": "1bd407aebd82"
+  },
+  "wbkd/awesome-d3": {
+    "summary": "データ可視化用JavaScriptライブラリD3で作られたチャート、地図、ユーティリティ、サンプル",
+    "enHash": "90a89664fd10"
+  },
+  "web-padawan/awesome-lit": {
+    "summary": "Web Componentsを作るGoogleのライブラリLitのチュートリアル、スターターテンプレート、コンポーネントライブラリ、デザインシステム、ツール、連携",
+    "enHash": "8fc36812019c"
+  },
+  "web-padawan/awesome-web-components": {
+    "summary": "ブラウザ標準の再利用可能なカスタム要素、Web Componentsに関する標準、ガイド、記事、ライブラリ、フレームワーク、書籍",
+    "enHash": "bff338342477"
+  },
+  "weblancaster/awesome-iot-hybrid": {
+    "summary": "IoTと、Web技術を使ったハイブリッドなデスクトップ・モバイルアプリのためのプラットフォームとフレームワーク",
+    "enHash": "10f840649217"
+  },
+  "webpro/awesome-dotfiles": {
+    "summary": "Unixのホームフォルダにある設定ファイル（dotfiles）を管理・共有するための記事、ツール、リポジトリの例",
+    "enHash": "b45d8f60ec61"
+  },
+  "websemantics/awesome-ant-design": {
+    "summary": "AlibabaのReact UIライブラリ兼デザイン言語Ant Designのコンポーネント、ツール、テーマ、ボイラープレート、移植版",
+    "enHash": "2188ec0f506a"
+  },
+  "wernerkrauss/awesome-silverstripe-cms": {
+    "summary": "PHPのCMS兼フレームワークSilverstripe CMSのドキュメント、モジュール、開発者ツール",
+    "enHash": "9432ffcc38bf"
+  },
+  "willianjusten/awesome-audio-visualization": {
+    "summary": "主にブラウザで、音を動く映像に変えるためのライブラリ、実験作品、チュートリアル、動画",
+    "enHash": "4744a07a6e79"
+  },
+  "willianjusten/awesome-svg": {
+    "summary": "Webのベクター画像形式SVGのチュートリアル、ライブラリ、ツール、アイコン、アニメーション、アクセシビリティのメモ",
+    "enHash": "c18706306840"
+  },
+  "woop/awesome-quantified-self": {
+    "summary": "自分自身のデータを記録するためのアプリ、プラットフォーム、ウェアラブルデバイス、記事、書籍、オープンソースプロジェクト",
+    "enHash": "a89c21add413"
+  },
+  "writing-resources/awesome-scientific-writing": {
+    "summary": "プレーンテキスト形式で科学論文を書くためのエディタ、文献管理ツール、変換ツール、リンター、テンプレート",
+    "enHash": "2b70866f815c"
+  },
+  "xavidop/awesome-genkit": {
+    "summary": "アプリに生成AIを組み込むGoogleのオープンソースツールキットGenkitのプラグイン、リファレンス、講演、チュートリアル",
+    "enHash": "3523fb798538"
+  },
+  "xen0l/awesome-dtrace": {
+    "summary": "稼働中のシステムとプログラムの動作をトレースするDTraceのガイド、記事、動画、スクリプト、ツール",
+    "enHash": "2a3d221c8d42"
+  },
+  "xiaohanyu/awesome-tikz": {
+    "summary": "図を描くLaTeXパッケージTikZの書籍、ギャラリー、ライブラリ、ツール、動画",
+    "enHash": "28a8a4a458fa"
+  },
+  "xxczaki/awesome-calculators": {
+    "summary": "スマートフォン、デスクトップ、Web向けの電卓アプリと、電卓に関するリソース",
+    "enHash": "4496031cbf90"
+  },
+  "yenchenlin/awesome-watchos": {
+    "summary": "Apple Watch向けアプリを作るためのガイド、ライブラリ、デザインのアドバイス、ツール、サンプルアプリ、チュートリアル",
+    "enHash": "a1cbe866123b"
+  },
+  "yissachar/awesome-dart": {
+    "summary": "Web、サーバー、クロスプラットフォームアプリ向けのDartフレームワークと、データベースやテストなどのライブラリ",
+    "enHash": "e3fc59dc2827"
+  },
+  "youngwookim/awesome-hadoop": {
+    "summary": "YARN、SQLエンジン、データ取り込み、ワークフロー、検索、セキュリティなど、クラスタ上のビッグデータを扱うHadoopエコシステムのプロジェクト",
+    "enHash": "d29d44bc11d1"
+  },
+  "yrgo/awesome-educational-games": {
+    "summary": "アート、デザイン、CSS、語学、数学、音楽、プログラミングを学べるゲーム",
+    "enHash": "59edbdca84b5"
+  },
+  "zachflower/awesome-open-source-supporters": {
+    "summary": "CI、コード品質、監視など、オープンソースプロジェクトに自社サービスを無償提供している企業",
+    "enHash": "ec0050a93968"
+  },
+  "zenitysec/awesome-low-code": {
+    "summary": "少ないプログラミングでアプリを作るローコード開発のためのプラットフォーム、ツール、リファレンス、テンプレート、コミュニティ",
+    "enHash": "ff78304483f9"
+  },
+  "zheaoli/awesome-coins": {
+    "summary": "暗号資産のウォレット、取引所、マイニング、マーケットツール、読み物",
+    "enHash": "0199c829aad3"
+  },
+  "ziadoz/awesome-php": {
+    "summary": "依存関係管理からテスト、セキュリティまで用途別のPHPライブラリ、フレームワーク、ツール",
+    "enHash": "33a4724f3931"
+  },
+  "zingchart/awesome-charting": {
+    "summary": "商用・オープンソースのWeb向けチャートライブラリと、フレームワーク用バインディング、データ可視化リソース",
+    "enHash": "1c269bb04728"
+  },
+  "zolagonano/awesome-zeronet": {
+    "summary": "P2Pで配信されるWebサイトのネットワークZeroNetの実装、プラグイン、ガイド、公開プロキシ",
+    "enHash": "ff470607b41a"
+  },
+  "zudochkin/awesome-newsletters": {
+    "summary": "プログラミング、フロントエンド、データベース、モバイル、AI、セキュリティ、リーダーシップ、ビジネスに関するメールニュースレター",
+    "enHash": "d086c73e7f19"
+  },
+  "zyszys/awesome-captcha": {
+    "summary": "CAPTCHAテストを生成するライブラリとツール、およびそれを自動で解くプロジェクト",
+    "enHash": "2bce179d93fe"
+  }
+}

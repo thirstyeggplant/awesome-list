@@ -9,6 +9,8 @@ export interface Answer {
   body: string;
   cache: string;
   location?: string;
+  /** The page's language, sent as Content-Language (informative only). */
+  lang?: string;
 }
 
 export const TYPES = {
@@ -55,6 +57,7 @@ export function notModified(etag: string, type: string, cache: string): Response
 export function reply(req: Request, answer: Answer, etag: string | null): Response {
   const h = headersOf(answer.type, answer.cache);
   if (answer.location !== undefined) h.set('Location', answer.location);
+  if (answer.lang !== undefined) h.set('Content-Language', answer.lang);
   if (etag !== null && answer.status === 200 && answer.cache !== 'no-store') h.set('ETag', etag);
   return new Response(req.method === 'HEAD' ? null : answer.body, { status: answer.status, headers: h });
 }

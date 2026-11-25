@@ -154,6 +154,8 @@ jobs:
             sleep 10
           done
           ok / && ok '/items?lang=go'
+          # The languages: numbers, plurals and lang as Node makes them, which shows the runtime has ICU data for them.
+          pnpm exec tsx scripts/smoke-languages.ts "$SITE_ORIGIN"
 
       - name: Roll back
         if: failure() && steps.deploy.outcome == 'success'

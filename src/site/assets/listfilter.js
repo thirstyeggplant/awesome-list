@@ -1,4 +1,5 @@
 // The filter of a list page: hides rows and empty sections that do not match, says "N of M", writes #q=.
+// The words come from data-* attributes in the page's language; numbers follow <html lang>.
 (function () {
   'use strict';
   var input = document.getElementById('list-filter');
@@ -11,6 +12,11 @@
   var blocks = Array.prototype.slice.call(entries.children);
   var total = rows.length;
   var timer = 0;
+  var lang = document.documentElement.lang || 'en';
+
+  function num(n) {
+    try { return n.toLocaleString(lang); } catch { return String(n); }
+  }
 
   function apply(q) {
     var words = q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -35,7 +41,7 @@
       }
       b.hidden = !visible;
     });
-    if (count) count.textContent = shown.toLocaleString('en-US') + ' of ' + total.toLocaleString('en-US');
+    if (count) count.textContent = (count.getAttribute('data-of') || '{n} of {m}').replace('{n}', num(shown)).replace('{m}', num(total));
     var hash = q ? '#q=' + encodeURIComponent(q) : '';
     if (location.hash !== hash && (q || location.hash.indexOf('#q=') === 0)) {
       history.replaceState(null, '', location.pathname + location.search + hash);
@@ -55,7 +61,7 @@
   if (collapse) {
     collapse.addEventListener('click', function () {
       var on = document.body.classList.toggle('collapsed');
-      collapse.textContent = on ? 'Expand all' : 'Collapse all';
+      collapse.textContent = (on ? collapse.getAttribute('data-expand') : collapse.getAttribute('data-collapse')) || collapse.textContent;
     });
   }
 })();

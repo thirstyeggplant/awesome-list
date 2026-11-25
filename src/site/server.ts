@@ -16,6 +16,10 @@ const STATIC_TYPES: Record<string, string> = {
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
   '.bin': 'application/octet-stream',
+  '.png': 'image/png',
+  '.ico': 'image/x-icon',
+  '.svg': 'image/svg+xml',
+  '.webmanifest': 'application/manifest+json',
 };
 
 interface HeaderRule { pattern: RegExp; headers: [string, string][] }

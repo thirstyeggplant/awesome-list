@@ -56,6 +56,7 @@ export default tseslint.config(
       globals: {
         window: 'readonly', document: 'readonly', location: 'readonly', history: 'readonly',
         fetch: 'readonly', AbortController: 'readonly', Map: 'readonly', setTimeout: 'readonly', clearTimeout: 'readonly',
+        navigator: 'readonly', localStorage: 'readonly', Intl: 'readonly',
       },
     },
   },

@@ -1,7 +1,8 @@
 // pnpm build-site [--in out] [--out out]
 // Reads the public files of the dataset and writes, under --out:
 //   d1/load.sql      the whole database as SQL for D1 (DDL, then multi-row inserts), and d1/build.json;
-//   site-assets/     the static files that ship with the Worker (assets, facets.bin, terms.json, sitemaps, robots, _headers);
+//   site-assets/     the static files that ship with the Worker (assets, icons, facets.bin, terms.json, the translations
+//                    in _data/i18n/{code}.json, sitemaps, robots, _headers);
 //   site.db          the same load.sql run with node:sqlite in one transaction, for `pnpm serve` and the tests.
 // Each is written beside its place first and moved there at the end.
 import { createHash } from 'node:crypto';
@@ -10,7 +11,9 @@ import { DatabaseSync } from 'node:sqlite';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { LOCAL_ORIGIN, OWNER_ITEMS } from '../config.js';
+import { categoryCoverage, readLanguage, summaryCoverage, TRANSLATIONS_DIR } from '../../translations.js';
+import { LOCAL_ORIGIN, OWNER_ITEMS, SITE_NAME } from '../config.js';
+import { OTHER_LOCALES } from '../i18n/locales.js';
 import { encodeFacets } from '../facets-file.js';
 import { alongside, type SectionEntries } from './alongside.js';
 import { facetData } from './facet-data.js';
@@ -19,7 +22,7 @@ import { buildModel, readInput, type Model } from './load.js';
 import { ownersOf } from './owners.js';
 import { DDL, INDEX_ROWS } from './schema.js';
 import { LoadWriter, type LoadStats, type SqlValue } from './sql.js';
-import { headersFile, readAssets, robots, sitemaps, writeFile, type AssetFile } from './static.js';
+import { headersFile, readAssets, readRootFiles, robots, sitemaps, writeFile, type AssetFile } from './static.js';
 
 export interface BuildOptions {
   inDir: string;
@@ -31,10 +34,55 @@ export interface BuildOptions {
   sitemapChunk?: number;
   /** Override the hash used for item keys (tests). */
   hash?: (id: string) => string;
+  /** Where translations/lists.{code}.json and categories.{code}.json are (default: this repository's). */
+  translationsDir?: string;
+}
+
+/** What the build found of one language's translations, written into build.json. */
+export interface TranslationCounts {
+  summaries: { translated: number; missing: number; stale: number; unhashed: number; unknown: number };
+  categories: { translated: number; missing: number; unknown: number };
+  problems: string[];
+}
+
+/**
+ * /_data/i18n/{code}.json for every language but English: category names by slug and our summaries by list slug.
+ * A stale summary is still written (an old sentence in the reader's language beats a switch of language).
+ */
+export function i18nFiles(model: Pick<Model, 'lists' | 'categories'>, dir: string): {
+  files: Map<string, string>;
+  counts: Record<string, TranslationCounts>;
+} {
+  const english = new Map(model.lists.filter((l) => l.summary !== null).map((l) => [l.slug, l.summary ?? '']));
+  const files = new Map<string, string>();
+  const counts: Record<string, TranslationCounts> = {};
+  for (const locale of OTHER_LOCALES) {
+    const t = readLanguage(dir, locale);
+    const categories: Record<string, string> = {};
+    for (const c of model.categories) {
+      const name = t.categories.get(c.name);
+      if (name !== undefined && name.trim() !== '') categories[c.slug] = name;
+    }
+    const summaries: Record<string, string> = {};
+    for (const l of model.lists) {
+      const tr = t.lists.get(l.slug);
+      if (l.summary !== null && tr !== undefined && tr.summary.trim() !== '') summaries[l.slug] = tr.summary;
+    }
+    files.set(`_data/i18n/${locale}.json`, JSON.stringify({ categories, summaries }));
+    const s = summaryCoverage(english, t);
+    const c = categoryCoverage(model.categories.map((x) => x.name), t);
+    counts[locale] = {
+      summaries: { translated: s.translated, missing: s.missing.length, stale: s.stale.length, unhashed: s.unhashed.length, unknown: s.unknown.length },
+      categories: { translated: c.translated, missing: c.missing.length, unknown: c.unknown.length },
+      problems: t.problems,
+    };
+  }
+  return { files, counts };
 }
 
 export interface BuildResult {
   buildId: string;
+  translations: Record<string, TranslationCounts>;
   ms: number;
   counts: Record<string, number>;
   load: LoadStats & { rowsWritten: number };
@@ -236,9 +284,16 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     if (!a) throw new Error(`missing asset ${name}`);
     return a.path;
   };
-  const assetPaths = { css: assetPath('site.css'), quick: assetPath('quick.js'), listfilter: assetPath('listfilter.js') };
+  const assetPaths = {
+    css: assetPath('site.css'), quick: assetPath('quick.js'), listfilter: assetPath('listfilter.js'), og: assetPath('og.png'),
+  };
+  const rootFiles = readRootFiles(join(SITE_DIR, 'assets'), SITE_NAME);
+  // The translations are part of the build: a changed one must change the ETag.
+  const i18n = i18nFiles(model, options.translationsDir ?? TRANSLATIONS_DIR);
+  const i18nHash = createHash('sha256');
+  for (const [path, body] of i18n.files) i18nHash.update(path).update(body);
   const buildId = createHash('sha256')
-    .update(`${model.dataDate}\n${JSON.stringify(counts)}\n${assets.map((a) => a.hash).join(' ')}\n${codeHash()}`)
+    .update(`${model.dataDate}\n${JSON.stringify(counts)}\n${assets.map((a) => a.hash).join(' ')}\n${codeHash()}\n${i18nHash.digest('hex')}`)
     .digest('hex')
     .slice(0, 12);
   const meta: [string, string][] = [
@@ -270,7 +325,11 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     const sql = chunks.join('');
     writeFile(d1Tmp, 'load.sql', sql);
     const load = { ...w.stats, rowsWritten: rowsWritten(w.stats) };
-    writeFile(d1Tmp, 'build.json', `${JSON.stringify({ buildId, dataFinished: model.dataDate, counts, load }, null, 2)}\n`);
+    writeFile(
+      d1Tmp,
+      'build.json',
+      `${JSON.stringify({ buildId, dataFinished: model.dataDate, counts, load, translations: i18n.counts }, null, 2)}\n`,
+    );
 
     // The same file, in one transaction, for local use.
     const db = new DatabaseSync(dbTmp);
@@ -285,6 +344,8 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
 
     // The static files.
     for (const a of assets) writeFile(assetsTmp, a.path, a.body);
+    for (const [path, body] of rootFiles) writeFile(assetsTmp, path, body);
+    for (const [path, body] of i18n.files) writeFile(assetsTmp, path, body);
     const facets = writeFile(assetsTmp, '_data/facets.bin', encodeFacets(facetData(model)));
     const terms = writeFile(
       assetsTmp,
@@ -293,8 +354,9 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     );
     const files = sitemaps({
       origin,
-      lastmod: model.dataDate.slice(0, 10),
-      listSlugs: model.lists.map((l) => l.slug),
+      dataDay: model.dataDate.slice(0, 10),
+      categories: model.categories.map((c) => c.slug),
+      lists: model.lists.map((l) => ({ slug: l.slug, pushedDay: l.pushedDay })),
       owners: owners.filter((o) => o.listCount > 0 || o.itemCount >= 2).map((o) => o.login),
       itemKeys: model.items.filter((i) => i.indexable).map((i) => i.key),
       ...(options.sitemapChunk === undefined ? {} : { chunk: options.sitemapChunk }),
@@ -309,6 +371,7 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     renameSync(dbTmp, dbPath);
     return {
       buildId,
+      translations: i18n.counts,
       ms: performance.now() - started,
       counts,
       load,
@@ -337,6 +400,11 @@ async function main(): Promise<void> {
   );
   console.log(`${r.paths.assets}: facets.bin ${mb(r.bytes.facets)}, terms.json ${mb(r.bytes.terms)}`);
   console.log(`${r.paths.db}: ${mb(r.bytes.db)}`);
+  const t = Object.entries(r.translations).map(
+    ([l, c]) => `${l} ${c.summaries.translated}/${c.summaries.translated + c.summaries.missing} (${c.summaries.stale} stale, ${c.summaries.unhashed} without enHash)`,
+  );
+  console.log(`translated summaries: ${t.join(', ')}`);
+  for (const [l, c] of Object.entries(r.translations)) for (const p of c.problems) console.log(`${l}: ${p}`);
 }
 
 if (process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href) {

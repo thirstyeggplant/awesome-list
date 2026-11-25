@@ -118,9 +118,15 @@ export function fixtureRows(): { lists: Record<string, unknown>[]; items: Record
 
 const jsonl = (rows: readonly unknown[]): string => rows.map((r) => JSON.stringify(r)).join('\n') + '\n';
 
-/** Writes the files, with an unreadable private/ beside them, and builds the site. */
-export async function makeFixture(options: { sitemapChunk?: number } = {}): Promise<Fixture> {
+/**
+ * Writes the files, with an unreadable private/ beside them, and builds the site. `translations` are the files of
+ * a translations folder by name (lists.de.json …); without them the folder is empty, never this repository's.
+ */
+export async function makeFixture(options: { sitemapChunk?: number; translations?: Record<string, unknown> } = {}): Promise<Fixture> {
   const dir = mkdtempSync(join(tmpdir(), 'site-test-'));
+  const translationsDir = join(dir, 'translations');
+  mkdirSync(translationsDir);
+  for (const [name, body] of Object.entries(options.translations ?? {})) writeFileSync(join(translationsDir, name), JSON.stringify(body));
   const rows = fixtureRows();
   writeFileSync(join(dir, 'lists.jsonl'), jsonl(rows.lists));
   writeFileSync(join(dir, 'items.jsonl'), jsonl(rows.items));
@@ -131,7 +137,10 @@ export async function makeFixture(options: { sitemapChunk?: number } = {}): Prom
   writeFileSync(join(dir, 'private', 'lists.jsonl'), 'not json\n');
   chmodSync(join(dir, 'private'), 0o000);
   const out = join(dir, 'built');
-  const build = await buildSite({ inDir: dir, outDir: out, origin: ORIGIN, ...options });
+  const build = await buildSite({
+    inDir: dir, outDir: out, origin: ORIGIN, translationsDir,
+    ...(options.sitemapChunk === undefined ? {} : { sitemapChunk: options.sitemapChunk }),
+  });
   const sql = nodeSql(build.paths.db);
   const app = createApp({ sql: () => sql, loadAsset: fileAssets(build.paths.assets), origin: ORIGIN });
   return { dir, out, build, sql, app, handler: await nodeHandler(build.paths.assets, app) };

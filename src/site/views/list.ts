@@ -1,10 +1,15 @@
 // /lists/{owner}/{repo}: one list, every entry on one server-rendered page.
 import type { Db, ListEntry, ListRow, SectionRow } from '../db.js';
 import { html, outbound, type Html } from '../html.js';
-import { crumbs, facts, fmtDay, fmtIso, itemRow, listRot, num, plural, rot } from './components.js';
+import type { Loc } from '../i18n/loc.js';
+import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, link, listRot, rot } from './components.js';
 import type { Ctx } from './context.js';
+import { webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+
+/** Other lists of a list's category shown after its entries, by stars. */
+const MORE_IN_CATEGORY = 8;
 
 interface TocEntry { title: string; anchor: string; depth: number; count: number }
 
@@ -22,9 +27,9 @@ export function tocOf(sections: readonly SectionRow[]): TocEntry[] {
   return [...out.values()];
 }
 
-function toc(entries: readonly TocEntry[]): Html {
+function toc(loc: Loc, entries: readonly TocEntry[]): Html {
   return html`<ol class="toc-list">${entries.map(
-    (e) => html`<li class="d${e.depth}"><a href="#${e.anchor}">${e.title}</a> <span class="num">${num(e.count)}</span></li>`,
+    (e) => html`<li class="d${e.depth}"><a href="#${e.anchor}">${e.title}</a> <span class="num">${loc.n(e.count)}</span></li>`,
   )}</ol>`;
 }
 
@@ -32,12 +37,12 @@ function hn(depth: number): number {
   return Math.min(6, depth + 1);
 }
 
-function heading(depth: number, anchor: string, title: string, count: number | null): Html {
+function heading(loc: Loc, depth: number, anchor: string, title: string, count: number | null): Html {
   const n = hn(depth);
-  return html`<h${n} class="sh">${title}${count === null ? '' : html` <span class="count">${num(count)}</span>`} <a class="anchor" href="#${anchor}" aria-label="Link to this section">#</a></h${n}>`;
+  return html`<h${n} class="sh">${title}${count === null ? '' : html` <span class="count">${loc.n(count)}</span>`} <a class="anchor" href="#${anchor}" aria-label="${loc.m.list.sectionLink}">#</a></h${n}>`;
 }
 
-function body(sections: readonly SectionRow[], entries: readonly ListEntry[]): Html {
+function body(loc: Loc, sections: readonly SectionRow[], entries: readonly ListEntry[]): Html {
   const bySection = new Map<number, ListEntry[]>();
   for (const e of entries) {
     let a = bySection.get(e.sectionId);
@@ -52,30 +57,46 @@ function body(sections: readonly SectionRow[], entries: readonly ListEntry[]): H
       const anchor = s.anchors[d - 1] ?? '';
       if (emitted.has(anchor)) continue;
       emitted.add(anchor);
-      out.push(html`<div class="outer" id="${anchor}" data-depth="${d}">${heading(d, anchor, s.path[d - 1] ?? '', null)}</div>`);
+      out.push(html`<div class="outer" id="${anchor}" data-depth="${d}">${heading(loc, d, anchor, s.path[d - 1] ?? '', null)}</div>`);
     }
     emitted.add(s.anchor);
     const rows = (bySection.get(s.id) ?? []).map((e) =>
-      itemRow(e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks }),
+      itemRow(loc, e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks }),
     );
     out.push(html`<section id="${s.anchor}" data-depth="${s.depth}">${
-      s.depth > 0 ? heading(s.depth, s.anchor, s.title, s.itemCount) : ''
+      s.depth > 0 ? heading(loc, s.depth, s.anchor, s.title, s.itemCount) : ''
     }<ol class="rows">${rows}</ol></section>`);
   }
   return html`${out}`;
 }
 
-export function attributionOfList(list: ListRow, dataFinished: string): Html {
+/** Under a list's entries: whose the list is, where it lives, and that the summary is ours. */
+export function attributionOfList(loc: Loc, list: ListRow, dataFinished: string): Html {
+  const m = loc.m.list;
   const oid = list.readmeOid?.slice(0, 7) ?? null;
-  return html`<p class="attribution">This page is an index of <strong>${list.name}</strong>, a list kept by ${list.owner} and its contributors at ${outbound(
-    `https://github.com/${list.slug}`,
-    `github.com/${list.slug}`,
-  )}. The selection and order are theirs; the summary above is ours.${
-    oid ? html` Read at commit ${oid} on ${fmtIso(dataFinished)}.` : ''
-  }${list.license ? html` Licence: ${list.license}.` : ''}</p>`;
+  const main = loc.h(m.attribution, { owner: html`<span translate="no">${list.owner}</span>`, name: list.name, repo: `github.com/${list.slug}` }, {
+    1: (t) => html`<strong translate="no">${t}</strong>`,
+    2: (t) => outbound(`https://github.com/${list.slug}`, t),
+  });
+  return html`<p class="attribution">${main}${oid ? html` ${loc.t(m.readAt, { oid, date: loc.dayIso(dataFinished) })}` : ''}${
+    list.license ? html` ${loc.t(m.licence, { license: list.license })}` : ''
+  }</p>`;
+}
+
+/** Why a list could not be read: the pipeline's "N items from M links" in words, else its own text in English. */
+function reasonOf(loc: Loc, reason: string | null): Html {
+  if (reason === null) return html`${loc.m.list.noReason}`;
+  const r = /^(\d+) items from (\d+) links$/.exec(reason);
+  if (r) {
+    const c = loc.m.count;
+    return html`${loc.t(c.itemsFromLinks, { items: loc.plural(c.items, Number(r[1])), links: loc.plural(c.links, Number(r[2])) })}`;
+  }
+  return loc.locale === 'en' ? html`${reason}` : html`<span lang="en">${reason}</span>`;
 }
 
 export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewResult> {
+  const { loc } = ctx;
+  const m = loc.m;
   const cat = list.categoryId === null ? undefined : ctx.categoryById.get(list.categoryId);
   const [sections, entries, ownItem] = await Promise.all([
     db.sectionsOfList(list.id),
@@ -87,45 +108,83 @@ export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewRes
   const gh = `https://github.com/${list.slug}`;
   const word = listRot(list, ctx.dataDay);
   const contents = tocOf(sections);
+  const summary = loc.summary(list);
+  const itemCount = entries.length || list.itemsMade;
+  const size = loc.t(m.count.itemsInSections, {
+    items: loc.plural(m.count.items, itemCount),
+    sections: loc.plural(m.count.sections, list.sectionCount),
+  });
 
   const top = html`<header class="list-head">
-${crumbs([html`<a href="/lists">Lists</a>`, cat ? html`<a href="/lists?category=${cat.slug}">${cat.name}</a>` : null, list.subcategory].filter((p) => p !== null))}
-<h1 class="serif">${list.name}</h1>
+${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
+<h1 class="serif" translate="no">${list.name}</h1>
 <p class="repo-link">${outbound(gh, list.slug, { cls: 'mono' })}</p>
-${list.summary ? html`<p class="summary">${list.summary}</p>` : ''}
+${summary ? html`<p class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''}
 ${facts([
-  ['Stars', num(list.stars)],
-  ['Last push', fmtDay(list.pushedDay)],
-  ['Licence', list.license ?? ''],
-  ['Entries', `${plural(entries.length || list.itemsMade, 'item')} in ${plural(list.sectionCount, 'section')}`],
-  ['Named by', ownItem !== null && namedBy > 0 ? html`<a href="/${ownItem.key}">${plural(namedBy, 'other list')}</a>` : ''],
-  ['State', word === null ? '' : rot(word)],
+  [m.facts.stars, loc.n(list.stars)],
+  [m.facts.lastPush, loc.day(list.pushedDay)],
+  [m.facts.licence, list.license ?? ''],
+  [m.facts.entries, size],
+  [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
+  [m.facts.state, word === null ? '' : rot(loc, word)],
 ])}
-<p class="actions">${outbound(gh, 'Read the original on GitHub')} · ${outbound(`${gh}/issues`, 'Suggest a change')}</p>
+<p class="actions">${outbound(gh, m.list.readOriginal)} · ${outbound(`${gh}/issues`, m.list.suggestChange)}</p>
 </header>`;
 
   let content: Html;
   if (list.status === 'unparsed') {
-    content = html`<p class="unparsed">We could not read this list's entries yet (${list.reason ?? 'no reason given'}).</p>`;
+    content = html`<p class="unparsed">${loc.h(m.list.unparsed, { reason: reasonOf(loc, list.reason) })}</p>`;
   } else {
+    const n = loc.n(entries.length);
     content = html`<div class="list-layout">
-<nav class="toc toc-rail" aria-label="Contents"><h2>Contents</h2>${toc(contents)}</nav>
+<nav class="toc toc-rail" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${toc(loc, contents)}</nav>
 <div class="list-body">
-<details class="toc toc-narrow"><summary>Contents</summary>${toc(contents)}</details>
-<div class="list-filter"><input id="list-filter" type="search" placeholder="Filter this list" aria-label="Filter this list" autocomplete="off"> <output id="list-count" for="list-filter">${num(entries.length)} of ${num(entries.length)}</output> <button type="button" id="collapse-all">Collapse all</button></div>
-<div id="entries">${body(sections, entries)}</div>
+<details class="toc toc-narrow"><summary>${m.list.contents}</summary>${toc(loc, contents)}</details>
+<div class="list-filter"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"> <output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output> <button type="button" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
+<div id="entries">${body(loc, sections, entries)}</div>
 </div></div>`;
   }
 
-  const main = html`<article class="list-page">${top}${content}${attributionOfList(list, ctx.meta.dataFinished)}</article>`;
+  // More in the category: other lists of it by stars (ctx.lists is in that order).
+  const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && l.id !== list.id).slice(0, MORE_IN_CATEGORY);
+  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2><ul>${more.map(
+    (l) => html`<li>${link(loc, `/lists/${l.slug}`, html`<span translate="no">${l.name}</span>`)}</li>`,
+  )}</ul></section>`;
+
+  const main = html`<article class="list-page">${top}${content}${moreHtml}${attributionOfList(loc, list, ctx.meta.dataFinished)}</article>`;
+
+  const fallback = loc.t(m.meta.list.description, { name: list.name, repo: `github.com/${list.slug}` });
+  let description = summary?.text ?? fallback;
+  const withSize = `${description} ${size}.`;
+  if (withSize.length <= (loc.info.cjk ? 80 : 160)) description = withSize;
+  const catName = cat ? loc.category(cat).text : null;
+  const trail: [string, string][] = [[m.nav.lists, '/lists']];
+  if (cat && catName !== null) trail.push([catName, `/lists?category=${cat.slug}`]);
+  trail.push([list.name, `/lists/${list.slug}`]);
+
   return page(
     layout(ctx, {
-      title: list.name,
-      description: list.summary ?? `${list.name}, an awesome list kept at github.com/${list.slug}.`,
+      route: 'list',
+      title: loc.plural(m.meta.list.title, itemCount, { name: list.name }),
+      description,
       canonical: `/lists/${list.slug}`,
       main,
       shape: 'list',
       scripts: ['listfilter'],
+      jsonLd: [
+        breadcrumbLd(ctx, trail),
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: list.name,
+          ...(summary ? { description: summary.text } : {}),
+          url: absolute(ctx, `/lists/${list.slug}`),
+          inLanguage: loc.info.hreflang,
+          isPartOf: webSite(ctx),
+          isBasedOn: gh,
+          mainEntity: { '@type': 'ItemList', numberOfItems: itemCount },
+        },
+      ],
     }),
   );
 }
