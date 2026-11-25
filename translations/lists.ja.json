@@ -36,7 +36,7 @@
     "enHash": "246a73dc1467"
   },
   "addyosmani/es6-tools": {
-    "summary": "ES6が新しかった頃のトランスパイラ、モジュールローダー、polyfill、ボイラープレート、プラグイン",
+    "summary": "ES6（JavaScript）が新しかった頃のトランスパイラ、モジュールローダー、polyfill、ボイラープレート、プラグイン",
     "enHash": "b1eac9252699"
   },
   "adrientorris/awesome-blazor": {

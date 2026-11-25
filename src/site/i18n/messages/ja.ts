@@ -1,7 +1,4 @@
-// TODO translate
-// Japanese. This file is still a copy of the English (messages/en.ts); `pnpm check-translations` reports it as
-// untranslated while it is identical. Translate every message, keep the placeholders and numbered tags, give each
-// plural the forms the language needs, then remove the TODO line and run `pnpm check-translations --stamp ja`.
+// Japanese, translated from messages/en.ts.
 // The comments say where a message appears and what its placeholders are; they need no translating.
 import { p } from '../format.js';
 import type { Messages } from './en.js';
@@ -11,296 +8,295 @@ export const ja: Messages = {
     /** The browser tab's title on most pages: the page's title, then the site's name. */
     title: '{title} · {site}',
     /** The first link on every page, for keyboards and screen readers; it jumps past the header. */
-    skip: 'Skip to the content',
+    skip: 'コンテンツへスキップ',
     /** The footer of every page. <1> links to the About page's section on leaving a list out. */
-    footer: '{site} indexes names, sections and links. Descriptions belong to the lists and are not copied here. Keep a list and want it left out? <1>Open an issue</1>.',
+    footer: '{site}は名前、セクション、リンクを索引化しています。説明文は各リストのものであり、ここには転載していません。リストを管理していて掲載を外したい場合は<1>Issueを作成</1>してください。',
     /** The label of the breadcrumb trail (for screen readers). */
-    breadcrumb: 'Breadcrumb',
+    breadcrumb: 'パンくずリスト',
   },
   nav: {
-    lists: 'Lists',
-    items: 'Items',
-    about: 'About',
+    lists: 'リスト',
+    items: '項目',
+    about: '概要',
     /** The search box in the header: its label, and the hint inside it ("/" is the key that opens quick search). */
-    search: 'Search',
-    searchHint: 'Search  ( / )',
+    search: '検索',
+    searchHint: '検索  ( / )',
   },
   quick: {
     /** The quick-search dialog, opened with Ctrl-K or "/". */
-    label: 'Quick search',
-    placeholder: 'Search lists, items and tags',
+    label: 'クイック検索',
+    placeholder: 'リスト、項目、タグを検索',
     /** The label of the list of results inside the dialog (for screen readers). */
-    results: 'Results',
-    help: '↑ ↓ to move, Enter to open, Esc to close',
+    results: '検索結果',
+    help: '↑ ↓ で移動、Enterで開く、Escで閉じる',
     /** Group headings inside the dialog's results. */
-    lists: 'Lists',
-    items: 'Items',
-    tags: 'Tags',
+    lists: 'リスト',
+    items: '項目',
+    tags: 'タグ',
   },
   lang: {
     /** The label of the list of languages in the footer (for screen readers). */
-    switcher: 'Language',
+    switcher: '言語',
     /**
      * A bar shown when the visitor's browser prefers this language over the page's. Written in this file's own
      * language, because it is shown to someone who reads it.
      */
-    suggest: 'Read this page in English',
+    suggest: 'このページを日本語で読む',
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
-    close: 'Close',
+    close: '閉じる',
   },
   count: {
-    lists: p({ one: '{n} list', other: '{n} lists' }),
-    items: p({ one: '{n} item', other: '{n} items' }),
-    listings: p({ one: '{n} listing', other: '{n} listings' }),
-    sections: p({ one: '{n} section', other: '{n} sections' }),
-    links: p({ one: '{n} link', other: '{n} links' }),
-    stars: p({ one: '{n} star', other: '{n} stars' }),
-    projects: p({ one: '{n} project', other: '{n} projects' }),
-    otherLists: p({ one: '{n} other list', other: '{n} other lists' }),
+    lists: p({ other: '{n}件のリスト' }),
+    items: p({ other: '{n}件の項目' }),
+    listings: p({ other: '{n}件の掲載' }),
+    sections: p({ other: '{n}個のセクション' }),
+    links: p({ other: '{n}件のリンク' }),
+    stars: p({ other: '{n}スター' }),
+    projects: p({ other: '{n}件のプロジェクト' }),
+    otherLists: p({ other: '他{n}件のリスト' }),
     /** "{items} in {sections}": e.g. "12 items in 4 sections"; both values are the plurals above. */
-    itemsInSections: '{items} in {sections}',
+    itemsInSections: '{sections}に{items}',
     /** A list's reason for being read only in part: e.g. "5 items from 81 links"; both values are plurals above. */
-    itemsFromLinks: '{items} from {links}',
+    itemsFromLinks: '{links}中{items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
-    shownOf: '{n} of {m}',
+    shownOf: '{m}件中{n}件',
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
-    repo: 'repository',
-    package: 'package',
-    video: 'video',
-    paper: 'paper',
-    article: 'article',
-    site: 'site',
+    repo: 'リポジトリ',
+    package: 'パッケージ',
+    video: '動画',
+    paper: '論文',
+    article: '記事',
+    site: 'サイト',
   },
   /** A repository's state. Shown as a short word beside its name, and in the facet rail. */
   status: {
-    active: 'active',
-    quiet: 'quiet',
-    archived: 'archived',
-    gone: 'gone',
+    active: '活発',
+    quiet: '停滞',
+    archived: 'アーカイブ済み',
+    gone: '削除済み',
   },
   /** A list's state, in the facet rail of /lists: read in full, in part, not read, gone from GitHub. */
   listStatus: {
-    ok: 'read in full',
-    partial: 'read in part',
-    unparsed: 'not read yet',
-    gone: 'gone',
+    ok: 'すべて読み込み済み',
+    partial: '一部読み込み済み',
+    unparsed: '未読み込み',
+    gone: '削除済み',
   },
   /** The ways of ordering a listing page, after "sort by". */
   sort: {
-    relevance: 'relevance',
-    lists: 'lists',
-    stars: 'stars',
-    items: 'items',
-    updated: 'updated',
-    name: 'name',
+    relevance: '関連度',
+    lists: 'リスト数',
+    stars: 'スター数',
+    items: '項目数',
+    updated: '更新日',
+    name: '名前',
   },
-  yes: 'yes',
-  no: 'no',
+  yes: 'はい',
+  no: 'いいえ',
   common: {
-    search: 'Search',
-    filter: 'Filter',
-    searchListsAndItems: 'Search lists and items',
-    nothingHere: 'Nothing here.',
-    previous: '← Previous',
-    next: 'Next →',
+    search: '検索',
+    filter: '絞り込み',
+    searchListsAndItems: 'リストと項目を検索',
+    nothingHere: '何もありません。',
+    previous: '← 前へ',
+    next: '次へ →',
     /** After the removable filter chips: takes them all away. */
-    clearAll: 'Clear all',
+    clearAll: 'すべてクリア',
     /** "12 lists · sort by stars · items · updated · name"; {sorts} are the sort words, the current one in bold. */
-    sortBy: '{count} · sort by {sorts}',
+    sortBy: '{count} · 並べ替え: {sorts}',
     /** Shown past the last page a listing will show. */
-    pagingStops: 'Paging stops at page {n}. Narrow the filters to see more.',
+    pagingStops: '表示できるのは{n}ページまでです。さらに見るには条件を絞り込んでください。',
     /** The removable chip for a search: “{q}” is what was searched for. */
-    searchChip: '“{q}”',
+    searchChip: '「{q}」',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
-    separator: ', ',
+    separator: '、',
   },
   facts: {
-    stars: 'Stars',
-    lastPush: 'Last push',
-    language: 'Language',
-    licence: 'Licence',
-    entries: 'Entries',
-    namedBy: 'Named by',
-    state: 'State',
-    fork: 'Fork',
-    kind: 'Kind',
-    host: 'Host',
-    renamedFrom: 'Renamed from',
+    stars: 'スター',
+    lastPush: '最終プッシュ',
+    language: '言語',
+    licence: 'ライセンス',
+    entries: 'エントリ',
+    namedBy: '掲載リスト',
+    state: '状態',
+    fork: 'フォーク',
+    kind: '種類',
+    host: 'ホスト',
+    renamedFrom: '旧名',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
-    h1: p({ one: '{n} awesome list and everything in it', other: '{n} awesome lists and everything in them' }),
+    h1: p({ other: '{n}件のawesomeリストとその中身すべて' }),
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · data of {date}',
-    mostNamed: 'Named by the most lists',
+    counts: '{lists} · {items} · {listings} · {date}時点のデータ',
+    mostNamed: '最も多くのリストに掲載',
   },
   lists: {
-    h1: 'Lists',
-    filterLists: 'Filter lists',
-    category: 'Category',
-    licence: 'Licence',
-    status: 'Status',
+    h1: 'リスト',
+    filterLists: 'リストを絞り込む',
+    category: 'カテゴリ',
+    licence: 'ライセンス',
+    status: '状態',
   },
   list: {
-    contents: 'Contents',
-    filterThisList: 'Filter this list',
-    collapseAll: 'Collapse all',
-    expandAll: 'Expand all',
+    contents: '目次',
+    filterThisList: 'このリストを絞り込む',
+    collapseAll: 'すべて折りたたむ',
+    expandAll: 'すべて展開',
     /** The label of the "#" link beside a section heading (for screen readers). */
-    sectionLink: 'Link to this section',
-    readOriginal: 'Read the original on GitHub',
-    suggestChange: 'Suggest a change',
+    sectionLink: 'このセクションへのリンク',
+    readOriginal: 'GitHubで原文を読む',
+    suggestChange: '変更を提案',
     /** For a list whose entries could not be read; {reason} is why, e.g. "the readme is in reStructuredText". */
-    unparsed: "We could not read this list's entries yet ({reason}).",
-    noReason: 'no reason given',
+    unparsed: 'このリストのエントリはまだ読み込めていません（{reason}）。',
+    noReason: '理由は不明',
     /**
      * Under a list's entries. <1> is the list's name (bold), {owner} a GitHub login, <2> the link to the
      * repository, whose text is {repo} (github.com/owner/repo).
      */
-    attribution: 'This page is an index of <1>{name}</1>, a list kept by {owner} and its contributors at <2>{repo}</2>. The selection and order are theirs; the summary above is ours.',
+    attribution: 'このページは、{owner}とコントリビューターが<2>{repo}</2>で管理しているリスト<1>{name}</1>の索引です。選定と順序は管理者によるもので、上の要約は当サイトが書いたものです。',
     /** Follows the attribution; {oid} is a commit's short hash, {date} the day it was read. */
-    readAt: 'Read at commit {oid} on {date}.',
+    readAt: '{date}にコミット{oid}の時点で読み込みました。',
     /** Follows the attribution; {license} is a licence's name, e.g. "MIT". */
-    licence: 'Licence: {license}.',
+    licence: 'ライセンス: {license}。',
     /** A heading after a list's entries: other lists of the same category. */
-    moreIn: 'More in {category}',
+    moreIn: '{category}の他のリスト',
   },
   item: {
     /** Under an item's name: the other names lists give it. */
-    alsoListedAs: 'Also listed as: {names}',
+    alsoListedAs: '別名: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
-    isList: 'This is itself a list in the library: <1>open it</1>.',
-    archived: 'Archived by its owner.',
-    gone: 'GitHub no longer has this repository.',
+    isList: 'これ自体がライブラリ内のリストです: <1>開く</1>。',
+    archived: 'オーナーによってアーカイブされています。',
+    gone: 'このリポジトリはGitHubに存在しなくなりました。',
     /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: 'No pushes since {month}.',
-    quiet: 'No pushes in two years.',
-    factsAsOf: 'Facts from GitHub as of {date}.',
-    inLists: p({ one: 'In {n} list', other: 'In {n} lists' }),
+    quietSince: '{month}以降プッシュがありません。',
+    quiet: '2年間プッシュがありません。',
+    factsAsOf: '{date}時点のGitHubの情報です。',
+    inLists: p({ other: '{n}件のリストに掲載' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
-    listedAs: 'listed as ‘{name}’',
-    alongside: 'Listed alongside',
-    attribution: 'Named by the lists above. Follow a list to read what its curators say about it. To suggest a change, open an issue on one of those lists.',
+    listedAs: '「{name}」として掲載',
+    alongside: '一緒に掲載されているもの',
+    attribution: '上のリストに掲載されています。キュレーターによる説明は各リストでお読みください。変更を提案するには、該当するリストでIssueを作成してください。',
   },
   items: {
-    h1: 'Items',
-    searchItems: 'Search items',
+    h1: '項目',
+    searchItems: '項目を検索',
     /** After the count of results, when a search found more than can be ranked. */
-    bestOnly: ' (the best matches only)',
-    kind: 'Kind',
-    status: 'Status',
-    language: 'Language',
-    licence: 'Licence',
-    topic: 'Topic',
-    category: 'Category',
-    list: 'List',
-    stars: 'Stars',
-    namedBy: 'Named by',
+    bestOnly: '（上位の一致のみ）',
+    kind: '種類',
+    status: '状態',
+    language: '言語',
+    licence: 'ライセンス',
+    topic: 'トピック',
+    category: 'カテゴリ',
+    list: 'リスト',
+    stars: 'スター',
+    namedBy: '掲載リスト数',
     /** Facet values: "1,000+ stars", "in 5+ lists". */
-    starsAtLeast: '{n}+ stars',
-    inAtLeast: 'in {n}+ lists',
+    starsAtLeast: '{n}スター以上',
+    inAtLeast: '{n}件以上のリストに掲載',
   },
   owner: {
-    listsTheyKeep: 'Lists they keep',
-    theirProjects: 'Their projects named by lists',
+    listsTheyKeep: '管理しているリスト',
+    theirProjects: 'リストに掲載されたプロジェクト',
     /** A link under an owner's projects to all of them on the Items page. */
-    allInItems: p({ one: 'All {n} in Items', other: 'All {n} in Items' }),
+    allInItems: p({ other: '項目ページで全{n}件を見る' }),
   },
   search: {
-    h1: 'Search',
-    lists: 'Lists',
-    sections: 'Sections',
-    items: 'Items',
+    h1: '検索',
+    lists: 'リスト',
+    sections: 'セクション',
+    items: '項目',
     /** Beside a section found by search: the list it is in. */
-    inList: 'in {list}',
-    noItems: 'No items match.',
-    allItems: p({ one: 'All {n} item', other: 'All {n} items' }),
+    inList: '{list}内',
+    noItems: '一致する項目はありません。',
+    allItems: p({ other: '全{n}件の項目' }),
   },
   notFound: {
-    h1: 'Nothing at this address',
+    h1: 'このアドレスには何もありません',
     /** Above a few pages that might be what the visitor wanted. */
-    perhaps: 'Perhaps',
+    perhaps: 'もしかして',
   },
   about: {
-    h1: 'About {site}',
+    h1: '{site}について',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
-    intro: '{site} is a free library of every awesome list in the <1>index of awesome lists</1> and everything in them: {lists}, the {items} they name, and where each list names each one.',
-    shownTitle: 'What is shown, and what is not',
-    shown: "The site shows names, sections, links and facts, and our own words. It never shows a curator's or a repository owner's description. A list's summary is ours; what a list says about an entry stays on the list, one link away.",
-    attributionTitle: 'Attribution',
-    attribution: 'The selection and order of every list belong to the people who keep it. Each list page says where the list lives and the commit it was read at. Facts about repositories (stars, last push, language, licence, topics) come from GitHub.',
-    leaveOutTitle: 'How a list is left out',
+    intro: '{site}は、<1>awesomeリストの索引</1>にあるすべてのawesomeリストとその中身をまとめた無料のライブラリです。{lists}、そこに掲載された{items}、そして各リストがどこに何を掲載しているかを収録しています。',
+    shownTitle: '表示するもの、しないもの',
+    shown: '当サイトが表示するのは名前、セクション、リンク、事実情報と、当サイト独自の文章です。キュレーターやリポジトリオーナーによる説明文は表示しません。リストの要約は当サイトが書いたもので、リストがエントリについて書いた内容はリンク先のリストでお読みください。',
+    attributionTitle: 'クレジット',
+    attribution: '各リストの選定と順序は、そのリストを管理する人々のものです。各リストのページには、リストの場所と読み込んだコミットを記載しています。リポジトリの情報（スター、最終プッシュ、言語、ライセンス、トピック）はGitHubから取得しています。',
+    leaveOutTitle: 'リストの掲載を外すには',
     /** <1> links to this project's issues on GitHub. */
-    leaveOut: "Keep a list and want it left out? <1>Open an issue on this project's repository</1> naming the list. It is left out on the next build: its entries are not read and its page is removed.",
-    coverageTitle: 'Coverage',
+    leaveOut: 'リストを管理していて掲載を外したい場合は、リスト名を書いて<1>このプロジェクトのリポジトリでIssueを作成</1>してください。次回のビルドで除外され、エントリは読み込まれず、ページも削除されます。',
+    coverageTitle: '収録状況',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
-    coverageLists: '{ok} lists read in full, {partial} in part, {unparsed} not read yet.',
+    coverageLists: 'すべて読み込み済みのリストが{ok}件、一部のみが{partial}件、未読み込みが{unparsed}件です。',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
-    coverageListsGone: '{ok} lists read in full, {partial} in part, {unparsed} not read yet, {gone} gone from GitHub.',
+    coverageListsGone: 'すべて読み込み済みのリストが{ok}件、一部のみが{partial}件、未読み込みが{unparsed}件、GitHubから削除されたものが{gone}件です。',
     /** {items} is a count plural ("116,162 items"); the rest are plain numbers. */
-    coverageItems: '{items}: {repo} repositories, {site} sites, {video} videos, {article} articles, {package} packages, {paper} papers.',
-    coverageTwoOrMore: '{n} items are named by two lists or more.',
-    coverageRepos: 'Repositories: {active} active, {quiet} quiet (no push in two years), {archived} archived, {gone} gone.',
-    dataOf: 'The data is of {date}.',
+    coverageItems: '{items}: リポジトリ{repo}件、サイト{site}件、動画{video}件、記事{article}件、パッケージ{package}件、論文{paper}件。',
+    coverageTwoOrMore: '{n}件の項目が2つ以上のリストに掲載されています。',
+    coverageRepos: 'リポジトリ: 活発{active}件、停滞{quiet}件（2年間プッシュなし）、アーカイブ済み{archived}件、削除済み{gone}件。',
+    dataOf: 'データは{date}時点のものです。',
   },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
     home: {
-      title: p({ one: '{site}: {n} awesome list and everything in it', other: '{site}: {n} awesome lists and everything in them' }),
+      title: p({ other: '{site}: {n}件のawesomeリストとその中身' }),
       /** {n} is the number of lists; {items} the number of projects, already formatted. */
       description: p({
-        one: 'An index of {n} awesome list and the {items} projects it names, by category, language, licence and topic.',
-        other: 'An index of {n} awesome lists and the {items} projects they name, by category, language, licence and topic.',
+        other: '{n}件のawesomeリストと、そこに掲載された{items}件のプロジェクトをカテゴリ、言語、ライセンス、トピック別に索引化。',
       }),
     },
     lists: {
-      title: p({ one: 'All {n} awesome list', other: 'All {n} awesome lists' }),
-      description: p({ one: '{n} awesome list with its size, stars and our own one-line summary.', other: '{n} awesome lists with their sizes, stars and our own one-line summaries.' }),
+      title: p({ other: '全{n}件のawesomeリスト' }),
+      description: p({ other: '{n}件のawesomeリストを、規模、スター数、当サイト独自の一行要約とともに掲載。' }),
     },
     category: {
       /** {category} is a category's name, e.g. "Platforms". */
-      title: p({ one: '{category}: {n} awesome list', other: '{category}: {n} awesome lists' }),
-      description: p({ one: '{n} awesome list on {category}, with its size, stars and summary.', other: '{n} awesome lists on {category}, with sizes, stars and summaries.' }),
+      title: p({ other: '{category}: {n}件のawesomeリスト' }),
+      description: p({ other: '{category}に関する{n}件のawesomeリストを、規模、スター数、要約とともに掲載。' }),
     },
     /** A later page of a listing: {title} is the first page's title. */
-    page: '{title}, page {page}',
+    page: '{title}（{page}ページ目）',
     list: {
       /** {name} is the list's name. */
-      title: p({ one: '{name}: an awesome list of {n} item', other: '{name}: an awesome list of {n} items' }),
+      title: p({ other: '{name}: {n}項目のawesomeリスト' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
-      description: '{name}, an awesome list kept at {repo}.',
+      description: '{repo}で管理されているawesomeリスト{name}。',
     },
     item: {
       /** A repository: {repo} is owner/repo. */
-      repoTitle: p({ one: '{repo}: in {n} awesome list', other: '{repo}: in {n} awesome lists' }),
+      repoTitle: p({ other: '{repo}: {n}件のawesomeリストに掲載' }),
       /** Anything else: {name} is its name. */
-      title: p({ one: '{name}: in {n} awesome list', other: '{name}: in {n} awesome lists' }),
+      title: p({ other: '{name}: {n}件のawesomeリストに掲載' }),
       /** {lists} are up to three list names. */
-      repoDescription: p({ one: '{name} is named by {n} awesome list: {lists}.', other: '{name} is named by {n} awesome lists: {lists}.' }),
+      repoDescription: p({ other: '{name}は{n}件のawesomeリストに掲載されています: {lists}。' }),
       /** {host} is a web site's host, e.g. example.com. */
-      description: p({ one: '{name} ({host}) is named by {n} awesome list: {lists}.', other: '{name} ({host}) is named by {n} awesome lists: {lists}.' }),
+      description: p({ other: '{name}（{host}）は{n}件のawesomeリストに掲載されています: {lists}。' }),
     },
     owner: {
       /** {display} is a GitHub login. */
-      title: '{display}: lists and projects',
+      title: '{display}: リストとプロジェクト',
       /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: '{display} on GitHub: {lists} kept, {projects} named by lists.',
+      description: 'GitHubの{display}が管理する{lists}と、リストに掲載された{projects}。',
     },
     items: {
-      title: p({ one: '{n} project named by awesome lists', other: '{n} projects named by awesome lists' }),
-      description: p({ one: 'Browse {n} project by language, licence, topic, stars and how many lists name it.', other: 'Browse {n} projects by language, licence, topic, stars and how many lists name them.' }),
+      title: p({ other: 'awesomeリストに掲載された{n}件のプロジェクト' }),
+      description: p({ other: '{n}件のプロジェクトを、言語、ライセンス、トピック、スター数、掲載リスト数で探せます。' }),
       /** One filter: {label} is what it is, e.g. "Go" or "archived" or "1,000+ stars". */
-      filteredTitle: p({ one: '{label}: {n} project in awesome lists', other: '{label}: {n} projects in awesome lists' }),
-      filteredDescription: p({ one: '{label}: {n} project named by awesome lists, with its stars and the lists that name it.', other: '{label}: {n} projects named by awesome lists, with their stars and the lists that name them.' }),
+      filteredTitle: p({ other: '{label}: awesomeリストの{n}件のプロジェクト' }),
+      filteredDescription: p({ other: '{label}: awesomeリストに掲載された{n}件のプロジェクトを、スター数と掲載リストとともに表示。' }),
       /** A search in the items: {q} is what was searched for. */
-      matching: 'Items matching “{q}”',
+      matching: '「{q}」に一致する項目',
     },
     about: {
-      title: 'About {site}',
-      description: 'What {site} shows, where it comes from, and how a list is left out.',
+      title: '{site}について',
+      description: '{site}が表示する内容、その出典、リストの掲載を外す方法。',
     },
   },
 };

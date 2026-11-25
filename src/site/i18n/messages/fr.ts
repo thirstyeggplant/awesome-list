@@ -1,8 +1,5 @@
-// TODO translate
-// French. This file is still a copy of the English (messages/en.ts); `pnpm check-translations` reports it as
-// untranslated while it is identical. Translate every message, keep the placeholders and numbered tags, give each
-// plural the forms the language needs, then remove the TODO line and run `pnpm check-translations --stamp fr`.
-// The comments say where a message appears and what its placeholders are; they need no translating.
+// French, translated from messages/en.ts. The comments say where a message appears and what its placeholders are;
+// they need no translating. French plurals: one (0 and 1), many (round millions: "1 000 000 de listes"), other.
 import { p } from '../format.js';
 import type { Messages } from './en.js';
 
@@ -11,296 +8,337 @@ export const fr: Messages = {
     /** The browser tab's title on most pages: the page's title, then the site's name. */
     title: '{title} · {site}',
     /** The first link on every page, for keyboards and screen readers; it jumps past the header. */
-    skip: 'Skip to the content',
+    skip: 'Aller au contenu',
     /** The footer of every page. <1> links to the About page's section on leaving a list out. */
-    footer: '{site} indexes names, sections and links. Descriptions belong to the lists and are not copied here. Keep a list and want it left out? <1>Open an issue</1>.',
+    footer: '{site} indexe des noms, des sections et des liens. Les descriptions appartiennent aux listes et ne sont pas copiées ici. Vous maintenez une liste et souhaitez qu’elle soit retirée ? <1>Ouvrez une issue</1>.',
     /** The label of the breadcrumb trail (for screen readers). */
-    breadcrumb: 'Breadcrumb',
+    breadcrumb: 'Fil d’Ariane',
   },
   nav: {
-    lists: 'Lists',
-    items: 'Items',
-    about: 'About',
+    lists: 'Listes',
+    items: 'Éléments',
+    about: 'À propos',
     /** The search box in the header: its label, and the hint inside it ("/" is the key that opens quick search). */
-    search: 'Search',
-    searchHint: 'Search  ( / )',
+    search: 'Rechercher',
+    searchHint: 'Rechercher  ( / )',
   },
   quick: {
     /** The quick-search dialog, opened with Ctrl-K or "/". */
-    label: 'Quick search',
-    placeholder: 'Search lists, items and tags',
+    label: 'Recherche rapide',
+    placeholder: 'Rechercher des listes, des éléments et des tags',
     /** The label of the list of results inside the dialog (for screen readers). */
-    results: 'Results',
-    help: '↑ ↓ to move, Enter to open, Esc to close',
+    results: 'Résultats',
+    help: '↑ ↓ pour se déplacer, Entrée pour ouvrir, Échap pour fermer',
     /** Group headings inside the dialog's results. */
-    lists: 'Lists',
-    items: 'Items',
+    lists: 'Listes',
+    items: 'Éléments',
     tags: 'Tags',
   },
   lang: {
     /** The label of the list of languages in the footer (for screen readers). */
-    switcher: 'Language',
+    switcher: 'Langue',
     /**
      * A bar shown when the visitor's browser prefers this language over the page's. Written in this file's own
      * language, because it is shown to someone who reads it.
      */
-    suggest: 'Read this page in English',
+    suggest: 'Lire cette page en français',
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
-    close: 'Close',
+    close: 'Fermer',
   },
   count: {
-    lists: p({ one: '{n} list', other: '{n} lists' }),
-    items: p({ one: '{n} item', other: '{n} items' }),
-    listings: p({ one: '{n} listing', other: '{n} listings' }),
-    sections: p({ one: '{n} section', other: '{n} sections' }),
-    links: p({ one: '{n} link', other: '{n} links' }),
-    stars: p({ one: '{n} star', other: '{n} stars' }),
-    projects: p({ one: '{n} project', other: '{n} projects' }),
-    otherLists: p({ one: '{n} other list', other: '{n} other lists' }),
+    lists: p({ one: '{n} liste', many: '{n} de listes', other: '{n} listes' }),
+    items: p({ one: '{n} élément', many: '{n} d’éléments', other: '{n} éléments' }),
+    listings: p({ one: '{n} mention', many: '{n} de mentions', other: '{n} mentions' }),
+    sections: p({ one: '{n} section', many: '{n} de sections', other: '{n} sections' }),
+    links: p({ one: '{n} lien', many: '{n} de liens', other: '{n} liens' }),
+    stars: p({ one: '{n} étoile', many: '{n} d’étoiles', other: '{n} étoiles' }),
+    projects: p({ one: '{n} projet', many: '{n} de projets', other: '{n} projets' }),
+    otherLists: p({ one: '{n} autre liste', many: '{n} d’autres listes', other: '{n} autres listes' }),
     /** "{items} in {sections}": e.g. "12 items in 4 sections"; both values are the plurals above. */
-    itemsInSections: '{items} in {sections}',
+    itemsInSections: '{items} dans {sections}',
     /** A list's reason for being read only in part: e.g. "5 items from 81 links"; both values are plurals above. */
-    itemsFromLinks: '{items} from {links}',
+    itemsFromLinks: '{items} sur {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
-    shownOf: '{n} of {m}',
+    shownOf: '{n} sur {m}',
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
-    repo: 'repository',
-    package: 'package',
-    video: 'video',
-    paper: 'paper',
+    repo: 'dépôt',
+    package: 'paquet',
+    video: 'vidéo',
+    paper: 'publication',
     article: 'article',
     site: 'site',
   },
   /** A repository's state. Shown as a short word beside its name, and in the facet rail. */
   status: {
-    active: 'active',
-    quiet: 'quiet',
-    archived: 'archived',
-    gone: 'gone',
+    active: 'actif',
+    quiet: 'inactif',
+    archived: 'archivé',
+    gone: 'disparu',
   },
   /** A list's state, in the facet rail of /lists: read in full, in part, not read, gone from GitHub. */
   listStatus: {
-    ok: 'read in full',
-    partial: 'read in part',
-    unparsed: 'not read yet',
-    gone: 'gone',
+    ok: 'lue en entier',
+    partial: 'lue en partie',
+    unparsed: 'pas encore lue',
+    gone: 'disparue',
   },
   /** The ways of ordering a listing page, after "sort by". */
   sort: {
-    relevance: 'relevance',
-    lists: 'lists',
-    stars: 'stars',
-    items: 'items',
-    updated: 'updated',
-    name: 'name',
+    relevance: 'pertinence',
+    lists: 'listes',
+    stars: 'étoiles',
+    items: 'éléments',
+    updated: 'mise à jour',
+    name: 'nom',
   },
-  yes: 'yes',
-  no: 'no',
+  yes: 'oui',
+  no: 'non',
   common: {
-    search: 'Search',
-    filter: 'Filter',
-    searchListsAndItems: 'Search lists and items',
-    nothingHere: 'Nothing here.',
-    previous: '← Previous',
-    next: 'Next →',
+    search: 'Rechercher',
+    filter: 'Filtrer',
+    searchListsAndItems: 'Rechercher des listes et des éléments',
+    nothingHere: 'Rien ici.',
+    previous: '← Précédent',
+    next: 'Suivant →',
     /** After the removable filter chips: takes them all away. */
-    clearAll: 'Clear all',
+    clearAll: 'Tout effacer',
     /** "12 lists · sort by stars · items · updated · name"; {sorts} are the sort words, the current one in bold. */
-    sortBy: '{count} · sort by {sorts}',
+    sortBy: '{count} · trier par {sorts}',
     /** Shown past the last page a listing will show. */
-    pagingStops: 'Paging stops at page {n}. Narrow the filters to see more.',
+    pagingStops: 'La pagination s’arrête à la page {n}. Affinez les filtres pour en voir plus.',
     /** The removable chip for a search: “{q}” is what was searched for. */
-    searchChip: '“{q}”',
+    searchChip: '« {q} »',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
   },
   facts: {
-    stars: 'Stars',
-    lastPush: 'Last push',
-    language: 'Language',
+    stars: 'Étoiles',
+    lastPush: 'Dernier push',
+    language: 'Langage',
     licence: 'Licence',
-    entries: 'Entries',
-    namedBy: 'Named by',
-    state: 'State',
+    entries: 'Entrées',
+    namedBy: 'Cité par',
+    state: 'État',
     fork: 'Fork',
-    kind: 'Kind',
-    host: 'Host',
-    renamedFrom: 'Renamed from',
+    kind: 'Type',
+    host: 'Hôte',
+    renamedFrom: 'Ancien nom',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
-    h1: p({ one: '{n} awesome list and everything in it', other: '{n} awesome lists and everything in them' }),
+    h1: p({
+      one: '{n} liste awesome et tout ce qu’elle contient',
+      many: '{n} de listes awesome et tout ce qu’elles contiennent',
+      other: '{n} listes awesome et tout ce qu’elles contiennent',
+    }),
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · data of {date}',
-    mostNamed: 'Named by the most lists',
+    counts: '{lists} · {items} · {listings} · données du {date}',
+    mostNamed: 'Cités par le plus de listes',
   },
   lists: {
-    h1: 'Lists',
-    filterLists: 'Filter lists',
-    category: 'Category',
+    h1: 'Listes',
+    filterLists: 'Filtrer les listes',
+    category: 'Catégorie',
     licence: 'Licence',
-    status: 'Status',
+    status: 'État',
   },
   list: {
-    contents: 'Contents',
-    filterThisList: 'Filter this list',
-    collapseAll: 'Collapse all',
-    expandAll: 'Expand all',
+    contents: 'Sommaire',
+    filterThisList: 'Filtrer cette liste',
+    collapseAll: 'Tout replier',
+    expandAll: 'Tout déplier',
     /** The label of the "#" link beside a section heading (for screen readers). */
-    sectionLink: 'Link to this section',
-    readOriginal: 'Read the original on GitHub',
-    suggestChange: 'Suggest a change',
+    sectionLink: 'Lien vers cette section',
+    readOriginal: 'Lire l’original sur GitHub',
+    suggestChange: 'Proposer une modification',
     /** For a list whose entries could not be read; {reason} is why, e.g. "the readme is in reStructuredText". */
-    unparsed: "We could not read this list's entries yet ({reason}).",
-    noReason: 'no reason given',
+    unparsed: 'Nous n’avons pas encore pu lire les entrées de cette liste ({reason}).',
+    noReason: 'aucune raison indiquée',
     /**
      * Under a list's entries. <1> is the list's name (bold), {owner} a GitHub login, <2> the link to the
      * repository, whose text is {repo} (github.com/owner/repo).
      */
-    attribution: 'This page is an index of <1>{name}</1>, a list kept by {owner} and its contributors at <2>{repo}</2>. The selection and order are theirs; the summary above is ours.',
+    attribution: 'Cette page est un index de <1>{name}</1>, une liste maintenue par {owner} et ses contributeurs sur <2>{repo}</2>. La sélection et l’ordre sont les leurs ; le résumé ci-dessus est le nôtre.',
     /** Follows the attribution; {oid} is a commit's short hash, {date} the day it was read. */
-    readAt: 'Read at commit {oid} on {date}.',
+    readAt: 'Lue au commit {oid} le {date}.',
     /** Follows the attribution; {license} is a licence's name, e.g. "MIT". */
-    licence: 'Licence: {license}.',
+    licence: 'Licence : {license}.',
     /** A heading after a list's entries: other lists of the same category. */
-    moreIn: 'More in {category}',
+    moreIn: 'Plus dans {category}',
   },
   item: {
     /** Under an item's name: the other names lists give it. */
-    alsoListedAs: 'Also listed as: {names}',
+    alsoListedAs: 'Aussi référencé sous : {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
-    isList: 'This is itself a list in the library: <1>open it</1>.',
-    archived: 'Archived by its owner.',
-    gone: 'GitHub no longer has this repository.',
+    isList: 'Cet élément est lui-même une liste de la bibliothèque : <1>l’ouvrir</1>.',
+    archived: 'Archivé par son propriétaire.',
+    gone: 'Ce dépôt n’existe plus sur GitHub.',
     /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: 'No pushes since {month}.',
-    quiet: 'No pushes in two years.',
-    factsAsOf: 'Facts from GitHub as of {date}.',
-    inLists: p({ one: 'In {n} list', other: 'In {n} lists' }),
+    quietSince: 'Aucun push depuis {month}.',
+    quiet: 'Aucun push depuis deux ans.',
+    factsAsOf: 'Données GitHub au {date}.',
+    inLists: p({ one: 'Dans {n} liste', many: 'Dans {n} de listes', other: 'Dans {n} listes' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
-    listedAs: 'listed as ‘{name}’',
-    alongside: 'Listed alongside',
-    attribution: 'Named by the lists above. Follow a list to read what its curators say about it. To suggest a change, open an issue on one of those lists.',
+    listedAs: 'référencé sous « {name} »',
+    alongside: 'Référencé aux côtés de',
+    attribution: 'Cité par les listes ci-dessus. Suivez une liste pour lire ce qu’en disent ses curateurs. Pour proposer une modification, ouvrez une issue sur l’une de ces listes.',
   },
   items: {
-    h1: 'Items',
-    searchItems: 'Search items',
+    h1: 'Éléments',
+    searchItems: 'Rechercher des éléments',
     /** After the count of results, when a search found more than can be ranked. */
-    bestOnly: ' (the best matches only)',
-    kind: 'Kind',
-    status: 'Status',
-    language: 'Language',
+    bestOnly: ' (les meilleurs résultats seulement)',
+    kind: 'Type',
+    status: 'État',
+    language: 'Langage',
     licence: 'Licence',
-    topic: 'Topic',
-    category: 'Category',
-    list: 'List',
-    stars: 'Stars',
-    namedBy: 'Named by',
+    topic: 'Sujet',
+    category: 'Catégorie',
+    list: 'Liste',
+    stars: 'Étoiles',
+    namedBy: 'Cité par',
     /** Facet values: "1,000+ stars", "in 5+ lists". */
-    starsAtLeast: '{n}+ stars',
-    inAtLeast: 'in {n}+ lists',
+    starsAtLeast: '{n}+ étoiles',
+    inAtLeast: 'dans {n}+ listes',
   },
   owner: {
-    listsTheyKeep: 'Lists they keep',
-    theirProjects: 'Their projects named by lists',
+    listsTheyKeep: 'Listes maintenues',
+    theirProjects: 'Ses projets cités par des listes',
     /** A link under an owner's projects to all of them on the Items page. */
-    allInItems: p({ one: 'All {n} in Items', other: 'All {n} in Items' }),
+    allInItems: p({ one: 'Voir {n} dans Éléments', many: 'Voir les {n} dans Éléments', other: 'Voir les {n} dans Éléments' }),
   },
   search: {
-    h1: 'Search',
-    lists: 'Lists',
+    h1: 'Recherche',
+    lists: 'Listes',
     sections: 'Sections',
-    items: 'Items',
+    items: 'Éléments',
     /** Beside a section found by search: the list it is in. */
-    inList: 'in {list}',
-    noItems: 'No items match.',
-    allItems: p({ one: 'All {n} item', other: 'All {n} items' }),
+    inList: 'dans {list}',
+    noItems: 'Aucun élément ne correspond.',
+    allItems: p({ one: 'Voir {n} élément', many: 'Voir les {n} d’éléments', other: 'Voir les {n} éléments' }),
   },
   notFound: {
-    h1: 'Nothing at this address',
+    h1: 'Rien à cette adresse',
     /** Above a few pages that might be what the visitor wanted. */
-    perhaps: 'Perhaps',
+    perhaps: 'Peut-être',
   },
   about: {
-    h1: 'About {site}',
+    h1: 'À propos de {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
-    intro: '{site} is a free library of every awesome list in the <1>index of awesome lists</1> and everything in them: {lists}, the {items} they name, and where each list names each one.',
-    shownTitle: 'What is shown, and what is not',
-    shown: "The site shows names, sections, links and facts, and our own words. It never shows a curator's or a repository owner's description. A list's summary is ours; what a list says about an entry stays on the list, one link away.",
+    intro: '{site} est une bibliothèque gratuite de toutes les listes awesome de l’<1>index des listes awesome</1> et de leur contenu : {lists}, les {items} qu’elles citent, et l’endroit où chaque liste cite chacun d’eux.',
+    shownTitle: 'Ce qui est affiché, et ce qui ne l’est pas',
+    shown: 'Le site affiche des noms, des sections, des liens et des faits, ainsi que nos propres mots. Il n’affiche jamais la description d’un curateur ou du propriétaire d’un dépôt. Le résumé d’une liste est le nôtre ; ce qu’une liste dit d’une entrée reste sur la liste, à un lien de distance.',
     attributionTitle: 'Attribution',
-    attribution: 'The selection and order of every list belong to the people who keep it. Each list page says where the list lives and the commit it was read at. Facts about repositories (stars, last push, language, licence, topics) come from GitHub.',
-    leaveOutTitle: 'How a list is left out',
+    attribution: 'La sélection et l’ordre de chaque liste appartiennent aux personnes qui la maintiennent. Chaque page de liste indique où se trouve la liste et le commit auquel elle a été lue. Les données sur les dépôts (étoiles, dernier push, langage, licence, sujets) viennent de GitHub.',
+    leaveOutTitle: 'Comment retirer une liste',
     /** <1> links to this project's issues on GitHub. */
-    leaveOut: "Keep a list and want it left out? <1>Open an issue on this project's repository</1> naming the list. It is left out on the next build: its entries are not read and its page is removed.",
-    coverageTitle: 'Coverage',
+    leaveOut: 'Vous maintenez une liste et souhaitez qu’elle soit retirée ? <1>Ouvrez une issue sur le dépôt de ce projet</1> en nommant la liste. Elle sera retirée au prochain build : ses entrées ne seront plus lues et sa page sera supprimée.',
+    coverageTitle: 'Couverture',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
-    coverageLists: '{ok} lists read in full, {partial} in part, {unparsed} not read yet.',
+    coverageLists: 'Listes : {ok} lues en entier, {partial} en partie, {unparsed} pas encore lues.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
-    coverageListsGone: '{ok} lists read in full, {partial} in part, {unparsed} not read yet, {gone} gone from GitHub.',
+    coverageListsGone: 'Listes : {ok} lues en entier, {partial} en partie, {unparsed} pas encore lues, {gone} disparues de GitHub.',
     /** {items} is a count plural ("116,162 items"); the rest are plain numbers. */
-    coverageItems: '{items}: {repo} repositories, {site} sites, {video} videos, {article} articles, {package} packages, {paper} papers.',
-    coverageTwoOrMore: '{n} items are named by two lists or more.',
-    coverageRepos: 'Repositories: {active} active, {quiet} quiet (no push in two years), {archived} archived, {gone} gone.',
-    dataOf: 'The data is of {date}.',
+    coverageItems: '{items} : {repo} dépôts, {site} sites, {video} vidéos, {article} articles, {package} paquets, {paper} publications.',
+    coverageTwoOrMore: 'Éléments cités par au moins deux listes : {n}.',
+    coverageRepos: 'Dépôts : {active} actifs, {quiet} inactifs (aucun push depuis deux ans), {archived} archivés, {gone} disparus.',
+    dataOf: 'Données du {date}.',
   },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
     home: {
-      title: p({ one: '{site}: {n} awesome list and everything in it', other: '{site}: {n} awesome lists and everything in them' }),
+      title: p({
+        one: '{site} : {n} liste awesome et tout son contenu',
+        many: '{site} : {n} de listes awesome et leur contenu',
+        other: '{site} : {n} listes awesome et tout leur contenu',
+      }),
       /** {n} is the number of lists; {items} the number of projects, already formatted. */
       description: p({
-        one: 'An index of {n} awesome list and the {items} projects it names, by category, language, licence and topic.',
-        other: 'An index of {n} awesome lists and the {items} projects they name, by category, language, licence and topic.',
+        one: 'Un index de {n} liste awesome et des {items} projets qu’elle cite, par catégorie, langage, licence et sujet.',
+        many: 'Un index de {n} de listes awesome et des {items} projets qu’elles citent, par catégorie, langage, licence et sujet.',
+        other: 'Un index de {n} listes awesome et des {items} projets qu’elles citent, par catégorie, langage, licence et sujet.',
       }),
     },
     lists: {
-      title: p({ one: 'All {n} awesome list', other: 'All {n} awesome lists' }),
-      description: p({ one: '{n} awesome list with its size, stars and our own one-line summary.', other: '{n} awesome lists with their sizes, stars and our own one-line summaries.' }),
+      title: p({ one: '{n} liste awesome', many: 'Les {n} de listes awesome', other: 'Les {n} listes awesome' }),
+      description: p({
+        one: '{n} liste awesome avec sa taille, ses étoiles et notre résumé en une ligne.',
+        many: '{n} de listes awesome avec leur taille, leurs étoiles et notre résumé en une ligne.',
+        other: '{n} listes awesome avec leur taille, leurs étoiles et notre résumé en une ligne.',
+      }),
     },
     category: {
       /** {category} is a category's name, e.g. "Platforms". */
-      title: p({ one: '{category}: {n} awesome list', other: '{category}: {n} awesome lists' }),
-      description: p({ one: '{n} awesome list on {category}, with its size, stars and summary.', other: '{n} awesome lists on {category}, with sizes, stars and summaries.' }),
+      title: p({ one: '{category} : {n} liste awesome', many: '{category} : {n} de listes awesome', other: '{category} : {n} listes awesome' }),
+      description: p({
+        one: '{n} liste awesome dans la catégorie {category}, avec sa taille, ses étoiles et son résumé.',
+        many: '{n} de listes awesome dans la catégorie {category}, avec taille, étoiles et résumé.',
+        other: '{n} listes awesome dans la catégorie {category}, avec taille, étoiles et résumé.',
+      }),
     },
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, page {page}',
     list: {
       /** {name} is the list's name. */
-      title: p({ one: '{name}: an awesome list of {n} item', other: '{name}: an awesome list of {n} items' }),
+      title: p({ one: '{name} : une liste awesome de {n} élément', many: '{name} : une liste awesome de {n} d’éléments', other: '{name} : une liste awesome de {n} éléments' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
-      description: '{name}, an awesome list kept at {repo}.',
+      description: '{name}, une liste awesome maintenue sur {repo}.',
     },
     item: {
       /** A repository: {repo} is owner/repo. */
-      repoTitle: p({ one: '{repo}: in {n} awesome list', other: '{repo}: in {n} awesome lists' }),
+      repoTitle: p({ one: '{repo} : dans {n} liste awesome', many: '{repo} : dans {n} de listes awesome', other: '{repo} : dans {n} listes awesome' }),
       /** Anything else: {name} is its name. */
-      title: p({ one: '{name}: in {n} awesome list', other: '{name}: in {n} awesome lists' }),
+      title: p({ one: '{name} : dans {n} liste awesome', many: '{name} : dans {n} de listes awesome', other: '{name} : dans {n} listes awesome' }),
       /** {lists} are up to three list names. */
-      repoDescription: p({ one: '{name} is named by {n} awesome list: {lists}.', other: '{name} is named by {n} awesome lists: {lists}.' }),
+      repoDescription: p({
+        one: '{name} est cité par {n} liste awesome : {lists}.',
+        many: '{name} est cité par {n} de listes awesome : {lists}.',
+        other: '{name} est cité par {n} listes awesome : {lists}.',
+      }),
       /** {host} is a web site's host, e.g. example.com. */
-      description: p({ one: '{name} ({host}) is named by {n} awesome list: {lists}.', other: '{name} ({host}) is named by {n} awesome lists: {lists}.' }),
+      description: p({
+        one: '{name} ({host}) est cité par {n} liste awesome : {lists}.',
+        many: '{name} ({host}) est cité par {n} de listes awesome : {lists}.',
+        other: '{name} ({host}) est cité par {n} listes awesome : {lists}.',
+      }),
     },
     owner: {
       /** {display} is a GitHub login. */
-      title: '{display}: lists and projects',
+      title: '{display} : listes et projets',
       /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: '{display} on GitHub: {lists} kept, {projects} named by lists.',
+      description: '{display} sur GitHub : {lists} maintenues, {projects} cités par des listes.',
     },
     items: {
-      title: p({ one: '{n} project named by awesome lists', other: '{n} projects named by awesome lists' }),
-      description: p({ one: 'Browse {n} project by language, licence, topic, stars and how many lists name it.', other: 'Browse {n} projects by language, licence, topic, stars and how many lists name them.' }),
+      title: p({
+        one: '{n} projet cité par des listes awesome',
+        many: '{n} de projets cités par des listes awesome',
+        other: '{n} projets cités par des listes awesome',
+      }),
+      description: p({
+        one: 'Parcourez {n} projet par langage, licence, sujet, étoiles et nombre de listes qui le citent.',
+        many: 'Parcourez {n} de projets par langage, licence, sujet, étoiles et nombre de listes qui les citent.',
+        other: 'Parcourez {n} projets par langage, licence, sujet, étoiles et nombre de listes qui les citent.',
+      }),
       /** One filter: {label} is what it is, e.g. "Go" or "archived" or "1,000+ stars". */
-      filteredTitle: p({ one: '{label}: {n} project in awesome lists', other: '{label}: {n} projects in awesome lists' }),
-      filteredDescription: p({ one: '{label}: {n} project named by awesome lists, with its stars and the lists that name it.', other: '{label}: {n} projects named by awesome lists, with their stars and the lists that name them.' }),
+      filteredTitle: p({
+        one: '{label} : {n} projet dans des listes awesome',
+        many: '{label} : {n} de projets dans des listes awesome',
+        other: '{label} : {n} projets dans des listes awesome',
+      }),
+      filteredDescription: p({
+        one: '{label} : {n} projet cité par des listes awesome, avec ses étoiles et les listes qui le citent.',
+        many: '{label} : {n} de projets cités par des listes awesome, avec leurs étoiles et les listes qui les citent.',
+        other: '{label} : {n} projets cités par des listes awesome, avec leurs étoiles et les listes qui les citent.',
+      }),
       /** A search in the items: {q} is what was searched for. */
-      matching: 'Items matching “{q}”',
+      matching: 'Éléments correspondant à « {q} »',
     },
     about: {
-      title: 'About {site}',
-      description: 'What {site} shows, where it comes from, and how a list is left out.',
+      title: 'À propos de {site}',
+      description: 'Ce que {site} affiche, d’où viennent les données et comment retirer une liste.',
     },
   },
 };

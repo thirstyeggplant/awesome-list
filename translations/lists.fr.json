@@ -388,7 +388,7 @@
     "enHash": "97107c81f2f6"
   },
   "chromedevtools/awesome-chrome-devtools": {
-    "summary": "Astuces, outils de profilage, extensions et projets basés sur le protocole des outils de développement intégrés à Chrome.",
+    "summary": "Astuces, outils de profilage, extensions et projets basés sur le protocole DevTools des outils de développement intégrés à Chrome.",
     "enHash": "e04547dcdc3d"
   },
   "cicdops/awesome-ciandcd": {

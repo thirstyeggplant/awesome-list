@@ -108,10 +108,21 @@ describe('messages', () => {
   it('are not left in English in a translated language (test 4)', () => {
     // Keys whose value may be the same in a language: nothing but placeholders and signs.
     const allowed = new Set(['site.title', 'common.searchChip', 'common.separator']);
+    // Words that are the same in the language (loanwords such as Fork, Status, Tags; French "page", German "in"),
+    // checked by eye. A key added here must be one whose translation really is the English.
+    const sameInLanguage: Partial<Record<Locale, string[]>> = {
+      zh: ['facts.fork'],
+      es: ['kind.video', 'no', 'facts.fork'],
+      pt: ['quick.tags', 'kind.paper', 'kind.site', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
+      de: ['quick.tags', 'count.itemsInSections', 'facts.fork', 'facts.host', 'lists.status', 'items.status', 'search.inList'],
+      fr: ['quick.tags', 'kind.article', 'kind.site', 'facts.licence', 'facts.fork', 'lists.licence', 'items.licence', 'search.sections', 'about.attributionTitle', 'meta.page'],
+      id: ['site.breadcrumb', 'kind.video', 'kind.paper', 'common.filter', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
+    };
     for (const l of LOCALES.filter((x) => x !== 'en')) {
       const r = uiReport(l, MESSAGES[l], readUiHashes());
       if (r.untranslated) continue;
-      expect(r.sameAsEnglish.filter((k) => !allowed.has(k)), l).toEqual([]);
+      const also = new Set(sameInLanguage[l] ?? []);
+      expect(r.sameAsEnglish.filter((k) => !allowed.has(k) && !also.has(k)), l).toEqual([]);
     }
     // A messages file that is a copy of the English is reported as untranslated.
     expect(uiReport('de', { ...en }, {}).untranslated).toBe(true);
@@ -261,10 +272,10 @@ describe('every language', () => {
     expect(lists).toContain('<span lang="en">Languages</span>');
     const list = (await get('/de/lists/gamma/awesome-broken')).body;
     expect(list).toContain('<p class="summary" lang="en">Things about gamma/awesome-broken.</p>');
-    // The suggestion bar's words are on each language's link, in that language; one still in English offers none.
+    // The suggestion bar's words are on each language's link, in that language.
     const home = (await get('/de')).body;
     expect(home).toContain('hreflang="en" data-suggest="Read this page in English" data-close="Close"');
-    expect(home).not.toMatch(/hreflang="fr" data-suggest/);
+    expect(home).toMatch(/hreflang="fr" data-suggest="[^"]*fran/i);
     // The counts are in build.json.
     const build = JSON.parse(readFileSync(join(fixture.out, 'd1', 'build.json'), 'utf8')) as {
       translations: Record<string, { summaries: { translated: number; stale: number; missing: number }; categories: { translated: number } }>;

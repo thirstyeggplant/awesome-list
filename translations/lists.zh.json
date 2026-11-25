@@ -2176,7 +2176,7 @@
     "enHash": "95ce813e172c"
   },
   "sindresorhus/awesome-nodejs": {
-    "summary": "覆盖各类任务的 Node.js 包，以及包管理器、教程等资源。",
+    "summary": "覆盖各类任务的 Node.js 包，以及这一 JavaScript 运行时的包管理器、教程等资源。",
     "enHash": "c40120fa6cf8"
   },
   "sindresorhus/awesome-npm": {
