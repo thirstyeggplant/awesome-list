@@ -19,3 +19,15 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
+      - name: Bundle the Worker (wrangler deploy --dry-run)
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          # The placeholders filled with made-up values, and an empty folder for the static files: nothing is sent.
+          mkdir -p out/site-assets
+          jq '.account_id = "00000000000000000000000000000000"
+            | .d1_databases[0].database_id = "00000000-0000-4000-8000-000000000000"
+            | .d1_databases[0].database_name = "shelf-000000000000"
+            | .vars.BUILD_ID = "000000000000"' wrangler.json > wrangler.deploy.json
+          pnpm exec wrangler deploy --dry-run --config wrangler.deploy.json --outdir "$RUNNER_TEMP/worker"
+          ls -l "$RUNNER_TEMP/worker"

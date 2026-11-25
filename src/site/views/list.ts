@@ -37,7 +37,7 @@ function heading(depth: number, anchor: string, title: string, count: number | n
   return html`<h${n} class="sh">${title}${count === null ? '' : html` <span class="count">${num(count)}</span>`} <a class="anchor" href="#${anchor}" aria-label="Link to this section">#</a></h${n}>`;
 }
 
-function body(ctx: Ctx, sections: readonly SectionRow[], entries: readonly ListEntry[]): Html {
+function body(sections: readonly SectionRow[], entries: readonly ListEntry[]): Html {
   const bySection = new Map<number, ListEntry[]>();
   for (const e of entries) {
     let a = bySection.get(e.sectionId);
@@ -56,7 +56,7 @@ function body(ctx: Ctx, sections: readonly SectionRow[], entries: readonly ListE
     }
     emitted.add(s.anchor);
     const rows = (bySection.get(s.id) ?? []).map((e) =>
-      itemRow(ctx, e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks }),
+      itemRow(e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks }),
     );
     out.push(html`<section id="${s.anchor}" data-depth="${s.depth}">${
       s.depth > 0 ? heading(s.depth, s.anchor, s.title, s.itemCount) : ''
@@ -75,12 +75,15 @@ export function attributionOfList(list: ListRow, dataFinished: string): Html {
   }${list.license ? html` Licence: ${list.license}.` : ''}</p>`;
 }
 
-export function listPage(ctx: Ctx, db: Db, list: ListRow): ViewResult {
+export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewResult> {
   const cat = list.categoryId === null ? undefined : ctx.categoryById.get(list.categoryId);
-  const sections = db.sectionsOfList(list.id);
-  const entries = list.status === 'unparsed' ? [] : db.entriesOfList(list.id);
-  const ownItem = list.itemId === null ? null : db.itemById(list.itemId);
-  const namedBy = ownItem === null ? 0 : db.otherListsNaming(ownItem.id, list.id);
+  const [sections, entries, ownItem] = await Promise.all([
+    db.sectionsOfList(list.id),
+    list.status === 'unparsed' ? Promise.resolve([]) : db.entriesOfList(list.id),
+    list.itemId === null ? Promise.resolve(null) : db.itemById(list.itemId),
+  ]);
+  // How many other lists name the list's own repository.
+  const namedBy = ownItem === null ? 0 : new Set(ownItem.listed.map(([id]) => id).filter((id) => id !== list.id)).size;
   const gh = `https://github.com/${list.slug}`;
   const word = listRot(list, ctx.dataDay);
   const contents = tocOf(sections);
@@ -110,7 +113,7 @@ ${facts([
 <div class="list-body">
 <details class="toc toc-narrow"><summary>Contents</summary>${toc(contents)}</details>
 <div class="list-filter"><input id="list-filter" type="search" placeholder="Filter this list" aria-label="Filter this list" autocomplete="off"> <output id="list-count" for="list-filter">${num(entries.length)} of ${num(entries.length)}</output> <button type="button" id="collapse-all">Collapse all</button></div>
-<div id="entries">${body(ctx, sections, entries)}</div>
+<div id="entries">${body(sections, entries)}</div>
 </div></div>`;
   }
 

@@ -6,7 +6,8 @@ import { join } from 'node:path';
 import { createInterface } from 'node:readline';
 import type { z } from 'zod';
 import { PublicItemRow, PublicListingRow, PublicListRow } from '../../model.js';
-import { anchorsByPath, itemKeys, sectionOutline, slugify, shortHash } from '../keys.js';
+import { anchorsByPath, sectionOutline, slugify } from '../keys.js';
+import { itemKeys, shortHash } from './item-keys.js';
 
 /** The list whose entries are the other lists; its order is the index's order. */
 export const INDEX_LIST = 'sindresorhus/awesome';

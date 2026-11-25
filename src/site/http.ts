@@ -1,26 +1,14 @@
-// What every answer carries: headers, the ETag and 304, gzip, and the last rendered answers in memory.
-import { gzipSync } from 'node:zlib';
-
-export interface SiteRequest {
-  method: string;
-  /** The path and query, as sent. */
-  url: string;
-  headers: Record<string, string | string[] | undefined>;
-}
+// What every answer of the site carries: the security headers, Cache-Control, and the ETag on a 200 that may be
+// kept. The ETag is the build id, so a 304 is one comparison, made before any query. Compression is the
+// platform's (Cloudflare's, or none locally): no Content-Encoding, Content-Length or Vary here.
 
 /** What a route answers, before headers. */
 export interface Answer {
   status: number;
   type: string;
-  body: string | Buffer;
+  body: string;
   cache: string;
   location?: string;
-}
-
-export interface Reply {
-  status: number;
-  headers: Record<string, string>;
-  body: Buffer;
 }
 
 export const TYPES = {
@@ -32,80 +20,41 @@ export const TYPES = {
   js: 'text/javascript; charset=utf-8',
 } as const;
 
-export const SECURITY_HEADERS: Record<string, string> = {
+export const SECURITY_HEADERS: Readonly<Record<string, string>> = {
   'Content-Security-Policy': "default-src 'self'",
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
 };
 
-/** A rendered answer, kept with its gzipped body once it has been asked for. */
-export interface Rendered {
-  answer: Answer;
-  body: Buffer;
-  gz?: Buffer;
+export function etagOf(buildId: string): string {
+  return `W/"${buildId}"`;
 }
 
-export class Lru<K, V> {
-  private readonly map = new Map<K, V>();
-  constructor(readonly size: number) {}
-  get(key: K): V | undefined {
-    const v = this.map.get(key);
-    if (v !== undefined) {
-      this.map.delete(key);
-      this.map.set(key, v);
-    }
-    return v;
-  }
-  set(key: K, value: V): void {
-    this.map.delete(key);
-    this.map.set(key, value);
-    if (this.map.size > this.size) {
-      const oldest = this.map.keys().next();
-      if (!oldest.done) this.map.delete(oldest.value);
-    }
-  }
-  get count(): number {
-    return this.map.size;
-  }
+/** Whether the request's If-None-Match names this ETag. */
+export function matches(req: Request, etag: string): boolean {
+  const sent = req.headers.get('if-none-match');
+  if (sent === null || sent === '') return false;
+  return sent.split(',').some((t) => t.trim() === etag || t.trim() === '*');
 }
 
-function header(req: SiteRequest, name: string): string {
-  const v = req.headers[name];
-  return Array.isArray(v) ? v.join(', ') : (v ?? '');
+function headersOf(type: string, cache: string): Headers {
+  const h = new Headers(SECURITY_HEADERS);
+  h.set('Content-Type', type);
+  h.set('Cache-Control', cache);
+  return h;
 }
 
-export function render(answer: Answer): Rendered {
-  return { answer, body: typeof answer.body === 'string' ? Buffer.from(answer.body) : answer.body };
+/** The 304 for an address whose answer has not changed since the build that made the client's copy. */
+export function notModified(etag: string, type: string, cache: string): Response {
+  const h = headersOf(type, cache);
+  h.set('ETag', etag);
+  return new Response(null, { status: 304, headers: h });
 }
 
-const COMPRESSIBLE = /^(text\/|application\/(json|xml))/;
-
-/** The reply to a request: an ETag and 304 for a 200 that may be cached, gzip when asked for. */
-export function reply(req: SiteRequest, r: Rendered, etag: string): Reply {
-  const { answer } = r;
-  const headers: Record<string, string> = {
-    ...SECURITY_HEADERS,
-    'Content-Type': answer.type,
-    'Cache-Control': answer.cache,
-  };
-  if (answer.location !== undefined) headers.Location = answer.location;
-  const tagged = answer.status === 200 && answer.cache !== 'no-store';
-  if (tagged) {
-    headers.ETag = etag;
-    const sent = header(req, 'if-none-match');
-    if (sent !== '' && sent.split(',').some((t) => t.trim() === etag || t.trim() === '*')) {
-      return { status: 304, headers: { ...headers, 'Content-Type': answer.type }, body: Buffer.alloc(0) };
-    }
-  }
-  let body = r.body;
-  if (COMPRESSIBLE.test(answer.type)) {
-    headers.Vary = 'Accept-Encoding';
-    if (/\bgzip\b/.test(header(req, 'accept-encoding')) && body.length > 0) {
-      r.gz ??= gzipSync(body);
-      body = r.gz;
-      headers['Content-Encoding'] = 'gzip';
-    }
-  }
-  headers['Content-Length'] = String(body.length);
-  return { status: answer.status, headers, body: req.method === 'HEAD' ? Buffer.alloc(0) : body };
+/** The reply to a request: the ETag on a 200 that may be kept; no body for HEAD. */
+export function reply(req: Request, answer: Answer, etag: string | null): Response {
+  const h = headersOf(answer.type, answer.cache);
+  if (answer.location !== undefined) h.set('Location', answer.location);
+  if (etag !== null && answer.status === 200 && answer.cache !== 'no-store') h.set('ETag', etag);
+  return new Response(req.method === 'HEAD' ? null : answer.body, { status: answer.status, headers: h });
 }

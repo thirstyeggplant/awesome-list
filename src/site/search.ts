@@ -17,32 +17,32 @@ export function quickFtsQuery(q: string): string | null {
   return inner === null ? null : `{name aka ident} : (${inner})`;
 }
 
-function safely<T>(fallback: T, f: () => T): T {
+async function safely<T>(fallback: T, f: () => Promise<T>): Promise<T> {
   try {
-    return f();
+    return await f();
   } catch {
     return fallback;
   }
 }
 
-export function itemIds(db: Db, q: string, limit: number, quick = false): number[] {
+export function itemIds(db: Db, q: string, limit: number, quick = false): Promise<number[]> {
   const m = quick ? quickFtsQuery(q) : ftsQuery(q);
-  return m === null ? [] : safely([], () => db.itemMatches(m, q.trim(), limit));
+  return m === null ? Promise.resolve([]) : safely([], () => db.itemMatches(m, q.trim(), limit));
 }
 
-export function itemCount(db: Db, q: string): number {
+export function itemCount(db: Db, q: string): Promise<number> {
   const m = ftsQuery(q);
-  return m === null ? 0 : safely(0, () => db.itemMatchCount(m));
+  return m === null ? Promise.resolve(0) : safely(0, () => db.itemMatchCount(m));
 }
 
-export function listIds(db: Db, q: string, limit: number): number[] {
+export function listIds(db: Db, q: string, limit: number): Promise<number[]> {
   const m = ftsQuery(q);
-  return m === null ? [] : safely([], () => db.listMatches(m, limit));
+  return m === null ? Promise.resolve([]) : safely([], () => db.listMatches(m, limit));
 }
 
-export function sections(db: Db, q: string, limit: number): SectionRow[] {
+export function sections(db: Db, q: string, limit: number): Promise<SectionRow[]> {
   const m = ftsQuery(q);
-  return m === null ? [] : safely([], () => db.sectionMatches(m, limit));
+  return m === null ? Promise.resolve([]) : safely([], () => db.sectionMatches(m, limit));
 }
 
 export interface QuickAnswer {
@@ -58,17 +58,18 @@ export function subOf(item: ItemRow): string {
   return item.owner ?? item.host;
 }
 
-export function quick(
+export async function quick(
   db: Db,
   q: string,
   listById: ReadonlyMap<number, ListRow>,
   tags: (q: string) => TagTerm[],
-): QuickAnswer {
-  const lists = listIds(db, q, 5)
+): Promise<QuickAnswer> {
+  const [listMatches, itemMatches] = await Promise.all([listIds(db, q, 5), itemIds(db, q, 8, true)]);
+  const lists = listMatches
     .map((id) => listById.get(id))
     .filter((l): l is ListRow => l !== undefined)
     .map((l) => ({ name: l.name, slug: l.slug, items: l.itemsMade }));
-  const items = db.itemsByIds(itemIds(db, q, 8, true)).map((it) => ({
+  const items = (await db.itemsByIds(itemMatches)).map((it) => ({
     name: it.name,
     sub: subOf(it),
     key: it.key,

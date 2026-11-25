@@ -1,33 +1,9 @@
-// Addresses of things on the site: item keys and their paths, slugs, section anchors.
-import { createHash } from 'node:crypto';
+// Addresses of things on the site: item paths, slugs, section anchors.
 
-/** The first 10 hex characters of sha256(id). */
-export function shortHash(id: string): string {
-  return createHash('sha256').update(id).digest('hex').slice(0, 10);
-}
-
-/**
- * The key of an item: `gh/{owner}/{repo}` (lower case) for an item with repository facts,
- * else `item/{h}`. The path of the item page is `/` + key.
- */
-export function itemKey(id: string, nameWithOwner: string | null, hash: (id: string) => string = shortHash): string {
-  if (nameWithOwner !== null) return `gh/${nameWithOwner.toLowerCase()}`;
-  return `item/${hash(id)}`;
-}
-
-/** Keys for every item, failing on a collision. */
-export function itemKeys(
-  items: readonly { id: string; nameWithOwner: string | null }[],
-  hash: (id: string) => string = shortHash,
-): string[] {
-  const seen = new Map<string, string>();
-  return items.map(({ id, nameWithOwner }) => {
-    const key = itemKey(id, nameWithOwner, hash);
-    const other = seen.get(key);
-    if (other !== undefined) throw new Error(`two items have the key ${key}: ${other} and ${id}`);
-    seen.set(key, id);
-    return key;
-  });
+/** The first 10 hex characters of sha256(id), as the build makes them for `item/{h}` (with crypto.subtle). */
+export async function shortHashOf(id: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(id));
+  return [...new Uint8Array(digest).slice(0, 5)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 export function pathOfKey(key: string): string {

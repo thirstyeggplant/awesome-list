@@ -1,7 +1,5 @@
-// The site's database, opened read-only, with its prepared statements and typed row readers.
-import { DatabaseSync, type StatementSync } from 'node:sqlite';
-
-type Row = Record<string, unknown>;
+// The site's queries over an `Sql`, with typed row readers. One Db per request.
+import type { Row, Sql } from './data.js';
 
 function str(r: Row, k: string): string {
   const v = r[k];
@@ -45,6 +43,8 @@ export interface Meta {
     reposByStatus: Record<string, number>;
     itemsInTwoOrMore: number;
   };
+  /** The paths of the site's CSS and scripts, /assets/{hash}/{name}. */
+  assets: { css: string; quick: string; listfilter: string };
 }
 
 export interface CategoryRow { id: number; name: string; slug: string; position: number; listCount: number }
@@ -105,13 +105,33 @@ export interface ItemRow {
   listCount: number;
   listId: number | null;
   indexable: boolean;
+  tags: Tags;
+}
+
+/** A term as an item carries it: [slug, label]. */
+export type TagPair = readonly [string, string];
+
+export interface Tags {
+  lang: TagPair | null;
+  license: TagPair | null;
+  topics: readonly TagPair[];
+}
+
+const NO_TAGS: Tags = { lang: null, license: null, topics: [] };
+
+/** One place an item is listed: [listId, sectionId, the name the list uses when it differs, extra links]. */
+export type Listed = readonly [number, number, string | null, readonly ExtraLinkRow[]];
+
+/** An item with what its own page needs. */
+export interface ItemDetail extends ItemRow {
+  alongside: number[];
+  listed: Listed[];
 }
 
 export interface ExtraLinkRow { text: string; url: string }
 
 /** A listing on its list's page, with the item's facts. */
 export interface ListEntry {
-  id: number;
   sectionId: number;
   position: number;
   name: string;
@@ -123,18 +143,20 @@ export interface ListEntry {
 /** A listing on its item's page, with the list and the section. */
 export interface ItemListing {
   listId: number;
-  name: string;
-  extraLinks: ExtraLinkRow[];
+  /** The name the list uses, when it is not the item's. */
+  name: string | null;
+  extraLinks: readonly ExtraLinkRow[];
   path: string[];
   anchors: string[];
 }
 
 export interface TermRow { id: number; ns: string; slug: string; label: string; itemCount: number }
 
-export interface OwnerRow { login: string; display: string; listCount: number; itemCount: number }
+export interface OwnerRow { login: string; display: string; listCount: number; itemCount: number; itemIds: number[] }
 
 const ITEM_COLUMNS = `i.id, i.key, i.url, i.kind, i.host, i.name, i.aka, i.owner, i.repo_name, i.stars, i.pushed_day,
-  i.archived, i.fork, i.lang_id, i.license_id, i.status, i.renamed_from, i.list_count, i.list_id, i.indexable`;
+  i.archived, i.fork, i.lang_id, i.license_id, i.status, i.renamed_from, i.list_count, i.list_id, i.indexable, i.tags`;
+const DETAIL_COLUMNS = `${ITEM_COLUMNS}, i.alongside, i.listed`;
 
 function itemOf(r: Row): ItemRow {
   return {
@@ -158,7 +180,12 @@ function itemOf(r: Row): ItemRow {
     listCount: num(r, 'list_count'),
     listId: numOrNull(r, 'list_id'),
     indexable: num(r, 'indexable') !== 0,
+    tags: json<Tags>(r, 'tags', NO_TAGS),
   };
+}
+
+function detailOf(r: Row): ItemDetail {
+  return { ...itemOf(r), alongside: json<number[]>(r, 'alongside', []), listed: json<Listed[]>(r, 'listed', []) };
 }
 
 function listOf(r: Row): ListRow {
@@ -200,97 +227,78 @@ function sectionOf(r: Row): SectionRow {
   };
 }
 
-function termOf(r: Row): TermRow {
-  return { id: num(r, 'id'), ns: str(r, 'ns'), slug: str(r, 'slug'), label: str(r, 'label'), itemCount: num(r, 'item_count') };
-}
-
 function ownerOf(r: Row): OwnerRow {
-  return { login: str(r, 'login'), display: str(r, 'display'), listCount: num(r, 'list_count'), itemCount: num(r, 'item_count') };
+  return {
+    login: str(r, 'login'),
+    display: str(r, 'display'),
+    listCount: num(r, 'list_count'),
+    itemCount: num(r, 'item_count'),
+    itemIds: json<number[]>(r, 'item_ids', []),
+  };
 }
 
-/** The columns facets.ts reads, one row per item in id order. */
-export interface ItemColumnsRow {
-  id: number;
-  kind: string;
-  status: string | null;
-  langId: number | null;
-  licenseId: number | null;
-  stars: number | null;
-  pushedDay: number | null;
-  listCount: number;
-  owner: string | null;
-  name: string;
+export function metaOf(rows: readonly Row[]): Meta {
+  const m = new Map(rows.map((r) => [str(r, 'key'), str(r, 'value')]));
+  return {
+    buildId: m.get('build_id') ?? '',
+    dataFinished: m.get('data_finished') ?? '',
+    counts: JSON.parse(m.get('counts') ?? '{}') as Meta['counts'],
+    coverage: JSON.parse(
+      m.get('coverage') ?? '{"listsByStatus":{},"itemsByKind":{},"reposByStatus":{},"itemsInTwoOrMore":0}',
+    ) as Meta['coverage'],
+    assets: JSON.parse(m.get('assets') ?? '{"css":"","quick":"","listfilter":""}') as Meta['assets'],
+  };
 }
+
+export function categoryOf(r: Row): CategoryRow {
+  return { id: num(r, 'id'), name: str(r, 'name'), slug: str(r, 'slug'), position: num(r, 'position'), listCount: num(r, 'list_count') };
+}
+
+/** What the site holds in memory, read at start in one batch. */
+export interface Base {
+  meta: Meta;
+  categories: CategoryRow[];
+  /** Every list, in id order (stars, then items). */
+  lists: ListRow[];
+}
+
+const ids = (list: readonly number[]): string => JSON.stringify(list);
 
 export class Db {
-  readonly db: DatabaseSync;
-  private readonly cache = new Map<string, StatementSync>();
+  constructor(private readonly sql: Sql) {}
 
-  constructor(path: string) {
-    this.db = new DatabaseSync(path, { readOnly: true });
-    this.db.exec('PRAGMA query_only = 1; PRAGMA mmap_size = 268435456;');
+  async base(): Promise<Base> {
+    const [meta = [], categories = [], lists = []] = await this.sql.batch([
+      { sql: 'SELECT key, value FROM meta' },
+      { sql: 'SELECT * FROM category ORDER BY position' },
+      { sql: 'SELECT * FROM list ORDER BY id' },
+    ]);
+    return { meta: metaOf(meta), categories: categories.map(categoryOf), lists: lists.map(listOf) };
   }
 
-  close(): void {
-    this.db.close();
+  async buildId(): Promise<string> {
+    const r = await this.sql.first('SELECT value FROM meta WHERE key = ?', ['build_id']);
+    return r ? str(r, 'value') : '';
   }
 
-  private st(sql: string): StatementSync {
-    let s = this.cache.get(sql);
-    if (!s) this.cache.set(sql, (s = this.db.prepare(sql)));
-    return s;
+  async sectionsOfList(listId: number): Promise<SectionRow[]> {
+    return (await this.sql.all('SELECT * FROM section WHERE list_id = ? ORDER BY position', [listId])).map(sectionOf);
   }
 
-  private all(sql: string, ...params: (string | number | null)[]): Row[] {
-    return this.st(sql).all(...params);
+  /** Sections by id, in no order. */
+  async sectionsByIds(list: readonly number[]): Promise<Map<number, SectionRow>> {
+    if (list.length === 0) return new Map();
+    const rows = await this.sql.all('SELECT * FROM section WHERE id IN (SELECT value FROM json_each(?))', [ids(list)]);
+    return new Map(rows.map(sectionOf).map((s) => [s.id, s]));
   }
 
-  private get(sql: string, ...params: (string | number | null)[]): Row | undefined {
-    return this.st(sql).get(...params);
-  }
-
-  meta(): Meta {
-    const m = new Map(this.all('SELECT key, value FROM meta').map((r) => [str(r, 'key'), str(r, 'value')]));
-    return {
-      buildId: m.get('build_id') ?? '',
-      dataFinished: m.get('data_finished') ?? '',
-      counts: JSON.parse(m.get('counts') ?? '{}') as Meta['counts'],
-      coverage: JSON.parse(
-        m.get('coverage') ?? '{"listsByStatus":{},"itemsByKind":{},"reposByStatus":{},"itemsInTwoOrMore":0}',
-      ) as Meta['coverage'],
-    };
-  }
-
-  categories(): CategoryRow[] {
-    return this.all('SELECT * FROM category ORDER BY position').map((r) => ({
-      id: num(r, 'id'),
-      name: str(r, 'name'),
-      slug: str(r, 'slug'),
-      position: num(r, 'position'),
-      listCount: num(r, 'list_count'),
-    }));
-  }
-
-  /** Every list, in id order (stars, then items). */
-  lists(): ListRow[] {
-    return this.all('SELECT * FROM list ORDER BY id').map(listOf);
-  }
-
-  terms(): TermRow[] {
-    return this.all('SELECT * FROM term ORDER BY id').map(termOf);
-  }
-
-  sectionsOfList(listId: number): SectionRow[] {
-    return this.all('SELECT * FROM section WHERE list_id = ? ORDER BY position', listId).map(sectionOf);
-  }
-
-  entriesOfList(listId: number): ListEntry[] {
-    return this.all(
-      `SELECT l.id AS l_id, l.section_id, l.position, l.name AS l_name, l.parent_name, l.extra_links, ${ITEM_COLUMNS}
+  async entriesOfList(listId: number): Promise<ListEntry[]> {
+    const rows = await this.sql.all(
+      `SELECT l.position, l.section_id, l.name AS l_name, l.parent_name, l.extra_links, ${ITEM_COLUMNS}
        FROM listing l JOIN item i ON i.id = l.item_id WHERE l.list_id = ? ORDER BY l.position`,
-      listId,
-    ).map((r) => ({
-      id: num(r, 'l_id'),
+      [listId],
+    );
+    return rows.map((r) => ({
       sectionId: num(r, 'section_id'),
       position: num(r, 'position'),
       name: str(r, 'l_name'),
@@ -300,169 +308,79 @@ export class Db {
     }));
   }
 
-  itemByKey(key: string): ItemRow | null {
-    const r = this.get(`SELECT ${ITEM_COLUMNS} FROM item i WHERE i.key = ?`, key);
-    return r ? itemOf(r) : null;
+  async itemByKey(key: string): Promise<ItemDetail | null> {
+    const r = await this.sql.first(`SELECT ${DETAIL_COLUMNS} FROM item i WHERE i.key = ?`, [key]);
+    return r ? detailOf(r) : null;
   }
 
-  itemByUrl(url: string): ItemRow | null {
-    const r = this.get(`SELECT ${ITEM_COLUMNS} FROM item i WHERE i.url = ?`, url);
-    return r ? itemOf(r) : null;
+  async itemById(id: number): Promise<ItemDetail | null> {
+    const r = await this.sql.first(`SELECT ${DETAIL_COLUMNS} FROM item i WHERE i.id = ?`, [id]);
+    return r ? detailOf(r) : null;
   }
 
-  itemById(id: number): ItemRow | null {
-    const r = this.get(`SELECT ${ITEM_COLUMNS} FROM item i WHERE i.id = ?`, id);
+  /** The item whose address is `url`, among the items with one of `keys`. */
+  async itemByUrl(url: string, keys: readonly string[]): Promise<ItemRow | null> {
+    const r = await this.sql.first(
+      `SELECT ${ITEM_COLUMNS} FROM item i WHERE i.key IN (SELECT value FROM json_each(?)) AND i.url = ?`,
+      [JSON.stringify(keys), url],
+    );
     return r ? itemOf(r) : null;
   }
 
   /** Items by id, in the order given. */
-  itemsByIds(ids: readonly number[]): ItemRow[] {
-    if (ids.length === 0) return [];
-    const rows = this.all(
-      `SELECT ${ITEM_COLUMNS} FROM item i WHERE i.id IN (SELECT value FROM json_each(?))`,
-      JSON.stringify(ids),
+  async itemsByIds(list: readonly number[]): Promise<ItemRow[]> {
+    if (list.length === 0) return [];
+    const rows = (
+      await this.sql.all(`SELECT ${ITEM_COLUMNS} FROM item i WHERE i.id IN (SELECT value FROM json_each(?))`, [ids(list)])
     ).map(itemOf);
     const byId = new Map(rows.map((r) => [r.id, r]));
-    return ids.map((id) => byId.get(id)).filter((r): r is ItemRow => r !== undefined);
+    return list.map((id) => byId.get(id)).filter((r): r is ItemRow => r !== undefined);
   }
 
-  /** The topic term ids of each item. */
-  topicsOf(ids: readonly number[]): Map<number, number[]> {
-    const out = new Map<number, number[]>();
-    if (ids.length === 0) return out;
-    for (const r of this.all(
-      'SELECT item_id, term_id FROM item_topic WHERE item_id IN (SELECT value FROM json_each(?))',
-      JSON.stringify(ids),
-    )) {
-      const id = num(r, 'item_id');
-      let a = out.get(id);
-      if (!a) out.set(id, (a = []));
-      a.push(num(r, 'term_id'));
-    }
-    return out;
-  }
-
-  /** Where an item is listed, ordered by the list's stars. */
-  listingsOfItem(itemId: number): ItemListing[] {
-    return this.all(
-      `SELECT l.list_id, l.name, l.extra_links, s.path, s.anchors
-       FROM listing l JOIN list li ON li.id = l.list_id JOIN section s ON s.id = l.section_id
-       WHERE l.item_id = ? ORDER BY li.id, l.position`,
-      itemId,
-    ).map((r) => ({
-      listId: num(r, 'list_id'),
-      name: str(r, 'name'),
-      extraLinks: json<ExtraLinkRow[]>(r, 'extra_links', []),
-      path: json<string[]>(r, 'path', []),
-      anchors: json<string[]>(r, 'anchors', []),
-    }));
-  }
-
-  alongsideOf(itemId: number): ItemRow[] {
-    return this.all(
-      `SELECT ${ITEM_COLUMNS} FROM alongside a JOIN item i ON i.id = a.other_id WHERE a.item_id = ? ORDER BY a.rank`,
-      itemId,
-    ).map(itemOf);
-  }
-
-  owner(login: string): OwnerRow | null {
-    const r = this.get('SELECT * FROM owner WHERE login = ?', login);
+  async owner(login: string): Promise<OwnerRow | null> {
+    const r = await this.sql.first('SELECT * FROM owner WHERE login = ?', [login]);
     return r ? ownerOf(r) : null;
   }
 
-  /** Owners with a list or at least two items, for the sitemap. */
-  ownersToCrawl(): string[] {
-    return this.all('SELECT login FROM owner WHERE list_count > 0 OR item_count >= 2 ORDER BY login').map((r) =>
-      str(r, 'login'),
-    );
+  async ownerExists(login: string): Promise<boolean> {
+    return (await this.sql.first('SELECT 1 AS x FROM owner WHERE login = ?', [login])) !== null;
   }
 
-  itemsOfOwner(login: string, limit: number): ItemRow[] {
-    return this.all(`SELECT ${ITEM_COLUMNS} FROM item i WHERE i.owner = ? ORDER BY i.id LIMIT ?`, login, limit).map(
-      itemOf,
-    );
-  }
-
-  redirect(path: string): string | null {
-    const r = this.get('SELECT to_path FROM redirect WHERE from_path = ?', path);
+  async redirect(path: string): Promise<string | null> {
+    const r = await this.sql.first('SELECT to_path FROM redirect WHERE from_path = ?', [path]);
     return r ? str(r, 'to_path') : null;
   }
 
-  /** How many other lists name the item. */
-  otherListsNaming(itemId: number, listId: number): number {
-    const r = this.get('SELECT COUNT(DISTINCT list_id) AS n FROM listing WHERE item_id = ? AND list_id <> ?', itemId, listId);
-    return r ? num(r, 'n') : 0;
-  }
-
-  /** Keys of indexable items in id order. */
-  indexableKeys(): string[] {
-    return this.all('SELECT key FROM item WHERE indexable = 1 ORDER BY id').map((r) => str(r, 'key'));
-  }
-
-  itemColumns(): ItemColumnsRow[] {
-    return this.all(
-      'SELECT id, kind, status, lang_id, license_id, stars, pushed_day, list_count, owner, name FROM item ORDER BY id',
-    ).map((r) => ({
-      id: num(r, 'id'),
-      kind: str(r, 'kind'),
-      status: strOrNull(r, 'status'),
-      langId: numOrNull(r, 'lang_id'),
-      licenseId: numOrNull(r, 'license_id'),
-      stars: numOrNull(r, 'stars'),
-      pushedDay: numOrNull(r, 'pushed_day'),
-      listCount: num(r, 'list_count'),
-      owner: strOrNull(r, 'owner'),
-      name: str(r, 'name'),
-    }));
-  }
-
-  /** [item, topic term] pairs in item order. */
-  itemTopicPairs(): [number, number][] {
-    return this.all('SELECT item_id, term_id FROM item_topic ORDER BY item_id, term_id').map((r) => [
-      num(r, 'item_id'),
-      num(r, 'term_id'),
-    ]);
-  }
-
-  /** [item, list] pairs, distinct, in item order. */
-  itemListPairs(): [number, number][] {
-    return this.all('SELECT DISTINCT item_id, list_id FROM listing ORDER BY item_id, list_id').map((r) => [
-      num(r, 'item_id'),
-      num(r, 'list_id'),
-    ]);
-  }
-
   /** Item ids matching a full-text query, best first: exact name, then bm25 weighted by popularity. */
-  itemMatches(match: string, exact: string, limit: number): number[] {
-    return this.all(
+  async itemMatches(match: string, exact: string, limit: number): Promise<number[]> {
+    const rows = await this.sql.all(
       `SELECT i.id FROM item_fts f JOIN item i ON i.id = f.rowid WHERE item_fts MATCH ?
        ORDER BY (i.name = ? COLLATE NOCASE) DESC, bm25(item_fts, 10, 5, 4, 2, 1) * i.pop, i.id LIMIT ?`,
-      match,
-      exact,
-      limit,
-    ).map((r) => num(r, 'id'));
+      [match, exact, limit],
+    );
+    return rows.map((r) => num(r, 'id'));
   }
 
-  itemMatchCount(match: string): number {
-    const r = this.get('SELECT COUNT(*) AS n FROM item_fts WHERE item_fts MATCH ?', match);
+  async itemMatchCount(match: string): Promise<number> {
+    const r = await this.sql.first('SELECT COUNT(*) AS n FROM item_fts WHERE item_fts MATCH ?', [match]);
     return r ? num(r, 'n') : 0;
   }
 
-  listMatches(match: string, limit: number): number[] {
-    return this.all(
+  async listMatches(match: string, limit: number): Promise<number[]> {
+    const rows = await this.sql.all(
       `SELECT l.id FROM list_fts f JOIN list l ON l.id = f.rowid WHERE list_fts MATCH ?
        ORDER BY bm25(list_fts, 10, 6, 4, 2, 1), l.stars DESC, l.id LIMIT ?`,
-      match,
-      limit,
-    ).map((r) => num(r, 'id'));
+      [match, limit],
+    );
+    return rows.map((r) => num(r, 'id'));
   }
 
-  sectionMatches(match: string, limit: number): SectionRow[] {
-    return this.all(
+  async sectionMatches(match: string, limit: number): Promise<SectionRow[]> {
+    const rows = await this.sql.all(
       `SELECT s.* FROM section_fts f JOIN section s ON s.id = f.rowid JOIN list l ON l.id = s.list_id
        WHERE section_fts MATCH ? ORDER BY bm25(section_fts, 6, 1), l.id, s.position LIMIT ?`,
-      match,
-      limit,
-    ).map(sectionOf);
+      [match, limit],
+    );
+    return rows.map(sectionOf);
   }
 }

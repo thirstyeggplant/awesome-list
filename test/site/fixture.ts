@@ -2,8 +2,10 @@
 import { chmodSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { buildSite } from '../../src/site/build/cli.js';
-import { Site } from '../../src/site/router.js';
+import { nodeSql, fileAssets, type NodeSql } from '../../src/site/adapters/node.js';
+import { createApp, type Handler } from '../../src/site/app.js';
+import { buildSite, type BuildResult } from '../../src/site/build/cli.js';
+import { nodeHandler } from '../../src/site/server.js';
 
 const DAY = '2026-06-01T00:00:00Z';
 
@@ -12,20 +14,29 @@ function list(id: string, category: string, extra: Record<string, unknown> = {})
     id, askedAs: id, category, subcategory: null, nameInIndex: id.split('/')[1], summary: `Things about ${id}.`,
     summaryStale: false, stars: 100, pushedAt: DAY, archived: false, license: 'MIT', readmePath: 'README.md',
     readmeOid: 'abcdef0123456789', parser: 'bullets', parserReason: 'default', status: 'ok', linksSeen: 10,
-    linksUsed: 10, itemsMade: 0, ...extra,
+    linksUsed: 10, itemsMade: 0, sourceDescription: 'DESCRIPTION-MARKER of a list', ...extra,
   };
 }
 
 function repo(nameWithOwner: string, extra: Record<string, unknown> = {}): Record<string, unknown> {
   return {
     nameWithOwner, stars: 10, pushedAt: DAY, archived: false, fork: false, license: 'MIT', language: 'Go',
-    topics: [], status: 'active', ...extra,
+    topics: [], status: 'active', sourceDescription: 'DESCRIPTION-MARKER of a repository', ...extra,
   };
 }
 
+export const ORIGIN = 'https://example.test';
+
 export interface Fixture {
   dir: string;
-  dbPath: string;
+  /** Where the build wrote d1/, site-assets/ and site.db. */
+  out: string;
+  build: BuildResult;
+  sql: NodeSql;
+  /** The site alone, as the Worker runs it. */
+  app: Handler;
+  /** Static files first, then the site, as `pnpm serve` and Cloudflare answer. */
+  handler: Handler;
 }
 
 const LANGS = ['Go', 'Rust', 'C++', null] as const;
@@ -76,7 +87,7 @@ export function fixtureRows(): { lists: Record<string, unknown>[]; items: Record
   const listings: Record<string, unknown>[] = [];
   const add = (listId: string, itemId: string, section: string[], name: string, more: Record<string, unknown> = {}): void => {
     const position = listings.filter((l) => l.listId === listId).length;
-    listings.push({ itemId, listId, section, name, summary: null, extraLinks: [], position, ...more });
+    listings.push({ itemId, listId, section, name, summary: null, sourceDescription: 'DESCRIPTION-MARKER of an entry', extraLinks: [], position, ...more });
   };
   // The index: categories in this order, then the lists.
   add('sindresorhus/awesome', 'https://github.com/alpha/awesome-widgets', ['Languages'], 'Widgets');
@@ -107,8 +118,8 @@ export function fixtureRows(): { lists: Record<string, unknown>[]; items: Record
 
 const jsonl = (rows: readonly unknown[]): string => rows.map((r) => JSON.stringify(r)).join('\n') + '\n';
 
-/** Writes the files, with an unreadable private/ beside them, and builds the database. */
-export async function makeFixture(): Promise<Fixture> {
+/** Writes the files, with an unreadable private/ beside them, and builds the site. */
+export async function makeFixture(options: { sitemapChunk?: number } = {}): Promise<Fixture> {
   const dir = mkdtempSync(join(tmpdir(), 'site-test-'));
   const rows = fixtureRows();
   writeFileSync(join(dir, 'lists.jsonl'), jsonl(rows.lists));
@@ -119,15 +130,14 @@ export async function makeFixture(): Promise<Fixture> {
   mkdirSync(join(dir, 'private'));
   writeFileSync(join(dir, 'private', 'lists.jsonl'), 'not json\n');
   chmodSync(join(dir, 'private'), 0o000);
-  const dbPath = join(dir, 'site.db');
-  await buildSite({ inDir: dir, dbPath });
-  return { dir, dbPath };
-}
-
-export function siteOf(f: Fixture, options: { sitemapChunk?: number } = {}): Site {
-  return new Site({ dbPath: f.dbPath, origin: 'https://example.test', ...options });
+  const out = join(dir, 'built');
+  const build = await buildSite({ inDir: dir, outDir: out, origin: ORIGIN, ...options });
+  const sql = nodeSql(build.paths.db);
+  const app = createApp({ sql: () => sql, loadAsset: fileAssets(build.paths.assets), origin: ORIGIN });
+  return { dir, out, build, sql, app, handler: await nodeHandler(build.paths.assets, app) };
 }
 
 export function restore(f: Fixture): void {
+  f.sql.close();
   chmodSync(join(f.dir, 'private'), 0o755);
 }

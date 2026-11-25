@@ -1,8 +1,10 @@
-// The facets of /items, in memory: the items' columns as typed arrays in id order, one pass per request.
+// The facets of /items, in memory: the items' columns as typed arrays in id order (from facets.bin),
+// one pass per request.
 // An item that fails no filter counts in every facet and in the result; one that fails exactly one
 // counts only in that filter's facet, so each facet says what choosing another value would give.
-import { ITEM_KINDS, REPO_STATUSES } from '../model.js';
-import type { Db, ListRow } from './db.js';
+import { ITEM_KINDS, REPO_STATUSES } from '../enums.js';
+import type { ListRow } from './db.js';
+import type { FacetData } from './facets-file.js';
 import { IN_STEPS, STAR_STEPS, type ItemSort } from './query.js';
 
 export const DIMENSIONS = ['kind', 'status', 'lang', 'license', 'topic', 'list', 'category', 'stars', 'in'] as const;
@@ -53,24 +55,6 @@ export interface FacetResult {
   counts: FacetCounts;
 }
 
-function csr(n: number, pairs: readonly [number, number][]): { start: Uint32Array; values: Uint32Array } {
-  const start = new Uint32Array(n + 1);
-  for (const [id] of pairs) {
-    const at = id; // ids are 1..n; index id-1, counted into start[id]
-    if (at >= 1 && at <= n) start[at] = (start[at] ?? 0) + 1;
-  }
-  for (let i = 1; i <= n; i++) start[i] = (start[i] ?? 0) + (start[i - 1] ?? 0);
-  const values = new Uint32Array(start[n] ?? 0);
-  const fill = start.slice(0, n);
-  for (const [id, v] of pairs) {
-    if (id < 1 || id > n) continue;
-    const at = fill[id - 1] ?? 0;
-    values[at] = v;
-    fill[id - 1] = at + 1;
-  }
-  return { start, values };
-}
-
 export class FacetIndex {
   readonly n: number;
   readonly kind: Uint8Array;
@@ -92,62 +76,27 @@ export class FacetIndex {
   private readonly listSize: number;
   private readonly categorySize: number;
 
-  constructor(db: Db, lists: readonly ListRow[], termCount: number, categoryCount: number) {
-    const rows = db.itemColumns();
-    const n = rows.length;
-    this.n = n;
-    this.kind = new Uint8Array(n);
-    this.status = new Uint8Array(n);
-    this.lang = new Uint16Array(n);
-    this.license = new Uint16Array(n);
-    this.stars = new Int32Array(n);
-    this.pushed = new Int32Array(n);
-    this.listCount = new Uint16Array(n);
-    this.owner = new Int32Array(n);
-    const names: string[] = new Array<string>(n);
-    rows.forEach((r, i) => {
-      if (r.id !== i + 1) throw new Error('item ids are not 1..n in order');
-      this.kind[i] = Math.max(0, (ITEM_KINDS as readonly string[]).indexOf(r.kind));
-      this.status[i] = r.status === null ? 0 : (REPO_STATUSES as readonly string[]).indexOf(r.status) + 1;
-      this.lang[i] = r.langId ?? 0;
-      this.license[i] = r.licenseId ?? 0;
-      this.stars[i] = r.stars ?? -1;
-      this.pushed[i] = r.pushedDay ?? -1;
-      this.listCount[i] = Math.min(65535, r.listCount);
-      if (r.owner === null) this.owner[i] = -1;
-      else {
-        let o = this.ownerIndex.get(r.owner);
-        if (o === undefined) this.ownerIndex.set(r.owner, (o = this.ownerIndex.size));
-        this.owner[i] = o;
-      }
-      names[i] = r.name.toLowerCase();
-    });
-    const topics = csr(n, db.itemTopicPairs());
-    this.topicStart = topics.start;
-    this.topicIds = topics.values;
-    const listed = csr(n, db.itemListPairs());
-    this.listStart = listed.start;
-    this.listIds = listed.values;
+  constructor(d: FacetData, lists: readonly ListRow[], termCount: number, categoryCount: number) {
+    this.n = d.n;
+    this.kind = d.kind;
+    this.status = d.status;
+    this.lang = d.lang;
+    this.license = d.license;
+    this.stars = d.stars;
+    this.pushed = d.pushed;
+    this.listCount = d.listCount;
+    this.owner = d.owner;
+    this.topicStart = d.topicStart;
+    this.topicIds = d.topicIds;
+    this.listStart = d.listStart;
+    this.listIds = d.listIds;
+    d.owners.forEach((login, i) => this.ownerIndex.set(login, i));
     this.listSize = lists.reduce((m, l) => Math.max(m, l.id), 0) + 1;
     this.listCategory = new Uint16Array(this.listSize);
     for (const l of lists) this.listCategory[l.id] = l.categoryId ?? 0;
     this.termSize = termCount + 1;
     this.categorySize = categoryCount + 1;
-
-    const ids = (): number[] => Array.from({ length: n }, (_, i) => i);
-    const by = (key: Int32Array): Uint32Array =>
-      Uint32Array.from(ids().sort((a, b) => (key[b] ?? 0) - (key[a] ?? 0) || a - b));
-    this.orders = {
-      stars: by(this.stars),
-      updated: by(this.pushed),
-      name: Uint32Array.from(
-        ids().sort((a, b) => {
-          const x = names[a] ?? '';
-          const y = names[b] ?? '';
-          return x < y ? -1 : x > y ? 1 : a - b;
-        }),
-      ),
-    };
+    this.orders = { stars: d.orderStars, updated: d.orderUpdated, name: d.orderName };
   }
 
   /** One pass: the result count, the facet counts and the ids of one page. */

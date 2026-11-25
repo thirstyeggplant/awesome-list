@@ -3,19 +3,26 @@ import { MAX_MATCHES, MAX_PAGE, PAGE_SIZE } from '../config.js';
 import type { Db } from '../db.js';
 import { NO_FILTERS, type FacetIndex, type Filters } from '../facets.js';
 import { html, type Html } from '../html.js';
-import { ITEM_KINDS, REPO_STATUSES } from '../../model.js';
+import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
+import type { Terms } from '../terms.js';
 import { chip, itemRows, num, pager, plural } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 
 /** The query as numbers for the facet index, or null when a value names nothing (a 404). */
-export function resolveFilters(ctx: Ctx, db: Db, facets: FacetIndex, q: ItemsQuery): Filters | null {
+export async function resolveFilters(
+  ctx: Ctx,
+  db: Db,
+  facets: FacetIndex,
+  terms: Terms,
+  q: ItemsQuery,
+): Promise<Filters | null> {
   const term = (ns: string, slug: string | null): number | null => {
     if (slug === null) return -1;
-    return ctx.termBySlug.get(`${ns}:${slug}`)?.id ?? null;
+    return terms.bySlug.get(`${ns}:${slug}`)?.id ?? null;
   };
   const lang = term('lang', q.lang);
   const license = term('license', q.license);
@@ -26,7 +33,7 @@ export function resolveFilters(ctx: Ctx, db: Db, facets: FacetIndex, q: ItemsQue
   if (list === null || category === null) return null;
   let owner = -1;
   if (q.owner !== null) {
-    if (db.owner(q.owner) === null) return null;
+    if (!(await db.ownerExists(q.owner))) return null;
     owner = facets.ownerIndex.get(q.owner) ?? Number.MAX_SAFE_INTEGER;
   }
   return {
@@ -41,7 +48,7 @@ export function resolveFilters(ctx: Ctx, db: Db, facets: FacetIndex, q: ItemsQue
     owner,
     stars: q.stars ?? -1,
     in: q.in ?? -1,
-    matches: q.q === null ? null : itemIds(db, q.q, MAX_MATCHES),
+    matches: q.q === null ? null : await itemIds(db, q.q, MAX_MATCHES),
   };
 }
 
@@ -54,15 +61,14 @@ function facetBlock(title: string, values: readonly FacetValue[], open = true): 
   )}</ul></details>`;
 }
 
-export function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, q: ItemsQuery): ViewResult {
-  const f = resolveFilters(ctx, db, facets, q);
+export async function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, terms: Terms, q: ItemsQuery): Promise<ViewResult> {
+  const f = await resolveFilters(ctx, db, facets, terms, q);
   if (f === null) return null;
   const beyond = q.page > MAX_PAGE;
   const sort = q.sort ?? (q.q !== null ? 'relevance' : 'lists');
   const result = facets.run(f, sort, beyond ? 1 : q.page, PAGE_SIZE);
   const ids = beyond ? [] : result.ids;
-  const items = db.itemsByIds(ids);
-  const topics = db.topicsOf(ids);
+  const items = await db.itemsByIds(ids);
   const href = (change: Partial<ItemsQuery>): string => `/items${serialiseItems({ ...q, page: 1, ...change })}`;
 
   const c = result.counts;
@@ -70,7 +76,7 @@ export function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, q: ItemsQuery): 
     const values: (FacetValue & { slug: string })[] = [];
     arr.forEach((n, id) => {
       if (n === 0 && chosen.length === 0) return;
-      const t = ctx.termById.get(id);
+      const t = terms.byId.get(id);
       if (!t || t.ns !== ns) return;
       const on = chosen.includes(t.slug);
       if (n > 0 || on) values.push({ label: t.label, slug: t.slug, href: '', count: n, on });
@@ -157,7 +163,7 @@ ${facetBlock('Named by', inLists)}
 ${chips.length > 0 ? html`<p class="chips filters">${chips} <a href="/items">Clear all</a></p>` : ''}
 <p class="result-count">${plural(result.total, 'item')}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? ' (the best matches only)' : ''} · sort by ${sorts.map((s, i) => (i === 0 ? s : html` · ${s}`))}</p>
 ${beyond ? html`<p class="narrow-down">Paging stops at page ${MAX_PAGE}. Narrow the filters to see more.</p>` : ''}
-${beyond ? '' : itemRows(ctx, items, topics)}
+${beyond ? '' : itemRows(items, true)}
 ${pager(prev, next)}
 </div></div>`;
   return page(

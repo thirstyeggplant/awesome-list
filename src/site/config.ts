@@ -1,17 +1,10 @@
-// Settings of the site. The name is a placeholder; the origin and the port come from the environment.
+// Settings of the site. The name is a placeholder; the origin comes from the environment where the site runs
+// (SITE_ORIGIN: a Worker variable, or the environment of `pnpm build-site` and `pnpm serve`).
 
 export const SITE_NAME = 'Shelf';
 
 /** This project's own repository, where a list's keeper asks for it to be left out. */
 export const PROJECT_REPO = 'https://github.com/thirstyeggplant/awesome-list';
-
-/** Where the site is served from, without a trailing slash. */
-export const SITE_ORIGIN = (process.env.SITE_ORIGIN ?? 'http://localhost:8080').replace(/\/+$/, '');
-
-export const PORT = Number(process.env.PORT ?? 8080);
-
-/** The database the server reads, written by `pnpm build-site`. */
-export const SITE_DB = process.env.SITE_DB ?? 'out/site.db';
 
 /** Rows on a page of /items and /lists. */
 export const PAGE_SIZE = 50;
@@ -23,8 +16,11 @@ export const MAX_MATCHES = 20_000;
 /** Item URLs in one items-{n}.xml sitemap. */
 export const SITEMAP_CHUNK = 40_000;
 
-/** Rendered answers kept in memory. */
-export const LRU_SIZE = 500;
+/** Item ids kept for an owner page (its own list of their projects). */
+export const OWNER_ITEMS = 100;
+
+/** The origin when SITE_ORIGIN is not set. */
+export const LOCAL_ORIGIN = 'http://localhost:8080';
 
 /** Listed alongside: the top this many are kept. */
 export const ALONGSIDE_KEEP = 12;

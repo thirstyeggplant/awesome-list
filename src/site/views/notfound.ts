@@ -17,15 +17,16 @@ export function lastSegment(path: string): string {
   return text.replace(/[-_.+]+/g, ' ').trim().slice(0, 64);
 }
 
-export function notFoundPage(ctx: Ctx, db: Db, path: string): string {
+export async function notFoundPage(ctx: Ctx, db: Db, path: string): Promise<string> {
   const words = lastSegment(path);
   const suggestions: { href: string; name: string }[] = [];
   if (words.length >= 2) {
-    for (const id of search.listIds(db, words, 2)) {
+    const [listIds, itemIds] = await Promise.all([search.listIds(db, words, 2), search.itemIds(db, words, 5, true)]);
+    for (const id of listIds) {
       const l = ctx.listById.get(id);
       if (l) suggestions.push({ href: `/lists/${l.slug}`, name: l.name });
     }
-    for (const it of db.itemsByIds(search.itemIds(db, words, 5, true))) {
+    for (const it of await db.itemsByIds(itemIds)) {
       if (suggestions.length >= 5) break;
       suggestions.push({ href: `/${it.key}`, name: it.name });
     }

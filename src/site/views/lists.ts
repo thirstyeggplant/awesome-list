@@ -3,7 +3,7 @@ import { MAX_PAGE, PAGE_SIZE } from '../config.js';
 import type { Db, ListRow } from '../db.js';
 import { html, type Html } from '../html.js';
 import { slugify } from '../keys.js';
-import { LIST_STATUSES } from '../../model.js';
+import { LIST_STATUSES } from '../../enums.js';
 import { serialiseLists, type ListsQuery } from '../query.js';
 import { listIds } from '../search.js';
 import { chip, listRow, num, pager, plural } from './components.js';
@@ -19,13 +19,13 @@ function value(ctx: Ctx, l: ListRow, d: Dim): string | null {
   return l.status;
 }
 
-export function listsPage(ctx: Ctx, db: Db, q: ListsQuery): ViewResult {
+export async function listsPage(ctx: Ctx, db: Db, q: ListsQuery): Promise<ViewResult> {
   if (q.category !== null && !ctx.categoryBySlug.has(q.category)) return null;
   if (q.license !== null && !ctx.lists.some((l) => l.license !== null && slugify(l.license) === q.license)) return null;
 
   let pool: ListRow[] = [...ctx.lists];
   if (q.q !== null) {
-    pool = listIds(db, q.q, 1000)
+    pool = (await listIds(db, q.q, 1000))
       .map((id) => ctx.listById.get(id))
       .filter((l): l is ListRow => l !== undefined);
   }

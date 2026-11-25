@@ -66,17 +66,13 @@ export function tag(ns: string, slug: string): Html {
 }
 
 /** The tags of an item: language, licence, kind (when it says something), status, then topics. */
-export function tagsOf(ctx: Ctx, item: ItemRow, topics: readonly number[] = [], withStatus = false): Html[] {
+export function tagsOf(item: ItemRow, withTopics = false, withStatus = false): Html[] {
   const out: Html[] = [];
-  const term = (id: number | null): void => {
-    const t = id === null ? undefined : ctx.termById.get(id);
-    if (t) out.push(tag(t.ns, t.slug));
-  };
-  term(item.langId);
-  term(item.licenseId);
+  if (item.tags.lang) out.push(tag('lang', item.tags.lang[0]));
+  if (item.tags.license) out.push(tag('license', item.tags.license[0]));
   if (item.kind !== 'repo' && item.kind !== 'site') out.push(tag('kind', item.kind));
   if (withStatus && item.status !== null) out.push(tag('status', item.status));
-  for (const t of topics) term(t);
+  if (withTopics) for (const [slug] of item.tags.topics) out.push(tag('topic', slug));
   return out;
 }
 
@@ -87,14 +83,15 @@ export function itemPath(item: Pick<ItemRow, 'key'>): string {
 export interface ItemRowOptions {
   /** The name to show, when the list names it otherwise. */
   name?: string;
-  topics?: readonly number[];
+  /** Show its topics among the chips. */
+  topics?: boolean;
   child?: boolean;
   extras?: readonly { text: string; url: string }[];
 }
 
-export function itemRow(ctx: Ctx, item: ItemRow, o: ItemRowOptions = {}): Html {
+export function itemRow(item: ItemRow, o: ItemRowOptions = {}): Html {
   const name = o.name ?? item.name;
-  const chips = tagsOf(ctx, item, o.topics ?? []).slice(0, 3);
+  const chips = tagsOf(item, o.topics ?? false).slice(0, 3);
   const extras = (o.extras ?? []).map((e) => outbound(e.url, e.text, { rel: 'nofollow noopener', cls: 'extra' }));
   return html`<li class="row${o.child ? ' child' : ''}"><span class="main"><a class="name" href="${itemPath(item)}">${
     item.status === 'gone' ? html`<s>${name}</s>` : name
@@ -105,9 +102,9 @@ export function itemRow(ctx: Ctx, item: ItemRow, o: ItemRowOptions = {}): Html {
   }</span><span class="num">${plural(item.listCount, 'list')}</span><span class="num year">${yearOf(item.pushedDay)}</span></li>`;
 }
 
-export function itemRows(ctx: Ctx, items: readonly ItemRow[], topics?: ReadonlyMap<number, number[]>): Html {
+export function itemRows(items: readonly ItemRow[], topics = false): Html {
   if (items.length === 0) return html`<p class="empty">Nothing here.</p>`;
-  return html`<ol class="rows">${items.map((it) => itemRow(ctx, it, { topics: topics?.get(it.id) ?? [] }))}</ol>`;
+  return html`<ol class="rows">${items.map((it) => itemRow(it, { topics }))}</ol>`;
 }
 
 export function listRow(ctx: Ctx, list: ListRow): Html {

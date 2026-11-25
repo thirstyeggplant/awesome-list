@@ -1,16 +1,16 @@
 // The shapes of everything the pipeline reads and writes, as zod schemas.
 // Every row is checked against these before it is written.
 import { z } from 'zod';
+import { ITEM_KINDS, LIST_STATUSES, REPO_STATUSES } from './enums.js';
 
-export const ITEM_KINDS = ['repo', 'package', 'video', 'paper', 'article', 'site'] as const;
+export { ITEM_KINDS, LIST_STATUSES, REPO_STATUSES };
+
 export const ItemKind = z.enum(ITEM_KINDS);
 export type ItemKind = z.infer<typeof ItemKind>;
 
-export const LIST_STATUSES = ['ok', 'partial', 'unparsed', 'gone'] as const;
 export const ListStatus = z.enum(LIST_STATUSES);
 export type ListStatus = z.infer<typeof ListStatus>;
 
-export const REPO_STATUSES = ['active', 'quiet', 'archived', 'gone'] as const;
 export const RepoStatus = z.enum(REPO_STATUSES);
 export type RepoStatus = z.infer<typeof RepoStatus>;
 

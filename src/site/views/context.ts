@@ -1,11 +1,7 @@
 // What every view may read: the site's settings and the small tables held in memory.
-import type { CategoryRow, ListRow, Meta, TermRow } from '../db.js';
+import type { CategoryRow, ListRow, Meta } from '../db.js';
 
-export interface Assets {
-  css: string;
-  quick: string;
-  listfilter: string;
-}
+export type Assets = Meta['assets'];
 
 export interface Ctx {
   siteName: string;
@@ -20,7 +16,4 @@ export interface Ctx {
   categories: readonly CategoryRow[];
   categoryById: ReadonlyMap<number, CategoryRow>;
   categoryBySlug: ReadonlyMap<string, CategoryRow>;
-  termById: ReadonlyMap<number, TermRow>;
-  /** By `ns:slug`. */
-  termBySlug: ReadonlyMap<string, TermRow>;
 }

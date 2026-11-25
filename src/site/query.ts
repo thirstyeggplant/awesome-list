@@ -1,6 +1,6 @@
 // The parameters of /items, /lists and /search: parsed, checked, and written back in one fixed order.
 // Unknown parameters are ignored; a value that cannot be right makes the page a 404 (null here).
-import { ITEM_KINDS, LIST_STATUSES, REPO_STATUSES } from '../model.js';
+import { ITEM_KINDS, LIST_STATUSES, REPO_STATUSES } from '../enums.js';
 
 export const ITEM_SORTS = ['lists', 'stars', 'updated', 'name'] as const;
 export const LIST_SORTS = ['stars', 'items', 'updated', 'name'] as const;

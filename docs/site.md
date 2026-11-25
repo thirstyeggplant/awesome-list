@@ -67,29 +67,38 @@ There is no description, so the page is made of what the lists and GitHub say ab
 
 ## The database
 
-`pnpm build-site` writes `out/site.db`, then runs `VACUUM`, `ANALYZE` and `PRAGMA optimize`. The server opens it read-only with `PRAGMA query_only=1` and a 256 MB `mmap_size`. It uses Node's built-in `node:sqlite`.
+The site runs as a Cloudflare Worker that reads D1 (see `docs/cloudflare.md`); `pnpm serve` runs the same handler over node:http and node:sqlite. `pnpm build-site` writes, under `out/`:
+
+- `d1/load.sql`: the DDL, then multi-row inserts of at most 50 KB a statement, and `optimize` for each full-text table. No `BEGIN`, `COMMIT` or `PRAGMA`, no statement over D1's 100 KB, no control character in a statement (they are written with `char()`). This is the only load path: the nightly job runs it into a fresh D1 database, and the build runs it with node:sqlite in one transaction to make `site.db`. `d1/build.json` has the build id, the counts and an estimate of the rows the load writes.
+- `site.db`: for `pnpm serve` and the tests, opened read-only with `PRAGMA query_only=1`. It has no `sqlite_stat*`, like the D1 database.
+- `site-assets/`: the static files that ship with the Worker (below).
+
+The build id is a hash of the data date, the counts, the assets and the site's code, so a change of code is a new build too.
 
 ```
-meta(key PK, value)                     -- build_id, data_finished, counts
+meta(key PK, value)                     -- build_id, data_finished, counts, coverage, assets (their hashed paths)
 category(id PK, name, slug UNIQUE, position, list_count)
 list(id PK, slug UNIQUE, owner, repo, name, category_id, subcategory, summary, stars, pushed_day,
-     archived, license, status, reason, readme_path, readme_oid, items_made, section_count, item_id)
-section(id PK, list_id, path JSON, title, depth, anchor, position, item_count)   INDEX(list_id, position)
+     archived, license, status, reason, readme_path, readme_oid, items_made, section_count, item_id, position)
+section(id PK, list_id, path JSON, title, depth, anchor, anchors JSON, position, item_count)   INDEX(list_id, position)
 item(id PK,  -- given in the default order, so ORDER BY id is the default ranking
-     key UNIQUE, url UNIQUE, kind, host, name, aka JSON, owner, repo_name, stars, pushed_day,
-     archived, fork, lang_id, license_id, status, list_count, pop REAL, list_id, indexable)   INDEX(owner)
-listing(id PK, list_id, section_id, item_id, position, name, parent_name, extra_links JSON)
-     INDEX(list_id, position)  INDEX(item_id)
-term(id PK, ns, slug, label, item_count, UNIQUE(ns, slug))    -- ns: lang | license | topic
-item_topic(item_id, term_id, PRIMARY KEY(item_id, term_id)) WITHOUT ROWID
-alongside(item_id, rank, other_id, score, PRIMARY KEY(item_id, rank)) WITHOUT ROWID
-owner(login PK, display, list_count, item_count)
-redirect(from_path PK, to_path)
+     key UNIQUE, url, kind, host, name, aka JSON, owner, repo_name, stars, pushed_day, archived, fork,
+     lang_id, license_id, status, renamed_from, list_count, pop REAL, list_id, indexable,
+     tags JSON,       -- {"lang": [slug, label] | null, "license": …, "topics": [[slug, label]…]}
+     alongside JSON,  -- up to 12 item ids, best first
+     listed JSON)     -- [[listId, sectionId, name | null, extraLinks]…] by the list's stars, then position;
+                      --   name only when it differs from the item's
+listing(list_id, position, section_id, item_id, name, parent_name, extra_links JSON,
+        PRIMARY KEY(list_id, position)) WITHOUT ROWID
+owner(login PK, display, list_count, item_count, item_ids JSON) WITHOUT ROWID   -- item_ids: the owner page's 100
+redirect(from_path PK, to_path) WITHOUT ROWID
 ```
+
+There is no index on `item.url` and none on `item.owner`, and no `term`, `item_topic` or `alongside` table: what a page needs of them is in the JSON columns, and the rest is in the static files. `/item?url=` works out the keys an address can have (`item/{h}` with `crypto.subtle`, and `gh/{owner}/{repo}` for a GitHub address) and reads the item with one of them whose `url` is the address.
 
 `item.name` is the repository's name for a repository. Otherwise it is the name the lists use most (a tie goes to the list with more stars), else the host and path. `aka` holds up to 5 other names the lists use.
 
-**Full-text search.** Three contentless FTS5 tables (`content=''`), the rowid the entity's id, `tokenize="unicode61 remove_diacritics 2 tokenchars '+#'"` (so `c++` and `c#` survive), `prefix='2 3 4'`.
+**Full-text search.** Three contentless FTS5 tables (`content=''`), the rowid the entity's id, `tokenize="unicode61 remove_diacritics 2 tokenchars '+#'"` (so `c++` and `c#` survive), `prefix='2 3 4'`. They work the same in D1.
 
 | Table | Columns (bm25 weight) |
 | --- | --- |
@@ -99,14 +108,23 @@ redirect(from_path PK, to_path)
 
 What a person types is never passed as it is: it is split on whitespace, each token double-quoted, and `*` added to the last.
 
-**Facets in memory.** At start, `facets.ts` reads `item` in id order into typed arrays: kind, status and licence as `Uint8Array`; language and list count as `Uint16Array`; stars and the day of the last push as `Int32Array`; item → topics and item → lists as CSR arrays, with list → category as a lookup; and a permutation for each other sort. A request:
+**The static files** (`out/site-assets/`, served before the Worker, so they always match its database):
+
+- `/_data/facets.bin`: the facet arrays (below), with a JSON header of offsets (`src/site/facets-file.ts`).
+- `/_data/terms.json`: every language, licence and topic as `[id, ns, slug, label, itemCount]`.
+- `/assets/{hash}/…`: the CSS and scripts.
+- `/sitemap.xml`, `/sitemaps/*.xml`, `/robots.txt`, written with `SITE_ORIGIN`; and `_headers`.
+
+**Facets in memory.** The build writes the items' columns in id order as typed arrays: kind and status as `Uint8Array`; language, licence and list count as `Uint16Array`; stars and the day of the last push as `Int32Array`; item → topics and item → lists as CSR arrays; a permutation for each other sort; and the owner logins. The Worker fetches `facets.bin` once per isolate, on the first `/items`, never at start; only `/items` loads it, and only `/items` and `/api/quick` load `terms.json`. A request:
 
 1. With `q`, takes the matching rowids from `item_fts` (at most 20,000).
 2. Passes over the items once, making a mask of the filters each one fails. An item that fails none counts in every facet and in the result. An item that fails exactly one counts only in that filter's facet, so each facet says what choosing another value would give.
 3. Walks the chosen order to take the 50 ids of the page.
-4. Reads those 50 rows, and their topics, in two queries.
+4. Reads those 50 rows in one query (`id IN (…)`), their topics from `tags`.
 
-`/lists` has 671 rows, held in memory. List, item and owner pages are indexed lookups.
+`meta`, `category` and `list` (671 rows) are read in one batch when the handler starts and held in memory; `/lists` is filtered there. List, item and owner pages are indexed lookups.
+
+**Code.** `src/site/app.ts` is the handler: `createApp({ sql, loadAsset, origin, buildId })` gives `(Request) => Promise<Response>`. `src/site/data.ts` is what it asks of a database (`all`, `first`, `batch`), with two adapters: `adapters/d1.ts` (a D1 session per request, `first-unconstrained`) and `adapters/node.ts` (node:sqlite). `worker.ts` is the Worker; `server.ts` is `pnpm serve`, which serves `out/site-assets/` (with its `_headers`) and then the handler. Nothing else in `src/site/` uses Node, outside `build/`: ESLint refuses `node:*` imports and `Buffer` or `process` there.
 
 ## Ranking
 
@@ -139,20 +157,23 @@ Components: the header (name, search, Lists, Items, About); `row` (for items and
 
 ## Caching and crawling
 
-| Answer | Cache-Control |
-| --- | --- |
-| HTML | `public, max-age=300, s-maxage=86400, stale-while-revalidate=604800` |
-| `/api/quick` | `public, max-age=3600, s-maxage=86400` |
-| `/assets/{hash}/…` | `public, max-age=31536000, immutable` |
-| sitemaps, robots | `public, max-age=3600, s-maxage=86400` |
-| 404 | `public, max-age=60` |
-| `/healthz` | `no-store` |
+| Answer | Cache-Control | Set by |
+| --- | --- | --- |
+| HTML | `public, max-age=300, s-maxage=86400, stale-while-revalidate=604800` | the Worker |
+| `/api/quick` | `public, max-age=3600, s-maxage=86400` | the Worker |
+| `/assets/{hash}/…` | `public, max-age=31536000, immutable` | `_headers` |
+| sitemaps, robots | `public, max-age=3600, s-maxage=86400` | `_headers` |
+| 404 | `public, max-age=60` | the Worker |
+| `/healthz` | `no-store` | the Worker |
 
-- The ETag is the build id (a hash of the data date and the assets), so a 304 is one comparison. Answers are gzipped with `Vary: Accept-Encoding`, and the last 500 rendered pages are kept in memory.
-- `Content-Security-Policy: default-src 'self'`: no inline script or style, no request to anyone else (so no avatars). `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`.
+- Workers Caching (`"cache": { "enabled": true }` in `wrangler.json`) keeps answers in front of the Worker by their `Cache-Control`; there is no cache code and nothing kept in memory between requests but the start batch, the facets and the terms. Cloudflare compresses, so no answer carries `Content-Encoding`, `Content-Length` or `Vary`.
+- The ETag is the build id (`W/"{buildId}"`). The Worker has it as `BUILD_ID` and answers a matching `If-None-Match` with 304 before any query.
+- `/healthz` reads `meta.build_id` and answers `ok {buildId}`, or 503 when it differs from the Worker's `BUILD_ID`; `no-store`, never 304.
+- `Content-Security-Policy: default-src 'self'`: no inline script or style, no request to anyone else (so no avatars). `X-Content-Type-Options: nosniff` and `Referrer-Policy: strict-origin-when-cross-origin` on every answer of the Worker; `_headers` puts `nosniff` on every static file.
+- Redirects (renames, case, a trailing slash, `/item?url=`) are the Worker's.
 - Every page has a canonical link, params in the fixed order. A listing page with `q`, two or more filters, or a sort other than the default is `noindex,follow`.
 - An item page is indexable only when it has repository facts or is in two lists or more. The rest are `noindex,follow` and are not in the sitemaps.
-- `/sitemap.xml` is an index of `pages.xml`, `lists.xml`, `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. `lastmod` is the data date.
+- `/sitemap.xml` is an index of `pages.xml`, `lists.xml`, `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. `lastmod` is the data date. They are static files, written by the build.
 - `robots.txt`: `Allow: /`, `Disallow: /api/`, `Disallow: /search`, and the sitemap.
 
 ## Attribution

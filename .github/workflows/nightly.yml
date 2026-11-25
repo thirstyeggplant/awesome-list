@@ -1,0 +1,171 @@
+name: nightly
+
+# Builds the data and the site, loads a fresh D1 database (shelf-<build id>) and deploys the Worker that reads it.
+# See docs/cloudflare.md. Needs the secrets CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID and PIPELINE_GITHUB_TOKEN,
+# and the variable SITE_ORIGIN; without them it stops at the first step.
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+concurrency: nightly
+
+permissions:
+  contents: read
+
+env:
+  WRANGLER_SEND_METRICS: 'false'
+  # A load that writes more rows than this fails the job (the plan includes 50 million a month).
+  MAX_ROWS_WRITTEN: '1300000'
+
+jobs:
+  nightly:
+    # Scheduled runs wait until the site is set up (vars.SITE_ORIGIN); a run started by hand always checks and says what is missing.
+    if: github.event_name == 'workflow_dispatch' || vars.SITE_ORIGIN != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      SITE_ORIGIN: ${{ vars.SITE_ORIGIN }}
+    steps:
+      - name: Check the secrets and the variable
+        env:
+          PIPELINE_GITHUB_TOKEN: ${{ secrets.PIPELINE_GITHUB_TOKEN }}
+        run: |
+          missing=''
+          [ -n "$CLOUDFLARE_API_TOKEN" ] || missing="$missing secrets.CLOUDFLARE_API_TOKEN"
+          [ -n "$CLOUDFLARE_ACCOUNT_ID" ] || missing="$missing secrets.CLOUDFLARE_ACCOUNT_ID"
+          [ -n "$PIPELINE_GITHUB_TOKEN" ] || missing="$missing secrets.PIPELINE_GITHUB_TOKEN"
+          [ -n "$SITE_ORIGIN" ] || missing="$missing vars.SITE_ORIGIN"
+          if [ -n "$missing" ]; then
+            echo "::error::Not set:$missing. Add them under Settings → Secrets and variables → Actions (see docs/cloudflare.md)."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Restore .cache/
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: pipeline-${{ github.run_id }}
+          restore-keys: pipeline-
+
+      - name: Build the data
+        env:
+          GITHUB_TOKEN: ${{ secrets.PIPELINE_GITHUB_TOKEN }}
+        run: pnpm build-data
+
+      - name: Build the site
+        run: |
+          pnpm build-site
+          # What ships is out/site-assets/ and out/d1/load.sql; neither is made from out/private/.
+          if grep -rl 'private/' out/site-assets >/dev/null; then echo "::error::out/site-assets names private/"; exit 1; fi
+          echo "BUILD=$(jq -r .buildId out/d1/build.json)" >> "$GITHUB_ENV"
+
+      - run: pnpm test
+
+      - name: Compare with the live build
+        id: live
+        run: |
+          live=$(curl -fsS --max-time 20 "$SITE_ORIGIN/healthz" | sed -n 's/^ok \([0-9a-f]*\)$/\1/p' || true)
+          echo "id=$live" >> "$GITHUB_OUTPUT"
+          if [ "$live" = "$BUILD" ]; then
+            echo "Build $BUILD is already live; nothing to do."
+            echo "same=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Live: ${live:-none}. New: $BUILD."
+            echo "same=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # wrangler.json holds placeholders; every command below reads wrangler.deploy.json, filled in as it goes.
+      - name: Create the database
+        id: create
+        if: steps.live.outputs.same == 'false'
+        run: |
+          jq --arg account "$CLOUDFLARE_ACCOUNT_ID" '.account_id = $account' wrangler.json > wrangler.deploy.json
+          w() { pnpm exec wrangler "$@" --config wrangler.deploy.json; }
+          old=$(w d1 list --json | jq -r --arg n "shelf-$BUILD" '.[] | select(.name == $n) | .uuid')
+          if [ -n "$old" ]; then
+            echo "shelf-$BUILD is left from an earlier run; deleting it."
+            w d1 delete "shelf-$BUILD" -y
+          fi
+          w d1 create "shelf-$BUILD"
+          id=$(w d1 list --json | jq -r --arg n "shelf-$BUILD" '.[] | select(.name == $n) | .uuid')
+          if [ -z "$id" ]; then echo "::error::shelf-$BUILD was not listed after it was made"; exit 1; fi
+          echo "DATABASE_ID=$id" >> "$GITHUB_ENV"
+
+      - name: Load the database
+        if: steps.live.outputs.same == 'false'
+        run: |
+          w() { pnpm exec wrangler "$@" --config wrangler.deploy.json; }
+          w d1 execute "shelf-$BUILD" --remote --file out/d1/load.sql -y --json > load.json
+          rows=$(jq -r '.[0].meta.rows_written // .[0].results[0]["Rows written"] // empty' load.json)
+          estimate=$(jq -r .load.rowsWritten out/d1/build.json)
+          echo "Rows written: ${rows:-unknown} (the build estimated $estimate)."
+          if ! [ "$rows" -ge 0 ] 2>/dev/null; then echo "::error::could not read rows_written from the load"; cat load.json; exit 1; fi
+          if [ "$rows" -gt "$MAX_ROWS_WRITTEN" ]; then echo "::error::the load wrote $rows rows, more than $MAX_ROWS_WRITTEN"; exit 1; fi
+          w d1 execute "shelf-$BUILD" --remote --json --command \
+            "SELECT (SELECT COUNT(*) FROM list) AS lists, (SELECT COUNT(*) FROM item) AS items, (SELECT COUNT(*) FROM listing) AS listings" \
+            > counts.json
+          got=$(jq -c '.[0].results[0] | {lists, items, listings}' counts.json)
+          want=$(jq -c '.counts | {lists, items, listings}' out/run.json)
+          echo "In the database: $got. In run.json: $want."
+          if [ "$got" != "$want" ]; then echo "::error::the counts differ from run.json"; exit 1; fi
+
+      - name: Switch on read replication
+        if: steps.live.outputs.same == 'false'
+        run: |
+          curl -fsS -X PUT \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/d1/database/$DATABASE_ID" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H 'Content-Type: application/json' \
+            --data '{"read_replication": {"mode": "auto"}}' | jq -e '.success' > /dev/null
+
+      - name: Write wrangler.deploy.json
+        if: steps.live.outputs.same == 'false'
+        run: |
+          jq --arg account "$CLOUDFLARE_ACCOUNT_ID" --arg id "$DATABASE_ID" --arg name "shelf-$BUILD" --arg build "$BUILD" '
+            .account_id = $account
+            | .d1_databases[0].database_id = $id
+            | .d1_databases[0].database_name = $name
+            | .vars.BUILD_ID = $build' wrangler.json > wrangler.deploy.json
+          if grep -q '<[A-Za-z_-]*>' wrangler.deploy.json; then echo "::error::a placeholder is left in wrangler.deploy.json"; exit 1; fi
+
+      - name: Deploy
+        id: deploy
+        if: steps.live.outputs.same == 'false'
+        run: pnpm exec wrangler deploy --config wrangler.deploy.json
+
+      - name: Smoke test
+        if: steps.live.outputs.same == 'false'
+        run: |
+          ok() { curl -fsS --max-time 20 -o /dev/null "$SITE_ORIGIN$1"; }
+          for i in $(seq 1 12); do
+            if [ "$(curl -fsS --max-time 20 "$SITE_ORIGIN/healthz" || true)" = "ok $BUILD" ]; then break; fi
+            if [ "$i" = 12 ]; then echo "::error::/healthz does not say ok $BUILD"; exit 1; fi
+            sleep 10
+          done
+          ok / && ok '/items?lang=go'
+
+      - name: Roll back
+        if: failure() && steps.deploy.outcome == 'success'
+        run: pnpm exec wrangler rollback --config wrangler.deploy.json -y -m "nightly smoke test of $BUILD failed"
+
+      # The newest three stay, and so does the one that was live when this run began.
+      - name: Delete old databases
+        if: always() && steps.create.outcome == 'success'
+        env:
+          LIVE: ${{ steps.live.outputs.id }}
+        run: |
+          w() { pnpm exec wrangler "$@" --config wrangler.deploy.json; }
+          w d1 list --json \
+            | jq -r --arg live "shelf-$LIVE" '[.[] | select(.name | startswith("shelf-"))] | sort_by(.created_at) | reverse | .[3:][] | .name | select(. != $live)' \
+            | while read -r name; do w d1 delete "$name" -y; done
