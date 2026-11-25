@@ -146,3 +146,15 @@ dialog#quick::backdrop{background:rgb(0 0 0 / .35)}
 .row{grid-template-columns:minmax(0,1fr) 4.5rem 3rem}.row .stars{display:none}
 .list-row{grid-template-columns:minmax(0,1fr) 4.5rem 3rem}
 }
+
+/* languages: the switcher in the footer, the suggestion bar, and system faces for Chinese, Japanese and Korean */
+.langs{max-width:var(--wide);margin:0 auto;padding:0 var(--s3) var(--s3)}
+.langs ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3)}
+.langs a[aria-current]{color:var(--ink);font-weight:600}
+.lang-bar{max-width:var(--wide);margin:0 auto;padding:var(--s2) var(--s3);display:flex;gap:var(--s3);align-items:center;border-bottom:1px solid var(--rule)}
+.lang-bar button{margin-inline-start:auto;background:none;border:0;color:var(--muted);font:inherit;font-size:1.2rem;cursor:pointer}
+.home-title{font-size:1.5rem;margin-block:var(--s4) var(--s3)}
+.more-in ul{list-style:none;padding:0;columns:16rem;font-family:var(--serif)}
+:lang(zh){--serif:"PingFang SC","Hiragino Sans GB","Noto Serif CJK SC","Source Han Serif SC","Microsoft YaHei",serif;--sans:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif}
+:lang(ja){--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;--sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans CJK JP",Meiryo,system-ui,sans-serif}
+:lang(ko){--serif:"AppleMyungjo","Noto Serif CJK KR","Nanum Myeongjo",serif;--sans:"Apple SD Gothic Neo","Noto Sans CJK KR","Malgun Gothic",system-ui,sans-serif}

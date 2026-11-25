@@ -8,6 +8,10 @@ import { Db, type Base } from './db.js';
 import { FacetIndex } from './facets.js';
 import { decodeFacets } from './facets-file.js';
 import { etagOf, matches, notModified, reply, TYPES, type Answer } from './http.js';
+import { ENGLISH, Loc, NO_I18N_DATA, type I18nData } from './i18n/loc.js';
+import { OTHER_LOCALES, localeOfPath, type Locale } from './i18n/locales.js';
+import type { Messages } from './i18n/messages/en.js';
+import { MESSAGES } from './i18n/messages/index.js';
 import { keyOfPath, shortHashOf, slugify } from './keys.js';
 import { parseItemsQuery, parseListsQuery, tidyQ } from './query.js';
 import { quick, type TagTerm } from './search.js';
@@ -33,11 +37,15 @@ export interface AppOptions {
   /** The build this code was deployed with. Without it, the database's own build id is used. */
   buildId?: string;
   siteName?: string;
+  /** Messages to use in place of a language's own (tests render with a marked set). */
+  messages?: Partial<Record<Locale, Messages>>;
 }
 
 export type Handler = (req: Request) => Promise<Response>;
 
-const html = (status: number, body: string, cache: string = CACHE.html): Answer => ({ status, type: TYPES.html, body, cache });
+const html = (status: number, body: string, lang: string, cache: string = CACHE.html): Answer => ({
+  status, type: TYPES.html, body, cache, lang,
+});
 const moved = (location: string, status: 301 | 302 = 301): Answer => ({
   status,
   type: TYPES.text,
@@ -47,7 +55,8 @@ const moved = (location: string, status: 301 | 302 = 301): Answer => ({
 });
 const text = (status: number, body: string, cache: string): Answer => ({ status, type: TYPES.text, body, cache });
 
-export function ctxOf(base: Base, origin: string, siteName: string): Ctx {
+/** What every request shares, in English; a request in another language replaces `loc` (and `here`). */
+export function ctxOf(base: Base, origin: string, siteName: string, loc: Loc = ENGLISH): Ctx {
   const { meta, lists, categories } = base;
   const dataDay = Math.floor(Date.parse(meta.dataFinished) / 86_400_000);
   return {
@@ -62,7 +71,19 @@ export function ctxOf(base: Base, origin: string, siteName: string): Ctx {
     categories,
     categoryById: new Map(categories.map((c) => [c.id, c])),
     categoryBySlug: new Map(categories.map((c) => [c.slug, c])),
+    loc,
+    here: '/',
   };
+}
+
+/** /_data/i18n/{code}.json, read tolerantly: anything but two objects of strings is nothing. */
+export function parseI18nData(text: string): I18nData {
+  const strings = (v: unknown): Record<string, string> => {
+    if (typeof v !== 'object' || v === null || Array.isArray(v)) return {};
+    return Object.fromEntries(Object.entries(v).filter((e): e is [string, string] => typeof e[1] === 'string'));
+  };
+  const j = JSON.parse(text) as { categories?: unknown; summaries?: unknown };
+  return { categories: strings(j.categories), summaries: strings(j.summaries) };
 }
 
 /** A value made once, on first use; a failure is forgotten so the next request tries again. */
@@ -125,31 +146,59 @@ export function createApp(options: AppOptions): Handler {
     return r;
   };
   const terms = once(async () => parseTerms(await (await asset('/_data/terms.json')).text()));
+  // A language's summaries and category names: loaded on the first request in that language, never at start.
+  const i18n = new Map<Locale, () => Promise<I18nData>>(
+    OTHER_LOCALES.map((l) => [l, once(async () => parseI18nData(await (await asset(`/_data/i18n/${l}.json`)).text()))]),
+  );
+  async function locOf(locale: Locale): Promise<Loc> {
+    const messages = options.messages?.[locale] ?? MESSAGES[locale];
+    const load = i18n.get(locale);
+    let data = NO_I18N_DATA;
+    if (load) {
+      try {
+        data = await load();
+      } catch (e) {
+        // Without the file the page is in the language with English summaries and categories; the next request tries again.
+        console.error(e);
+      }
+    }
+    return new Loc(locale, messages, data);
+  }
   const facets = once(async () => {
     const [ctx, t, bin] = await Promise.all([base(), terms(), asset('/_data/facets.bin').then((r) => r.arrayBuffer())]);
     return new FacetIndex(decodeFacets(bin), ctx.lists, t.maxId, ctx.categories.length);
   });
 
   async function notFound(ctx: Ctx, db: Db, path: string): Promise<Answer> {
-    return html(404, await notFoundPage(ctx, db, path), CACHE.notFound);
+    return html(404, await notFoundPage(ctx, db, path), ctx.loc.info.htmlLang, CACHE.notFound);
   }
 
   async function view(ctx: Ctx, db: Db, result: Promise<ViewResult>, path: string): Promise<Answer> {
     const r = await result;
     if (r === null) return notFound(ctx, db, path);
     if (r.kind === 'redirect') return moved(r.location, r.status);
-    return html(200, r.html);
+    return html(200, r.html, ctx.loc.info.htmlLang);
   }
 
   async function route(url: URL, db: Db): Promise<Answer> {
-    const path = url.pathname;
+    const full = url.pathname;
     const params = url.searchParams;
 
     // Canonical form: no trailing slash, no upper case. Nothing is read for these.
-    if (path.length > 1 && path.endsWith('/')) return moved(`${path.replace(/\/+$/, '') || '/'}${url.search}`);
-    if (path !== path.toLowerCase()) return moved(`${path.toLowerCase()}${url.search}`);
+    if (full.length > 1 && full.endsWith('/')) return moved(`${full.replace(/\/+$/, '') || '/'}${url.search}`);
+    if (full !== full.toLowerCase()) return moved(`${full.toLowerCase()}${url.search}`);
+    // English has no prefix: /en and /en/… answer with the address without it.
+    if (full === '/en' || full.startsWith('/en/')) return moved(`${full.slice(3) || '/'}${url.search}`);
 
-    const ctx = await base();
+    // The language is the prefix; everything below works on the path without it.
+    const { locale, rest: path } = localeOfPath(full);
+    const loc = locale === 'en' && options.messages?.en === undefined ? ENGLISH : await locOf(locale);
+    const ctx: Ctx = { ...(await base()), loc, here: path + url.search };
+    // A redirect found by the unprefixed path keeps the language.
+    const movedHere = (to: string): Answer => moved(loc.href(to));
+    // These are one address for every language.
+    if (locale !== 'en' && (path === '/api/quick' || path === '/item')) return notFound(ctx, db, path);
+
     switch (path) {
       case '/':
         return view(ctx, db, homePage(ctx, db), path);
@@ -190,7 +239,7 @@ export function createApp(options: AppOptions): Handler {
       const row = ctx.listBySlug.get(list[1] ?? '');
       if (row) return view(ctx, db, listPage(ctx, db, row), path);
       const to = await db.redirect(path);
-      return to === null ? notFound(ctx, db, path) : moved(to);
+      return to === null ? notFound(ctx, db, path) : movedHere(to);
     }
 
     const key = keyOfPath(path);
@@ -198,7 +247,7 @@ export function createApp(options: AppOptions): Handler {
       const item = await db.itemByKey(key);
       if (item) return view(ctx, db, itemPage(ctx, db, item), path);
       const to = await db.redirect(path);
-      return to === null ? notFound(ctx, db, path) : moved(to);
+      return to === null ? notFound(ctx, db, path) : movedHere(to);
     }
 
     const owner = /^\/gh\/([^/]+)$/.exec(path);

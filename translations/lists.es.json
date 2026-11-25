@@ -1,0 +1,2686 @@
+{
+  "0pandadev/awesome-windows": {
+    "summary": "Software para Windows por categorías: utilidades para desarrolladores, navegadores, gestores de archivos, copias de seguridad, multimedia, personalización, seguridad y más.",
+    "enHash": "b07a54db04bf"
+  },
+  "44bits/awesome-opensource-documents": {
+    "summary": "Libros, tutoriales y documentación con licencia abierta sobre lenguajes de programación, herramientas y bibliotecas, algunos en japonés.",
+    "enHash": "133d3fdd88a8"
+  },
+  "aaronhma/awesome-tensorflow-js": {
+    "summary": "Documentación, herramientas, modelos, libros y enlaces de la comunidad de TensorFlow.js, que ejecuta machine learning en JavaScript.",
+    "enHash": "1a9e5e942607"
+  },
+  "academic/awesome-datascience": {
+    "summary": "Cursos, herramientas, bibliografía, comunidades y proyectos de agentes para aprender y practicar ciencia de datos.",
+    "enHash": "0d1b8b942825"
+  },
+  "accelerated-text/awesome-nlg": {
+    "summary": "Conjuntos de datos, bibliotecas, artículos de investigación, productos y lenguajes de plantillas para la generación de lenguaje natural, es decir, crear texto a partir de datos.",
+    "enHash": "ee95a48029aa"
+  },
+  "achoarnold/discount-for-student-dev": {
+    "summary": "Herramientas y servicios para desarrolladores gratis o con descuento para estudiantes: alojamiento de código, editores, hosting en la nube, software de diseño y más.",
+    "enHash": "8ed01be57886"
+  },
+  "adafruit/awesome-adafruitio": {
+    "summary": "Guías, bibliotecas de código, placas y enlaces de la comunidad de Adafruit IO, un servicio en la nube que grafica datos de sensores.",
+    "enHash": "ee6b31617482"
+  },
+  "adafruit/awesome-circuitpython": {
+    "summary": "Guías, bibliotecas, hardware, videos, libros y enlaces de la comunidad de CircuitPython, el Python de Adafruit para placas con microcontrolador.",
+    "enHash": "d8df37a3b852"
+  },
+  "addyosmani/critical-path-css-tools": {
+    "summary": "Herramientas para encontrar e incrustar el CSS que una página necesita primero, para que se renderice antes.",
+    "enHash": "246a73dc1467"
+  },
+  "addyosmani/es6-tools": {
+    "summary": "Transpiladores, cargadores de módulos, polyfills, plantillas base y plugins de la época en que ES6 era una novedad en JavaScript.",
+    "enHash": "b1eac9252699"
+  },
+  "adrientorris/awesome-blazor": {
+    "summary": "Bibliotecas, plantillas, ejemplos, tutoriales, videos y libros de Blazor, el framework de Microsoft para interfaces web escritas en C#.",
+    "enHash": "5bc13708152f"
+  },
+  "afonsopacifer/awesome-flexbox": {
+    "summary": "Especificaciones, guías, artículos, herramientas y frameworks de flexbox en CSS, un modelo de diseño para colocar elementos en línea.",
+    "enHash": "7e77529f8f79"
+  },
+  "agamm/awesome-developer-first": {
+    "summary": "Productos y servicios pensados para desarrolladores, agrupados por necesidad: autenticación, bases de datos, despliegue, pruebas, documentación y mucho más.",
+    "enHash": "39e9f20dc79b"
+  },
+  "agarrharr/awesome-cli-apps": {
+    "summary": "Programas que se ejecutan en una terminal, para desarrollo, productividad, archivos, control de versiones, imágenes, entretenimiento y más.",
+    "enHash": "e1e3115e670f"
+  },
+  "agarrharr/awesome-macos-screensavers": {
+    "summary": "Salvapantallas libres y de código abierto para macOS.",
+    "enHash": "12029fcc6401"
+  },
+  "agarrharr/awesome-static-website-services": {
+    "summary": "Servicios alojados que añaden a los sitios web estáticos funciones como formularios, comentarios, búsqueda, pagos y mapas.",
+    "enHash": "2e9b2e6a58bd"
+  },
+  "agucova/awesome-esp": {
+    "summary": "Firmware, herramientas, bibliotecas y proyectos para el ESP8266 y el ESP32, microcontroladores baratos con Wi-Fi.",
+    "enHash": "936e4e8aa229"
+  },
+  "ahkscript/awesome-autohotkey": {
+    "summary": "Bibliotecas, scripts, herramientas y tutoriales de AutoHotkey, un lenguaje de scripting para automatizar Windows.",
+    "enHash": "70bf5ad0e7bc"
+  },
+  "airscripts/awesome-steam-deck": {
+    "summary": "Guías, accesorios, software, emuladores, plugins y comunidades de la Steam Deck, el PC portátil para jugar de Valve.",
+    "enHash": "83fc5c4e9d77"
+  },
+  "akullpp/awesome-java": {
+    "summary": "Bibliotecas, frameworks y herramientas de Java para todas las áreas del desarrollo, además de libros, sitios web y otros recursos.",
+    "enHash": "3937f8a7303d"
+  },
+  "alebcay/awesome-shell": {
+    "summary": "Shells, utilidades de línea de comandos, personalizaciones, frameworks y guías para trabajar en shells de Unix como bash y zsh.",
+    "enHash": "468178e11813"
+  },
+  "aleixmorgadas/awesome-engineering-strategy": {
+    "summary": "Libros, publicaciones, videos, métodos y plantillas para definir y llevar a cabo la estrategia de una organización de ingeniería de software.",
+    "enHash": "152f14c413f1"
+  },
+  "alexk111/awesome-bitcoin-payment-processors": {
+    "summary": "Servicios alojados y autoalojados que permiten a un negocio aceptar pagos en Bitcoin.",
+    "enHash": "fcdecde3e5c2"
+  },
+  "alferov/awesome-gulp": {
+    "summary": "Plugins, generadores de proyectos y recursos de gulp, un ejecutor de tareas de JavaScript para builds de front-end.",
+    "enHash": "566772e1e8e0"
+  },
+  "aliesbelik/awesome-gatling": {
+    "summary": "Tutoriales, herramientas, integraciones con CI y cursos de Gatling, una herramienta de pruebas de carga para aplicaciones web.",
+    "enHash": "6f0f9034f189"
+  },
+  "aliesbelik/awesome-jmeter": {
+    "summary": "Tutoriales, plugins, integraciones con CI, servicios en la nube y libros de Apache JMeter, la herramienta de pruebas de carga.",
+    "enHash": "76470c664bc9"
+  },
+  "allthingssmitty/css-protips": {
+    "summary": "Técnicas breves de CSS para hojas de estilo más limpias y robustas, con traducciones a muchos idiomas.",
+    "enHash": "91198fc07258"
+  },
+  "allthingssmitty/jquery-tips-everyone-should-know": {
+    "summary": "Fragmentos breves de jQuery para tareas comunes, con traducciones a muchos idiomas.",
+    "enHash": "3b1f36c7d9af"
+  },
+  "allthingssmitty/must-watch-css": {
+    "summary": "Charlas de conferencias sobre CSS, ordenadas por año de la más reciente a la más antigua.",
+    "enHash": "f773d8fb4ace"
+  },
+  "altamiracorp/awesome-xai": {
+    "summary": "Artículos de investigación, código, videos y personas sobre IA explicable, que muestra por qué un modelo de machine learning toma una decisión.",
+    "enHash": "efc8b6a20282"
+  },
+  "ambster-public/awesome-qlik": {
+    "summary": "Documentación, blogs, libros y extensiones para Qlik Sense y QlikView, productos de analítica y dashboards.",
+    "enHash": "149b34715e04"
+  },
+  "analysis-tools-dev/static-analysis": {
+    "summary": "Linters, analizadores de código y herramientas de calidad que inspeccionan el código fuente sin ejecutarlo, ordenados por lenguaje de programación.",
+    "enHash": "0a923039cb4e"
+  },
+  "analyticalmonk/awesome-neuroscience": {
+    "summary": "Software, blogs y otros recursos para estudiar el cerebro y el sistema nervioso.",
+    "enHash": "62fcb9835f23"
+  },
+  "andrewda/awesome-frc": {
+    "summary": "Proveedores, bibliotecas de programación, herramientas de visión y scouting y enlaces de la comunidad para equipos de la FIRST Robotics Competition.",
+    "enHash": "7c56d30d7c8b"
+  },
+  "angrykoala/awesome-esolangs": {
+    "summary": "Lenguajes de programación esotéricos creados como bromas o experimentos, además de algoritmos, artículos y comunidades sobre ellos.",
+    "enHash": "77cf68575bbe"
+  },
+  "aniftyco/awesome-tailwindcss": {
+    "summary": "Plugins, kits de UI, plantillas, extensiones de editor y herramientas de Tailwind CSS, que da estilo a las páginas con pequeñas clases utilitarias.",
+    "enHash": "46644e8f9d1a"
+  },
+  "ansible-community/awesome-ansible": {
+    "summary": "Documentación, tutoriales, libros, videos, herramientas, roles e integraciones de editor de Ansible, que automatiza la configuración de servidores.",
+    "enHash": "47c694cbe146"
+  },
+  "antontarasenko/awesome-economics": {
+    "summary": "Cursos, datos, herramientas de investigación, sitios de debate y consejos profesionales para estudiantes e investigadores de economía.",
+    "enHash": "ab10ddd59e39"
+  },
+  "aorumbayev/awesome-omarchy": {
+    "summary": "Plugins, temas, herramientas, versiones alternativas y guías de Omarchy, una configuración lista para usar de Arch Linux con Hyprland.",
+    "enHash": "6488f18e8f0d"
+  },
+  "apa-technology-division/urban-and-regional-planning-resources": {
+    "summary": "Datos públicos, estándares de datos, código, software y material de aprendizaje para urbanistas y planificadores regionales.",
+    "enHash": "083df9bff73c"
+  },
+  "appimagecommunity/awesome-appimage": {
+    "summary": "Herramientas para buscar, ejecutar, construir y actualizar AppImages, paquetes de un solo archivo de aplicaciones para Linux.",
+    "enHash": "ba3be003d8dc"
+  },
+  "apsdehal/awesome-ctf": {
+    "summary": "Herramientas y recursos para crear y resolver competiciones de seguridad capture the flag.",
+    "enHash": "3e611496dc2e"
+  },
+  "arbox/machine-learning-with-ruby": {
+    "summary": "Tutoriales, bibliotecas, proyectos de ejemplo, libros y comunidades para hacer machine learning con el lenguaje Ruby.",
+    "enHash": "d169bf5b2e0f"
+  },
+  "arbox/nlp-with-ruby": {
+    "summary": "Bibliotecas de Ruby para procesar lenguaje humano: tokenización, etiquetado, análisis sintáctico, búsqueda, OCR y recursos lingüísticos, además de libros y comunidades.",
+    "enHash": "6700baa735b3"
+  },
+  "arslanbilal/git-cheat-sheet": {
+    "summary": "Una referencia rápida de los comandos de Git de uso diario, con notas sobre el modelo de ramas Git Flow.",
+    "enHash": "23e644f68ec1"
+  },
+  "ashishb/android-security-awesome": {
+    "summary": "Herramientas de análisis, artículos de investigación y exploits sobre la seguridad de apps y dispositivos Android.",
+    "enHash": "37c38f00f801"
+  },
+  "atblueprints/awesome-atproto": {
+    "summary": "Apps, herramientas, plataformas y guías del AT Protocol, la red abierta detrás de Bluesky.",
+    "enHash": "6c35ceef1eb7"
+  },
+  "atkirtland/awesome-computational-geometry": {
+    "summary": "Libros, apuntes de clase, bibliotecas, visualizaciones, cursos y revistas sobre algoritmos para problemas geométricos.",
+    "enHash": "c6a1d4b03ebd"
+  },
+  "aurelia-contrib/awesome-aurelia": {
+    "summary": "Plugins, tutoriales, kits de inicio y artículos de Aurelia, un framework de JavaScript para crear aplicaciones web.",
+    "enHash": "8773c73a6807"
+  },
+  "automata/awesome-jamstack": {
+    "summary": "Generadores de sitios estáticos, CMS headless, APIs, hosting y tutoriales para sitios Jamstack, que sirven páginas generadas de antemano más JavaScript.",
+    "enHash": "dea4089c352c"
+  },
+  "avajs/awesome-ava": {
+    "summary": "Artículos, videos, paquetes y tutoriales de AVA, un ejecutor de pruebas para Node.js.",
+    "enHash": "ae8d27dd1df5"
+  },
+  "avelino/awesome-go": {
+    "summary": "Miles de paquetes, frameworks y herramientas de Go ordenados por tarea, además de recursos de aprendizaje.",
+    "enHash": "f439849a4b51"
+  },
+  "aviaryan/awesome-no-login-web-apps": {
+    "summary": "Aplicaciones web que se pueden usar sin cuenta, para dibujar, documentos, conversión de archivos, compartir, música, juegos y otras tareas.",
+    "enHash": "f3b7b2640545"
+  },
+  "awesome-algorand/awesome-algorand": {
+    "summary": "Recursos de aprendizaje, herramientas para desarrolladores, wallets, infraestructura y estándares de Algorand, una blockchain con contratos inteligentes.",
+    "enHash": "b8b9f462b7c0"
+  },
+  "awesome-css-group/awesome-css": {
+    "summary": "Frameworks, preprocesadores, herramientas, guías de estilo, metodologías de nombres y material de aprendizaje de CSS, el lenguaje que da estilo a las páginas web.",
+    "enHash": "fcf3089c1707"
+  },
+  "awesome-mqtt/awesome-mqtt": {
+    "summary": "Brokers, clientes, plataformas, herramientas y dashboards de MQTT, un protocolo de mensajería ligero que usan los dispositivos conectados.",
+    "enHash": "10e84b1862b7"
+  },
+  "awesome-roblox/awesome-roblox": {
+    "summary": "Software, plugins, módulos, bibliotecas y herramientas para desarrolladores para crear experiencias en Roblox, la plataforma de juegos online.",
+    "enHash": "a6bfcb5952e2"
+  },
+  "awesome-scripts/awesome-userscripts": {
+    "summary": "User scripts, pequeños programas que modifican sitios web en el navegador, con tutoriales y catálogos.",
+    "enHash": "4604d6c33221"
+  },
+  "awesome-selfhosted/awesome-selfhosted": {
+    "summary": "Más de mil programas libres para ejecutar en tu propio servidor en lugar de usar servicios alojados.",
+    "enHash": "c128ffabd5b8"
+  },
+  "awesome-spark/awesome-spark": {
+    "summary": "Paquetes y recursos de aprendizaje de Apache Spark, un motor que procesa grandes conjuntos de datos en un clúster.",
+    "enHash": "53ad0a736927"
+  },
+  "awesomedata/awesome-public-datasets": {
+    "summary": "Conjuntos de datos de libre acceso sobre muchos temas, desde biología y clima hasta economía, deporte y transporte.",
+    "enHash": "7df77831e574"
+  },
+  "awkward/awesome-netherlands-events": {
+    "summary": "Meetups y conferencias de tecnología en Ámsterdam, Róterdam, Utrecht y otras ciudades de los Países Bajos.",
+    "enHash": "ff40659c22de"
+  },
+  "ayr-ton/awesome-geek-podcasts": {
+    "summary": "Podcasts sobre programación, tecnología y ciencia, agrupados por el idioma en que se hablan.",
+    "enHash": "053f91b1e6d0"
+  },
+  "balintkissdev/awesome-dos": {
+    "summary": "Herramientas de desarrollo, tutoriales, libros, videos, código fuente, controladores y emuladores para MS-DOS y sistemas compatibles.",
+    "enHash": "14cd7311de78"
+  },
+  "bcoe/awesome-cross-platform-nodejs": {
+    "summary": "Recursos, bibliotecas, servicios de CI y problemas conocidos para escribir código Node.js que funcione en Windows, macOS y Linux.",
+    "enHash": "fa6d341147e4"
+  },
+  "beardicus/awesome-plotters": {
+    "summary": "Hardware, software, manuales, cursos y comunidades de plotters de plumilla, máquinas que dibujan controladas por computadora.",
+    "enHash": "0f65d7dacbd5"
+  },
+  "benallfree/awesome-pocketbase": {
+    "summary": "Bibliotecas cliente, plugins, proyectos y guías de hosting de PocketBase, una base de datos y backend de autenticación en un solo programa en Go.",
+    "enHash": "aa3708a8aa99"
+  },
+  "bnb/awesome-hyper": {
+    "summary": "Plugins y temas para Hyper, una terminal construida con tecnologías web.",
+    "enHash": "6db6035719bc"
+  },
+  "bolshchikov/js-must-watch": {
+    "summary": "Charlas de conferencias sobre JavaScript, ordenadas por año.",
+    "enHash": "5dad7f5ddcdd"
+  },
+  "brabadu/awesome-fonts": {
+    "summary": "Fuentes gratuitas, fuentes de iconos, conjuntos de emoji, fuentes para programar y bibliotecas de JavaScript para trabajar con tipografía.",
+    "enHash": "d592c5fc35b2"
+  },
+  "briatte/awesome-network-analysis": {
+    "summary": "Libros, cursos, conjuntos de datos, revistas, artículos de investigación y software para estudiar redes en las ciencias sociales y naturales.",
+    "enHash": "b9142625e26b"
+  },
+  "brillout/awesome-redux": {
+    "summary": "Utilidades, herramientas para desarrolladores, integraciones y plantillas base de Redux, una biblioteca de JavaScript que guarda el estado de la app en un único store.",
+    "enHash": "c30ae690dc56"
+  },
+  "brootware/awesome-cyber-security-university": {
+    "summary": "Cursos prácticos gratuitos y salas de práctica que forman una ruta de aprendizaje en seguridad, tanto ofensiva como defensiva.",
+    "enHash": "7e8badb421ec"
+  },
+  "browserify/awesome-browserify": {
+    "summary": "Tutoriales, artículos, demos y herramientas de Browserify, que empaqueta módulos al estilo de Node para el navegador.",
+    "enHash": "035e32dc8553"
+  },
+  "brunopulis/awesome-a11y": {
+    "summary": "Herramientas, artículos, pautas y otros recursos para hacer sitios web accesibles para personas con discapacidad.",
+    "enHash": "66383ad59cd9"
+  },
+  "brycejohnston/awesome-agriculture": {
+    "summary": "Software de código abierto, datos, hardware y proyectos de machine learning para agricultura, cultivos, suelos y sistemas alimentarios.",
+    "enHash": "5cc4c5a9ac97"
+  },
+  "bs-community/awesome-minecraft": {
+    "summary": "Mods, cargadores de mods, plugins de servidor, paquetes de recursos, shaders y herramientas de desarrollo para Minecraft.",
+    "enHash": "1498430d9e52"
+  },
+  "bubuanabelas/awesome-markdown": {
+    "summary": "Parsers, editores, herramientas, servicios y motores de blog para el formato de texto Markdown.",
+    "enHash": "ab691419bef2"
+  },
+  "burningtree/awesome-json": {
+    "summary": "Bibliotecas, herramientas de línea de comandos, editores, especificaciones de esquemas, conjuntos de datos y herramientas online para trabajar con datos JSON.",
+    "enHash": "0a29a4db2c6b"
+  },
+  "busterc/awesome-cordova": {
+    "summary": "Plugins, frameworks de UI, herramientas y material de aprendizaje de Apache Cordova, que empaqueta aplicaciones web como apps móviles.",
+    "enHash": "61c0f2a58ab3"
+  },
+  "bytecauldron/awesome-gamemaker": {
+    "summary": "Bibliotecas, extensiones, herramientas y tutoriales del motor GameMaker, para entrada, interfaz, física, audio, shaders y más.",
+    "enHash": "a30a5e1c601d"
+  },
+  "caesar0301/awesome-pcaptools": {
+    "summary": "Herramientas para capturar y analizar tráfico de red guardado en archivos pcap, incluida la extracción de DNS y de archivos.",
+    "enHash": "6c1a9b7365cc"
+  },
+  "calinou/awesome-godot": {
+    "summary": "Juegos, plantillas, demos, plugins, módulos y soporte de editores para Godot, un motor de videojuegos de código abierto.",
+    "enHash": "04157fdba181"
+  },
+  "cap-go/awesome-ionic": {
+    "summary": "Plugins, tutoriales, apps de inicio y herramientas de Ionic y Capacitor, que crean apps móviles con tecnologías web.",
+    "enHash": "f207e6cfd8ad"
+  },
+  "carpedm20/awesome-hacking": {
+    "summary": "Herramientas y tutoriales de hacking: ingeniería inversa, web, redes, análisis forense, criptografía y wargames de práctica.",
+    "enHash": "e8eafcad449c"
+  },
+  "catalinmiron/awesome-prisma": {
+    "summary": "Documentación, tutoriales, herramientas y proyectos de Prisma, un ORM para Node.js y TypeScript.",
+    "enHash": "35cb989d7ce4"
+  },
+  "caufieldjh/awesome-bioie": {
+    "summary": "Artículos de investigación, grupos, herramientas, modelos, conjuntos de datos y ontologías para extraer hechos de textos biomédicos.",
+    "enHash": "b9c1514d6a18"
+  },
+  "cenoura/awesome-ads": {
+    "summary": "Artículos y herramientas sobre tecnología publicitaria para sitios web: servidores de anuncios, compra programática y header bidding con Prebid.",
+    "enHash": "658c06432ef3"
+  },
+  "cerberauth/awesome-openid-connect": {
+    "summary": "Proveedores de identidad, bibliotecas cliente, software y especificaciones de OpenID Connect, inicio de sesión único sobre OAuth.",
+    "enHash": "af640f5a2eaf"
+  },
+  "chainstacklabs/awesome-corda": {
+    "summary": "Documentación, herramientas, tutoriales, cursos y aplicaciones de ejemplo de Corda, una plataforma blockchain orientada a empresas.",
+    "enHash": "cd4677de0d71"
+  },
+  "chalarangelo/30-seconds-of-code": {
+    "summary": "Fragmentos de código breves que resuelven cada uno un problema pequeño, sobre todo en JavaScript, con explicaciones.",
+    "enHash": "80c0c6f85512"
+  },
+  "chentsulin/awesome-graphql": {
+    "summary": "Especificaciones, implementaciones de servidor y cliente, herramientas, servicios, tutoriales y libros de GraphQL, un lenguaje de consulta para APIs.",
+    "enHash": "7a0a24336015"
+  },
+  "chiraggude/awesome-laravel": {
+    "summary": "Paquetes, opciones de hosting y despliegue, tutoriales, libros, podcasts y proyectos de inicio de Laravel, un framework web de PHP.",
+    "enHash": "543822861b0d"
+  },
+  "choojs/awesome-choo": {
+    "summary": "Plugins, componentes, plantillas, demos y proyectos de Choo, un pequeño framework de JavaScript para apps de front-end.",
+    "enHash": "6e8b6fe6baf9"
+  },
+  "chrissimpkins/codeface": {
+    "summary": "Fuentes monoespaciadas para escribir código en editores de texto y terminales, con muestras.",
+    "enHash": "fddc552668dd"
+  },
+  "christian-bromann/awesome-selenium": {
+    "summary": "Bibliotecas, frameworks, servicios y recursos de Selenium, que controla navegadores web para pruebas automatizadas.",
+    "enHash": "f4563f93bd01"
+  },
+  "christoschristofidis/awesome-deep-learning": {
+    "summary": "Libros, cursos, clases, artículos de investigación, tutoriales e investigadores para aprender deep learning con redes neuronales.",
+    "enHash": "97107c81f2f6"
+  },
+  "chromedevtools/awesome-chrome-devtools": {
+    "summary": "Consejos, herramientas de profiling, extensiones y proyectos basados en el protocolo de las DevTools, las herramientas para desarrolladores integradas en Chrome.",
+    "enHash": "e04547dcdc3d"
+  },
+  "cicdops/awesome-ciandcd": {
+    "summary": "Herramientas y teoría de integración y entrega continuas: servidores de build, revisión de código, pruebas, empaquetado y despliegue.",
+    "enHash": "756a2ed566c1"
+  },
+  "cjbarber/toolsofthetrade": {
+    "summary": "Servicios de software que usan las startups para gestionar su negocio, desde gestión de proyectos y analítica hasta nóminas.",
+    "enHash": "563f28215ca2"
+  },
+  "cjwirth/awesome-ios-ui": {
+    "summary": "Componentes de interfaz de código abierto para apps de iOS: animaciones, calendarios, menús, alertas, indicadores de progreso y controles de entrada.",
+    "enHash": "db7b5100ce59"
+  },
+  "code-and-sorts/awesome-copilot-agents": {
+    "summary": "Archivos de instrucciones, prompts, agentes personalizados, skills y servidores MCP para GitHub Copilot, el asistente de programación con IA.",
+    "enHash": "79356f5f53ea"
+  },
+  "codepoints/awesome-codepoints": {
+    "summary": "Caracteres Unicode poco comunes, como marcas invisibles, caracteres que modifican a otros y poseedores de récords.",
+    "enHash": "d8da50083efb"
+  },
+  "coderabbitai/awesome-coderabbit": {
+    "summary": "Documentación, guías de integración, tutoriales y proyectos de CodeRabbit, un servicio que revisa pull requests con IA.",
+    "enHash": "f64a20052f96"
+  },
+  "codyreichert/awesome-cl": {
+    "summary": "Bibliotecas, implementaciones y herramientas de Common Lisp por área, desde IA y bases de datos hasta gráficos, web y material de aprendizaje.",
+    "enHash": "9fb7fa64d0d5"
+  },
+  "collective/awesome-plone": {
+    "summary": "Complementos para Plone, un sistema de gestión de contenidos escrito en Python, agrupados por funciones como la edición y los temas.",
+    "enHash": "7ace94b5b1d3"
+  },
+  "componently-com/awesome-building-blocks-for-web-apps": {
+    "summary": "Servicios listos para integrar en una aplicación web, como inicio de sesión, reservas, chat, formularios, notificaciones y banners de consentimiento.",
+    "enHash": "0ebff387916c"
+  },
+  "compscilauren/awesome-git-hooks": {
+    "summary": "Scripts de hooks listos para usar, herramientas y guías para ejecutar comprobaciones automáticamente al hacer commit o push en Git.",
+    "enHash": "4b879dedc458"
+  },
+  "constructcommunity/awesome-construct": {
+    "summary": "Complementos, herramientas, opciones de hosting y exportación, tutoriales y canales de Construct, un motor de videojuegos que se programa con eventos visuales.",
+    "enHash": "c123daa58d31"
+  },
+  "cosmos/awesome-cosmos": {
+    "summary": "Módulos, bibliotecas cliente, exploradores, herramientas para validadores y plantillas del Cosmos SDK, un framework en Go para construir blockchains.",
+    "enHash": "87a327bec5c8"
+  },
+  "cpuu/awesome-fuzzing": {
+    "summary": "Libros, charlas, artículos de investigación y herramientas sobre fuzzing, que busca bugs alimentando a los programas con entradas aleatorias o diseñadas a propósito.",
+    "enHash": "030a8bf75d3b"
+  },
+  "craftcms/awesome": {
+    "summary": "Plugins, tutoriales, enlaces de la comunidad y sitios de muestra de Craft CMS, un sistema de gestión de contenidos escrito en PHP.",
+    "enHash": "616b992fd761"
+  },
+  "cristianoliveira/awesome4girls": {
+    "summary": "Eventos, programas, organizaciones y kits que animan a mujeres y niñas a programar.",
+    "enHash": "17622025746f"
+  },
+  "csabapalfi/awesome-pagespeed-metrics": {
+    "summary": "Explicaciones, documentación y herramientas sobre las métricas que miden lo rápido que carga y responde una página web.",
+    "enHash": "afec6cd35778"
+  },
+  "cvyl/awesome-transgender": {
+    "summary": "Sitios web, comunidades, entrenamiento de voz, información médica, organizaciones e investigación para personas trans.",
+    "enHash": "f74c3b8d80b1"
+  },
+  "cyclejs-community/awesome-cyclejs": {
+    "summary": "Tutoriales, herramientas, bibliotecas y enlaces de la comunidad de Cycle.js, un framework de JavaScript basado en streams reactivos.",
+    "enHash": "a77922f02824"
+  },
+  "cytodata/awesome-cytodata": {
+    "summary": "Recursos para perfilar células a partir de imágenes de microscopio, como software, conjuntos de datos y artículos de investigación.",
+    "enHash": "4a713623bc45"
+  },
+  "dahlia/awesome-sqlalchemy": {
+    "summary": "Extensiones y bibliotecas que funcionan con SQLAlchemy, el toolkit de Python para bases de datos y mapeo objeto-relacional.",
+    "enHash": "d036295ef25e"
+  },
+  "danailminchev/awesome-eosio": {
+    "summary": "Recursos oficiales, herramientas, productores de bloques, material para desarrolladores y aplicaciones de EOSIO, una plataforma blockchain para apps descentralizadas.",
+    "enHash": "ee782b1e491f"
+  },
+  "danailminchev/awesome-payload": {
+    "summary": "Enlaces oficiales, tutoriales, componentes, plantillas y plugins de Payload, un sistema de gestión de contenidos headless de código abierto para Next.js.",
+    "enHash": "1aff24d9d9b1"
+  },
+  "danielecook/awesome-bioinformatics": {
+    "summary": "Software, herramientas de datos, pipelines de secuenciación, herramientas de visualización y bases de datos para analizar datos biológicos.",
+    "enHash": "37b58c48db37"
+  },
+  "danvoyce/awesome-creative-tech-events": {
+    "summary": "Festivales, meetups y conferencias de todo el mundo sobre programación creativa, arte digital, diseño y tecnología musical.",
+    "enHash": "7727c22b3954"
+  },
+  "dariubs/gobooks": {
+    "summary": "Libros sobre el lenguaje de programación Go, desde títulos para principiantes y avanzados hasta desarrollo web.",
+    "enHash": "ff8f757a8d1e"
+  },
+  "dastergon/awesome-sre": {
+    "summary": "Artículos, libros, charlas y herramientas de ingeniería de fiabilidad (SRE): monitorización, guardias, post-mortems, capacidad y niveles de servicio.",
+    "enHash": "2980383d46bb"
+  },
+  "datadaode/awesome-foss-apps": {
+    "summary": "Aplicaciones web y de escritorio de código abierto que las empresas usan en producción real.",
+    "enHash": "c81c6e742420"
+  },
+  "dav009/awesome-spanish-nlp": {
+    "summary": "Corpus, herramientas e investigación para el procesamiento informático del español, incluidos el habla y el clustering.",
+    "enHash": "53b9bc189b7a"
+  },
+  "daviddias/awesome-hacking-locations": {
+    "summary": "Cafeterías y lugares de todo el mundo, por país, donde a la gente le gusta sentarse a programar.",
+    "enHash": "837e2baff71c"
+  },
+  "davidsonfellipe/awesome-wpo": {
+    "summary": "Libros, casos de estudio, analizadores, servicios de monitorización, CDNs y optimizadores para que los sitios web carguen más rápido.",
+    "enHash": "efcc61470418"
+  },
+  "davidtheclark/scalable-css-reading-list": {
+    "summary": "Artículos, guías de estilo y charlas sobre cómo escribir CSS que siga siendo manejable a medida que crece un sitio.",
+    "enHash": "ba054a823243"
+  },
+  "davisonio/awesome-gif": {
+    "summary": "Herramientas, bibliotecas, apps y servicios online para crear, editar y alojar GIFs animados.",
+    "enHash": "d7023fac74eb"
+  },
+  "davisonio/awesome-irc": {
+    "summary": "Clientes, bouncers, servidores, bots, frameworks, redes y guías de IRC, el veterano protocolo de chat.",
+    "enHash": "32d1fc0542e8"
+  },
+  "dawdle-deer/awesome-learn-gamedev": {
+    "summary": "Artículos, libros y charlas para aprender a hacer videojuegos: programación, arte, diseño, audio, guion, producción y carreras profesionales.",
+    "enHash": "d2864d1204f2"
+  },
+  "deanhume/typography": {
+    "summary": "Artículos, herramientas, libros y charlas sobre tipografía para la web, incluida la carga rápida de fuentes web.",
+    "enHash": "2b08facec776"
+  },
+  "deephacks/awesome-jvm": {
+    "summary": "Herramientas y bibliotecas para la máquina virtual de Java: bytecode, recolectores de basura, lenguajes, profilers, runtimes y concurrencia.",
+    "enHash": "2d9c07b0a2c0"
+  },
+  "delftopenhardware/awesome-open-hardware": {
+    "summary": "Proyectos, herramientas de diseño, charlas, artículos de investigación, plataformas y libros sobre hardware cuyos diseños se publican abiertamente.",
+    "enHash": "8f157445f202"
+  },
+  "dend/awesome-product-management": {
+    "summary": "Artículos, libros, comunidades y conferencias para quienes gestionan productos de software.",
+    "enHash": "c2d986704652"
+  },
+  "denolib/awesome-deno": {
+    "summary": "Módulos, herramientas, integraciones, artículos y charlas de Deno, un runtime de JavaScript y TypeScript con permisos integrados.",
+    "enHash": "0e783963b057"
+  },
+  "dersvenhesse/awesome-scriptable": {
+    "summary": "Widgets y scripts para Scriptable, una app de iPhone que automatiza tareas con JavaScript, agrupados por tema.",
+    "enHash": "adb08f861a2b"
+  },
+  "desireevl/awesome-quantum-computing": {
+    "summary": "Cursos, herramientas de desarrollo, libros, blogs, videos y podcasts para aprender y programar computadoras cuánticas.",
+    "enHash": "0ee47c236c90"
+  },
+  "devopshivehq/awesome-kustomize": {
+    "summary": "Plugins, guías y fragmentos de código de Kustomize, que personaliza archivos de configuración de Kubernetes sin plantillas.",
+    "enHash": "b49b4718e750"
+  },
+  "dh-tech/awesome-digital-humanities": {
+    "summary": "Software, plataformas, centros, revistas y guías para la investigación en humanidades con computadoras y datos.",
+    "enHash": "ddc0d973024d"
+  },
+  "dhamaniasad/awesome-postgres": {
+    "summary": "Herramientas para PostgreSQL: alta disponibilidad, copias de seguridad, clientes gráficos y de línea de comandos, extensiones, monitorización, servicios alojados y operadores de Kubernetes.",
+    "enHash": "b95e42d1270f"
+  },
+  "diegocard/awesome-html5": {
+    "summary": "Artículos, especificaciones y ejemplos de las funciones de HTML5: multimedia, elementos semánticos, almacenamiento, workers, accesibilidad y apps sin conexión.",
+    "enHash": "03efbb10e59a"
+  },
+  "directus-labs/awesome-directus": {
+    "summary": "Documentación, SDKs, integraciones, extensiones y ejemplos de Directus, que pone una API y un panel de administración sobre bases de datos SQL.",
+    "enHash": "92fce5f9b01f"
+  },
+  "dlang-community/awesome-d": {
+    "summary": "Compiladores, herramientas, editores, bibliotecas, libros, tutoriales y enlaces de la comunidad del lenguaje de programación D.",
+    "enHash": "5dbdb0dd7bce"
+  },
+  "dok/awesome-text-editing": {
+    "summary": "Bibliotecas para crear editores de texto en el navegador: editores de texto enriquecido, de código y de Markdown.",
+    "enHash": "fa9aaec169ec"
+  },
+  "domenicosolazzo/awesome-okr": {
+    "summary": "Artículos, libros, guías, plantillas y software para fijar metas con Objectives and Key Results (OKRs).",
+    "enHash": "063d8b2c612c"
+  },
+  "donbarbos/awesome-standards": {
+    "summary": "Estándares y propuestas formales para la web, APIs, lenguajes de programación, seguridad, hardware, bases de datos y telecomunicaciones.",
+    "enHash": "6a93c738e699"
+  },
+  "donnemartin/awesome-aws": {
+    "summary": "SDKs, herramientas de línea de comandos, proyectos de código abierto y guías de Amazon Web Services, agrupados por servicio.",
+    "enHash": "43e82076969b"
+  },
+  "dotintent/awesome-ble": {
+    "summary": "Bibliotecas y herramientas de Bluetooth Low Energy para iOS, Android, Flutter, la web y microcontroladores, además de artículos.",
+    "enHash": "abd98d778780"
+  },
+  "dreamingechoes/awesome-mental-health": {
+    "summary": "Artículos, apps, libros, charlas, podcasts y organizaciones sobre salud mental para quienes trabajan en el software.",
+    "enHash": "9a3cdacf7004"
+  },
+  "dreikanter/sublime-bookmarks": {
+    "summary": "Paquetes, consejos, libros, screencasts y enlaces de la comunidad del editor Sublime Text.",
+    "enHash": "7e5ad90f5578"
+  },
+  "drewrwilson/toolsforactivism": {
+    "summary": "Software y servicios para activistas y organizadores, como peticiones, herramientas de contacto y bases de datos de campañas.",
+    "enHash": "ceb9ec31bb69"
+  },
+  "dribdat/awesome-hackathon": {
+    "summary": "Plataformas, herramientas y guías para organizar y celebrar hackathons.",
+    "enHash": "3884074662c4"
+  },
+  "drmonkeyninja/awesome-textpattern": {
+    "summary": "Plugins, temas y recursos de aprendizaje de Textpattern, un pequeño sistema de gestión de contenidos de código abierto escrito en PHP.",
+    "enHash": "8a209f3fc19d"
+  },
+  "drobakowski/awesome-erlang": {
+    "summary": "Bibliotecas y herramientas de Erlang para frameworks web, HTTP, pruebas, logging, despliegue, sistemas distribuidos y más.",
+    "enHash": "83868917f575"
+  },
+  "dspinellis/awesome-msr": {
+    "summary": "Conjuntos de datos, herramientas y foros de investigación para estudiar el software a través de sus repositorios, bugs e historial de desarrollo.",
+    "enHash": "d9b0175d111a"
+  },
+  "dstdev/awesome-hpc": {
+    "summary": "Software de computación de alto rendimiento: aprovisionamiento de clústeres, planificadores de trabajos, MPI, compiladores, sistemas de archivos paralelos y benchmarks.",
+    "enHash": "d5a61d3cbd83"
+  },
+  "dustinspecker/awesome-eslint": {
+    "summary": "Configuraciones compartibles, plugins, parsers, formateadores y tutoriales de ESLint, el linter de JavaScript.",
+    "enHash": "041c094b59e0"
+  },
+  "dvergar/awesome-haxe-gamedev": {
+    "summary": "Motores, bibliotecas de física y de red, juegos y artículos para crear juegos en Haxe, un lenguaje multiplataforma.",
+    "enHash": "c8a8e0a05f9a"
+  },
+  "dylanrees/citizen-science": {
+    "summary": "Software, equipos, guías de investigación, laboratorios comunitarios, financiación y eventos para hacer ciencia fuera de las instituciones.",
+    "enHash": "87be03b540f6"
+  },
+  "dypsilon/frontend-dev-bookmarks": {
+    "summary": "Enlaces a artículos, herramientas y referencias para desarrolladores web de front-end, sobre una gran variedad de temas.",
+    "enHash": "2b0e48f79c15"
+  },
+  "ebookfoundation/free-programming-books": {
+    "summary": "Libros de programación, cursos y otro material de aprendizaje de lectura gratuita, en muchos idiomas.",
+    "enHash": "cbc424fc0a12"
+  },
+  "ebraminio/awesome-qsharp": {
+    "summary": "Documentación, tutoriales, libros, videos, concursos y ejemplos de Q#, el lenguaje de Microsoft para programas cuánticos.",
+    "enHash": "8bb966656eda"
+  },
+  "ebu/awesome-broadcasting": {
+    "summary": "Software de código abierto para radiodifusión: gráficos, códecs, reproductores, sistemas de control, medios sobre IP, monitorización y radio.",
+    "enHash": "79c8ed023fff"
+  },
+  "ecohealthalliance/awesome-parasite": {
+    "summary": "Bases de datos, colecciones de museos, sistemas de notificación, taxonomía y revistas sobre parásitos y sus huéspedes.",
+    "enHash": "c7dd7e4ddaf8"
+  },
+  "edm00se/awesome-board-games": {
+    "summary": "Juegos de mesa para familias, aficionados a la estrategia y fiestas.",
+    "enHash": "9e6cacdd5f8c"
+  },
+  "edobashira/speech-language-processing": {
+    "summary": "Recursos de reconocimiento de voz y procesamiento de lenguaje natural: software, corpus, libros, cursos y foros de investigación.",
+    "enHash": "90a2184ad537"
+  },
+  "egeerardyn/awesome-latex": {
+    "summary": "Distribuciones, editores, herramientas de compilación, paquetes, plantillas, tutoriales y libros de LaTeX, el sistema de composición de documentos.",
+    "enHash": "236c62487384"
+  },
+  "eleventigers/awesome-rxjava": {
+    "summary": "Bindings, utilidades, ayudas para pruebas, guías y artículos de RxJava, programación reactiva con streams en la JVM.",
+    "enHash": "5a188b81c354"
+  },
+  "ellisonleao/magictools": {
+    "summary": "Herramientas de gráficos, audio y código, motores, assets y recursos de aprendizaje para crear videojuegos.",
+    "enHash": "813c8b51a50a"
+  },
+  "emacs-tw/awesome-emacs": {
+    "summary": "Paquetes y recursos de configuración para Emacs, el editor de texto extensible, ordenados por tarea.",
+    "enHash": "ecccbafc6b40"
+  },
+  "ember-community-russia/awesome-ember": {
+    "summary": "Complementos, herramientas, guías y tutoriales de Ember.js, un framework de JavaScript para aplicaciones web ambiciosas.",
+    "enHash": "5d4e9356d2d8"
+  },
+  "eminyagiz42/awesome-sap-commerce": {
+    "summary": "Documentación, blogs y tecnologías relacionadas con SAP Commerce, antes Hybris, una plataforma de comercio electrónico escrita en Java.",
+    "enHash": "f77049ed08f3"
+  },
+  "emptymalei/awesome-research": {
+    "summary": "Software para investigadores: organizar el trabajo, tomar notas, escribir y publicar, presentaciones, visualización de datos y LaTeX.",
+    "enHash": "e36122ad5a03"
+  },
+  "enaqx/awesome-react": {
+    "summary": "Bibliotecas, herramientas y recursos de aprendizaje de React, la biblioteca de JavaScript para interfaces de usuario, y de React Native.",
+    "enHash": "a1efe1946c0c"
+  },
+  "enjalot/algovis": {
+    "summary": "Proyectos, bibliotecas y ejemplos que explican algoritmos mediante visualizaciones interactivas.",
+    "enHash": "1f2f4ab02939"
+  },
+  "eozer/awesome-snmp": {
+    "summary": "Bibliotecas, herramientas, artículos de investigación, servidores de prueba y colecciones de MIB de SNMP, el protocolo para monitorizar equipos de red.",
+    "enHash": "08b7637a303f"
+  },
+  "erictleung/awesome-nosql-guides": {
+    "summary": "Artículos y guías sobre bases de datos NoSQL: modelado de datos, los compromisos del teorema CAP, bases de datos de grafos y los debates en torno a ellas.",
+    "enHash": "b39a763b647a"
+  },
+  "erwanlemerrer/awesome-audit-algorithms": {
+    "summary": "Artículos de investigación y eventos sobre auditar algoritmos desde fuera, como comprobar si un sistema de recomendación tiene sesgos.",
+    "enHash": "e0b5079d0a0f"
+  },
+  "eselkin/awesome-computational-neuroscience": {
+    "summary": "Laboratorios universitarios y grupos de investigación en neurociencia computacional de Europa y Norteamérica.",
+    "enHash": "01b36f2ce408"
+  },
+  "esri/awesome-arcgis-developers": {
+    "summary": "APIs, SDKs, ejemplos, herramientas de datos y guías para crear apps de mapas sobre la plataforma ArcGIS de Esri.",
+    "enHash": "f001d3d8bdcc"
+  },
+  "eug/awesome-opengl": {
+    "summary": "Artículos, libros, depuradores, editores de shaders, bibliotecas, referencias y charlas de OpenGL, la interfaz de programación de gráficos.",
+    "enHash": "0d2b42aa6787"
+  },
+  "exaspark/awesome-chatops": {
+    "summary": "Artículos, charlas, libros, servicios y frameworks de bots para ChatOps, gestionar las operaciones desde una sala de chat.",
+    "enHash": "095a98df57f8"
+  },
+  "expede/awesome-relay": {
+    "summary": "Recursos de aprendizaje, bibliotecas, soporte de servidor y herramientas de pruebas de Relay, el framework de datos GraphQL de Facebook para React.",
+    "enHash": "68b643ca7494"
+  },
+  "fabacab/awesome-cybersecurity-blueteam": {
+    "summary": "Herramientas y guías para defender sistemas: hardening, monitorización, respuesta a incidentes, honeypots, identidad e inteligencia de amenazas.",
+    "enHash": "87b2dbba1841"
+  },
+  "fabacab/awesome-lockpicking": {
+    "summary": "Guías, libros, comunidades, eventos, proyectos de aficionados y proveedores de ganzuado y locksport.",
+    "enHash": "989a26c8679a"
+  },
+  "famolus/awesome-sass": {
+    "summary": "Guías, frameworks, bibliotecas de mixins, herramientas, libros y videos de Sass, un lenguaje que se compila a CSS.",
+    "enHash": "98e97a65fc5c"
+  },
+  "faroit/awesome-python-scientific-audio": {
+    "summary": "Paquetes de Python, tutoriales, libros y artículos de investigación para investigar sobre audio, habla y música.",
+    "enHash": "183f9c03922a"
+  },
+  "fcambus/nginx-resources": {
+    "summary": "Artículos, tutoriales y charlas sobre cómo configurar, proteger y extender el servidor web nginx, incluidos Lua y OpenResty.",
+    "enHash": "547df0301c41"
+  },
+  "feross/awesome-mad-science": {
+    "summary": "Paquetes de npm sorprendentes que hacen cosas aparentemente imposibles, desde redes peer-to-peer hasta máquinas virtuales.",
+    "enHash": "8c035a90e517"
+  },
+  "fffaraz/awesome-cpp": {
+    "summary": "Bibliotecas, frameworks y herramientas de C y C++ por área, desde audio y compresión hasta bases de datos, redes y gráficos.",
+    "enHash": "8c2d580e1464"
+  },
+  "filipelinhares/awesome-slack": {
+    "summary": "Espacios de trabajo de Slack para desarrolladores y diseñadores, por tema y región.",
+    "enHash": "87bfd3bc9eb3"
+  },
+  "fityanos/awesome-quality-assurance-roadmap": {
+    "summary": "Una ruta de aprendizaje para convertirse en tester de software, con un plan de pruebas de ejemplo y consejos prácticos.",
+    "enHash": "a7743a356cea"
+  },
+  "fkie-cad/awesome-embedded-and-iot-security": {
+    "summary": "Herramientas de software y hardware, casos de estudio, formación y sitios web sobre la seguridad de dispositivos embebidos y conectados.",
+    "enHash": "178e05f10220"
+  },
+  "flame-engine/awesome-flame": {
+    "summary": "Tutoriales, plugins y proyectos de ejemplo de Flame, un motor de juegos 2D construido sobre Flutter.",
+    "enHash": "bbdd4737804f"
+  },
+  "fliptheweb/motion-ui-design": {
+    "summary": "Inspiración, artículos, software, bibliotecas, charlas y pautas sobre animación en interfaces de usuario.",
+    "enHash": "046948733cac"
+  },
+  "folkswhocode/awesome-diversity": {
+    "summary": "Organizaciones, eventos, artículos, charlas y libros sobre cómo hacer la industria tecnológica más diversa e inclusiva.",
+    "enHash": "3bf9cd85716f"
+  },
+  "foxfil/awesome-geocaching": {
+    "summary": "Sitios web, apps y herramientas de geocaching, el juego al aire libre de encontrar contenedores escondidos con GPS.",
+    "enHash": "f9f05a24bbd4"
+  },
+  "fr0st-brutal/awesome-pascal": {
+    "summary": "Bibliotecas, componentes y herramientas para Delphi y Free Pascal, que cubren gráficos, redes, bases de datos, interfaces gráficas y más.",
+    "enHash": "8cedb73af4d4"
+  },
+  "francoism90/awesome-kde": {
+    "summary": "Aplicaciones, personalización, documentación y comunidades de KDE, el escritorio de Linux y su software.",
+    "enHash": "925f2de054ef"
+  },
+  "fregante/awesome-webextensions": {
+    "summary": "Documentación, bibliotecas, herramientas, ayudas para pruebas, plantillas base y ejemplos para crear extensiones que funcionen en varios navegadores.",
+    "enHash": "88cbceaa909b"
+  },
+  "frenck/awesome-home-assistant": {
+    "summary": "Integraciones, dashboards, tarjetas, temas, apps, herramientas y configuraciones públicas de Home Assistant, la plataforma de domótica de código abierto.",
+    "enHash": "4416af9c9a71"
+  },
+  "friedger/awesome-stacks-chain": {
+    "summary": "Apps, herramientas de desarrollo y material de aprendizaje de Stacks, que añade contratos inteligentes a Bitcoin, y de su lenguaje Clarity.",
+    "enHash": "aab01f8e06f8"
+  },
+  "friendsofcake/awesome-cakephp": {
+    "summary": "Plugins, aplicaciones y recursos de aprendizaje de CakePHP, un framework web escrito en PHP.",
+    "enHash": "c0288604194f"
+  },
+  "friz-zy/awesome-linux-containers": {
+    "summary": "Especificaciones, runtimes, sandboxes, hipervisores, sistemas de archivos y herramientas de seguridad para contenedores en Linux.",
+    "enHash": "0ecb78ceba25"
+  },
+  "fsprojects/awesome-fsharp": {
+    "summary": "Bibliotecas, frameworks y herramientas de F#, el lenguaje funcional de .NET, desde herramientas de compilación hasta ciencia de datos.",
+    "enHash": "10c1c52c42b3"
+  },
+  "fukuball/awesome-laravel-education": {
+    "summary": "Material de aprendizaje del framework PHP Laravel: capítulos de documentación, screencasts, artículos y libros, en inglés y chino.",
+    "enHash": "649d8125a26a"
+  },
+  "fuse-compound/awesome-fuse": {
+    "summary": "Apps, artículos, plugins y proyectos de código abierto hechos con Fuse, un toolkit para crear apps móviles.",
+    "enHash": "3e0ecd972545"
+  },
+  "gaerae/awesome-algorithms-education": {
+    "summary": "Cursos, sitios de práctica, visualizaciones, libros, videos y material para entrevistas para aprender algoritmos.",
+    "enHash": "cb709aa83da8"
+  },
+  "gamontal/awesome-katas": {
+    "summary": "Ejercicios de programación, llamados katas, para practicar diseño y desarrollo guiado por pruebas.",
+    "enHash": "219277ec3e74"
+  },
+  "gbdev/awesome-gbdev": {
+    "summary": "Documentación, emuladores, herramientas de programación, juegos homebrew y notas de ingeniería inversa para desarrollar en la Game Boy de Nintendo.",
+    "enHash": "679df995492a"
+  },
+  "georgezouq/awesome-ai-in-finance": {
+    "summary": "Agentes de trading, modelos de lenguaje, estrategias, artículos de investigación, fuentes de datos y APIs de exchanges para aplicar machine learning a los mercados.",
+    "enHash": "f0c665f3dada"
+  },
+  "git-tips/tips": {
+    "summary": "Comandos de Git breves para tareas cotidianas y funciones menos conocidas del control de versiones.",
+    "enHash": "090db5fa6717"
+  },
+  "gitfrage/guitarspecs": {
+    "summary": "Enlaces de referencia sobre las partes de una guitarra eléctrica: mástiles, cuerpos, puentes, electrónica, cuerdas y maderas.",
+    "enHash": "71d48c4daeb3"
+  },
+  "glauberfc/awesome-react-hooks": {
+    "summary": "Documentación, tutoriales, debates, ejemplos y bibliotecas de hooks personalizados para React.",
+    "enHash": "287595eea041"
+  },
+  "gofiber/awesome-fiber": {
+    "summary": "Middleware, plantillas base, recetas, herramientas, artículos y benchmarks de Fiber, un framework web de Go al estilo de Express.",
+    "enHash": "a88db3ff02a2"
+  },
+  "gokayfem/awesome-vlm-architectures": {
+    "summary": "Descripciones y referencias de las arquitecturas de los modelos de visión y lenguaje, que manejan tanto imágenes como texto.",
+    "enHash": "28a6ad388a22"
+  },
+  "golemfactory/awesome-golem": {
+    "summary": "Herramientas y guías para solicitantes y proveedores de Golem, una red donde la gente alquila su capacidad de cómputo sobrante.",
+    "enHash": "579caa0eb626"
+  },
+  "grafana/awesome-k6": {
+    "summary": "Artículos, videos, ejemplos, extensiones e integraciones con CI de k6, la herramienta de pruebas de carga de Grafana que se programa en JavaScript.",
+    "enHash": "babab37abda6"
+  },
+  "gramantin/awesome-rails": {
+    "summary": "Recursos de aprendizaje, aplicaciones de código abierto, gems y plantillas de inicio de Ruby on Rails, el framework web de Ruby.",
+    "enHash": "a3b23584b9a2"
+  },
+  "granze/awesome-polymer": {
+    "summary": "Tutoriales, artículos, videos, elementos y herramientas de Polymer, la biblioteca de Google para crear web components.",
+    "enHash": "32e9909189a0"
+  },
+  "gruhn/awesome-naming": {
+    "summary": "Nombres de conceptos de la informática, desde algoritmos y patrones de diseño hasta términos de seguridad, con explicaciones.",
+    "enHash": "380a32da7274"
+  },
+  "guillaume-chevalier/awesome-deep-learning-resources": {
+    "summary": "Clases online, libros, artículos, artículos de investigación y videos para estudiar deep learning, con énfasis en las redes recurrentes.",
+    "enHash": "7781cfa5f615"
+  },
+  "gustavbertram/awesome-common-lisp-learning": {
+    "summary": "Entornos, referencias, libros online e impresos, comunidades e implementaciones para aprender Common Lisp.",
+    "enHash": "2d854c4c7f9a"
+  },
+  "h2oai/awesome-h2o": {
+    "summary": "Tutoriales, libros, artículos de investigación, benchmarks y software basados en H2O, una plataforma de código abierto de machine learning y AutoML.",
+    "enHash": "9b7febaa169a"
+  },
+  "h4cc/awesome-elixir": {
+    "summary": "Más de mil bibliotecas y herramientas de Elixir por área, desde actores y autenticación hasta pruebas y web.",
+    "enHash": "54266d41878f"
+  },
+  "hachiojipm/awesome-perl": {
+    "summary": "Módulos de Perl ordenados por tarea: análisis de la línea de comandos, bases de datos, fechas, email, plantillas, frameworks web y más.",
+    "enHash": "6985a6216627"
+  },
+  "hackerkid/bots": {
+    "summary": "Plataformas, herramientas, bibliotecas, analítica, tutoriales y comunidades para crear chatbots.",
+    "enHash": "c79aba14cf9e"
+  },
+  "hackerkid/mind-expanding-books": {
+    "summary": "Libros de ciencia, filosofía, historia, negocios y otros temas que cambian la forma de pensar de quien los lee, con sus valoraciones.",
+    "enHash": "dab6457fe62f"
+  },
+  "hal9ai/awesome-dataviz": {
+    "summary": "Bibliotecas de gráficos y visualización de datos para muchos lenguajes, desde JavaScript y Python hasta R y Rust, además de dashboards.",
+    "enHash": "0e6bfb553a14"
+  },
+  "hallvaaw/awesome-biological-image-analysis": {
+    "summary": "Software para analizar imágenes biológicas, desde la segmentación y el seguimiento de células hasta la patología y la neurociencia.",
+    "enHash": "e014c4d1ac60"
+  },
+  "hantuzun/awesome-clojurescript": {
+    "summary": "Bibliotecas, frameworks, herramientas y recursos de aprendizaje de ClojureScript, el lenguaje Clojure compilado a JavaScript.",
+    "enHash": "ada32f1747bf"
+  },
+  "harpribot/awesome-information-retrieval": {
+    "summary": "Libros, cursos, software, conjuntos de datos y charlas sobre recuperación de información, la ciencia detrás de los buscadores.",
+    "enHash": "6a8f0d6025d3"
+  },
+  "heapy/awesome-kotlin": {
+    "summary": "Bibliotecas, frameworks, herramientas, artículos y videos del lenguaje de programación Kotlin, recopilados en el sitio web kotlin.link.",
+    "enHash": "bc48ffa0ee6c"
+  },
+  "henrikwirth/awesome-wordpress-gatsby": {
+    "summary": "Plugins, starters, temas y enlaces de la comunidad para crear sitios con Gatsby que toman su contenido de WordPress.",
+    "enHash": "65a5eab04565"
+  },
+  "hesreallyhim/awesome-claude-code": {
+    "summary": "Skills, hooks, plugins, clientes alternativos, orquestadores y guías de Claude Code, un agente de programación para la terminal.",
+    "enHash": "e4d7e93d5af2"
+  },
+  "heynickc/awesome-ddd": {
+    "summary": "Libros, cursos, videos, blogs, proyectos de ejemplo, bibliotecas y conferencias sobre diseño guiado por el dominio.",
+    "enHash": "2fe85f335017"
+  },
+  "hkirat/awesome-chess": {
+    "summary": "Libros, bots, validadores de jugadas, parsers de notación, gráficos de tableros y piezas y sitios web relacionados con el ajedrez.",
+    "enHash": "bbf75cf6103e"
+  },
+  "hlaueriksson/awesome-powertoys-run-plugins": {
+    "summary": "Plugins de la comunidad y guías de PowerToys Run, el lanzador rápido de PowerToys de Microsoft para Windows.",
+    "enHash": "e14780c38bd1"
+  },
+  "hollyadele/awesome-programming-for-kids": {
+    "summary": "Apps, juegos, robots y sitios web que enseñan programación a niños pequeños, por grupo de edad.",
+    "enHash": "52e96b5f525e"
+  },
+  "homematic-community/awesome-homematic": {
+    "summary": "Documentación, apps, complementos, hardware y software alternativos para Homematic, un sistema de domótica.",
+    "enHash": "38529122eb7c"
+  },
+  "hothero/awesome-rails-gem": {
+    "summary": "Gems de Ruby para aplicaciones Rails, agrupadas por función: autenticación, Active Record, subidas de archivos, tareas en segundo plano, paneles de administración y pruebas.",
+    "enHash": "6c90e593ee48"
+  },
+  "hqarroum/awesome-iot": {
+    "summary": "Hardware, software, protocolos, estándares y lecturas sobre el internet de las cosas, los dispositivos conectados a redes.",
+    "enHash": "8bd17bdb5106"
+  },
+  "hsavit1/awesome-swift-education": {
+    "summary": "Material de aprendizaje de Swift, el lenguaje de programación de Apple para sus plataformas.",
+    "enHash": "c2a12acb2119"
+  },
+  "hsiaoyi0504/awesome-cheminformatics": {
+    "summary": "Aplicaciones, bibliotecas, revistas y otros recursos para aplicar la informática a la química.",
+    "enHash": "0ea05a50a210"
+  },
+  "hstsethi/awesome-j2me": {
+    "summary": "Kits de desarrollo, emuladores, apps, herramientas de ingeniería inversa y proyectos de preservación de J2ME, Java para móviles antiguos.",
+    "enHash": "86212617914f"
+  },
+  "hyperupcall/awesome-mastodon": {
+    "summary": "Instancias, clientes, herramientas, bibliotecas, bots y guías de hosting de Mastodon, una alternativa federada a Twitter.",
+    "enHash": "3d15ed683f41"
+  },
+  "hzoo/awesome-gametalks": {
+    "summary": "Podcasts y charlas sobre diseño de juegos y la creación de videojuegos.",
+    "enHash": "cf9c1f384fef"
+  },
+  "iamcoder/awesome-lucid-dreams": {
+    "summary": "Investigación, libros, apps, dispositivos, programas de audio, foros y otros recursos sobre sueños lúcidos.",
+    "enHash": "7747e46fdc64"
+  },
+  "iamericfletcher/awesome-r-learning-resources": {
+    "summary": "Tutoriales por tema, blogs, libros, comunidades, podcasts y canales de YouTube para aprender el lenguaje R.",
+    "enHash": "b303cda73d41"
+  },
+  "ianstormtaylor/awesome-heroku": {
+    "summary": "Buildpacks, complementos, herramientas y guías de Heroku, el servicio en la nube para desplegar y alojar aplicaciones.",
+    "enHash": "df918a73bb15"
+  },
+  "ibaaj/awesome-opensourcephotography": {
+    "summary": "Software fotográfico de código abierto: reveladores RAW, HDR, panorámicas, organizadores, editores EXIF, firmware de cámaras y comunidades.",
+    "enHash": "55d914ddbdd4"
+  },
+  "igorbarinov/awesome-bitcoin": {
+    "summary": "Servicios, APIs, wallets, exploradores y bibliotecas en muchos lenguajes para crear software sobre Bitcoin.",
+    "enHash": "1d3e83b9d234"
+  },
+  "igorbarinov/awesome-data-engineering": {
+    "summary": "Bases de datos, herramientas de ingesta y procesamiento de streams, formatos de archivo, orquestadores de flujos de trabajo y herramientas de monitorización para crear pipelines de datos.",
+    "enHash": "f87b8a01d4b5"
+  },
+  "iipc/awesome-web-archiving": {
+    "summary": "Formación, herramientas, servicios, recursos comunitarios y datos públicos para preservar sitios web en archivos.",
+    "enHash": "2dfe22caae83"
+  },
+  "ijackua/awesome-vagrant": {
+    "summary": "Boxes, herramientas de aprovisionamiento, plugins, tutoriales y entornos listos para usar de Vagrant, que crea máquinas virtuales reproducibles para desarrollo.",
+    "enHash": "a613d14c4500"
+  },
+  "ildoc/awesome-italy-events": {
+    "summary": "Conferencias y meetups de tecnología que se celebran en Italia.",
+    "enHash": "d5bc1ff5bcb6"
+  },
+  "infosecb/awesome-detection-engineering": {
+    "summary": "Frameworks, reglas de detección, fuentes de logs y otros recursos para escribir reglas que detecten ataques.",
+    "enHash": "fcbc1fcf5d4f"
+  },
+  "innocenzi/awesome-inertiajs": {
+    "summary": "Adaptadores, hooks y recursos de Inertia.js, que une un framework del lado del servidor con un front-end en React o Vue.",
+    "enHash": "68a4ece143a3"
+  },
+  "inoue0426/awesome-computational-biology": {
+    "summary": "Bases de datos, benchmarks, APIs, herramientas de preprocesamiento y modelos de machine learning para biología computacional.",
+    "enHash": "6f32d290aa6f"
+  },
+  "inspectit-labs/awesome-inspectit": {
+    "summary": "Documentación, tutoriales, videos y publicaciones de inspectIT, una herramienta de código abierto que monitoriza el rendimiento de aplicaciones Java.",
+    "enHash": "057d98282034"
+  },
+  "ipfs/awesome-ipfs": {
+    "summary": "Apps, navegadores, herramientas, servicios y proveedores de pinning de IPFS, una red peer-to-peer para almacenar y compartir archivos.",
+    "enHash": "fb12e6f21086"
+  },
+  "irazasyed/awesome-cloudflare": {
+    "summary": "Herramientas, proyectos con Workers, apps, utilidades de DNS y enlaces de la comunidad de los servicios de red y seguridad de Cloudflare.",
+    "enHash": "a736c80673ef"
+  },
+  "ironcev/awesome-roslyn": {
+    "summary": "Libros, tutoriales, analizadores, generadores de código, bibliotecas y charlas de Roslyn, la plataforma de compilación de .NET para C#.",
+    "enHash": "4ffb05e357dd"
+  },
+  "isamorph/awesome-permacomputing": {
+    "summary": "Lecturas, proyectos y comunidades sobre permacomputing, un enfoque de la informática que consume menos energía y dura más.",
+    "enHash": "da9c2a78696a"
+  },
+  "isamorph/awesome-webassembly": {
+    "summary": "Guías, libros, compiladores, runtimes y proyectos de WebAssembly, un formato de código compacto que se ejecuta en navegadores y otros entornos.",
+    "enHash": "323115b2fdcd"
+  },
+  "j0hnm4r5/awesome-creative-technology": {
+    "summary": "Estudios, colectivos, talleres de fabricación, agencias, museos y festivales que trabajan donde se cruzan el arte, el diseño y la tecnología.",
+    "enHash": "83f53c93b74c"
+  },
+  "j2team/awesome-autoit": {
+    "summary": "Funciones definidas por el usuario, bibliotecas y herramientas de AutoIt, un lenguaje de scripting para automatizar Windows.",
+    "enHash": "4dfec8bb9252"
+  },
+  "jacobdjwilson/awesome-annual-security-reports": {
+    "summary": "Informes anuales y encuestas sobre ciberseguridad publicados por empresas, gobiernos e investigadores.",
+    "enHash": "4938aee9655c"
+  },
+  "jagracey/awesome-unicode": {
+    "summary": "Peculiaridades, notas para resolver problemas y un resumen de los sistemas de escritura y bloques de Unicode, el estándar de caracteres de texto.",
+    "enHash": "6180922a8c62"
+  },
+  "jakob-pennington/awesome-devsecops": {
+    "summary": "Artículos, formación y herramientas para integrar comprobaciones de seguridad en la entrega y la operación del software.",
+    "enHash": "35e0ea34fc47"
+  },
+  "jakoch/awesome-composer": {
+    "summary": "Plugins, herramientas, servicios, tutoriales y repositorios de paquetes de Composer, el gestor de dependencias de PHP.",
+    "enHash": "99f8991bb0f3"
+  },
+  "janvanryswyck/awesome-talks": {
+    "summary": "Charlas grabadas sobre desarrollo de software, diseño, arquitectura y cultura de la programación.",
+    "enHash": "a92c68ea5cc1"
+  },
+  "jaredthecoder/awesome-vehicle-security": {
+    "summary": "Investigación, proyectos, hardware y software sobre seguridad y hacking de coches, como herramientas para el bus CAN.",
+    "enHash": "045b1f3e4e48"
+  },
+  "jaywcjlove/awesome-mac": {
+    "summary": "Aplicaciones para macOS, gratuitas y de pago, por categoría: escritura, desarrollo, diseño, comunicación, multimedia y utilidades.",
+    "enHash": "b3434c405763"
+  },
+  "jbhuang0604/awesome-computer-vision": {
+    "summary": "Libros, cursos, artículos de investigación, software, modelos preentrenados y conjuntos de datos de visión por computador, que enseña a las máquinas a interpretar imágenes.",
+    "enHash": "6f8ddd92924b"
+  },
+  "jdrgoms/awesome-postcss": {
+    "summary": "Artículos, guías, plugins, charlas y personas a seguir sobre PostCSS, una herramienta que transforma CSS mediante plugins de JavaScript.",
+    "enHash": "cbbf45c84396"
+  },
+  "jetli/awesome-yew": {
+    "summary": "Proyectos, plantillas, crates, herramientas, artículos y cursos de Yew, un framework de Rust para front-ends web en WebAssembly.",
+    "enHash": "beece6dd2747"
+  },
+  "joaomilho/awesome-idris": {
+    "summary": "Recursos oficiales, artículos, libros, artículos de investigación, proyectos y backends de Idris, un lenguaje funcional con tipos dependientes.",
+    "enHash": "80002d0e814d"
+  },
+  "joe-b-security/awesome-prompt-injection": {
+    "summary": "Artículos, tutoriales, artículos de investigación, herramientas y juegos de práctica sobre ataques de inyección de prompts en modelos de lenguaje.",
+    "enHash": "601e4c115ad7"
+  },
+  "joewdavies/awesome-frontend-gis": {
+    "summary": "Bibliotecas de mapas en JavaScript, fuentes de datos geográficos, notebooks, mapas de ejemplo y lecturas para mostrar mapas en el navegador.",
+    "enHash": "feb3658f9c45"
+  },
+  "johnjago/awesome-ad-free": {
+    "summary": "Sitios web y servicios sin publicidad, además de lecturas sobre vivir sin anuncios.",
+    "enHash": "58225a72e47a"
+  },
+  "johnjago/awesome-free-software": {
+    "summary": "Software y hardware libres que los usuarios pueden estudiar, modificar y compartir, con lecturas relacionadas.",
+    "enHash": "fb52ffafd464"
+  },
+  "johnjago/awesome-theravada": {
+    "summary": "Textos, charlas, libros, foros, organizaciones y lugares relacionados con el budismo theravada.",
+    "enHash": "e916d45cac3b"
+  },
+  "johnjago/awesome-uncopyright": {
+    "summary": "Arte, libros, imágenes y software de dominio público, con textos sobre la vida sin copyright.",
+    "enHash": "7a3ab2aa796f"
+  },
+  "joho/awesome-code-review": {
+    "summary": "Artículos de investigación, artículos, libros, charlas y herramientas sobre revisión de código.",
+    "enHash": "1ef3fa72a79f"
+  },
+  "jonathandion/awesome-emails": {
+    "summary": "Frameworks, plantillas, herramientas de pruebas, servicios, inspiración de diseño y artículos para crear emails en HTML.",
+    "enHash": "874596932146"
+  },
+  "jondot/awesome-devenv": {
+    "summary": "Herramientas, plugins de editor y configuraciones para un entorno de desarrollo productivo, desde utilidades de shell hasta extensiones de Git.",
+    "enHash": "a77b3d99362f"
+  },
+  "jondot/awesome-react-native": {
+    "summary": "Componentes, bibliotecas, herramientas, starters, apps de código abierto y material de aprendizaje para apps móviles con React Native.",
+    "enHash": "517bfae13ee0"
+  },
+  "jonleibowitz/awesome-digitalocean": {
+    "summary": "Herramientas de configuración, bibliotecas cliente, integraciones, proyectos y tutoriales de DigitalOcean, un proveedor de hosting en la nube.",
+    "enHash": "75050b597f1e"
+  },
+  "jorgebucaran/awsm.fish": {
+    "summary": "Plugins, prompts, gestores de paquetes y guías de la shell fish.",
+    "enHash": "c23bb5c97896"
+  },
+  "josedefreitas/awesome-youtubers": {
+    "summary": "Canales de YouTube que enseñan programación, informática, seguridad, hardware y temas relacionados.",
+    "enHash": "c2907e290bbb"
+  },
+  "josephmisiti/awesome-machine-learning": {
+    "summary": "Frameworks y bibliotecas de machine learning ordenados por lenguaje de programación, desde C++ y Java hasta Python y R.",
+    "enHash": "4adc446406c6"
+  },
+  "joshwiens/awesome-rethinkdb": {
+    "summary": "Documentación, drivers, artículos, charlas, ejemplos y herramientas de administración de RethinkDB, una base de datos documental que envía resultados de consultas en tiempo real.",
+    "enHash": "c687a9e8f5b4"
+  },
+  "jstumpp/awesome-android": {
+    "summary": "Emuladores, bibliotecas, recursos de aprendizaje y herramientas de compilación para el desarrollo de apps Android.",
+    "enHash": "95d99e90b890"
+  },
+  "jthegedus/awesome-firebase": {
+    "summary": "Extensiones, bibliotecas para web, móvil y servidor, herramientas de editor y guías de Firebase, el servicio de backend para apps de Google.",
+    "enHash": "cdd162ec473f"
+  },
+  "jtoy/awesome-tensorflow": {
+    "summary": "Tutoriales, modelos, bibliotecas, herramientas, artículos de investigación y libros sobre TensorFlow, el framework de machine learning de Google.",
+    "enHash": "aee61e1766e3"
+  },
+  "jyguyomarch/awesome-conversational-ai": {
+    "summary": "Artículos de investigación, clientes de mensajería, consejos de diseño, servicios de comprensión del lenguaje y plataformas para crear chatbots y asistentes de voz.",
+    "enHash": "eaa689197f73"
+  },
+  "jyguyomarch/awesome-productivity": {
+    "summary": "Sitios web, libros y apps para organizar el trabajo y ser más productivo.",
+    "enHash": "4c85614a05d0"
+  },
+  "jzarca01/awesome-food": {
+    "summary": "Proyectos de código abierto sobre comida: colecciones de recetas, APIs de alimentos, cocina vegetal, nutrición, cursos y videos.",
+    "enHash": "e9fde9b3d275"
+  },
+  "k4m4/terminals-are-sexy": {
+    "summary": "Shells, emuladores de terminal, gestores de paquetes, editores y herramientas de línea de comandos para quienes disfrutan trabajando en la terminal.",
+    "enHash": "69680d8c8d77"
+  },
+  "kakoni/awesome-healthcare": {
+    "summary": "Software de código abierto para la sanidad: historias clínicas, imagen médica, laboratorios, telemedicina, estándares y bibliotecas.",
+    "enHash": "b48ad9e4477c"
+  },
+  "kalaiser/awesome-cdk": {
+    "summary": "Bibliotecas de constructs, herramientas y formación para AWS Cloud Development Kit, que define recursos en la nube con código normal.",
+    "enHash": "04c9c3cb093a"
+  },
+  "kareniel/awesome-evm-security": {
+    "summary": "Guías, estándares, listas de amenazas y registros de vulnerabilidades sobre la seguridad de los contratos inteligentes de Ethereum.",
+    "enHash": "23268ff1388b"
+  },
+  "karlhorky/awesome-speakers": {
+    "summary": "Ponentes que dan charlas en conferencias y meetups de programación y diseño.",
+    "enHash": "137c7368e5ab"
+  },
+  "karlhorky/learn-to-program": {
+    "summary": "Cursos y sitios web para aprender a programar, divididos en nivel principiante, intermedio y avanzado.",
+    "enHash": "dbd382812a63"
+  },
+  "karneades/awesome-malware-persistence": {
+    "summary": "Técnicas que usan los atacantes para mantenerse en una máquina tras reiniciarla, y herramientas para detectarlas y eliminarlas.",
+    "enHash": "372ef0ebe6fc"
+  },
+  "karneades/awesome-security-card-games": {
+    "summary": "Juegos de cartas que enseñan temas de seguridad como el modelado de amenazas, la respuesta a incidentes y la privacidad.",
+    "enHash": "d34712fc8b3e"
+  },
+  "kazhnuz/awesome-gnome": {
+    "summary": "Aplicaciones, extensiones de shell, temas, enlaces de la comunidad y recursos para desarrolladores del escritorio GNOME en Linux.",
+    "enHash": "28ee1c36a4b7"
+  },
+  "kdabir/awesome-groovy": {
+    "summary": "Herramientas de compilación, soporte de editores, frameworks web, pruebas y otras bibliotecas de Groovy, un lenguaje dinámico de la JVM.",
+    "enHash": "b78add4e1db5"
+  },
+  "kdeldycke/awesome-billing": {
+    "summary": "Artículos y herramientas sobre cómo cobrar a los clientes: precios, facturas, impuestos, pagos, contabilidad, fraude y análisis de ingresos.",
+    "enHash": "8a072b0080ec"
+  },
+  "kdeldycke/awesome-engineering-team-management": {
+    "summary": "Lecturas para ingenieros que pasan a ser managers: formar equipos, contratar, onboarding, cultura, reuniones, trabajo remoto y gestión de proyectos.",
+    "enHash": "9c77e8269ad4"
+  },
+  "kdeldycke/awesome-falsehood": {
+    "summary": "Artículos sobre las suposiciones erróneas que hacen los programadores acerca de nombres, fechas, direcciones, teléfonos, dinero y otros datos del mundo real.",
+    "enHash": "a8f5f4f648a0"
+  },
+  "kdeldycke/awesome-iam": {
+    "summary": "Artículos y herramientas sobre gestión de identidades y accesos: cuentas, contraseñas, autenticación multifactor, OAuth, SAML, secretos y privacidad.",
+    "enHash": "567719cf8c2b"
+  },
+  "keller-mark/awesome-biological-visualizations": {
+    "summary": "Herramientas web interactivas para visualizar datos biológicos como genomas, proteínas, células y microscopía.",
+    "enHash": "d587b0ba7286"
+  },
+  "kikobeats/awesome-network-js": {
+    "summary": "Módulos de JavaScript para redes: peer-to-peer, torrents, descubrimiento e implementaciones de protocolos.",
+    "enHash": "e48bd004cf11"
+  },
+  "kilimchoi/engineering-blogs": {
+    "summary": "Blogs de ingeniería escritos por empresas, desarrolladores individuales y equipos de producto.",
+    "enHash": "6e8863979826"
+  },
+  "kiloreux/awesome-robotics": {
+    "summary": "Cursos, libros, artículos de investigación, conferencias, revistas, competiciones y empresas de robótica.",
+    "enHash": "7141a30da8e7"
+  },
+  "kimberlymunoz/empathy-in-engineering": {
+    "summary": "Artículos y charlas sobre empatía y amabilidad en los equipos de ingeniería, desde las revisiones de código hasta los post-mortems sin culpables.",
+    "enHash": "b2cbf847b5df"
+  },
+  "kitspace/awesome-electronics": {
+    "summary": "Material de aprendizaje, simuladores, software de diseño de circuitos, fabricantes de PCB, buscadores de componentes y comunidades de electrónica.",
+    "enHash": "1d34264d870a"
+  },
+  "kjw0612/awesome-deep-vision": {
+    "summary": "Artículos de investigación, libros, videos y blogs sobre deep learning para tareas de visión por computador como reconocimiento, detección y segmentación.",
+    "enHash": "0cf7afe44688"
+  },
+  "klaufel/awesome-design-systems": {
+    "summary": "Sistemas de diseño publicados por empresas, además de herramientas, design tokens, bibliotecas de patrones, libros y charlas sobre cómo crearlos.",
+    "enHash": "84b5b004fa4b"
+  },
+  "koolamusic/awesome-imba": {
+    "summary": "Recursos y proyectos de Imba, un lenguaje para apps web que se compila a JavaScript.",
+    "enHash": "b1bbd172f286"
+  },
+  "krispo/awesome-haskell": {
+    "summary": "Bibliotecas y recursos de Haskell por área: compiladores, concurrencia, datos, bases de datos, editores, web y más.",
+    "enHash": "bd4546a7dff0"
+  },
+  "krzjoa/awesome-python-data-science": {
+    "summary": "Bibliotecas de Python para ciencia de datos: machine learning, deep learning, NLP, visión, series temporales, estadística y visualización.",
+    "enHash": "d02ab13bf7d6"
+  },
+  "kyleterry/awesome-radio": {
+    "summary": "Recursos sobre radio: banda ciudadana, radio definida por software, radioafición y comunicaciones de emergencia.",
+    "enHash": "9e259e2eca57"
+  },
+  "lauris/awesome-scala": {
+    "summary": "Bibliotecas de Scala por área: bases de datos, frameworks web, JSON, pruebas, big data, programación funcional y más.",
+    "enHash": "14e98c038c4f"
+  },
+  "lauthieb/awesome-storybook": {
+    "summary": "Enlaces oficiales, ejemplos, tutoriales, charlas y publicaciones de Storybook, un taller para crear componentes de interfaz de forma aislada.",
+    "enHash": "e9fdfdb000cd"
+  },
+  "leomaurodesenv/game-datasets": {
+    "summary": "Conjuntos de datos, APIs y entornos de juego para la investigación en inteligencia artificial y los estudios de mercado sobre videojuegos.",
+    "enHash": "19b8aaddcf4a"
+  },
+  "lewisjellis/awesome-lua": {
+    "summary": "Bibliotecas, implementaciones y herramientas de Lua, un pequeño lenguaje de scripting embebible.",
+    "enHash": "67231f65dc5d"
+  },
+  "likedan/awesome-coreml-models": {
+    "summary": "Modelos de machine learning listos para usar en Core ML, el framework de Apple que se ejecuta en el dispositivo, con herramientas para convertirlos e inspeccionarlos.",
+    "enHash": "c3aa83220a25"
+  },
+  "liuchong/awesome-roadmaps": {
+    "summary": "Rutas de aprendizaje paso a paso para lenguajes de programación, web, móvil, operaciones, datos, seguridad y otras carreras.",
+    "enHash": "735213a23f61"
+  },
+  "lnishan/awesome-competitive-programming": {
+    "summary": "Tutoriales, cursos, libros, sitios de práctica e implementaciones para concursos de programación competitiva.",
+    "enHash": "657189b72234"
+  },
+  "love2d-community/awesome-love2d": {
+    "summary": "Bibliotecas para el framework de juegos LÖVE en Lua, por área: animación, cámaras, entidades, entrada, iluminación, redes, física y más.",
+    "enHash": "c47ad56f1564"
+  },
+  "loverajoel/jstips": {
+    "summary": "Consejos breves de JavaScript, uno por entrada, para escribir código más claro y rápido.",
+    "enHash": "f328d9b38fc6"
+  },
+  "lucasbassetti/awesome-less": {
+    "summary": "Frameworks, bibliotecas de mixins, editores, compiladores online, artículos y videos de Less, un lenguaje que se compila a CSS.",
+    "enHash": "a38afb1b474a"
+  },
+  "lucasviola/awesome-functional-programming": {
+    "summary": "Publicaciones, artículos de investigación, libros, clases, herramientas y comunidades para aprender programación funcional en distintos lenguajes.",
+    "enHash": "385718c791ba"
+  },
+  "lucasviola/awesome-tech-videos": {
+    "summary": "Charlas de conferencias sobre lenguajes de programación, front-end, programación funcional, bases de datos, arquitectura y cultura de ingeniería.",
+    "enHash": "b29b212f9842"
+  },
+  "lukasz-madon/awesome-remote-job": {
+    "summary": "Artículos, bolsas de empleo, empresas, comunidades, herramientas y asesoramiento legal para trabajar en remoto.",
+    "enHash": "27f58a214680"
+  },
+  "lunohodov/awesome-astrophotography": {
+    "summary": "Artículos, libros, tutoriales, software, canales de YouTube y comunidades para fotografiar el cielo nocturno.",
+    "enHash": "b88b4317ae6e"
+  },
+  "lutzh/awesome-event-driven-architecture": {
+    "summary": "Artículos y videos sobre arquitectura orientada a eventos, en la que los servicios se comunican publicando eventos y reaccionando a ellos.",
+    "enHash": "ca2dbb28310f"
+  },
+  "lvwzhen/tools": {
+    "summary": "Herramientas web para desarrolladores front-end: placeholders, favicons, CDNs, compresión de imágenes, colores, fuentes, documentación de APIs y playgrounds de código.",
+    "enHash": "c390e17dae8b"
+  },
+  "ly0n/awesome-robotic-tooling": {
+    "summary": "Herramientas de código abierto para construir robots: simulación, sensores, localización, planificación, control, middleware y visualización.",
+    "enHash": "ad9cfedafebb"
+  },
+  "lyqht/awesome-supabase": {
+    "summary": "Proyectos de inicio, herramientas de migración y desarrollo, cursos, videos y guías de Supabase, un backend de código abierto sobre Postgres.",
+    "enHash": "73cf0b91ca25"
+  },
+  "machinomy/awesome-non-financial-blockchain": {
+    "summary": "Proyectos que usan blockchains para algo más que dinero: identidad, el internet de las cosas, energía y medios.",
+    "enHash": "5cf7a08d07d2"
+  },
+  "maehr/awesome-digital-history": {
+    "summary": "Archivos online, fuentes primarias y material de aprendizaje para hacer investigación histórica con métodos digitales.",
+    "enHash": "8cee71eb896b"
+  },
+  "mailtoharshit/awesome-salesforce": {
+    "summary": "Herramientas, bibliotecas, integraciones y recursos para desarrolladores y administradores que trabajan con Salesforce, la plataforma de gestión de relaciones con clientes.",
+    "enHash": "3d439d444b98"
+  },
+  "make-github-pseudonymous-again/awesome-qr-code": {
+    "summary": "Apps, herramientas de línea de comandos y bibliotecas para crear y leer códigos QR.",
+    "enHash": "06849e39e454"
+  },
+  "manuzhang/awesome-streaming": {
+    "summary": "Motores, bibliotecas, herramientas de integración, benchmarks y lecturas para procesar flujos de datos a medida que llegan los eventos.",
+    "enHash": "6af8104eb02c"
+  },
+  "marcobiedermann/search-engine-optimization": {
+    "summary": "Una checklist de SEO para URLs, contenido, imágenes, enlaces y móvil, además de herramientas y libros.",
+    "enHash": "bfe8edba7d89"
+  },
+  "margaretmz/awesome-tensorflow-lite": {
+    "summary": "Modelos, apps de ejemplo, plugins y tutoriales de TensorFlow Lite, que ejecuta modelos de machine learning en móviles y dispositivos.",
+    "enHash": "1f926299ee70"
+  },
+  "mark-rushakoff/awesome-influxdb": {
+    "summary": "Bibliotecas cliente, recolectores de datos, herramientas de consulta y visualización y opciones de hosting de InfluxDB, una base de datos de series temporales.",
+    "enHash": "356be4bf26ce"
+  },
+  "markets/awesome-ruby": {
+    "summary": "Gems y herramientas de Ruby ordenadas por tarea, desde paneles de administración y autenticación hasta pruebas y servidores web.",
+    "enHash": "38feed26b11e"
+  },
+  "markusschanta/awesome-jupyter": {
+    "summary": "Extensiones, runtimes, herramientas de visualización y publicación, servicios alojados y tutoriales de los notebooks de Jupyter.",
+    "enHash": "77b0b55e014d"
+  },
+  "marmelab/awesome-rest": {
+    "summary": "Guías de diseño, estándares, bibliotecas cliente y servidor y herramientas de pruebas y documentación para APIs REST.",
+    "enHash": "63277e04fdf5"
+  },
+  "martinmiles/awesome-sitecore": {
+    "summary": "Módulos, herramientas, artículos y demos de Sitecore, una plataforma de contenidos y marketing en .NET, ordenados por área.",
+    "enHash": "47632e752e72"
+  },
+  "martinzikmund/awesome-uno-platform": {
+    "summary": "Bibliotecas, herramientas, ejemplos, apps, artículos, cursos y charlas de Uno Platform, que lleva las interfaces de .NET a todas partes.",
+    "enHash": "ec1d12bd8b12"
+  },
+  "master-co/awesome-master-css": {
+    "summary": "Recursos oficiales, integraciones con frameworks, soporte de editores, ejemplos y artículos de Master CSS, un lenguaje de estilo utilitario para dar estilo al marcado.",
+    "enHash": "4ebe20a8434a"
+  },
+  "matchai/awesome-pinned-gists": {
+    "summary": "Proyectos que mantienen un gist fijado en un perfil de GitHub lleno de datos en vivo, como la música reciente.",
+    "enHash": "fdc027fde868"
+  },
+  "matiassingers/awesome-readme": {
+    "summary": "Ejemplos de archivos README de proyectos reales, además de artículos y herramientas para escribirlos bien.",
+    "enHash": "71960218ecfa"
+  },
+  "matiassingers/awesome-slack": {
+    "summary": "Temas, bibliotecas y apps de código abierto para Slack, el servicio de chat de equipo.",
+    "enHash": "e6fe3806d24c"
+  },
+  "matteocrippa/awesome-swift": {
+    "summary": "Más de mil bibliotecas, plantillas base, guías, soporte de editores y herramientas de Swift para desarrollo en iOS y macOS.",
+    "enHash": "a711267c1b24"
+  },
+  "matteofigus/awesome-speaking": {
+    "summary": "Publicaciones, libros, videos, clubes y sitios de convocatorias para ser mejor ponente en conferencias.",
+    "enHash": "d3dfed56aaa8"
+  },
+  "matthias84/awesome-flying-fpv": {
+    "summary": "Hardware y software abiertos para drones pilotados por video: chasis, controladoras de vuelo, radios, cámaras, telemetría y estaciones de tierra.",
+    "enHash": "a51e80da08f1"
+  },
+  "max-mapper/maintenance-modules": {
+    "summary": "Herramientas de línea de comandos que ayudan a crear, documentar y publicar paquetes de npm.",
+    "enHash": "e0cfa3d8b89b"
+  },
+  "mbiesiad/awesome-translations": {
+    "summary": "Plataformas, apps, herramientas, artículos, cursos y libros para traducir textos y software entre idiomas.",
+    "enHash": "a85c4bb10926"
+  },
+  "mcanouil/awesome-quarto": {
+    "summary": "Documentación, tutoriales, charlas, extensiones y ejemplos de Quarto, un sistema de publicación de documentos científicos basado en Pandoc.",
+    "enHash": "fbd77be47009"
+  },
+  "mcauser/awesome-micropython": {
+    "summary": "Bibliotecas, drivers, frameworks, tutoriales y herramientas de MicroPython, Python para microcontroladores.",
+    "enHash": "ec06f3dacc1d"
+  },
+  "mdbootstrap/awesome-mdbootstrap": {
+    "summary": "Plantillas, herramientas, tablas de datos, integraciones y artículos de MDBootstrap, un kit de UI de Bootstrap con estilo Material Design.",
+    "enHash": "295421132d1a"
+  },
+  "meirwah/awesome-incident-response": {
+    "summary": "Herramientas para responder a incidentes de seguridad: análisis forense, análisis de memoria, análisis de logs, triaje y playbooks.",
+    "enHash": "368c9832825b"
+  },
+  "melvin0008/awesome-projects-boilerplates": {
+    "summary": "Proyectos de inicio para Android, iOS, JavaScript, Python, PHP, Ruby, .NET, Go y extensiones de navegador.",
+    "enHash": "577b77347c55"
+  },
+  "mezod/awesome-indie": {
+    "summary": "Comunidades, newsletters, podcasts, casos de estudio, libros y herramientas para desarrolladores que llevan pequeños negocios por su cuenta.",
+    "enHash": "5ee1dd0e68df"
+  },
+  "mfkl/awesome-vlc": {
+    "summary": "Documentación, plugins, extensiones, apps, bindings y tutoriales de VLC, el reproductor multimedia de código abierto, y de su biblioteca libvlc.",
+    "enHash": "94b94535d0ba"
+  },
+  "mfornos/awesome-microservices": {
+    "summary": "Plataformas, frameworks, toolkits, estándares y teoría para construir sistemas a partir de pequeños servicios independientes.",
+    "enHash": "ff2d7756387f"
+  },
+  "mgramin/awesome-db-tools": {
+    "summary": "Herramientas de bases de datos de todo tipo: editores, clientes gráficos y de línea de comandos y herramientas de esquemas, copias de seguridad, monitorización, pruebas y seguridad.",
+    "enHash": "51516fb21e02"
+  },
+  "mhinz/vim-galore": {
+    "summary": "Una guía extensa de Vim que cubre lo básico, el uso diario y funciones menos conocidas, con enlaces a plugins y lecturas.",
+    "enHash": "389ffef32ae7"
+  },
+  "mhxion/awesome-discord-communities": {
+    "summary": "Servidores de Discord sobre programación, lenguajes, desarrollo web, seguridad, hardware, desarrollo de videojuegos y carreras profesionales.",
+    "enHash": "95618f05adc9"
+  },
+  "michaelbrusegard/awesome-wezterm": {
+    "summary": "Plugins, temas y ayudas de configuración para WezTerm, un emulador de terminal que se configura en Lua.",
+    "enHash": "ee1853400bac"
+  },
+  "michelpereira/awesome-games-of-coding": {
+    "summary": "Juegos que enseñan o ponen a prueba la programación, algunos en cualquier lenguaje y otros en Python, Java, JavaScript o ensamblador.",
+    "enHash": "418f387be4ad"
+  },
+  "michelpereira/awesome-open-source-games": {
+    "summary": "Juegos de código abierto para navegador, escritorio y móvil, además de motores y herramientas de modding.",
+    "enHash": "14a0c4050d4e"
+  },
+  "micromata/awesome-css-learning": {
+    "summary": "Artículos y referencias para aprender CSS en sí: unidades, selectores, propiedades personalizadas, maquetación y animación.",
+    "enHash": "ab06ddf22fb4"
+  },
+  "micromata/awesome-javascript-learning": {
+    "summary": "Referencias, tutoriales, libros gratuitos y de pago, blogs, videos y cursos interactivos para aprender JavaScript.",
+    "enHash": "83ae962e3333"
+  },
+  "mikbry/awesome-webgpu": {
+    "summary": "Artículos, tutoriales, libros, bibliotecas, depuradores y demos de WebGPU, la interfaz del navegador para gráficos y cómputo en GPU.",
+    "enHash": "3b6da3c7993b"
+  },
+  "mislavcimpersak/awesome-dev-fun": {
+    "summary": "Bibliotecas de broma, herramientas absurdas y proyectos humorísticos hechos por programadores, ordenados por lenguaje.",
+    "enHash": "b4ab8f1520d3"
+  },
+  "mjhea0/awesome-fastapi": {
+    "summary": "Extensiones, tutoriales, opciones de hosting y proyectos de ejemplo de FastAPI, un framework de Python para crear APIs web.",
+    "enHash": "e02f67232e98"
+  },
+  "mjhea0/awesome-flask": {
+    "summary": "Extensiones, tutoriales, opciones de hosting y proyectos de código abierto de Flask, un pequeño framework web de Python.",
+    "enHash": "628cb80989d2"
+  },
+  "mmccaff/placestopostyourstartup": {
+    "summary": "Sitios web y comunidades de Reddit donde anunciar una nueva startup o producto a sus primeros usuarios.",
+    "enHash": "99e7a2fa6b11"
+  },
+  "mmcgrana/services-engineering": {
+    "summary": "Artículos de investigación, artículos y libros sobre cómo construir y operar servicios en red y sistemas distribuidos en producción.",
+    "enHash": "915c8651987c"
+  },
+  "mo-way/awesome-aoip": {
+    "summary": "Herramientas, estándares, organizaciones y formación para enviar audio profesional por redes IP, como Dante y AES67.",
+    "enHash": "25decdead3fa"
+  },
+  "mobilitydata/awesome-transit": {
+    "summary": "Formatos de datos, APIs, apps, herramientas e investigación sobre información de transporte público, centrados en GTFS.",
+    "enHash": "c73b33cd7658"
+  },
+  "mohataher/awesome-tinkerpop": {
+    "summary": "Bibliotecas, tutoriales, comunidades y personas a seguir sobre Apache TinkerPop, un framework de bases de datos de grafos con el lenguaje Gremlin.",
+    "enHash": "bdea02998ab3"
+  },
+  "mojoaxel/awesome-regression-testing": {
+    "summary": "Herramientas, servicios, artículos y charlas sobre pruebas de regresión visual, que comparan capturas de pantalla para detectar cambios no deseados.",
+    "enHash": "a2c4394d993b"
+  },
+  "mostafatouny/awesome-theoretical-computer-science": {
+    "summary": "Libros, apuntes de clase y estudios sobre la parte matemática de la informática: computación, lógica, algoritmos, criptografía y teoría del aprendizaje.",
+    "enHash": "7801df1a685c"
+  },
+  "moul/awesome-ssh": {
+    "summary": "Apps, bibliotecas y lecturas sobre SSH, el protocolo para shells remotas seguras y transferencia de archivos.",
+    "enHash": "3d8da43dede3"
+  },
+  "mourarthur/awesome-credit-modeling": {
+    "summary": "Artículos de investigación sobre scoring crediticio y modelos de riesgo de crédito, incluidas la selección de variables y la explicabilidad.",
+    "enHash": "6d963a5c4a08"
+  },
+  "msmolyakov/awesome-waves": {
+    "summary": "Recursos oficiales, artículos, frameworks, herramientas y productos basados en Waves, una plataforma blockchain para apps descentralizadas.",
+    "enHash": "04396e5a39c5"
+  },
+  "msub2/awesome-webxr": {
+    "summary": "Proyectos, herramientas de desarrollo, recursos de aprendizaje y comunidades de WebXR, realidad virtual y aumentada en el navegador.",
+    "enHash": "0c87f0f113bf"
+  },
+  "mungell/awesome-for-beginners": {
+    "summary": "Proyectos de código abierto que dan la bienvenida a quienes contribuyen por primera vez, agrupados por lenguaje de programación.",
+    "enHash": "b559994b8850"
+  },
+  "mxschmitt/awesome-playwright": {
+    "summary": "Integraciones, ports a otros lenguajes, utilidades, reporters y guías de Playwright, la herramienta de Microsoft para automatizar y probar navegadores.",
+    "enHash": "0df23acb3f99"
+  },
+  "myhoneybadger/awesome-github-wiki": {
+    "summary": "Ejemplos de wikis de GitHub y consejos para escribir la documentación de un proyecto en la wiki de su repositorio.",
+    "enHash": "0c77fa762d92"
+  },
+  "myshov/awesome-mobile-web-development": {
+    "summary": "Artículos, libros, especificaciones, charlas y herramientas de pruebas para crear sitios web que funcionen bien en móviles.",
+    "enHash": "6b017b5e907d"
+  },
+  "mystenlabs/awesome-move": {
+    "summary": "Libros, tutoriales, código, herramientas, SDKs y artículos de investigación de Move, el lenguaje de contratos inteligentes de Sui y Aptos.",
+    "enHash": "9d037496965f"
+  },
+  "n0kovo/awesome-password-cracking": {
+    "summary": "Herramientas, diccionarios de contraseñas, libros, investigación y guías para recuperar contraseñas a partir de sus hashes.",
+    "enHash": "d76a8fbc01b8"
+  },
+  "n2cholas/awesome-jax": {
+    "summary": "Bibliotecas, modelos, artículos de investigación, tutoriales y videos de JAX, una biblioteca de Python para cálculo numérico rápido y machine learning.",
+    "enHash": "df65f4abf077"
+  },
+  "nadunindunil/awesome-material-ui": {
+    "summary": "Componentes, temas, herramientas, plantillas base y apps basados en Material UI, una biblioteca de componentes de React que sigue Material Design.",
+    "enHash": "80d17c45693c"
+  },
+  "naimo84/awesome-nodered": {
+    "summary": "Guías de instalación, documentación, nodos adicionales y enlaces de la comunidad de Node-RED, una herramienta visual para conectar dispositivos y servicios.",
+    "enHash": "a49b23030aa2"
+  },
+  "narkoz/guides": {
+    "summary": "Guías de estilo para marcado, lenguajes de programación, frameworks y mensajes de commit.",
+    "enHash": "aff0f7c2a201"
+  },
+  "nayafia/awesome-maintainers": {
+    "summary": "Charlas, publicaciones y personas sobre la experiencia de mantener proyectos de código abierto.",
+    "enHash": "af2db3258e42"
+  },
+  "nekofar/awesome-slim": {
+    "summary": "Guías, proyectos esqueleto, middleware y paquetes de plantillas de Slim, un framework ligero de PHP para apps web y APIs.",
+    "enHash": "d93c77330925"
+  },
+  "neueda/awesome-neo4j": {
+    "summary": "Drivers, extensiones, herramientas de importación y visualización y otros proyectos de la base de datos de grafos Neo4j.",
+    "enHash": "fbb96215e485"
+  },
+  "neutraltone/awesome-stock-resources": {
+    "summary": "Fotos, ilustraciones, gráficos vectoriales, videos, texturas, fuentes, iconos, plantillas y sonidos gratuitos para usar en proyectos.",
+    "enHash": "30c9e820efe0"
+  },
+  "nglgzz/awesome-clean-tech": {
+    "summary": "Empresas, organizaciones e investigación que usan la tecnología contra el cambio climático y la contaminación.",
+    "enHash": "4dceeecdd3a8"
+  },
+  "nicolesaidy/awesome-web-design": {
+    "summary": "Inspiración, color, tipografía, iconos, imágenes, herramientas de diseño y prototipado, tutoriales y libros para diseñadores web.",
+    "enHash": "f0fdcfa644d3"
+  },
+  "nikgraf/awesome-draft-js": {
+    "summary": "Editores, plugins, utilidades, artículos, demos y charlas de Draft.js, el framework de React de Facebook para edición de texto enriquecido.",
+    "enHash": "3b70c24eec04"
+  },
+  "nirgn975/awesome-drupal": {
+    "summary": "Herramientas, módulos, distribuciones, documentación, libros, videos y podcasts de Drupal, un sistema de gestión de contenidos de código abierto en PHP.",
+    "enHash": "3452c180188c"
+  },
+  "nix-community/awesome-nix": {
+    "summary": "Guías, herramientas de despliegue, integraciones con lenguajes y módulos de NixOS para Nix, el gestor de paquetes reproducible, y NixOS.",
+    "enHash": "efbfe569d27a"
+  },
+  "noahbuscher/inspire": {
+    "summary": "Sitios de inspiración de diseño, herramientas de creación, servicios de colaboración, backends y ayudas para pruebas para diseñadores y desarrolladores web.",
+    "enHash": "a04646cf7cfb"
+  },
+  "noteflakes/awesome-music": {
+    "summary": "Software para crear y trabajar con música: editores de audio, bibliotecas, herramientas MIDI, notación, lenguajes de programación y partituras gratuitas.",
+    "enHash": "e52bfdc5f596"
+  },
+  "notlmn/awesome-icons": {
+    "summary": "Conjuntos de iconos abiertos para descargar en SVG, PNG o fuentes, incluidos logotipos y conjuntos de uso específico.",
+    "enHash": "292ad05083e8"
+  },
+  "notthetup/awesome-webaudio": {
+    "summary": "Paquetes, tutoriales y recursos de la Web Audio API, que genera y procesa sonido en el navegador.",
+    "enHash": "3f26c8399d87"
+  },
+  "npacore/awesome-neuroimaging": {
+    "summary": "Visores, pipelines, bibliotecas, datos y tutoriales para analizar imágenes cerebrales como las de resonancia magnética.",
+    "enHash": "8e5c4ed441c5"
+  },
+  "nschloe/awesome-scientific-computing": {
+    "summary": "Software de computación científica: álgebra lineal, elementos finitos, mallado, solvers, formatos de datos y visualización.",
+    "enHash": "162c98928cd0"
+  },
+  "numetriclabz/awesome-db": {
+    "summary": "Motores de bases de datos de código abierto agrupados por el lenguaje en que están escritos, además de artículos de investigación sobre bases de datos.",
+    "enHash": "a437b87b2e64"
+  },
+  "ocaml-community/awesome-ocaml": {
+    "summary": "Bibliotecas, herramientas, compiladores, libros, blogs y enlaces de la comunidad de OCaml, ordenados por área.",
+    "enHash": "fba969f15382"
+  },
+  "ohenley/awesome-ada": {
+    "summary": "Compiladores, editores, bibliotecas, frameworks, herramientas para sistemas embebidos y material de aprendizaje de Ada y SPARK.",
+    "enHash": "0d625059bae4"
+  },
+  "oleksbard/awesome-knockout": {
+    "summary": "Frameworks, plugins, bindings personalizados, componentes y ejemplos de Knockout, una biblioteca de JavaScript que enlaza datos con la página.",
+    "enHash": "d7d4bfceb55f"
+  },
+  "onqtam/awesome-cmake": {
+    "summary": "Módulos, scripts, toolchains, plantillas, gestores de paquetes y recursos de aprendizaje de CMake, el generador de sistemas de compilación.",
+    "enHash": "a00dd035b84e"
+  },
+  "opencompany/awesome-open-company": {
+    "summary": "Empresas que comparten públicamente su funcionamiento interno, como finanzas, salarios, estrategia o código fuente.",
+    "enHash": "531e976145a6"
+  },
+  "oppoverbakke/awesome-gdpr": {
+    "summary": "El texto legal, la guía oficial, herramientas y publicaciones sobre el RGPD, la ley de protección de datos de la Unión Europea.",
+    "enHash": "0026d6d3e963"
+  },
+  "osmlab/awesome-openstreetmap": {
+    "summary": "Editores, herramientas, bibliotecas, APIs y mapas basados en OpenStreetMap, el mapa que cualquiera puede editar.",
+    "enHash": "911cfaabfe8d"
+  },
+  "ossu/computer-science": {
+    "summary": "Un plan de estudios autodidacta con cursos online gratuitos que cubre toda una carrera universitaria de informática.",
+    "enHash": "734ed2ca08b8"
+  },
+  "owainlewis/awesome-artificial-intelligence": {
+    "summary": "Libros, artículos de investigación y cursos para aprender IA, además de herramientas para crear sistemas de IA e ingeniería de software asistida por agentes.",
+    "enHash": "41c6496e8a51"
+  },
+  "oxnr/awesome-analytics": {
+    "summary": "Herramientas de analítica para sitios web, apps móviles, SEO, mapas de calor, atribución y redes sociales, incluidas algunas centradas en la privacidad.",
+    "enHash": "a6c0fcd7a056"
+  },
+  "oxnr/awesome-bigdata": {
+    "summary": "Frameworks, sistemas de archivos distribuidos, bases de datos de todos los modelos de datos y herramientas de ingesta y análisis para datos a gran escala.",
+    "enHash": "d0935942a95e"
+  },
+  "packing-box/awesome-executable-packing": {
+    "summary": "Artículos de investigación, conjuntos de datos, packers y herramientas sobre comprimir o camuflar ejecutables, algo que el malware hace a menudo.",
+    "enHash": "809aaba2e2c8"
+  },
+  "pajaydev/awesome-web-performance-budget": {
+    "summary": "Artículos y herramientas sobre presupuestos de rendimiento, límites de peso de página y tiempo de carga que un sitio web debe respetar.",
+    "enHash": "c59a1c657648"
+  },
+  "pandafoss/awesome-arch": {
+    "summary": "Distribuciones de Linux, instaladores, ayudantes de AUR y otros proyectos basados en Arch Linux.",
+    "enHash": "2402a314b365"
+  },
+  "panxproject/awesome-certificates": {
+    "summary": "Cursos online gratuitos de informática y campos relacionados que terminan con un certificado.",
+    "enHash": "e963386dff57"
+  },
+  "papers-we-love/papers-we-love": {
+    "summary": "Artículos de investigación en informática que la gente recomienda leer, agrupados por tema, además de listas de lectura relacionadas.",
+    "enHash": "be4e2063c268"
+  },
+  "paragonie/awesome-appsec": {
+    "summary": "Artículos, libros y guías para escribir aplicaciones seguras, agrupados por lenguaje de programación.",
+    "enHash": "9aef6d8f6b22"
+  },
+  "paralax/awesome-honeypots": {
+    "summary": "Honeypots, sistemas señuelo que atraen a los atacantes, además de herramientas para analizar lo que capturan.",
+    "enHash": "1563923c4cb1"
+  },
+  "parro-it/awesome-micro-npm-packages": {
+    "summary": "Pequeños módulos de npm que hacen una sola cosa cada uno, además de artículos sobre ese estilo de paquete.",
+    "enHash": "75cdc9f99665"
+  },
+  "passy/awesome-purescript": {
+    "summary": "Herramientas de compilación, preludes, bibliotecas de UI, routers, pruebas y recursos de aprendizaje de PureScript, un lenguaje parecido a Haskell para JavaScript.",
+    "enHash": "0628186854fd"
+  },
+  "passy/awesome-recursion-schemes": {
+    "summary": "Introducciones, artículos, artículos de investigación, charlas y bibliotecas sobre recursion schemes, patrones para recorrer datos anidados en código funcional.",
+    "enHash": "128e19496f5e"
+  },
+  "patrickjs/awesome-angular": {
+    "summary": "Miles de bibliotecas, componentes, herramientas, tutoriales y plantillas de Angular, el framework web de Google en TypeScript.",
+    "enHash": "da1b0f762f32"
+  },
+  "pazguille/offline-first": {
+    "summary": "Especificaciones, publicaciones, charlas, herramientas, libros y ejemplos de apps web que siguen funcionando sin conexión a la red.",
+    "enHash": "c5a675c54431"
+  },
+  "pehapkari/awesome-symfony-education": {
+    "summary": "Tutoriales, cursos en video, artículos y libros para aprender el framework PHP Symfony, desde formularios y seguridad hasta Doctrine.",
+    "enHash": "fff428102a4f"
+  },
+  "perfectcarl/awesome-play1": {
+    "summary": "Módulos y recursos para la versión 1 de Play Framework, un framework web para Java.",
+    "enHash": "d76ad6139eaf"
+  },
+  "pest-parser/awesome-pest": {
+    "summary": "Proyectos y herramientas que usan Pest, una biblioteca de Rust para escribir parsers a partir de gramáticas.",
+    "enHash": "e1121ac5746c"
+  },
+  "petk/awesome-dojo": {
+    "summary": "Tutoriales, plantillas base, paquetes, integraciones, temas y aplicaciones de Dojo Toolkit, una biblioteca de JavaScript para grandes apps web.",
+    "enHash": "fe96af83f42e"
+  },
+  "petk/awesome-jquery": {
+    "summary": "Plugins, herramientas de pruebas, tutoriales y alternativas a jQuery, la biblioteca de JavaScript para modificar páginas web.",
+    "enHash": "ae313f9982d0"
+  },
+  "pfarb/awesome-crypto-papers": {
+    "summary": "Artículos de investigación y artículos que explican la criptografía a programadores e ingenieros que no son especialistas en ella.",
+    "enHash": "c3ac3d2f3b24"
+  },
+  "phalcon/awesome-phalcon": {
+    "summary": "Plugins, aplicaciones esqueleto y bibliotecas de Phalcon, un framework de PHP distribuido como extensión en C, ordenados por propósito.",
+    "enHash": "a274310971d1"
+  },
+  "phanan/htaccess": {
+    "summary": "Fragmentos para archivos .htaccess de Apache sobre redirecciones y reescrituras, seguridad, rendimiento y otros ajustes del servidor.",
+    "enHash": "5d19d8bf3ce9"
+  },
+  "phantomydn/awesome-wicket": {
+    "summary": "Bibliotecas, integraciones, plugins y herramientas de Apache Wicket, un framework web para Java basado en componentes.",
+    "enHash": "fed2a1c41dae"
+  },
+  "phillipadsmith/awesome-github": {
+    "summary": "Guías para quienes empiezan en GitHub, consejos y complementos para usuarios habituales, y usos poco comunes del servicio.",
+    "enHash": "9b7ad1bb11ae"
+  },
+  "philsturgeon/awesome-earth": {
+    "summary": "Productos, servicios, organizaciones y medios que ayudan a reducir el impacto de cada persona en el clima.",
+    "enHash": "b7a3b9cfe608"
+  },
+  "pico-8/awesome-pico-8": {
+    "summary": "Tutoriales, herramientas, bibliotecas, assets, charlas y clones de PICO-8, una pequeña consola imaginaria para crear juegos retro.",
+    "enHash": "01f4f7170250"
+  },
+  "piebald-ai/awesome-gemini-cli": {
+    "summary": "Extensiones, integraciones y herramientas de Gemini CLI, el asistente de programación con IA de Google que se ejecuta en la terminal.",
+    "enHash": "4ebb6ef65f4f"
+  },
+  "playcanvas/awesome-playcanvas": {
+    "summary": "Tutoriales, extensiones, demos, juegos y productos destacados hechos con PlayCanvas, un motor de juegos WebGL.",
+    "enHash": "b94b5997ef97"
+  },
+  "pmuens/awesome-serverless": {
+    "summary": "Blogs, publicaciones, charlas, plugins y proyectos sobre Serverless Framework y la creación de aplicaciones con funciones en la nube.",
+    "enHash": "f50deda669fe"
+  },
+  "podo/awesome-framer": {
+    "summary": "Tutoriales, cursos, módulos, bibliotecas de UI y ejemplos de Framer, una herramienta para diseñar prototipos interactivos.",
+    "enHash": "3ff5275c7a59"
+  },
+  "polkadot-developers/awesome-substrate": {
+    "summary": "Plantillas, pallets, bibliotecas cliente, herramientas y material de aprendizaje de Substrate, un framework de Rust para construir blockchains.",
+    "enHash": "2dda9990fd28"
+  },
+  "polycarbohydrate/awesome-tor": {
+    "summary": "Aplicaciones, puentes, formas de eludir la censura, guías y noticias sobre Tor, la red que oculta quién habla con quién en internet.",
+    "enHash": "8154ac2eb764"
+  },
+  "prakhar1989/awesome-courses": {
+    "summary": "Cursos universitarios de informática con sus clases, lecturas y tareas disponibles online.",
+    "enHash": "a8a7233e6c3c"
+  },
+  "preactjs/awesome-preact": {
+    "summary": "Toolkits, plantillas base, routers, componentes, bibliotecas y apps de ejemplo de Preact, una pequeña alternativa a React.",
+    "enHash": "2fb9a1fce6bf"
+  },
+  "qazbnm456/awesome-web-security": {
+    "summary": "Introducciones, trucos, cheat sheets, herramientas, blogs y sitios de práctica sobre seguridad de aplicaciones web.",
+    "enHash": "19d3cddf8e9e"
+  },
+  "qinwf/awesome-r": {
+    "summary": "Paquetes y herramientas de R por área: manejo de datos, gráficos, investigación reproducible, web, machine learning, estadística y más.",
+    "enHash": "2e6972bfeb78"
+  },
+  "qmonnet/awesome-ebpf": {
+    "summary": "Documentación, artículos, tutoriales, ejemplos y proyectos de eBPF, que ejecuta pequeños programas seguros dentro del kernel de Linux.",
+    "enHash": "ceeb80442271"
+  },
+  "quangv/awesome-couchdb": {
+    "summary": "Artículos, documentación, libros, videos y bibliotecas de Apache CouchDB, una base de datos documental que sincroniza datos entre réplicas.",
+    "enHash": "860081998768"
+  },
+  "quozd/awesome-dotnet": {
+    "summary": "Bibliotecas, frameworks y herramientas para desarrollo en .NET, ordenados por tema, desde algoritmos hasta web.",
+    "enHash": "fe30c304374a"
+  },
+  "rabbiabram/awesome-fortran": {
+    "summary": "Bibliotecas de Fortran para matemáticas, gráficos, formatos de datos, pruebas y compilación, además de otros recursos.",
+    "enHash": "eccdeb738d0a"
+  },
+  "rabschi/awesome-beacon": {
+    "summary": "Especificaciones, SDKs y apps para beacons Bluetooth Low Energy como iBeacon y Eddystone, en muchas plataformas.",
+    "enHash": "1872cd55cac4"
+  },
+  "radek-sprta/awesome-game-remakes": {
+    "summary": "Remakes y reimplementaciones de código abierto de juegos clásicos, por género: acción, aventura, shooters, RPG, carreras y estrategia.",
+    "enHash": "d298804f4061"
+  },
+  "rafaskb/awesome-libgdx": {
+    "summary": "Bibliotecas, tutoriales, assets y enlaces de la comunidad de libGDX, un framework de Java para juegos multiplataforma.",
+    "enHash": "3a0969d03ff0"
+  },
+  "rahulbircodes/awesome-steam": {
+    "summary": "Material didáctico para clases escolares y universitarias de ciencia, tecnología, ingeniería, artes y matemáticas.",
+    "enHash": "c7a7d3541f95"
+  },
+  "ramitsurana/awesome-kubernetes": {
+    "summary": "Proyectos, herramientas y lecturas sobre Kubernetes, el sistema para ejecutar y gestionar contenedores en muchas máquinas.",
+    "enHash": "1c009da16440"
+  },
+  "ramnes/awesome-mongodb": {
+    "summary": "Tutoriales, drivers, bibliotecas, herramientas y aplicaciones de MongoDB, una base de datos documental que guarda registros similares a JSON.",
+    "enHash": "41157198c8df"
+  },
+  "raphamorim/awesome-canvas": {
+    "summary": "Demos, bibliotecas y tutoriales para dibujar gráficos con el elemento canvas de HTML5.",
+    "enHash": "b23a162f9d2d"
+  },
+  "ravirupareliya/awesome-actions-on-google": {
+    "summary": "Documentación, blogs, videos, cursos y código de ejemplo de Actions on Google, que ampliaba el Asistente de Google con apps.",
+    "enHash": "8926dc9fc272"
+  },
+  "raybb/awesome-social-enterprise": {
+    "summary": "Lecturas, podcasts, cursos, becas, instituciones y comunidades para quienes crean organizaciones que buscan un impacto social a la vez que generan ingresos.",
+    "enHash": "58c147b78aca"
+  },
+  "rayokota/awesome-hbase": {
+    "summary": "Proyectos y lecturas de Apache HBase, un almacén orientado a columnas que se ejecuta sobre Hadoop.",
+    "enHash": "b308847610e5"
+  },
+  "razum2um/awesome-clojure": {
+    "summary": "Bibliotecas, productos y herramientas de Clojure por área, desde frameworks web y bases de datos hasta concurrencia e interfaces gráficas.",
+    "enHash": "05a84a5ed172"
+  },
+  "readthedocs-examples/awesome-read-the-docs": {
+    "summary": "Proyectos de documentación alojados en Read the Docs, hechos con Sphinx o MkDocs, para tomar como modelo al empezar nueva documentación.",
+    "enHash": "b5bec296d0e3"
+  },
+  "refinerycms-contrib/awesome-refinerycms": {
+    "summary": "Extensiones para Refinery CMS, un sistema de gestión de contenidos basado en Ruby on Rails, incluidas integraciones de tienda.",
+    "enHash": "7df9564e33d4"
+  },
+  "reflex-dev/awesome-reflex": {
+    "summary": "Apps de ejemplo, plantillas, bibliotecas de componentes y guías de Reflex, que crea aplicaciones web completas en Python puro.",
+    "enHash": "0a0b98bb8ff3"
+  },
+  "rellaner/awesome-position-based-quantum-cryptography": {
+    "summary": "Artículos de investigación sobre criptografía cuántica basada en la posición, donde una parte demuestra dónde está con señales cuánticas y la relatividad.",
+    "enHash": "809a30d109cc"
+  },
+  "richardlitt/awesome-fantasy": {
+    "summary": "Novelas y películas de fantasía, desde sagas clásicas hasta libros recientes.",
+    "enHash": "14899a7db687"
+  },
+  "richienb/awesome-ponyfills": {
+    "summary": "Ponyfills, módulos que añaden funciones de JavaScript que faltan sin modificar los objetos integrados.",
+    "enHash": "6ac3fcbbcb1c"
+  },
+  "rickstaa/awesome-adsb": {
+    "summary": "Guías, agregadores, software, datos y receptores de ADS-B, la señal de radio con la que los aviones transmiten su posición.",
+    "enHash": "60299b288f06"
+  },
+  "riderx/awesome-capacitor": {
+    "summary": "Plugins oficiales y de la comunidad, herramientas, material de aprendizaje y apps de Capacitor, que convierte aplicaciones web en apps móviles.",
+    "enHash": "9fcc8b835425"
+  },
+  "ripienaar/free-for-dev": {
+    "summary": "Servicios de software con planes gratuitos para desarrolladores: hosting en la nube, alojamiento de código, CI, pruebas, monitorización, email, logs y más.",
+    "enHash": "3dd99cf40852"
+  },
+  "roaldnefs/awesome-prometheus": {
+    "summary": "Tutoriales, libros, charlas, exporters, dashboards y herramientas de despliegue de Prometheus, un sistema de monitorización y alertas de código abierto.",
+    "enHash": "ce10a2a379ff"
+  },
+  "robinrodricks/awesome-actionscript3": {
+    "summary": "Frameworks, bibliotecas de interfaz, herramientas, runtimes y extensiones nativas de ActionScript 3, el lenguaje de Flash y Adobe AIR.",
+    "enHash": "9fdbed60506b"
+  },
+  "robinstickel/awesome-design-principles": {
+    "summary": "Principios de diseño publicados por empresas y sistemas de diseño, además de artículos sobre cómo redactarlos.",
+    "enHash": "255213414b8a"
+  },
+  "rockerboo/awesome-neovim": {
+    "summary": "Plugins para Neovim, el fork extensible de Vim: servidores de lenguaje, autocompletado, esquemas de color, exploradores de archivos y mucho más.",
+    "enHash": "19dda62b1c5d"
+  },
+  "rocq-community/awesome-coq": {
+    "summary": "Proyectos, bibliotecas, herramientas y recursos de aprendizaje de Coq, ahora llamado Rocq, un asistente de pruebas para demostraciones verificadas por máquina.",
+    "enHash": "4e480aa6a13a"
+  },
+  "romantseg/rbooks": {
+    "summary": "Libros sobre el lenguaje R, para principiantes y expertos, sobre ciencia de datos, finanzas, machine learning y visualización.",
+    "enHash": "810608de5fad"
+  },
+  "rossant/awesome-math": {
+    "summary": "Libros de texto, apuntes de clase y cursos gratuitos de todas las áreas de las matemáticas, desde lógica y álgebra hasta análisis y probabilidad.",
+    "enHash": "4afd49d3b6a8"
+  },
+  "rshipp/awesome-malware-analysis": {
+    "summary": "Muestras de malware, inteligencia de amenazas, sandboxes, depuradores, desofuscadores y herramientas forenses para estudiar software malicioso.",
+    "enHash": "9946d3790d95"
+  },
+  "rtckit/awesome-rtc": {
+    "summary": "Servidores, clientes, herramientas, recursos para desarrolladores y charlas sobre voz, video y datos en tiempo real, como SIP y WebRTC.",
+    "enHash": "8fd8b57de740"
+  },
+  "run-as-root/awesome-magento2": {
+    "summary": "Extensiones, herramientas, front-ends, blogs, podcasts y enlaces de la comunidad de Magento 2, una plataforma de tiendas online de código abierto en PHP.",
+    "enHash": "42f78f942938"
+  },
+  "rust-unofficial/awesome-rust": {
+    "summary": "Miles de aplicaciones, herramientas de desarrollo, bibliotecas y recursos de aprendizaje de Rust.",
+    "enHash": "682245b4d974"
+  },
+  "ryanzim/awesome-npm-scripts": {
+    "summary": "Artículos, charlas y utilidades para usar los scripts de npm como herramienta de build en lugar de Grunt o Gulp.",
+    "enHash": "782d7dfae855"
+  },
+  "sachin1092/awesome-material": {
+    "summary": "Iconos, fuentes, colores, animaciones y componentes con el estilo Material Design de Google para muchos frameworks de front-end y de escritorio.",
+    "enHash": "c9bf42a76374"
+  },
+  "sadcitizen/awesome-backbone": {
+    "summary": "Tutoriales, libros, videos, plantillas base y bibliotecas de Backbone.js, uno de los primeros frameworks de JavaScript para estructurar aplicaciones web.",
+    "enHash": "b3ba6e7caa0e"
+  },
+  "sadcitizen/awesome-marionette": {
+    "summary": "Tutoriales, libros, videos, ejemplos y bibliotecas de Marionette.js, que añade estructura de aplicación sobre Backbone.js.",
+    "enHash": "dbb37bb7ba75"
+  },
+  "sampart/awesome-tech-ethics": {
+    "summary": "Toolkits, medios, cursos y organizaciones que se ocupan de la ética de la tecnología y del daño que causa a la sociedad.",
+    "enHash": "75ec8717fb8d"
+  },
+  "sancarn/awesome-vba": {
+    "summary": "Bibliotecas, herramientas para desarrolladores, ejemplos, guías de estilo y referencias de VBA, el lenguaje de macros de Microsoft Office.",
+    "enHash": "5cc94ced5822"
+  },
+  "satta/awesome-suricata": {
+    "summary": "Herramientas, conjuntos de reglas, dashboards, guías y formación de Suricata, un motor de detección de intrusiones de red de código abierto.",
+    "enHash": "67a18ca8a1e5"
+  },
+  "sbilly/awesome-security": {
+    "summary": "Software, bibliotecas y documentos sobre seguridad de redes, endpoints y web, inteligencia de amenazas y equipos red y blue team.",
+    "enHash": "47c1dcdf42f0"
+  },
+  "scaleleap/awesome-amazon-seller": {
+    "summary": "Software, herramientas de investigación de productos, podcasts y blogs para quienes venden en Amazon.",
+    "enHash": "7fa369da13e2"
+  },
+  "schlessera/awesome-wp-cli": {
+    "summary": "Enlaces oficiales, paquetes de terceros y guías de WP-CLI, la herramienta de línea de comandos para gestionar sitios WordPress.",
+    "enHash": "98ae216c60eb"
+  },
+  "scholtzm/awesome-steam": {
+    "summary": "Paquetes y recursos para desarrollar sobre Steam, la tienda de juegos de Valve, como bots y clientes de su API.",
+    "enHash": "618c64114e6f"
+  },
+  "sdassow/awesome-veganism": {
+    "summary": "Libros, tiendas, restaurantes, marcas, sitios web, organizaciones, documentales y apps para quienes siguen una dieta vegetal.",
+    "enHash": "7f68d48ee8ec"
+  },
+  "sdras/awesome-actions": {
+    "summary": "Actions listas para usar, tutoriales y recursos de GitHub Actions, el servicio de automatización y CI integrado en GitHub.",
+    "enHash": "990e3fa51a8a"
+  },
+  "sduff/awesome-splunk": {
+    "summary": "Documentación, apps, visualizaciones, meetups y recursos de la comunidad de Splunk, una plataforma para buscar y analizar logs.",
+    "enHash": "08c7f313721c"
+  },
+  "se-ml/awesome-seml": {
+    "summary": "Artículos, artículos de investigación y herramientas sobre la práctica de ingeniería de construir, desplegar y operar sistemas de machine learning.",
+    "enHash": "3884281e4d83"
+  },
+  "seancoyne/awesome-coldfusion": {
+    "summary": "Motores, frameworks, herramientas de pruebas, bibliotecas, editores y referencias de ColdFusion y CFML.",
+    "enHash": "23c1a64fb991"
+  },
+  "secdev/awesome-scapy": {
+    "summary": "Herramientas y exploits hechos con Scapy, la biblioteca de Python para crear y diseccionar paquetes de red.",
+    "enHash": "eead6f1098b8"
+  },
+  "secretgeek/awesomecsv": {
+    "summary": "Herramientas, estándares de esquemas, ensayos, datos y conferencias sobre CSV, el formato de texto plano para tablas.",
+    "enHash": "85ce5c75de7b"
+  },
+  "seed-rs/awesome-seed-rs": {
+    "summary": "Libros, guías rápidas, ejemplos, bibliotecas y proyectos de Seed, un framework de Rust para apps web que se ejecutan como WebAssembly.",
+    "enHash": "698490e7c75f"
+  },
+  "seifrajhi/awesome-cilium": {
+    "summary": "Documentación, proyectos relacionados, charlas, eventos y laboratorios prácticos de Cilium, que gestiona la red de Kubernetes con eBPF.",
+    "enHash": "0565ab6ff5a1"
+  },
+  "sellisd/awesome-complexity": {
+    "summary": "Conceptos, revistas, sociedades, modelos, software y libros sobre la ciencia de los sistemas complejos.",
+    "enHash": "e89f4b55df85"
+  },
+  "sergey-pimenov/awesome-web-animation": {
+    "summary": "Bibliotecas y herramientas para animar páginas web con SVG, CSS, canvas y React, además de videos.",
+    "enHash": "afc2e17920e0"
+  },
+  "serhii-londar/open-source-mac-os-apps": {
+    "summary": "Más de mil aplicaciones de código abierto para macOS, con enlaces a su código.",
+    "enHash": "2d3bde0dd1f6"
+  },
+  "seriousran/awesome-qa": {
+    "summary": "Artículos de investigación, sistemas, código, clases y conjuntos de datos sobre question answering, donde el software responde preguntas en lenguaje natural.",
+    "enHash": "10a2b4bd65e3"
+  },
+  "sfischer13/awesome-ledger": {
+    "summary": "Documentación, plugins de editor, herramientas y medios de Ledger, un programa de línea de comandos para contabilidad por partida doble en texto plano.",
+    "enHash": "93e0b92d274f"
+  },
+  "sger/elixirbooks": {
+    "summary": "Libros sobre el lenguaje de programación Elixir, su framework Phoenix y la plataforma Erlang que hay debajo.",
+    "enHash": "0b087f4502b6"
+  },
+  "shano/awesome-backstage": {
+    "summary": "Plugins, tutoriales, integraciones y charlas de Backstage, el framework de código abierto de Spotify para portales de desarrolladores.",
+    "enHash": "abe93f5d4aea"
+  },
+  "shi-rudo/awesome-stock-trading": {
+    "summary": "Sitios de análisis, screeners, herramientas de gráficos, seguimiento de carteras, backtesting, APIs y libros para quienes operan en bolsa.",
+    "enHash": "61d903c577cf"
+  },
+  "shi-yu-zhe/awesome-agi-cocosci": {
+    "summary": "Artículos de investigación, herramientas e investigadores donde la inteligencia artificial general se cruza con la ciencia cognitiva computacional.",
+    "enHash": "587aa151e47e"
+  },
+  "shlomi-noach/awesome-mysql": {
+    "summary": "Herramientas para operar MySQL: copias de seguridad, replicación, alta disponibilidad, proxies, migración de esquemas, monitorización, clientes y conectores.",
+    "enHash": "2459802f8ac1"
+  },
+  "shopify/awesome-hydrogen": {
+    "summary": "Documentación, herramientas, integraciones, ejemplos y charlas de Hydrogen, el framework de React de Shopify para tiendas online personalizadas.",
+    "enHash": "ea70e3f0f5cd"
+  },
+  "shuaibiyy/awesome-tf": {
+    "summary": "Módulos, providers, registros, herramientas de pruebas, tutoriales y libros de Terraform, que describe la infraestructura como código.",
+    "enHash": "6ddb58862f99"
+  },
+  "siboehm/awesome-learn-datascience": {
+    "summary": "Tutoriales para principiantes en ciencia de datos: algoritmos fundamentales, herramientas de Python, retos de práctica y lecturas adicionales.",
+    "enHash": "f07c023e8cfb"
+  },
+  "siddharth11/colorful": {
+    "summary": "Herramientas, paletas listas para usar y artículos para elegir colores en diseño.",
+    "enHash": "02a0579409c0"
+  },
+  "siilwyn/awesome-pixel-art": {
+    "summary": "Tutoriales, libros, artistas, comunidades y herramientas para hacer pixel art.",
+    "enHash": "7e3072f0bcb8"
+  },
+  "simonaronsson/awesome-software-architecture": {
+    "summary": "Principios, patrones, métodos, documentación y herramientas de modelado para diseñar la estructura de los sistemas de software.",
+    "enHash": "2815ea8c3b3c"
+  },
+  "sindresorhus/amas": {
+    "summary": "Repositorios de GitHub donde personas y organizaciones responden preguntas de cualquiera, al estilo ask me anything.",
+    "enHash": "cae8eb925c67"
+  },
+  "sindresorhus/awesome": {
+    "summary": "El índice de cientos de listas temáticas en GitHub, agrupadas desde plataformas y lenguajes hasta seguridad y ciencia.",
+    "enHash": "0cdf1cddf8e1"
+  },
+  "sindresorhus/awesome-chatgpt": {
+    "summary": "Apps, extensiones de navegador, herramientas de línea de comandos, bots, integraciones y paquetes para ChatGPT, la IA conversacional de OpenAI.",
+    "enHash": "2e00ab1668ee"
+  },
+  "sindresorhus/awesome-electron": {
+    "summary": "Apps, plantillas base, herramientas, componentes y material de aprendizaje de Electron, que crea apps de escritorio con tecnología web.",
+    "enHash": "95ce813e172c"
+  },
+  "sindresorhus/awesome-nodejs": {
+    "summary": "Paquetes de Node.js para cualquier tarea, además de gestores de paquetes, tutoriales y otros recursos para este runtime de JavaScript.",
+    "enHash": "c40120fa6cf8"
+  },
+  "sindresorhus/awesome-npm": {
+    "summary": "Artículos, herramientas, paquetes, clientes y documentación de npm, el gestor de paquetes de JavaScript.",
+    "enHash": "189151acfdd9"
+  },
+  "sindresorhus/awesome-observables": {
+    "summary": "Implementaciones, paquetes, artículos y videos sobre observables, flujos de valores a lo largo del tiempo en JavaScript.",
+    "enHash": "7a26e470b96f"
+  },
+  "sindresorhus/awesome-scifi": {
+    "summary": "Novelas, relatos, películas, series, cómics y audiolibros de ciencia ficción.",
+    "enHash": "8f3adb19a48e"
+  },
+  "sindresorhus/awesome-tap": {
+    "summary": "Reporters, productores, consumidores y herramientas de TAP, un formato de texto plano que usan los ejecutores de pruebas para sus resultados.",
+    "enHash": "2e986e57b5e0"
+  },
+  "sindresorhus/awesome-whisper": {
+    "summary": "Variantes del modelo, apps, herramientas de línea de comandos, paquetes y APIs de Whisper, el modelo abierto de voz a texto de OpenAI.",
+    "enHash": "4dfde43a967d"
+  },
+  "sindresorhus/quick-look-plugins": {
+    "summary": "Plugins que permiten a la vista previa Quick Look de macOS mostrar más tipos de archivo, como JSON y Markdown.",
+    "enHash": "74eedec43ee0"
+  },
+  "sitepoint-editors/awesome-symfony": {
+    "summary": "Bundles y bibliotecas para el framework PHP Symfony, ordenados por área como administración, formularios, pagos y almacenamiento.",
+    "enHash": "1a752bba62ff"
+  },
+  "sjfricke/awesome-webgl": {
+    "summary": "Tutoriales, demos, bibliotecas y enlaces de la comunidad de WebGL, WebGL 2 y WebXR, las interfaces del navegador para gráficos 3D.",
+    "enHash": "adc5a1d0ebdb"
+  },
+  "slevithan/awesome-regex": {
+    "summary": "Probadores, constructores, visualizadores, motores, colecciones de patrones, tutoriales y libros de expresiones regulares.",
+    "enHash": "efe8cf6e926b"
+  },
+  "sobolevn/awesome-cryptography": {
+    "summary": "Teoría criptográfica, herramientas, bibliotecas para muchos lenguajes y recursos de aprendizaje.",
+    "enHash": "26da91c48834"
+  },
+  "solido/awesome-flutter": {
+    "summary": "Componentes, plugins, plantillas, frameworks, apps de código abierto, artículos y videos de Flutter, el toolkit de UI multiplataforma de Google.",
+    "enHash": "d73144620972"
+  },
+  "sorrycc/awesome-javascript": {
+    "summary": "Bibliotecas y herramientas de JavaScript de todo tipo: gestores de paquetes, cargadores, bundlers, frameworks, utilidades y lecturas.",
+    "enHash": "30b9a84e384f"
+  },
+  "sporto/awesome-elm": {
+    "summary": "Guías, artículos, charlas, bibliotecas, herramientas y plugins de editor de Elm, un lenguaje funcional para front-ends web.",
+    "enHash": "e52849b4f6b7"
+  },
+  "srinivasantarget/awesome-appium": {
+    "summary": "Clientes, inspectores, tutoriales, servicios en la nube y apps de ejemplo de Appium, que automatiza pruebas de apps móviles.",
+    "enHash": "25dc36b4fd45"
+  },
+  "stackshareio/awesome-stacks": {
+    "summary": "Conjuntos de herramientas que encajan entre sí para crear front-ends, backends, aplicaciones completas y apps móviles.",
+    "enHash": "58dc35837ee6"
+  },
+  "standard/awesome-standard": {
+    "summary": "Paquetes, integraciones con editores y builds y formateadores de JavaScript Standard Style, un linter con reglas fijas.",
+    "enHash": "ce7f0886aad4"
+  },
+  "stefanbuck/awesome-browser-extensions-for-github": {
+    "summary": "Extensiones de navegador que añaden funciones al sitio web de GitHub, desde notificaciones hasta mejores vistas de código.",
+    "enHash": "45d463310b17"
+  },
+  "stetso/awesome-gideros": {
+    "summary": "Guías de inicio, tutoriales y bibliotecas de Lua para Gideros, un motor en Lua para juegos móviles.",
+    "enHash": "be8109ede0b0"
+  },
+  "stevemao/awesome-git-addons": {
+    "summary": "Comandos adicionales que amplían la línea de comandos de Git, como git-extras y Git Town.",
+    "enHash": "ee4a2197018a"
+  },
+  "steven2358/awesome-blockchain-ai": {
+    "summary": "Proyectos e investigación que combinan blockchains con inteligencia artificial, para datos, cómputo, finanzas, medicina y agentes.",
+    "enHash": "edc036877880"
+  },
+  "steven2358/awesome-generative-ai": {
+    "summary": "Productos y proyectos de IA generativa para texto, código, imágenes, video y audio, con agentes, lecturas y recursos de aprendizaje.",
+    "enHash": "9beb46427f18"
+  },
+  "stevesong/awesome-connectivity-info": {
+    "summary": "Índices, mapas, informes y datos sobre quién puede acceder a internet y a las redes telefónicas, y a qué coste.",
+    "enHash": "ae92f51d50fd"
+  },
+  "stevinz/awesome-game-engine-dev": {
+    "summary": "Motores, bibliotecas, herramientas, material de aprendizaje, temas especializados y assets para quienes escriben su propio motor de juegos.",
+    "enHash": "9df157d6264b"
+  },
+  "stingalleman/awesome-audiovisual": {
+    "summary": "Software, herramientas, bibliotecas y tutoriales de iluminación, sonido y video profesionales para teatros y eventos.",
+    "enHash": "e26cddb081e8"
+  },
+  "stn1slv/awesome-integration": {
+    "summary": "Proyectos, patrones de integración y recursos para conectar sistemas de software independientes mediante APIs, mensajería y eventos.",
+    "enHash": "80199ff7d7ec"
+  },
+  "stoeffel/awesome-ama-answers": {
+    "summary": "Respuestas que dio la gente en sus repositorios ask me anything de GitHub, recopiladas por pregunta.",
+    "enHash": "ef05d40917e9"
+  },
+  "stoeffel/awesome-fp-js": {
+    "summary": "Bibliotecas, lenguajes que compilan a JavaScript, herramientas y lecturas para la programación funcional en JavaScript.",
+    "enHash": "b14d209d8eb4"
+  },
+  "strift/awesome-esports": {
+    "summary": "Bibliotecas, herramientas para desarrolladores, documentación no oficial de APIs y aplicaciones para trabajar con datos de esports.",
+    "enHash": "81fa9f125299"
+  },
+  "sturobson/bem-resources": {
+    "summary": "Artículos, herramientas, ejemplos de código y charlas sobre BEM, una metodología de nombres para clases CSS.",
+    "enHash": "ca287b222fb8"
+  },
+  "stve/awesome-dropwizard": {
+    "summary": "Bundles, herramientas, tutoriales y guías de Dropwizard, un framework de Java para crear servicios web REST.",
+    "enHash": "096911a1bdcb"
+  },
+  "sublimino/awesome-funny-markov": {
+    "summary": "Textos cómicos generados con cadenas de Markov, desde juguetes web y bots de Twitter hasta herramientas para crear más.",
+    "enHash": "3f33c9879f7d"
+  },
+  "svaksha/julia.jl": {
+    "summary": "Paquetes y recursos de Julia agrupados por tema, desde IA y DevOps hasta optimización y utilidades.",
+    "enHash": "e276cd5a7f7f"
+  },
+  "symbitic/awesome-babylonjs": {
+    "summary": "Documentación, libros, demos, escenas, juegos y ejemplos de Babylon.js, un motor 3D para la web.",
+    "enHash": "3fef3e6f6b8d"
+  },
+  "szenergy/awesome-lidar": {
+    "summary": "Fabricantes, conjuntos de datos, bibliotecas, algoritmos y simuladores de lidar, sensores láser que miden distancias y formas.",
+    "enHash": "623cc1395f34"
+  },
+  "talater/awesome-book-authoring": {
+    "summary": "Consejos para escribir un libro técnico: propuestas, contratos, regalías, editoriales, marketing, autopublicación y herramientas de escritura.",
+    "enHash": "de8fa34cf77d"
+  },
+  "talater/awesome-progressive-web-apps": {
+    "summary": "Artículos, tutoriales, videos y casos de estudio sobre progressive web apps, sitios web que se comportan como apps instaladas.",
+    "enHash": "22243471460b"
+  },
+  "talater/awesome-service-workers": {
+    "summary": "Artículos, referencias, bibliotecas y casos de estudio sobre service workers, los scripts del navegador detrás de la caché sin conexión y las notificaciones push.",
+    "enHash": "3b8ca4861657"
+  },
+  "tayllan/awesome-algorithms": {
+    "summary": "Cursos, sitios de concursos, libros y cheat sheets para aprender algoritmos y estructuras de datos.",
+    "enHash": "eb3e26f0142f"
+  },
+  "terkelg/awesome-creative-coding": {
+    "summary": "Libros, cursos, herramientas, comunidades, eventos e inspiración para la programación creativa, escribir programas para hacer arte.",
+    "enHash": "9331a3c94334"
+  },
+  "terryum/awesome-deep-learning-papers": {
+    "summary": "Artículos de investigación de deep learning muy citados, agrupados por tema, como modelos, optimización y aplicaciones.",
+    "enHash": "4db694f5d1a0"
+  },
+  "thangchung/awesome-dotnet-core": {
+    "summary": "Frameworks, bibliotecas, herramientas, kits de inicio, proyectos de ejemplo y material de aprendizaje de .NET Core y sus sucesores.",
+    "enHash": "3c63eca8b152"
+  },
+  "thecomputerm/awesome-svelte": {
+    "summary": "Integraciones, bibliotecas de estado y de UI, componentes, routers, herramientas y ejemplos de Svelte, un framework de front-end basado en un compilador.",
+    "enHash": "354dc2297e4c"
+  },
+  "theimpossibleastronaut/awesome-linguistics": {
+    "summary": "Toolkits, algoritmos, conjuntos de datos, modelos, libros y comunidades de lingüística y tecnologías del lenguaje.",
+    "enHash": "01d7bde461f3"
+  },
+  "thejambo/awesome-testing": {
+    "summary": "Software, libros, formación, blogs y newsletters para testers de software.",
+    "enHash": "dcb44e6b3780"
+  },
+  "therebelrobot/awesome-workshopper": {
+    "summary": "Lecciones interactivas que se ejecutan en la terminal, sobre todo del proyecto NodeSchool, y herramientas para crearlas.",
+    "enHash": "23818fd2e642"
+  },
+  "thibmaek/awesome-raspberry-pi": {
+    "summary": "Modelos, imágenes de sistema operativo, herramientas, proyectos y recursos de la comunidad de la Raspberry Pi, la computadora de placa única.",
+    "enHash": "c3e9276a4e65"
+  },
+  "thomasbnt/awesome-web-monetization": {
+    "summary": "Documentación, bibliotecas y proyectos de Web Monetization, una propuesta de estándar para pagar a sitios web desde el navegador.",
+    "enHash": "8d802c79452c"
+  },
+  "thoughtspile/awesome-tiny-js": {
+    "summary": "Bibliotecas de JavaScript muy pequeñas para front-end: frameworks, estado, enrutado, fechas, validación, IDs, colores y gestos.",
+    "enHash": "3ea60b68944d"
+  },
+  "tiimgreen/github-cheat-sheet": {
+    "summary": "Funciones poco conocidas de Git y GitHub, explicadas con ejemplos breves.",
+    "enHash": "c94730b4e2cd"
+  },
+  "timofurrer/awesome-asyncio": {
+    "summary": "Frameworks, drivers de bases de datos, bibliotecas de red y de pruebas, artículos y charlas de asyncio, la biblioteca de programación asíncrona de Python.",
+    "enHash": "e67b1147447b"
+  },
+  "tindzk/awesome-scala-native": {
+    "summary": "Bibliotecas, bindings, herramientas de compilación y ejemplos de Scala Native, que compila Scala a código máquina.",
+    "enHash": "414d030e8cae"
+  },
+  "tmcw/awesome-geojson": {
+    "summary": "Herramientas para GeoJSON, el formato JSON para elementos de mapas: editores, validadores, conversores, servicios y datos.",
+    "enHash": "94334aa7550b"
+  },
+  "tobiasbueschel/awesome-pokemon": {
+    "summary": "Proyectos de desarrollo, APIs y recursos de la comunidad para los juegos de Pokémon y Pokémon GO.",
+    "enHash": "3fa4b5ea3482"
+  },
+  "tobiasvl/awesome-chip-8": {
+    "summary": "Documentación, emuladores, herramientas de desarrollo y juegos de CHIP-8, una máquina virtual sencilla para juegos de los años 70.",
+    "enHash": "1746d884e9c6"
+  },
+  "tomodachi94/awesome-computercraft": {
+    "summary": "Mods, programas en Lua y lecturas de ComputerCraft, que añade computadoras programables a Minecraft.",
+    "enHash": "ff403d939acb"
+  },
+  "tramcar/awesome-job-boards": {
+    "summary": "Bolsas de empleo de nichos como IA, diseño, DevOps, finanzas, videojuegos, código abierto y trabajo remoto.",
+    "enHash": "c6f481379ab4"
+  },
+  "transitive-bullshit/awesome-ffmpeg": {
+    "summary": "Documentación, wrappers en JavaScript y nativos, builds para móvil y tutoriales de FFmpeg, la herramienta de línea de comandos para audio y video.",
+    "enHash": "5ef133adbd7f"
+  },
+  "troxler/awesome-css-frameworks": {
+    "summary": "Frameworks de CSS agrupados por enfoque: resets, estilos sin clases, ligeros, de uso general, Material Design y clases utilitarias.",
+    "enHash": "2a356c07c47b"
+  },
+  "ttt30ga/awesome-product-design": {
+    "summary": "Recursos para diseñadores de producto sobre investigación, experiencia de usuario, diseño de interfaz y visual, prototipado, accesibilidad y redacción.",
+    "enHash": "b9bf3f90fc3b"
+  },
+  "ttumiel/awesome-ethereum": {
+    "summary": "Documentación, herramientas de programación, tutoriales, wallets, protocolos y libros de Ethereum, la blockchain que ejecuta contratos inteligentes.",
+    "enHash": "0d0dbd0e77bc"
+  },
+  "tupletype/awesome-cicd-attacks": {
+    "summary": "Técnicas, herramientas y casos de estudio de ataques a pipelines de build y a la cadena de suministro de software.",
+    "enHash": "9c0a1a79ef87"
+  },
+  "tvvocold/foss-for-dev": {
+    "summary": "Software libre y de código abierto para desarrolladores: alojamiento de código, editores, CI, gestores de incidencias, documentación y chat.",
+    "enHash": "ec226d309501"
+  },
+  "tyaga001/awesome-neon": {
+    "summary": "Documentación, guías, ejemplos, videos y artículos de Neon, un servicio de Postgres serverless alojado.",
+    "enHash": "bcbcf2c12561"
+  },
+  "typedb/typedb-awesome": {
+    "summary": "Proyectos, documentación, drivers cliente, soporte de editores y charlas de TypeDB, una base de datos con esquemas tipados y consultas lógicas.",
+    "enHash": "c2d96acba587"
+  },
+  "typeddjango/awesome-python-typing": {
+    "summary": "Comprobadores de tipos, paquetes de stubs, tipos adicionales, herramientas y artículos sobre type hints en Python.",
+    "enHash": "1995968fcfa1"
+  },
+  "ucg8j/awesome-dash": {
+    "summary": "Bibliotecas de componentes, apps de ejemplo, tutoriales, charlas y opciones de despliegue de Plotly Dash, un framework de Python para dashboards de datos.",
+    "enHash": "715650f2031e"
+  },
+  "ujjwalkarn/machine-learning-tutorials": {
+    "summary": "Tutoriales, artículos, cheat sheets y material para entrevistas sobre métodos de machine learning, desde la regresión hasta el deep learning.",
+    "enHash": "3c4d7e9d1fbf"
+  },
+  "umbraco-community/awesome-umbraco": {
+    "summary": "Enlaces oficiales, recursos de la comunidad, extensiones, herramientas para desarrolladores y kits de inicio de Umbraco, un sistema de gestión de contenidos en .NET.",
+    "enHash": "6b89016161e1"
+  },
+  "unicodeveloper/awesome-lumen": {
+    "summary": "Tutoriales, paquetes, middleware, demos y libros de Lumen, el pequeño framework de PHP basado en Laravel para APIs.",
+    "enHash": "c52120b901a4"
+  },
+  "unicodeveloper/awesome-nextjs": {
+    "summary": "Plantillas base, extensiones, artículos, libros, videos y apps de ejemplo de Next.js, el framework de React para sitios renderizados en el servidor.",
+    "enHash": "024679ae17ea"
+  },
+  "unixorn/awesome-zsh-plugins": {
+    "summary": "Miles de frameworks, plugins, autocompletados, temas y tutoriales para la shell zsh.",
+    "enHash": "1a2378b0ebde"
+  },
+  "uraimo/awesome-software-patreons": {
+    "summary": "Proyectos de código abierto y programadores que aceptan dinero a través de Patreon y servicios similares.",
+    "enHash": "91de0fe4f377"
+  },
+  "uraimo/awesome-swift-playgrounds": {
+    "summary": "Playgrounds de Swift para aprender el lenguaje y explorar gráficos, audio, matemáticas y las APIs de Apple.",
+    "enHash": "27c8ac5aef32"
+  },
+  "uralbash/awesome-pyramid": {
+    "summary": "Paquetes adicionales para el framework web de Python Pyramid, por tarea: autenticación, caché, formularios, REST, búsqueda, plantillas y pruebas.",
+    "enHash": "a24fd9bd073b"
+  },
+  "urigo/awesome-meteor": {
+    "summary": "Paquetes para la plataforma de JavaScript Meteor, por tarea: cuentas, formularios, enrutado, despliegue, pruebas, búsqueda y más.",
+    "enHash": "93ac1d8c8b65"
+  },
+  "vala-lang/awesome-vala": {
+    "summary": "Apps, herramientas, plugins de editor, servidores de lenguaje y bibliotecas de Vala, un lenguaje parecido a C para GNOME.",
+    "enHash": "55519d6a9e03"
+  },
+  "vapor-community/awesome-vapor": {
+    "summary": "Bibliotecas, herramientas, servicios, tutoriales y proyectos de código abierto de Vapor, un framework web para el lenguaje Swift.",
+    "enHash": "67d50e4788a6"
+  },
+  "veelenga/awesome-crystal": {
+    "summary": "Bibliotecas y herramientas de Crystal ordenadas por tarea, desde algoritmos y caché hasta frameworks web.",
+    "enHash": "5efb08b3ae51"
+  },
+  "veggiemonk/awesome-docker": {
+    "summary": "Proyectos y material de aprendizaje sobre contenedores Docker: herramientas para construirlos, ejecutarlos, conectarlos en red, monitorizarlos y protegerlos.",
+    "enHash": "fe0abf74b782"
+  },
+  "vert-x3/vertx-awesome": {
+    "summary": "Bibliotecas, frameworks, clientes de bases de datos e integraciones de Vert.x, un toolkit orientado a eventos para programas reactivos en la JVM.",
+    "enHash": "f5ac68de15af"
+  },
+  "vhladiienko/awesome-game-production": {
+    "summary": "Libros, artículos, videos, herramientas y plantillas sobre la producción de videojuegos, desde la planificación hasta el lanzamiento.",
+    "enHash": "5a871fbd64ec"
+  },
+  "vhpoet/awesome-ripple": {
+    "summary": "Recursos oficiales, gateways, bibliotecas de código y herramientas alojadas de Ripple, la red de pagos construida sobre el XRP Ledger.",
+    "enHash": "30d410fd1741"
+  },
+  "viatsko/awesome-vscode": {
+    "summary": "Extensiones, temas, personas a seguir y cursos de Visual Studio Code, el editor de código gratuito de Microsoft.",
+    "enHash": "f45f384fea65"
+  },
+  "victorlaerte/awesome-it-quotes": {
+    "summary": "Citas sobre programación, software e informática de personas conocidas del sector.",
+    "enHash": "86aac52c6719"
+  },
+  "victorshinya/awesome-ibmcloud": {
+    "summary": "Herramientas de línea de comandos, SDKs, servicios y enlaces de la comunidad para desarrolladores en IBM Cloud.",
+    "enHash": "e8f7219899cf"
+  },
+  "vinjn/awesome-vulkan": {
+    "summary": "SDKs, tutoriales, ejemplos, bibliotecas, bindings, herramientas y artículos de investigación de Vulkan, una interfaz de bajo nivel para gráficos y cómputo.",
+    "enHash": "63ea4403acb9"
+  },
+  "vinta/awesome-python": {
+    "summary": "Frameworks, bibliotecas y herramientas de Python ordenados por tema, además de recursos de aprendizaje.",
+    "enHash": "3dc0cd538934"
+  },
+  "virtualroot/awesome-opentofu": {
+    "summary": "Herramientas, funciones, cursos y recursos de la comunidad de OpenTofu, el fork de código abierto de Terraform.",
+    "enHash": "84860be045e6"
+  },
+  "vitalets/awesome-smart-tv": {
+    "summary": "Plataformas, frameworks, protocolos de control remoto, herramientas y bibliotecas para crear apps para smart TVs.",
+    "enHash": "9d10d13c2f99"
+  },
+  "vlang/awesome-v": {
+    "summary": "Aplicaciones y bibliotecas escritas en V, un pequeño lenguaje de programación compilado.",
+    "enHash": "a7f8ee7eae6e"
+  },
+  "voorhoede/progressive-enhancement-resources": {
+    "summary": "Artículos, estrategias, herramientas de detección de funciones y ejemplos para crear páginas que funcionen primero y mejoren donde los navegadores lo permitan.",
+    "enHash": "270c913ae7fe"
+  },
+  "vorpaljs/awesome-vorpal": {
+    "summary": "Extensiones, tutoriales y proyectos de Vorpal, un framework para apps interactivas de línea de comandos en Node.js.",
+    "enHash": "e75731c1a42f"
+  },
+  "vsouza/awesome-ios": {
+    "summary": "Miles de bibliotecas, frameworks y herramientas para el desarrollo de apps de iOS, por tema, desde analítica hasta interfaz de usuario.",
+    "enHash": "fad91bb01395"
+  },
+  "vuejs/awesome-vue": {
+    "summary": "Más de mil componentes, bibliotecas, proyectos y recursos de aprendizaje de Vue.js, un framework de JavaScript para interfaces de usuario.",
+    "enHash": "81c1fb0a00f6"
+  },
+  "wagtail/awesome-wagtail": {
+    "summary": "Apps, herramientas, guías de editores, charlas y sitios de código abierto hechos con Wagtail, un sistema de gestión de contenidos sobre Django.",
+    "enHash": "5037e0740c12"
+  },
+  "wardley-maps-community/awesome-wardley-maps": {
+    "summary": "Introducciones, libros, videos, cursos, apps y eventos sobre los mapas de Wardley, una forma de trazar el panorama de un negocio.",
+    "enHash": "b10c53031449"
+  },
+  "wasabeef/awesome-android-ui": {
+    "summary": "Componentes de interfaz de código abierto para apps Android: layouts, botones, listas, imágenes, menús, diálogos, gráficos y animaciones.",
+    "enHash": "25a7741d7525"
+  },
+  "watson/awesome-computer-history": {
+    "summary": "Documentales, grabaciones, textos, código fuente histórico y sitios web sobre la historia de la informática.",
+    "enHash": "7b178906502e"
+  },
+  "wbinnssmith/awesome-promises": {
+    "summary": "Artículos, libros, implementaciones y bibliotecas auxiliares para las promesas de JavaScript.",
+    "enHash": "1bd407aebd82"
+  },
+  "wbkd/awesome-d3": {
+    "summary": "Gráficos, mapas, utilidades y ejemplos basados en D3, la biblioteca de JavaScript para visualización de datos.",
+    "enHash": "90a89664fd10"
+  },
+  "web-padawan/awesome-lit": {
+    "summary": "Tutoriales, plantillas de inicio, bibliotecas de componentes, sistemas de diseño, herramientas e integraciones de Lit, la biblioteca de Google para web components.",
+    "enHash": "8fc36812019c"
+  },
+  "web-padawan/awesome-web-components": {
+    "summary": "Estándares, guías, artículos, bibliotecas, frameworks y libros sobre web components, los elementos personalizados reutilizables propios del navegador.",
+    "enHash": "bff338342477"
+  },
+  "weblancaster/awesome-iot-hybrid": {
+    "summary": "Plataformas y frameworks para el internet de las cosas y para apps híbridas de escritorio y móvil con tecnología web.",
+    "enHash": "10f840649217"
+  },
+  "webpro/awesome-dotfiles": {
+    "summary": "Artículos, herramientas y repositorios de ejemplo para guardar y compartir los archivos de configuración de la carpeta personal en Unix.",
+    "enHash": "b45d8f60ec61"
+  },
+  "websemantics/awesome-ant-design": {
+    "summary": "Componentes, herramientas, temas, plantillas base y ports de Ant Design, una biblioteca de UI para React y lenguaje de diseño de Alibaba.",
+    "enHash": "2188ec0f506a"
+  },
+  "wernerkrauss/awesome-silverstripe-cms": {
+    "summary": "Documentación, módulos y herramientas para desarrolladores de Silverstripe CMS, un sistema de gestión de contenidos y framework en PHP.",
+    "enHash": "9432ffcc38bf"
+  },
+  "willianjusten/awesome-audio-visualization": {
+    "summary": "Bibliotecas, experimentos, tutoriales y videos para convertir sonido en imágenes en movimiento, gran parte en el navegador.",
+    "enHash": "4744a07a6e79"
+  },
+  "willianjusten/awesome-svg": {
+    "summary": "Tutoriales, bibliotecas, herramientas, iconos, animación y notas de accesibilidad sobre SVG, el formato de imagen vectorial de la web.",
+    "enHash": "c18706306840"
+  },
+  "woop/awesome-quantified-self": {
+    "summary": "Apps, plataformas, wearables, artículos, libros y proyectos de código abierto para registrar datos sobre uno mismo.",
+    "enHash": "a89c21add413"
+  },
+  "writing-resources/awesome-scientific-writing": {
+    "summary": "Editores, herramientas de bibliografía, conversores, linters y plantillas para escribir artículos científicos en formatos de texto plano.",
+    "enHash": "2b70866f815c"
+  },
+  "xavidop/awesome-genkit": {
+    "summary": "Plugins, referencias, charlas y tutoriales de Genkit, el toolkit de código abierto de Google para añadir IA generativa a las apps.",
+    "enHash": "3523fb798538"
+  },
+  "xen0l/awesome-dtrace": {
+    "summary": "Guías, artículos, videos, scripts y herramientas de DTrace, que traza lo que hacen un sistema en ejecución y sus programas.",
+    "enHash": "2a3d221c8d42"
+  },
+  "xiaohanyu/awesome-tikz": {
+    "summary": "Libros, galerías, bibliotecas, herramientas y videos de TikZ, el paquete de LaTeX para dibujar diagramas.",
+    "enHash": "28a8a4a458fa"
+  },
+  "xxczaki/awesome-calculators": {
+    "summary": "Apps de calculadora para móvil, escritorio y web, además de recursos sobre calculadoras.",
+    "enHash": "4496031cbf90"
+  },
+  "yenchenlin/awesome-watchos": {
+    "summary": "Guías, bibliotecas, consejos de diseño, herramientas, apps de ejemplo y tutoriales para crear apps para el Apple Watch.",
+    "enHash": "a1cbe866123b"
+  },
+  "yissachar/awesome-dart": {
+    "summary": "Frameworks de Dart para apps web, de servidor y multiplataforma, además de bibliotecas para bases de datos, pruebas y más.",
+    "enHash": "e3fc59dc2827"
+  },
+  "youngwookim/awesome-hadoop": {
+    "summary": "Proyectos del ecosistema Hadoop para big data en clústeres: YARN, motores SQL, ingesta, flujos de trabajo, búsqueda y seguridad.",
+    "enHash": "d29d44bc11d1"
+  },
+  "yrgo/awesome-educational-games": {
+    "summary": "Juegos que enseñan arte, diseño, CSS, idiomas, matemáticas, música y programación.",
+    "enHash": "59edbdca84b5"
+  },
+  "zachflower/awesome-open-source-supporters": {
+    "summary": "Empresas que permiten a los proyectos de código abierto usar sus servicios gratis, como CI, calidad de código y monitorización.",
+    "enHash": "ec0050a93968"
+  },
+  "zenitysec/awesome-low-code": {
+    "summary": "Plataformas, herramientas, referencias, plantillas y comunidades de desarrollo low-code, crear apps programando poco.",
+    "enHash": "ff78304483f9"
+  },
+  "zheaoli/awesome-coins": {
+    "summary": "Wallets, exchanges, minería, herramientas de mercado y lecturas sobre criptomonedas.",
+    "enHash": "0199c829aad3"
+  },
+  "ziadoz/awesome-php": {
+    "summary": "Bibliotecas, frameworks y herramientas de PHP ordenados por tarea, desde la gestión de dependencias hasta las pruebas y la seguridad.",
+    "enHash": "33a4724f3931"
+  },
+  "zingchart/awesome-charting": {
+    "summary": "Bibliotecas de gráficos para la web, comerciales y de código abierto, además de bindings para frameworks y recursos de visualización de datos.",
+    "enHash": "1c269bb04728"
+  },
+  "zolagonano/awesome-zeronet": {
+    "summary": "Implementaciones, plugins, guías y proxies públicos de ZeroNet, una red de sitios web servidos peer-to-peer.",
+    "enHash": "ff470607b41a"
+  },
+  "zudochkin/awesome-newsletters": {
+    "summary": "Newsletters por email sobre programación, front-end, bases de datos, móvil, IA, seguridad, liderazgo y negocios.",
+    "enHash": "d086c73e7f19"
+  },
+  "zyszys/awesome-captcha": {
+    "summary": "Bibliotecas y herramientas para generar pruebas CAPTCHA, y proyectos que las resuelven automáticamente.",
+    "enHash": "2bce179d93fe"
+  }
+}

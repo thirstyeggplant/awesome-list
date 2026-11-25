@@ -1,0 +1,2686 @@
+{
+  "0pandadev/awesome-windows": {
+    "summary": "按类别整理的 Windows 软件：开发工具、浏览器、文件管理器、备份、媒体、个性化、安全等。",
+    "enHash": "b07a54db04bf"
+  },
+  "44bits/awesome-opensource-documents": {
+    "summary": "采用开放许可的编程语言、工具和库的书籍、教程与文档，部分为日文。",
+    "enHash": "133d3fdd88a8"
+  },
+  "aaronhma/awesome-tensorflow-js": {
+    "summary": "TensorFlow.js 的文档、工具、模型、书籍和社区链接，用 JavaScript 运行机器学习。",
+    "enHash": "1a9e5e942607"
+  },
+  "academic/awesome-datascience": {
+    "summary": "学习和实践数据科学的课程、工具、文献、社区和智能体项目。",
+    "enHash": "0d1b8b942825"
+  },
+  "accelerated-text/awesome-nlg": {
+    "summary": "自然语言生成（从数据生成文本）的数据集、库、论文、产品和模板语言。",
+    "enHash": "ee95a48029aa"
+  },
+  "achoarnold/discount-for-student-dev": {
+    "summary": "面向学生的免费或优惠开发者工具与服务：代码托管、编辑器、云托管、设计软件等。",
+    "enHash": "8ed01be57886"
+  },
+  "adafruit/awesome-adafruitio": {
+    "summary": "Adafruit IO 的指南、代码库、开发板和社区链接，这是一个将传感器数据绘制成图表的云服务。",
+    "enHash": "ee6b31617482"
+  },
+  "adafruit/awesome-circuitpython": {
+    "summary": "CircuitPython 的指南、库、硬件、视频、书籍和社区链接，这是 Adafruit 为微控制器开发板打造的 Python。",
+    "enHash": "d8df37a3b852"
+  },
+  "addyosmani/critical-path-css-tools": {
+    "summary": "找出页面首屏所需 CSS 并内联的工具，让页面更快渲染。",
+    "enHash": "246a73dc1467"
+  },
+  "addyosmani/es6-tools": {
+    "summary": "ES6 JavaScript 刚出现时期的转译器、模块加载器、polyfill、项目模板和插件。",
+    "enHash": "b1eac9252699"
+  },
+  "adrientorris/awesome-blazor": {
+    "summary": "Blazor 的库、模板、示例、教程、视频和书籍，这是微软用 C# 编写 Web 界面的框架。",
+    "enHash": "5bc13708152f"
+  },
+  "afonsopacifer/awesome-flexbox": {
+    "summary": "CSS flexbox 的规范、指南、文章、工具和框架，这是一种将元素排成一行的布局模型。",
+    "enHash": "7e77529f8f79"
+  },
+  "agamm/awesome-developer-first": {
+    "summary": "面向开发者的产品与服务，按需求分组：身份验证、数据库、部署、测试、文档等。",
+    "enHash": "39e9f20dc79b"
+  },
+  "agarrharr/awesome-cli-apps": {
+    "summary": "在终端中运行的程序，涵盖开发、效率、文件、版本控制、图像、娱乐等。",
+    "enHash": "e1e3115e670f"
+  },
+  "agarrharr/awesome-macos-screensavers": {
+    "summary": "免费开源的 macOS 屏幕保护程序。",
+    "enHash": "12029fcc6401"
+  },
+  "agarrharr/awesome-static-website-services": {
+    "summary": "为静态网站添加表单、评论、搜索、支付和地图等功能的托管服务。",
+    "enHash": "2e9b2e6a58bd"
+  },
+  "agucova/awesome-esp": {
+    "summary": "ESP8266 和 ESP32 这类廉价 Wi-Fi 微控制器的固件、工具、库和项目。",
+    "enHash": "936e4e8aa229"
+  },
+  "ahkscript/awesome-autohotkey": {
+    "summary": "AutoHotkey 的库、脚本、工具和教程，这是一种用于 Windows 自动化的脚本语言。",
+    "enHash": "70bf5ad0e7bc"
+  },
+  "airscripts/awesome-steam-deck": {
+    "summary": "Steam Deck 的指南、配件、软件、模拟器、插件和社区，这是 Valve 的掌上游戏 PC。",
+    "enHash": "83fc5c4e9d77"
+  },
+  "akullpp/awesome-java": {
+    "summary": "覆盖开发各领域的 Java 库、框架和工具，以及书籍、网站等资源。",
+    "enHash": "3937f8a7303d"
+  },
+  "alebcay/awesome-shell": {
+    "summary": "用于 bash、zsh 等 Unix shell 的 shell、命令行工具、个性化配置、框架和指南。",
+    "enHash": "468178e11813"
+  },
+  "aleixmorgadas/awesome-engineering-strategy": {
+    "summary": "为软件工程团队制定和执行战略的书籍、文章、视频、方法和模板。",
+    "enHash": "152f14c413f1"
+  },
+  "alexk111/awesome-bitcoin-payment-processors": {
+    "summary": "帮助企业接受比特币支付的托管和自托管服务。",
+    "enHash": "fcdecde3e5c2"
+  },
+  "alferov/awesome-gulp": {
+    "summary": "gulp 的插件、脚手架和资源，这是一个用于前端构建的 JavaScript 任务运行器。",
+    "enHash": "566772e1e8e0"
+  },
+  "aliesbelik/awesome-gatling": {
+    "summary": "Gatling 的教程、工具、CI 集成和课程，这是一款 Web 应用负载测试工具。",
+    "enHash": "6f0f9034f189"
+  },
+  "aliesbelik/awesome-jmeter": {
+    "summary": "负载测试工具 Apache JMeter 的教程、插件、CI 集成、云服务和书籍。",
+    "enHash": "76470c664bc9"
+  },
+  "allthingssmitty/css-protips": {
+    "summary": "让样式表更简洁、更健壮的 CSS 小技巧，附多种语言的译文。",
+    "enHash": "91198fc07258"
+  },
+  "allthingssmitty/jquery-tips-everyone-should-know": {
+    "summary": "常见任务的 jQuery 代码片段，附多种语言的译文。",
+    "enHash": "3b1f36c7d9af"
+  },
+  "allthingssmitty/must-watch-css": {
+    "summary": "关于 CSS 的技术大会演讲，按年份从新到旧排列。",
+    "enHash": "f773d8fb4ace"
+  },
+  "altamiracorp/awesome-xai": {
+    "summary": "可解释 AI 的论文、代码、视频和人物，研究机器学习模型为何做出某个决策。",
+    "enHash": "efc8b6a20282"
+  },
+  "ambster-public/awesome-qlik": {
+    "summary": "Qlik Sense 和 QlikView 分析与仪表盘产品的文档、博客、书籍和扩展。",
+    "enHash": "149b34715e04"
+  },
+  "analysis-tools-dev/static-analysis": {
+    "summary": "不运行代码即可检查源码的 linter、代码检查器和质量工具，按编程语言分类。",
+    "enHash": "0a923039cb4e"
+  },
+  "analyticalmonk/awesome-neuroscience": {
+    "summary": "研究大脑和神经系统的软件、博客及其他资源。",
+    "enHash": "62fcb9835f23"
+  },
+  "andrewda/awesome-frc": {
+    "summary": "面向 FIRST 机器人竞赛队伍的供应商、编程库、视觉与侦察工具及社区链接。",
+    "enHash": "7c56d30d7c8b"
+  },
+  "angrykoala/awesome-esolangs": {
+    "summary": "出于玩笑或实验而创造的奇特编程语言，以及相关算法、文章和社区。",
+    "enHash": "77cf68575bbe"
+  },
+  "aniftyco/awesome-tailwindcss": {
+    "summary": "Tailwind CSS 的插件、UI 套件、模板、编辑器扩展和工具，它用小型工具类来编写样式。",
+    "enHash": "46644e8f9d1a"
+  },
+  "ansible-community/awesome-ansible": {
+    "summary": "Ansible 的文档、教程、书籍、视频、工具、角色和编辑器集成，它用于自动化服务器配置。",
+    "enHash": "47c694cbe146"
+  },
+  "antontarasenko/awesome-economics": {
+    "summary": "面向经济学学生和研究者的课程、数据、研究工具、讨论网站和职业建议。",
+    "enHash": "ab10ddd59e39"
+  },
+  "aorumbayev/awesome-omarchy": {
+    "summary": "Omarchy 的插件、主题、工具、衍生版本和指南，这是基于 Hyprland 的现成 Arch Linux 配置。",
+    "enHash": "6488f18e8f0d"
+  },
+  "apa-technology-division/urban-and-regional-planning-resources": {
+    "summary": "面向城市与区域规划者的公开数据、数据标准、代码、软件和学习资料。",
+    "enHash": "083df9bff73c"
+  },
+  "appimagecommunity/awesome-appimage": {
+    "summary": "查找、运行、构建和更新 AppImage 的工具，AppImage 是单文件打包的 Linux 应用。",
+    "enHash": "ba3be003d8dc"
+  },
+  "apsdehal/awesome-ctf": {
+    "summary": "出题和解题 CTF 安全竞赛的工具与资源。",
+    "enHash": "3e611496dc2e"
+  },
+  "arbox/machine-learning-with-ruby": {
+    "summary": "用 Ruby 做机器学习的教程、库、示例项目、书籍和社区。",
+    "enHash": "d169bf5b2e0f"
+  },
+  "arbox/nlp-with-ruby": {
+    "summary": "处理自然语言的 Ruby 库：分词、标注、句法分析、搜索、OCR 和语言资源，以及书籍和社区。",
+    "enHash": "6700baa735b3"
+  },
+  "arslanbilal/git-cheat-sheet": {
+    "summary": "日常 Git 命令速查表，附 Git Flow 分支模型说明。",
+    "enHash": "23e644f68ec1"
+  },
+  "ashishb/android-security-awesome": {
+    "summary": "Android 应用与设备安全的分析工具、研究论文和漏洞利用。",
+    "enHash": "37c38f00f801"
+  },
+  "atblueprints/awesome-atproto": {
+    "summary": "AT Protocol 的应用、工具、平台和指南，这是 Bluesky 背后的开放网络。",
+    "enHash": "6c35ceef1eb7"
+  },
+  "atkirtland/awesome-computational-geometry": {
+    "summary": "几何问题算法的书籍、讲义、库、可视化、课程和期刊。",
+    "enHash": "c6a1d4b03ebd"
+  },
+  "aurelia-contrib/awesome-aurelia": {
+    "summary": "Aurelia 的插件、教程、入门套件和文章，这是一个构建 Web 应用的 JavaScript 框架。",
+    "enHash": "8773c73a6807"
+  },
+  "automata/awesome-jamstack": {
+    "summary": "Jamstack 网站的静态网站生成器、无头 CMS、API、托管和教程，这类网站提供预构建页面加 JavaScript。",
+    "enHash": "dea4089c352c"
+  },
+  "avajs/awesome-ava": {
+    "summary": "AVA 的文章、视频、包和教程，这是一个 Node.js 测试运行器。",
+    "enHash": "ae8d27dd1df5"
+  },
+  "avelino/awesome-go": {
+    "summary": "按任务分类的数千个 Go 包、框架和工具，以及学习资源。",
+    "enHash": "f439849a4b51"
+  },
+  "aviaryan/awesome-no-login-web-apps": {
+    "summary": "无需注册即可使用的 Web 应用，可用于绘图、文档、文件转换、分享、音乐、游戏等。",
+    "enHash": "f3b7b2640545"
+  },
+  "awesome-algorand/awesome-algorand": {
+    "summary": "Algorand 的学习资源、开发者工具、钱包、基础设施和标准，这是一条支持智能合约的区块链。",
+    "enHash": "b8b9f462b7c0"
+  },
+  "awesome-css-group/awesome-css": {
+    "summary": "CSS 的框架、预处理器、工具、风格指南、命名方法和学习资料。",
+    "enHash": "fcf3089c1707"
+  },
+  "awesome-mqtt/awesome-mqtt": {
+    "summary": "MQTT 的代理、客户端、平台、工具和仪表盘，这是物联网设备常用的轻量消息协议。",
+    "enHash": "10e84b1862b7"
+  },
+  "awesome-roblox/awesome-roblox": {
+    "summary": "在 Roblox 在线游戏平台上制作体验的软件、插件、模块、库和开发者工具。",
+    "enHash": "a6bfcb5952e2"
+  },
+  "awesome-scripts/awesome-userscripts": {
+    "summary": "用户脚本（在浏览器中修改网站的小程序），以及相关教程和目录。",
+    "enHash": "4604d6c33221"
+  },
+  "awesome-selfhosted/awesome-selfhosted": {
+    "summary": "可在自己的服务器上运行、替代托管服务的自由软件，超过一千个。",
+    "enHash": "c128ffabd5b8"
+  },
+  "awesome-spark/awesome-spark": {
+    "summary": "Apache Spark 的包和学习资源，这是在集群上处理大规模数据集的引擎。",
+    "enHash": "53ad0a736927"
+  },
+  "awesomedata/awesome-public-datasets": {
+    "summary": "各种主题的免费公开数据集，从生物、气候到经济、体育和交通。",
+    "enHash": "7df77831e574"
+  },
+  "awkward/awesome-netherlands-events": {
+    "summary": "在阿姆斯特丹、鹿特丹、乌得勒支等荷兰各地举办的技术聚会和大会。",
+    "enHash": "ff40659c22de"
+  },
+  "ayr-ton/awesome-geek-podcasts": {
+    "summary": "关于编程、技术和科学的播客，按播讲语言分组。",
+    "enHash": "053f91b1e6d0"
+  },
+  "balintkissdev/awesome-dos": {
+    "summary": "MS-DOS 及兼容系统的开发工具、教程、书籍、视频、源码、驱动和模拟器。",
+    "enHash": "14cd7311de78"
+  },
+  "bcoe/awesome-cross-platform-nodejs": {
+    "summary": "编写可在 Windows、macOS 和 Linux 上运行的 Node.js 代码的资源、库、CI 服务和已知问题。",
+    "enHash": "fa6d341147e4"
+  },
+  "beardicus/awesome-plotters": {
+    "summary": "笔式绘图仪的硬件、软件、手册、课程和社区，这是由计算机控制绘图的机器。",
+    "enHash": "0f65d7dacbd5"
+  },
+  "benallfree/awesome-pocketbase": {
+    "summary": "PocketBase 的客户端库、插件、项目和托管指南，它是集数据库与认证于一体的 Go 后端。",
+    "enHash": "aa3708a8aa99"
+  },
+  "bnb/awesome-hyper": {
+    "summary": "Hyper 的插件和主题，这是一款用 Web 技术构建的终端应用。",
+    "enHash": "6db6035719bc"
+  },
+  "bolshchikov/js-must-watch": {
+    "summary": "关于 JavaScript 的技术大会演讲，按年份排列。",
+    "enHash": "5dad7f5ddcdd"
+  },
+  "brabadu/awesome-fonts": {
+    "summary": "免费字体、图标字体、emoji 集、编程字体和处理字体的 JavaScript 库。",
+    "enHash": "d592c5fc35b2"
+  },
+  "briatte/awesome-network-analysis": {
+    "summary": "社会科学与自然科学中网络分析的书籍、课程、数据集、期刊、论文和软件。",
+    "enHash": "b9142625e26b"
+  },
+  "brillout/awesome-redux": {
+    "summary": "Redux 的工具、开发者工具、集成和项目模板，它是将应用状态集中在一个 store 的 JavaScript 库。",
+    "enHash": "c30ae690dc56"
+  },
+  "brootware/awesome-cyber-security-university": {
+    "summary": "免费的实操课程和练习环境，构成一条进入安全领域的学习路径，攻防兼顾。",
+    "enHash": "7e8badb421ec"
+  },
+  "browserify/awesome-browserify": {
+    "summary": "Browserify 的教程、文章、演示和工具，它把 Node 风格的模块打包给浏览器使用。",
+    "enHash": "035e32dc8553"
+  },
+  "brunopulis/awesome-a11y": {
+    "summary": "让网站对残障人士无障碍的工具、文章、规范及其他资源。",
+    "enHash": "66383ad59cd9"
+  },
+  "brycejohnston/awesome-agriculture": {
+    "summary": "面向农业、作物、土壤和食品系统的开源软件、数据、硬件和机器学习项目。",
+    "enHash": "5cc4c5a9ac97"
+  },
+  "bs-community/awesome-minecraft": {
+    "summary": "Minecraft 的模组、模组加载器、服务器插件、资源包、光影和开发工具。",
+    "enHash": "1498430d9e52"
+  },
+  "bubuanabelas/awesome-markdown": {
+    "summary": "Markdown 的解析器、编辑器、工具、服务和博客引擎。",
+    "enHash": "ab691419bef2"
+  },
+  "burningtree/awesome-json": {
+    "summary": "处理 JSON 数据的库、命令行工具、编辑器、Schema 规范、数据集和在线工具。",
+    "enHash": "0a29a4db2c6b"
+  },
+  "busterc/awesome-cordova": {
+    "summary": "Apache Cordova 的插件、UI 框架、工具和学习资料，它把 Web 应用打包成移动应用。",
+    "enHash": "61c0f2a58ab3"
+  },
+  "bytecauldron/awesome-gamemaker": {
+    "summary": "GameMaker 引擎的库、扩展、工具和教程，涵盖输入、界面、物理、音频、着色器等。",
+    "enHash": "a30a5e1c601d"
+  },
+  "caesar0301/awesome-pcaptools": {
+    "summary": "捕获和分析 pcap 文件中网络流量的工具，包括 DNS 和文件提取。",
+    "enHash": "6c1a9b7365cc"
+  },
+  "calinou/awesome-godot": {
+    "summary": "开源游戏引擎 Godot 的游戏、模板、演示、插件、模块和编辑器支持。",
+    "enHash": "04157fdba181"
+  },
+  "cap-go/awesome-ionic": {
+    "summary": "Ionic 和 Capacitor 的插件、教程、入门应用和工具，它们用 Web 技术构建移动应用。",
+    "enHash": "f207e6cfd8ad"
+  },
+  "carpedm20/awesome-hacking": {
+    "summary": "黑客技术的工具和教程：逆向工程、Web、网络、取证、密码学和练习用的 wargame。",
+    "enHash": "e8eafcad449c"
+  },
+  "catalinmiron/awesome-prisma": {
+    "summary": "Prisma 的文档、教程、工具和项目，这是面向 Node.js 和 TypeScript 的 ORM。",
+    "enHash": "35cb989d7ce4"
+  },
+  "caufieldjh/awesome-bioie": {
+    "summary": "从生物医学文本中抽取事实的论文、团队、工具、模型、数据集和本体。",
+    "enHash": "b9c1514d6a18"
+  },
+  "cenoura/awesome-ads": {
+    "summary": "网站广告技术的文章和工具：广告服务器、程序化购买以及基于 Prebid 的头部竞价。",
+    "enHash": "658c06432ef3"
+  },
+  "cerberauth/awesome-openid-connect": {
+    "summary": "OpenID Connect 的身份提供方、客户端库、软件和规范，它是基于 OAuth 的单点登录。",
+    "enHash": "af640f5a2eaf"
+  },
+  "chainstacklabs/awesome-corda": {
+    "summary": "Corda 的文档、工具、教程、课程和示例应用，这是面向企业的区块链平台。",
+    "enHash": "cd4677de0d71"
+  },
+  "chalarangelo/30-seconds-of-code": {
+    "summary": "每段只解决一个小问题的简短代码片段，以 JavaScript 为主，附讲解。",
+    "enHash": "80c0c6f85512"
+  },
+  "chentsulin/awesome-graphql": {
+    "summary": "GraphQL 的规范、服务端与客户端实现、工具、服务、教程和书籍，这是一种 API 查询语言。",
+    "enHash": "7a0a24336015"
+  },
+  "chiraggude/awesome-laravel": {
+    "summary": "Laravel 的包、托管与部署方案、教程、书籍、播客和入门项目，这是一个 PHP Web 框架。",
+    "enHash": "543822861b0d"
+  },
+  "choojs/awesome-choo": {
+    "summary": "Choo 的插件、组件、模板、演示和项目，这是一个小巧的前端 JavaScript 框架。",
+    "enHash": "6e8b6fe6baf9"
+  },
+  "chrissimpkins/codeface": {
+    "summary": "在编辑器和终端中写代码用的等宽字体，附示例。",
+    "enHash": "fddc552668dd"
+  },
+  "christian-bromann/awesome-selenium": {
+    "summary": "Selenium 的库、框架、服务和资源，它驱动浏览器进行自动化测试。",
+    "enHash": "f4563f93bd01"
+  },
+  "christoschristofidis/awesome-deep-learning": {
+    "summary": "学习神经网络深度学习的书籍、课程、讲座、论文、教程和研究者。",
+    "enHash": "97107c81f2f6"
+  },
+  "chromedevtools/awesome-chrome-devtools": {
+    "summary": "Chrome 内置开发者工具的使用技巧、性能分析工具、扩展，以及基于 DevTools 协议的项目。",
+    "enHash": "e04547dcdc3d"
+  },
+  "cicdops/awesome-ciandcd": {
+    "summary": "持续集成与持续交付的工具和理论：构建服务器、代码评审、测试、打包和部署。",
+    "enHash": "756a2ed566c1"
+  },
+  "cjbarber/toolsofthetrade": {
+    "summary": "创业公司用来经营业务的软件服务，从项目管理、数据分析到薪资发放。",
+    "enHash": "563f28215ca2"
+  },
+  "cjwirth/awesome-ios-ui": {
+    "summary": "iOS 应用的开源界面组件：动画、日历、菜单、提示框、进度视图和输入控件。",
+    "enHash": "db7b5100ce59"
+  },
+  "code-and-sorts/awesome-copilot-agents": {
+    "summary": "GitHub Copilot 这款 AI 编程助手的指令文件、提示词、自定义智能体、技能和 MCP 服务器。",
+    "enHash": "79356f5f53ea"
+  },
+  "codepoints/awesome-codepoints": {
+    "summary": "不常见的 Unicode 字符，例如不可见符号、会改变其他字符的字符，以及各种之最。",
+    "enHash": "d8da50083efb"
+  },
+  "coderabbitai/awesome-coderabbit": {
+    "summary": "CodeRabbit 的文档、集成指南、教程和项目，这是一个用 AI 审查拉取请求的服务。",
+    "enHash": "f64a20052f96"
+  },
+  "codyreichert/awesome-cl": {
+    "summary": "按领域分类的 Common Lisp 库、实现和工具，从 AI、数据库到图形、Web，以及学习资料。",
+    "enHash": "9fb7fa64d0d5"
+  },
+  "collective/awesome-plone": {
+    "summary": "Plone 的插件，按编辑、主题等功能分组，Plone 是用 Python 编写的内容管理系统。",
+    "enHash": "7ace94b5b1d3"
+  },
+  "componently-com/awesome-building-blocks-for-web-apps": {
+    "summary": "可直接嵌入 Web 应用的现成服务，如登录、预约、聊天、表单、通知和同意横幅。",
+    "enHash": "0ebff387916c"
+  },
+  "compscilauren/awesome-git-hooks": {
+    "summary": "在 Git 提交或推送时自动运行检查的现成 hook 脚本、工具和指南。",
+    "enHash": "4b879dedc458"
+  },
+  "constructcommunity/awesome-construct": {
+    "summary": "Construct 的插件、工具、托管与导出方案、教程和频道，这是用可视化事件编程的游戏引擎。",
+    "enHash": "c123daa58d31"
+  },
+  "cosmos/awesome-cosmos": {
+    "summary": "Cosmos SDK 的模块、客户端库、浏览器、验证者工具和模板，这是构建区块链的 Go 框架。",
+    "enHash": "87a327bec5c8"
+  },
+  "cpuu/awesome-fuzzing": {
+    "summary": "模糊测试的书籍、演讲、论文和工具，即向程序输入随机或构造的数据来发现 bug。",
+    "enHash": "030a8bf75d3b"
+  },
+  "craftcms/awesome": {
+    "summary": "Craft CMS 的插件、教程、社区链接和案例网站，这是用 PHP 编写的内容管理系统。",
+    "enHash": "616b992fd761"
+  },
+  "cristianoliveira/awesome4girls": {
+    "summary": "鼓励女性和女孩学习编程的活动、项目、组织和工具包。",
+    "enHash": "17622025746f"
+  },
+  "csabapalfi/awesome-pagespeed-metrics": {
+    "summary": "衡量网页加载和响应速度的各项指标的解释、文档和工具。",
+    "enHash": "afec6cd35778"
+  },
+  "cvyl/awesome-transgender": {
+    "summary": "面向跨性别者的网站、社区、嗓音训练、医疗信息、组织和研究。",
+    "enHash": "f74c3b8d80b1"
+  },
+  "cyclejs-community/awesome-cyclejs": {
+    "summary": "Cycle.js 的教程、工具、库和社区链接，这是基于响应式流的 JavaScript 框架。",
+    "enHash": "a77922f02824"
+  },
+  "cytodata/awesome-cytodata": {
+    "summary": "从显微镜图像中分析细胞特征的资源，如软件、数据集和论文。",
+    "enHash": "4a713623bc45"
+  },
+  "dahlia/awesome-sqlalchemy": {
+    "summary": "与 Python 数据库工具包和 ORM SQLAlchemy 配合使用的扩展和库。",
+    "enHash": "d036295ef25e"
+  },
+  "danailminchev/awesome-eosio": {
+    "summary": "EOSIO 的官方资源、工具、出块节点、开发资料和应用，这是一个去中心化应用区块链平台。",
+    "enHash": "ee782b1e491f"
+  },
+  "danailminchev/awesome-payload": {
+    "summary": "Payload 的官方链接、教程、组件、模板和插件，这是一个面向 Next.js 的开源无头 CMS。",
+    "enHash": "1aff24d9d9b1"
+  },
+  "danielecook/awesome-bioinformatics": {
+    "summary": "分析生物数据的软件、数据工具、测序流程、可视化工具和数据库。",
+    "enHash": "37b58c48db37"
+  },
+  "danvoyce/awesome-creative-tech-events": {
+    "summary": "世界各地关于创意编程、数字艺术、设计和音乐科技的节庆、聚会和大会。",
+    "enHash": "7727c22b3954"
+  },
+  "dariubs/gobooks": {
+    "summary": "关于 Go 语言的书籍，从入门、进阶到 Web 开发。",
+    "enHash": "ff8f757a8d1e"
+  },
+  "dastergon/awesome-sre": {
+    "summary": "网站可靠性工程（SRE）的文章、书籍、演讲和工具：监控、值班、事后复盘、容量和服务等级。",
+    "enHash": "2980383d46bb"
+  },
+  "datadaode/awesome-foss-apps": {
+    "summary": "已被企业在真实生产环境中使用的开源 Web 和桌面应用。",
+    "enHash": "c81c6e742420"
+  },
+  "dav009/awesome-spanish-nlp": {
+    "summary": "计算机处理西班牙语的语料库、工具和研究，包括语音和聚类。",
+    "enHash": "53b9bc189b7a"
+  },
+  "daviddias/awesome-hacking-locations": {
+    "summary": "按国家整理的世界各地适合坐下来写代码的咖啡馆和场所。",
+    "enHash": "837e2baff71c"
+  },
+  "davidsonfellipe/awesome-wpo": {
+    "summary": "让网站加载更快的书籍、案例研究、分析器、监控服务、CDN 和优化工具。",
+    "enHash": "efcc61470418"
+  },
+  "davidtheclark/scalable-css-reading-list": {
+    "summary": "关于编写可随网站增长而保持可维护的 CSS 的文章、风格指南和演讲。",
+    "enHash": "ba054a823243"
+  },
+  "davisonio/awesome-gif": {
+    "summary": "创建、编辑和托管 GIF 动图的工具、库、应用和在线服务。",
+    "enHash": "d7023fac74eb"
+  },
+  "davisonio/awesome-irc": {
+    "summary": "IRC 这一老牌聊天协议的客户端、bouncer、服务器、机器人、框架、网络和指南。",
+    "enHash": "32d1fc0542e8"
+  },
+  "dawdle-deer/awesome-learn-gamedev": {
+    "summary": "学习制作电子游戏的文章、书籍和演讲：编程、美术、设计、音频、文案、制作和职业发展。",
+    "enHash": "d2864d1204f2"
+  },
+  "deanhume/typography": {
+    "summary": "Web 排版的文章、工具、书籍和演讲，包括如何快速加载 Web 字体。",
+    "enHash": "2b08facec776"
+  },
+  "deephacks/awesome-jvm": {
+    "summary": "Java 虚拟机的工具和库：字节码、垃圾回收器、语言、性能分析器、运行时和并发。",
+    "enHash": "2d9c07b0a2c0"
+  },
+  "delftopenhardware/awesome-open-hardware": {
+    "summary": "关于开源硬件（设计公开发布的硬件）的项目、设计工具、演讲、论文、平台和书籍。",
+    "enHash": "8f157445f202"
+  },
+  "dend/awesome-product-management": {
+    "summary": "面向软件产品经理的文章、书籍、社区和大会。",
+    "enHash": "c2d986704652"
+  },
+  "denolib/awesome-deno": {
+    "summary": "Deno 的模块、工具、集成、文章和演讲，这是一个内置权限控制的 JavaScript 和 TypeScript 运行时。",
+    "enHash": "0e783963b057"
+  },
+  "dersvenhesse/awesome-scriptable": {
+    "summary": "按主题分组的 Scriptable 小组件和脚本，这是一款用 JavaScript 自动化任务的 iPhone 应用。",
+    "enHash": "adb08f861a2b"
+  },
+  "desireevl/awesome-quantum-computing": {
+    "summary": "学习和编程量子计算机的课程、开发工具、书籍、博客、视频和播客。",
+    "enHash": "0ee47c236c90"
+  },
+  "devopshivehq/awesome-kustomize": {
+    "summary": "Kustomize 的插件、指南和代码片段，它无需模板即可定制 Kubernetes 配置文件。",
+    "enHash": "b49b4718e750"
+  },
+  "dh-tech/awesome-digital-humanities": {
+    "summary": "用计算机和数据开展人文研究的软件、平台、研究中心、期刊和指南。",
+    "enHash": "ddc0d973024d"
+  },
+  "dhamaniasad/awesome-postgres": {
+    "summary": "PostgreSQL 的工具：高可用、备份、图形与命令行客户端、扩展、监控、托管服务和 Kubernetes operator。",
+    "enHash": "b95e42d1270f"
+  },
+  "diegocard/awesome-html5": {
+    "summary": "HTML5 特性的文章、规范和示例：媒体、语义元素、存储、worker、无障碍和离线应用。",
+    "enHash": "03efbb10e59a"
+  },
+  "directus-labs/awesome-directus": {
+    "summary": "Directus 的文档、SDK、集成、扩展和案例，它为 SQL 数据库提供 API 和管理后台。",
+    "enHash": "92fce5f9b01f"
+  },
+  "dlang-community/awesome-d": {
+    "summary": "D 语言的编译器、工具、编辑器、库、书籍、教程和社区链接。",
+    "enHash": "5dbdb0dd7bce"
+  },
+  "dok/awesome-text-editing": {
+    "summary": "在浏览器中构建文本编辑器的库：富文本、代码和 Markdown 编辑器。",
+    "enHash": "fa9aaec169ec"
+  },
+  "domenicosolazzo/awesome-okr": {
+    "summary": "用 OKR（目标与关键结果）设定目标的文章、书籍、指南、模板和软件。",
+    "enHash": "063d8b2c612c"
+  },
+  "donbarbos/awesome-standards": {
+    "summary": "Web、API、编程语言、安全、硬件、数据库和电信领域的标准与正式提案。",
+    "enHash": "6a93c738e699"
+  },
+  "donnemartin/awesome-aws": {
+    "summary": "Amazon Web Services 的 SDK、命令行工具、开源项目和指南，按服务分组。",
+    "enHash": "43e82076969b"
+  },
+  "dotintent/awesome-ble": {
+    "summary": "用于 iOS、Android、Flutter、Web 和微控制器的低功耗蓝牙库和工具，以及相关文章。",
+    "enHash": "abd98d778780"
+  },
+  "dreamingechoes/awesome-mental-health": {
+    "summary": "面向软件从业者的心理健康文章、应用、书籍、演讲、播客和组织。",
+    "enHash": "9a3cdacf7004"
+  },
+  "dreikanter/sublime-bookmarks": {
+    "summary": "Sublime Text 编辑器的包、技巧、书籍、录屏和社区链接。",
+    "enHash": "7e5ad90f5578"
+  },
+  "drewrwilson/toolsforactivism": {
+    "summary": "面向社会活动者和组织者的软件与服务，如请愿、联络工具和活动数据库。",
+    "enHash": "ceb9ec31bb69"
+  },
+  "dribdat/awesome-hackathon": {
+    "summary": "组织和举办黑客马拉松的平台、工具和指南。",
+    "enHash": "3884074662c4"
+  },
+  "drmonkeyninja/awesome-textpattern": {
+    "summary": "Textpattern 的插件、主题和学习资源，这是一个用 PHP 编写的小型开源内容管理系统。",
+    "enHash": "8a209f3fc19d"
+  },
+  "drobakowski/awesome-erlang": {
+    "summary": "Erlang 的库和工具，涵盖 Web 框架、HTTP、测试、日志、部署、分布式系统等。",
+    "enHash": "83868917f575"
+  },
+  "dspinellis/awesome-msr": {
+    "summary": "通过代码仓库、bug 和开发历史研究软件的数据集、工具和学术会议。",
+    "enHash": "d9b0175d111a"
+  },
+  "dstdev/awesome-hpc": {
+    "summary": "高性能计算软件：集群部署、作业调度器、MPI、编译器、并行文件系统和基准测试。",
+    "enHash": "d5a61d3cbd83"
+  },
+  "dustinspecker/awesome-eslint": {
+    "summary": "JavaScript linter ESLint 的可共享配置、插件、解析器、格式化器和教程。",
+    "enHash": "041c094b59e0"
+  },
+  "dvergar/awesome-haxe-gamedev": {
+    "summary": "用跨平台语言 Haxe 做游戏的引擎、物理与网络库、游戏和文章。",
+    "enHash": "c8a8e0a05f9a"
+  },
+  "dylanrees/citizen-science": {
+    "summary": "机构之外开展科学研究的软件、设备、研究指南、社区实验室、资金和活动。",
+    "enHash": "87be03b540f6"
+  },
+  "dypsilon/frontend-dev-bookmarks": {
+    "summary": "面向前端开发者的文章、工具和参考链接，主题广泛。",
+    "enHash": "2b0e48f79c15"
+  },
+  "ebookfoundation/free-programming-books": {
+    "summary": "可免费阅读的编程书籍、课程和其他学习资料，涵盖多种语言。",
+    "enHash": "cbc424fc0a12"
+  },
+  "ebraminio/awesome-qsharp": {
+    "summary": "Q# 的文档、教程、书籍、视频、竞赛和示例，这是微软的量子编程语言。",
+    "enHash": "8bb966656eda"
+  },
+  "ebu/awesome-broadcasting": {
+    "summary": "面向广播电视行业的开源软件：图形、编解码器、播放器、控制系统、IP 媒体、监控和电台。",
+    "enHash": "79c8ed023fff"
+  },
+  "ecohealthalliance/awesome-parasite": {
+    "summary": "关于寄生虫及其宿主的数据库、博物馆馆藏、报告系统、分类学和期刊。",
+    "enHash": "c7dd7e4ddaf8"
+  },
+  "edm00se/awesome-board-games": {
+    "summary": "适合家庭、策略爱好者和聚会的桌游。",
+    "enHash": "9e6cacdd5f8c"
+  },
+  "edobashira/speech-language-processing": {
+    "summary": "语音识别和自然语言处理的资源：软件、语料库、书籍、课程和学术会议。",
+    "enHash": "90a2184ad537"
+  },
+  "egeerardyn/awesome-latex": {
+    "summary": "文档排版系统 LaTeX 的发行版、编辑器、构建工具、宏包、模板、教程和书籍。",
+    "enHash": "236c62487384"
+  },
+  "eleventigers/awesome-rxjava": {
+    "summary": "RxJava 的绑定、工具、测试辅助、指南和文章，即 JVM 上基于流的响应式编程。",
+    "enHash": "5a188b81c354"
+  },
+  "ellisonleao/magictools": {
+    "summary": "制作游戏用的图形、音频和代码工具、引擎、素材和学习资源。",
+    "enHash": "813c8b51a50a"
+  },
+  "emacs-tw/awesome-emacs": {
+    "summary": "按任务分类的可扩展文本编辑器 Emacs 的包和配置资源。",
+    "enHash": "ecccbafc6b40"
+  },
+  "ember-community-russia/awesome-ember": {
+    "summary": "Ember.js 的插件、工具、指南和教程，这是一个面向大型 Web 应用的 JavaScript 框架。",
+    "enHash": "5d4e9356d2d8"
+  },
+  "eminyagiz42/awesome-sap-commerce": {
+    "summary": "SAP Commerce（原 Hybris）的文档、博客和相关技术，这是用 Java 编写的电商平台。",
+    "enHash": "f77049ed08f3"
+  },
+  "emptymalei/awesome-research": {
+    "summary": "面向研究者的软件：工作组织、笔记、写作与发表、演示、数据可视化和 LaTeX。",
+    "enHash": "e36122ad5a03"
+  },
+  "enaqx/awesome-react": {
+    "summary": "React 和 React Native 的库、工具和学习资源，React 是构建用户界面的 JavaScript 库。",
+    "enHash": "a1efe1946c0c"
+  },
+  "enjalot/algovis": {
+    "summary": "通过交互式可视化讲解算法的项目、库和示例。",
+    "enHash": "1f2f4ab02939"
+  },
+  "eozer/awesome-snmp": {
+    "summary": "SNMP 的库、工具、论文、测试服务器和 MIB 集合，这是监控网络设备的协议。",
+    "enHash": "08b7637a303f"
+  },
+  "erictleung/awesome-nosql-guides": {
+    "summary": "关于 NoSQL 数据库的文章和指南：数据建模、CAP 取舍、图数据库及相关争论。",
+    "enHash": "b39a763b647a"
+  },
+  "erwanlemerrer/awesome-audit-algorithms": {
+    "summary": "从外部审计算法的研究论文和活动，例如检查推荐系统是否存在偏见。",
+    "enHash": "e0b5079d0a0f"
+  },
+  "eselkin/awesome-computational-neuroscience": {
+    "summary": "欧洲和北美的计算神经科学大学实验室和研究团队。",
+    "enHash": "01b36f2ce408"
+  },
+  "esri/awesome-arcgis-developers": {
+    "summary": "在 Esri 的 ArcGIS 平台上构建地图应用的 API、SDK、示例、数据工具和指南。",
+    "enHash": "f001d3d8bdcc"
+  },
+  "eug/awesome-opengl": {
+    "summary": "图形编程接口 OpenGL 的文章、书籍、调试器、着色器编辑器、库、参考资料和演讲。",
+    "enHash": "0d2b42aa6787"
+  },
+  "exaspark/awesome-chatops": {
+    "summary": "ChatOps（通过聊天室完成运维工作）的文章、演讲、书籍、服务和机器人框架。",
+    "enHash": "095a98df57f8"
+  },
+  "expede/awesome-relay": {
+    "summary": "Relay 的学习资源、库、服务端支持和测试工具，这是 Facebook 为 React 打造的 GraphQL 数据框架。",
+    "enHash": "68b643ca7494"
+  },
+  "fabacab/awesome-cybersecurity-blueteam": {
+    "summary": "系统防御的工具和指南：加固、监控、事件响应、蜜罐、身份和威胁情报。",
+    "enHash": "87b2dbba1841"
+  },
+  "fabacab/awesome-lockpicking": {
+    "summary": "开锁和开锁运动的指南、书籍、社区、活动、业余项目和供应商。",
+    "enHash": "989a26c8679a"
+  },
+  "famolus/awesome-sass": {
+    "summary": "Sass 的指南、框架、mixin 库、工具、书籍和视频，Sass 是一种编译为 CSS 的语言。",
+    "enHash": "98e97a65fc5c"
+  },
+  "faroit/awesome-python-scientific-audio": {
+    "summary": "用于音频、语音和音乐研究的 Python 包、教程、书籍和论文。",
+    "enHash": "183f9c03922a"
+  },
+  "fcambus/nginx-resources": {
+    "summary": "配置、加固和扩展 nginx Web 服务器的文章、教程和演讲，包括 Lua 和 OpenResty。",
+    "enHash": "547df0301c41"
+  },
+  "feross/awesome-mad-science": {
+    "summary": "能做到看似不可能之事的惊人 npm 包，从点对点网络到虚拟机。",
+    "enHash": "8c035a90e517"
+  },
+  "fffaraz/awesome-cpp": {
+    "summary": "按领域分类的 C 和 C++ 库、框架和工具，从音频、压缩到数据库、网络和图形。",
+    "enHash": "8c2d580e1464"
+  },
+  "filipelinhares/awesome-slack": {
+    "summary": "面向开发者和设计师的 Slack 工作区，按主题和地区分类。",
+    "enHash": "87bfd3bc9eb3"
+  },
+  "fityanos/awesome-quality-assurance-roadmap": {
+    "summary": "成为软件测试工程师的学习路线，附测试计划示例和实用建议。",
+    "enHash": "a7743a356cea"
+  },
+  "fkie-cad/awesome-embedded-and-iot-security": {
+    "summary": "嵌入式与联网设备安全的软硬件工具、案例研究、培训和网站。",
+    "enHash": "178e05f10220"
+  },
+  "flame-engine/awesome-flame": {
+    "summary": "Flame 的教程、插件和示例项目，这是基于 Flutter 的 2D 游戏引擎。",
+    "enHash": "bbdd4737804f"
+  },
+  "fliptheweb/motion-ui-design": {
+    "summary": "用户界面动效的灵感、文章、软件、库、演讲和规范。",
+    "enHash": "046948733cac"
+  },
+  "folkswhocode/awesome-diversity": {
+    "summary": "关于让科技行业更多元、更包容的组织、活动、文章、演讲和书籍。",
+    "enHash": "3bf9cd85716f"
+  },
+  "foxfil/awesome-geocaching": {
+    "summary": "地理寻宝（用 GPS 寻找隐藏容器的户外游戏）的网站、应用和工具。",
+    "enHash": "f9f05a24bbd4"
+  },
+  "fr0st-brutal/awesome-pascal": {
+    "summary": "Delphi 和 Free Pascal 的库、组件和工具，涵盖图形、网络、数据库、GUI 等。",
+    "enHash": "8cedb73af4d4"
+  },
+  "francoism90/awesome-kde": {
+    "summary": "Linux 桌面 KDE 及其软件的应用、个性化、文档和社区。",
+    "enHash": "925f2de054ef"
+  },
+  "fregante/awesome-webextensions": {
+    "summary": "构建跨浏览器扩展的文档、库、工具、测试辅助、项目模板和示例。",
+    "enHash": "88cbceaa909b"
+  },
+  "frenck/awesome-home-assistant": {
+    "summary": "开源家庭自动化中枢 Home Assistant 的集成、仪表盘、卡片、主题、应用、工具和公开配置。",
+    "enHash": "4416af9c9a71"
+  },
+  "friedger/awesome-stacks-chain": {
+    "summary": "Stacks 及其 Clarity 语言的应用、开发工具和学习资料，Stacks 为比特币带来智能合约。",
+    "enHash": "aab01f8e06f8"
+  },
+  "friendsofcake/awesome-cakephp": {
+    "summary": "CakePHP 的插件、应用和学习资源，这是用 PHP 编写的 Web 框架。",
+    "enHash": "c0288604194f"
+  },
+  "friz-zy/awesome-linux-containers": {
+    "summary": "Linux 容器的规范、运行时、沙箱、虚拟机管理程序、文件系统和安全工具。",
+    "enHash": "0ecb78ceba25"
+  },
+  "fsprojects/awesome-fsharp": {
+    "summary": "F# 的库、框架和工具，从构建工具到数据科学，F# 是 .NET 上的函数式语言。",
+    "enHash": "10c1c52c42b3"
+  },
+  "fukuball/awesome-laravel-education": {
+    "summary": "Laravel PHP 框架的学习资料：文档章节、录屏、文章和书籍，有英文和中文。",
+    "enHash": "649d8125a26a"
+  },
+  "fuse-compound/awesome-fuse": {
+    "summary": "用移动应用开发工具包 Fuse 制作的应用、文章、插件和开源项目。",
+    "enHash": "3e0ecd972545"
+  },
+  "gaerae/awesome-algorithms-education": {
+    "summary": "学习算法的课程、练习网站、可视化、书籍、视频和面试资料。",
+    "enHash": "cb709aa83da8"
+  },
+  "gamontal/awesome-katas": {
+    "summary": "用于练习设计和测试驱动开发的编程练习（kata）。",
+    "enHash": "219277ec3e74"
+  },
+  "gbdev/awesome-gbdev": {
+    "summary": "任天堂 Game Boy 开发的文档、模拟器、编程工具、自制游戏和逆向工程笔记。",
+    "enHash": "679df995492a"
+  },
+  "georgezouq/awesome-ai-in-finance": {
+    "summary": "将机器学习应用于金融市场的交易智能体、语言模型、策略、论文、数据源和交易所 API。",
+    "enHash": "f0c665f3dada"
+  },
+  "git-tips/tips": {
+    "summary": "日常任务和版本控制冷门功能的简短 Git 命令。",
+    "enHash": "090db5fa6717"
+  },
+  "gitfrage/guitarspecs": {
+    "summary": "电吉他部件的参考链接：琴颈、琴体、琴桥、电路、琴弦和木材。",
+    "enHash": "71d48c4daeb3"
+  },
+  "glauberfc/awesome-react-hooks": {
+    "summary": "React 自定义 hook 的文档、教程、讨论、示例和库。",
+    "enHash": "287595eea041"
+  },
+  "gofiber/awesome-fiber": {
+    "summary": "Fiber 的中间件、项目模板、实践示例、工具、文章和基准测试，这是 Express 风格的 Go Web 框架。",
+    "enHash": "a88db3ff02a2"
+  },
+  "gokayfem/awesome-vlm-architectures": {
+    "summary": "同时处理图像和文本的视觉语言模型的架构介绍与参考资料。",
+    "enHash": "28a6ad388a22"
+  },
+  "golemfactory/awesome-golem": {
+    "summary": "面向 Golem 需求方和提供方的工具和指南，Golem 是一个出租闲置算力的网络。",
+    "enHash": "579caa0eb626"
+  },
+  "grafana/awesome-k6": {
+    "summary": "k6 的文章、视频、示例、扩展和 CI 集成，这是 Grafana 用 JavaScript 编写脚本的负载测试工具。",
+    "enHash": "babab37abda6"
+  },
+  "gramantin/awesome-rails": {
+    "summary": "Ruby Web 框架 Ruby on Rails 的学习资源、开源应用、gem 和入门模板。",
+    "enHash": "a3b23584b9a2"
+  },
+  "granze/awesome-polymer": {
+    "summary": "Polymer 的教程、文章、视频、元素和工具，这是 Google 构建 Web 组件的库。",
+    "enHash": "32e9909189a0"
+  },
+  "gruhn/awesome-naming": {
+    "summary": "计算机领域各种概念的名称及解释，从算法、设计模式到安全术语。",
+    "enHash": "380a32da7274"
+  },
+  "guillaume-chevalier/awesome-deep-learning-resources": {
+    "summary": "学习深度学习的在线课程、书籍、文章、论文和视频，侧重循环神经网络。",
+    "enHash": "7781cfa5f615"
+  },
+  "gustavbertram/awesome-common-lisp-learning": {
+    "summary": "学习 Common Lisp 的环境、参考资料、在线与纸质书籍、社区和实现。",
+    "enHash": "2d854c4c7f9a"
+  },
+  "h2oai/awesome-h2o": {
+    "summary": "基于开源机器学习与 AutoML 平台 H2O 的教程、书籍、论文、基准测试和软件。",
+    "enHash": "9b7febaa169a"
+  },
+  "h4cc/awesome-elixir": {
+    "summary": "按领域分类的 Elixir 库和工具，从 actor、身份验证到测试和 Web，超过一千个。",
+    "enHash": "54266d41878f"
+  },
+  "hachiojipm/awesome-perl": {
+    "summary": "按任务分类的 Perl 模块：命令行解析、数据库、日期、邮件、模板、Web 框架等。",
+    "enHash": "6985a6216627"
+  },
+  "hackerkid/bots": {
+    "summary": "构建聊天机器人的平台、工具、库、分析、教程和社区。",
+    "enHash": "c79aba14cf9e"
+  },
+  "hackerkid/mind-expanding-books": {
+    "summary": "改变思维方式的科学、哲学、历史、商业等主题书籍，附评分。",
+    "enHash": "dab6457fe62f"
+  },
+  "hal9ai/awesome-dataviz": {
+    "summary": "多种语言的图表和数据可视化库，从 JavaScript、Python 到 R 和 Rust，以及仪表盘。",
+    "enHash": "0e6bfb553a14"
+  },
+  "hallvaaw/awesome-biological-image-analysis": {
+    "summary": "分析生物图像的软件，从分割、细胞追踪到病理学和神经科学。",
+    "enHash": "e014c4d1ac60"
+  },
+  "hantuzun/awesome-clojurescript": {
+    "summary": "ClojureScript 的库、框架、工具和学习资源，即编译为 JavaScript 的 Clojure。",
+    "enHash": "ada32f1747bf"
+  },
+  "harpribot/awesome-information-retrieval": {
+    "summary": "信息检索（搜索引擎背后的科学）的书籍、课程、软件、数据集和演讲。",
+    "enHash": "6a8f0d6025d3"
+  },
+  "heapy/awesome-kotlin": {
+    "summary": "Kotlin 语言的库、框架、工具、文章和视频，维护在 kotlin.link 网站上。",
+    "enHash": "bc48ffa0ee6c"
+  },
+  "henrikwirth/awesome-wordpress-gatsby": {
+    "summary": "构建以 WordPress 为内容源的 Gatsby 网站的插件、入门模板、主题和社区链接。",
+    "enHash": "65a5eab04565"
+  },
+  "hesreallyhim/awesome-claude-code": {
+    "summary": "Claude Code 的技能、hook、插件、第三方客户端、编排工具和指南，这是一款终端编程智能体。",
+    "enHash": "e4d7e93d5af2"
+  },
+  "heynickc/awesome-ddd": {
+    "summary": "领域驱动设计的书籍、课程、视频、博客、示例项目、库和大会。",
+    "enHash": "2fe85f335017"
+  },
+  "hkirat/awesome-chess": {
+    "summary": "与国际象棋相关的书籍、机器人、走法校验器、棋谱解析器、棋盘棋子图形和网站。",
+    "enHash": "bbf75cf6103e"
+  },
+  "hlaueriksson/awesome-powertoys-run-plugins": {
+    "summary": "PowerToys Run 的社区插件和指南，这是微软 Windows PowerToys 中的快速启动器。",
+    "enHash": "e14780c38bd1"
+  },
+  "hollyadele/awesome-programming-for-kids": {
+    "summary": "向低龄儿童教授编程的应用、游戏、机器人和网站，按年龄段分组。",
+    "enHash": "52e96b5f525e"
+  },
+  "homematic-community/awesome-homematic": {
+    "summary": "家庭自动化系统 Homematic 的文档、应用、插件、替代硬件和软件。",
+    "enHash": "38529122eb7c"
+  },
+  "hothero/awesome-rails-gem": {
+    "summary": "按用途分组的 Rails 应用 gem：身份验证、Active Record、上传、后台任务、管理后台和测试。",
+    "enHash": "6c90e593ee48"
+  },
+  "hqarroum/awesome-iot": {
+    "summary": "物联网的硬件、软件、协议、标准和阅读材料。",
+    "enHash": "8bd17bdb5106"
+  },
+  "hsavit1/awesome-swift-education": {
+    "summary": "Swift 的学习资料，这是苹果为其平台打造的编程语言。",
+    "enHash": "c2a12acb2119"
+  },
+  "hsiaoyi0504/awesome-cheminformatics": {
+    "summary": "将计算机应用于化学的应用、库、期刊及其他资源。",
+    "enHash": "0ea05a50a210"
+  },
+  "hstsethi/awesome-j2me": {
+    "summary": "J2ME（老式手机上的 Java）的开发套件、模拟器、应用、逆向工程工具和保存项目。",
+    "enHash": "86212617914f"
+  },
+  "hyperupcall/awesome-mastodon": {
+    "summary": "Mastodon 的实例、客户端、工具、库、机器人和托管指南，这是一个去中心化的 Twitter 替代品。",
+    "enHash": "3d15ed683f41"
+  },
+  "hzoo/awesome-gametalks": {
+    "summary": "关于游戏设计和电子游戏制作的播客和演讲。",
+    "enHash": "cf9c1f384fef"
+  },
+  "iamcoder/awesome-lucid-dreams": {
+    "summary": "关于清醒梦的研究、书籍、应用、设备、音频节目、论坛及其他资源。",
+    "enHash": "7747e46fdc64"
+  },
+  "iamericfletcher/awesome-r-learning-resources": {
+    "summary": "学习 R 语言的分主题教程、博客、书籍、社区、播客和 YouTube 频道。",
+    "enHash": "b303cda73d41"
+  },
+  "ianstormtaylor/awesome-heroku": {
+    "summary": "Heroku 的 buildpack、插件、工具和指南，这是一个部署和托管应用的云服务。",
+    "enHash": "df918a73bb15"
+  },
+  "ibaaj/awesome-opensourcephotography": {
+    "summary": "开源摄影软件：RAW 处理、HDR、全景、图片管理、EXIF 编辑器、相机固件和社区。",
+    "enHash": "55d914ddbdd4"
+  },
+  "igorbarinov/awesome-bitcoin": {
+    "summary": "在比特币上构建软件的服务、API、钱包、区块浏览器和多种语言的库。",
+    "enHash": "1d3e83b9d234"
+  },
+  "igorbarinov/awesome-data-engineering": {
+    "summary": "构建数据管道的数据库、数据摄取与流处理工具、文件格式、工作流调度器和监控工具。",
+    "enHash": "f87b8a01d4b5"
+  },
+  "iipc/awesome-web-archiving": {
+    "summary": "将网站保存为存档的培训、工具、服务、社区资源和公开数据。",
+    "enHash": "2dfe22caae83"
+  },
+  "ijackua/awesome-vagrant": {
+    "summary": "Vagrant 的 box、配置工具、插件、教程和现成环境，它用于构建可复现的开发虚拟机。",
+    "enHash": "a613d14c4500"
+  },
+  "ildoc/awesome-italy-events": {
+    "summary": "在意大利举办的技术大会和聚会。",
+    "enHash": "d5bc1ff5bcb6"
+  },
+  "infosecb/awesome-detection-engineering": {
+    "summary": "编写攻击检测规则的框架、检测规则、日志来源及其他资源。",
+    "enHash": "fcbc1fcf5d4f"
+  },
+  "innocenzi/awesome-inertiajs": {
+    "summary": "Inertia.js 的适配器、hook 和资源，它把服务端框架与 React 或 Vue 前端连接起来。",
+    "enHash": "68a4ece143a3"
+  },
+  "inoue0426/awesome-computational-biology": {
+    "summary": "计算生物学的数据库、基准测试、API、预处理工具和机器学习模型。",
+    "enHash": "6f32d290aa6f"
+  },
+  "inspectit-labs/awesome-inspectit": {
+    "summary": "inspectIT 的文档、教程、视频和文章，这是一款监控 Java 应用性能的开源工具。",
+    "enHash": "057d98282034"
+  },
+  "ipfs/awesome-ipfs": {
+    "summary": "IPFS 的应用、浏览器、工具、服务和 pinning 服务商，这是一个存储和共享文件的点对点网络。",
+    "enHash": "fb12e6f21086"
+  },
+  "irazasyed/awesome-cloudflare": {
+    "summary": "Cloudflare 网络与安全服务的工具、Workers 项目、应用、DNS 工具和社区链接。",
+    "enHash": "a736c80673ef"
+  },
+  "ironcev/awesome-roslyn": {
+    "summary": "Roslyn 的书籍、教程、分析器、源代码生成器、库和演讲，这是 C# 的 .NET 编译器平台。",
+    "enHash": "4ffb05e357dd"
+  },
+  "isamorph/awesome-permacomputing": {
+    "summary": "关于 permacomputing 的读物、项目和社区，这是一种更节能、更耐用的计算机使用理念。",
+    "enHash": "da9c2a78696a"
+  },
+  "isamorph/awesome-webassembly": {
+    "summary": "WebAssembly 的指南、书籍、编译器、运行时和项目，这是一种可在浏览器等环境运行的紧凑代码格式。",
+    "enHash": "323115b2fdcd"
+  },
+  "j0hnm4r5/awesome-creative-technology": {
+    "summary": "在艺术、设计与技术交汇处工作的工作室、团体、制造商、机构、博物馆和节庆。",
+    "enHash": "83f53c93b74c"
+  },
+  "j2team/awesome-autoit": {
+    "summary": "AutoIt 的用户自定义函数、库和工具，这是一种用于 Windows 自动化的脚本语言。",
+    "enHash": "4dfec8bb9252"
+  },
+  "jacobdjwilson/awesome-annual-security-reports": {
+    "summary": "厂商、政府和研究者发布的网络安全年度报告和调查。",
+    "enHash": "4938aee9655c"
+  },
+  "jagracey/awesome-unicode": {
+    "summary": "Unicode 字符标准的怪癖、问题排查笔记，以及文字系统和字符区块概览。",
+    "enHash": "6180922a8c62"
+  },
+  "jakob-pennington/awesome-devsecops": {
+    "summary": "将安全检查融入软件交付和运维的文章、培训和工具。",
+    "enHash": "35e0ea34fc47"
+  },
+  "jakoch/awesome-composer": {
+    "summary": "PHP 依赖管理器 Composer 的插件、工具、服务、教程和包仓库。",
+    "enHash": "99f8991bb0f3"
+  },
+  "janvanryswyck/awesome-talks": {
+    "summary": "关于软件开发、设计、架构和编程文化的演讲录像。",
+    "enHash": "a92c68ea5cc1"
+  },
+  "jaredthecoder/awesome-vehicle-security": {
+    "summary": "汽车安全与破解的研究、项目、硬件和软件，例如 CAN 总线工具。",
+    "enHash": "045b1f3e4e48"
+  },
+  "jaywcjlove/awesome-mac": {
+    "summary": "按类别整理的 macOS 应用，免费和付费都有：写作、开发、设计、通讯、媒体和实用工具。",
+    "enHash": "b3434c405763"
+  },
+  "jbhuang0604/awesome-computer-vision": {
+    "summary": "计算机视觉的书籍、课程、论文、软件、预训练模型和数据集。",
+    "enHash": "6f8ddd92924b"
+  },
+  "jdrgoms/awesome-postcss": {
+    "summary": "PostCSS 的文章、指南、插件、演讲和值得关注的人，它通过 JavaScript 插件转换 CSS。",
+    "enHash": "cbbf45c84396"
+  },
+  "jetli/awesome-yew": {
+    "summary": "Yew 的项目、模板、crate、工具、文章和课程，这是用 WebAssembly 构建 Web 前端的 Rust 框架。",
+    "enHash": "beece6dd2747"
+  },
+  "joaomilho/awesome-idris": {
+    "summary": "Idris 的官方资源、文章、书籍、论文、项目和后端，这是一门带依赖类型的函数式语言。",
+    "enHash": "80002d0e814d"
+  },
+  "joe-b-security/awesome-prompt-injection": {
+    "summary": "关于语言模型提示词注入攻击的文章、教程、论文、工具和练习游戏。",
+    "enHash": "601e4c115ad7"
+  },
+  "joewdavies/awesome-frontend-gis": {
+    "summary": "在浏览器中展示地图的 JavaScript 地图库、地理数据源、notebook、示例地图和读物。",
+    "enHash": "feb3658f9c45"
+  },
+  "johnjago/awesome-ad-free": {
+    "summary": "不含广告的网站和服务，以及关于无广告生活的读物。",
+    "enHash": "58225a72e47a"
+  },
+  "johnjago/awesome-free-software": {
+    "summary": "用户可自由研究、修改和分享的自由软件与硬件，以及相关读物。",
+    "enHash": "fb52ffafd464"
+  },
+  "johnjago/awesome-theravada": {
+    "summary": "与上座部佛教相关的经典、讲座、书籍、论坛、组织和场所。",
+    "enHash": "e916d45cac3b"
+  },
+  "johnjago/awesome-uncopyright": {
+    "summary": "公有领域的艺术、书籍、图片和软件，以及关于无版权生活的文章。",
+    "enHash": "7a3ab2aa796f"
+  },
+  "joho/awesome-code-review": {
+    "summary": "关于代码评审的论文、文章、书籍、演讲和工具。",
+    "enHash": "1ef3fa72a79f"
+  },
+  "jonathandion/awesome-emails": {
+    "summary": "制作 HTML 邮件的框架、模板、测试工具、服务、设计灵感和文章。",
+    "enHash": "874596932146"
+  },
+  "jondot/awesome-devenv": {
+    "summary": "打造高效开发环境的工具、编辑器插件和配置，从 shell 辅助工具到 Git 扩展。",
+    "enHash": "a77b3d99362f"
+  },
+  "jondot/awesome-react-native": {
+    "summary": "React Native 移动应用的组件、库、工具、入门模板、开源应用和学习资料。",
+    "enHash": "517bfae13ee0"
+  },
+  "jonleibowitz/awesome-digitalocean": {
+    "summary": "云托管服务商 DigitalOcean 的配置工具、客户端库、集成、项目和教程。",
+    "enHash": "75050b597f1e"
+  },
+  "jorgebucaran/awsm.fish": {
+    "summary": "fish shell 的插件、提示符、包管理器和指南。",
+    "enHash": "c23bb5c97896"
+  },
+  "josedefreitas/awesome-youtubers": {
+    "summary": "讲授编程、计算机科学、安全、硬件等主题的 YouTube 频道。",
+    "enHash": "c2907e290bbb"
+  },
+  "josephmisiti/awesome-machine-learning": {
+    "summary": "按编程语言分类的机器学习框架和库，从 C++、Java 到 Python 和 R。",
+    "enHash": "4adc446406c6"
+  },
+  "joshwiens/awesome-rethinkdb": {
+    "summary": "RethinkDB 的文档、驱动、文章、演讲、示例和管理工具，这是一个能实时推送查询结果的文档数据库。",
+    "enHash": "c687a9e8f5b4"
+  },
+  "jstumpp/awesome-android": {
+    "summary": "Android 应用开发的模拟器、库、学习资源和构建工具。",
+    "enHash": "95d99e90b890"
+  },
+  "jthegedus/awesome-firebase": {
+    "summary": "Firebase 的扩展、Web/移动端/服务端库、编辑器工具和指南，这是 Google 的应用后端服务。",
+    "enHash": "cdd162ec473f"
+  },
+  "jtoy/awesome-tensorflow": {
+    "summary": "Google 机器学习框架 TensorFlow 的教程、模型、库、工具、论文和书籍。",
+    "enHash": "aee61e1766e3"
+  },
+  "jyguyomarch/awesome-conversational-ai": {
+    "summary": "构建聊天机器人和语音助手的论文、消息客户端、设计建议、语言理解服务和平台。",
+    "enHash": "eaa689197f73"
+  },
+  "jyguyomarch/awesome-productivity": {
+    "summary": "帮助组织工作、提高效率的网站、书籍和应用。",
+    "enHash": "4c85614a05d0"
+  },
+  "jzarca01/awesome-food": {
+    "summary": "与食物相关的开源项目：菜谱合集、食品 API、植物性烹饪、营养、课程和视频。",
+    "enHash": "e9fde9b3d275"
+  },
+  "k4m4/terminals-are-sexy": {
+    "summary": "为喜欢在终端里工作的人准备的 shell、终端模拟器、包管理器、编辑器和命令行工具。",
+    "enHash": "69680d8c8d77"
+  },
+  "kakoni/awesome-healthcare": {
+    "summary": "医疗健康开源软件：病历、医学影像、实验室、远程医疗、标准和库。",
+    "enHash": "b48ad9e4477c"
+  },
+  "kalaiser/awesome-cdk": {
+    "summary": "AWS Cloud Development Kit 的 construct 库、工具和培训，它用普通代码定义云资源。",
+    "enHash": "04c9c3cb093a"
+  },
+  "kareniel/awesome-evm-security": {
+    "summary": "以太坊智能合约安全的指南、标准、威胁清单和漏洞登记库。",
+    "enHash": "23268ff1388b"
+  },
+  "karlhorky/awesome-speakers": {
+    "summary": "在编程和设计大会及聚会上演讲的讲者。",
+    "enHash": "137c7368e5ab"
+  },
+  "karlhorky/learn-to-program": {
+    "summary": "学习编程的课程和网站，按入门、中级和高级分类。",
+    "enHash": "dbd382812a63"
+  },
+  "karneades/awesome-malware-persistence": {
+    "summary": "攻击者在机器重启后保持驻留的技术，以及检测和清除它们的工具。",
+    "enHash": "372ef0ebe6fc"
+  },
+  "karneades/awesome-security-card-games": {
+    "summary": "讲授威胁建模、事件响应、隐私等安全主题的卡牌游戏。",
+    "enHash": "d34712fc8b3e"
+  },
+  "kazhnuz/awesome-gnome": {
+    "summary": "Linux 上 GNOME 桌面的应用、shell 扩展、主题、社区链接和开发者资源。",
+    "enHash": "28ee1c36a4b7"
+  },
+  "kdabir/awesome-groovy": {
+    "summary": "Groovy 的构建工具、编辑器支持、Web 框架、测试及其他库，Groovy 是 JVM 上的动态语言。",
+    "enHash": "b78add4e1db5"
+  },
+  "kdeldycke/awesome-billing": {
+    "summary": "关于向客户收费的文章和工具：定价、发票、税务、支付、会计、欺诈和收入分析。",
+    "enHash": "8a072b0080ec"
+  },
+  "kdeldycke/awesome-engineering-team-management": {
+    "summary": "写给转型管理者的工程师的读物：组建团队、招聘、入职、文化、会议、远程工作和项目管理。",
+    "enHash": "9c77e8269ad4"
+  },
+  "kdeldycke/awesome-falsehood": {
+    "summary": "关于程序员对姓名、日期、地址、电话号码、货币等现实数据常见错误假设的文章。",
+    "enHash": "a8f5f4f648a0"
+  },
+  "kdeldycke/awesome-iam": {
+    "summary": "身份与访问管理的文章和工具：账户、密码、多因素登录、OAuth、SAML、密钥和隐私。",
+    "enHash": "567719cf8c2b"
+  },
+  "keller-mark/awesome-biological-visualizations": {
+    "summary": "查看基因组、蛋白质、细胞和显微图像等生物数据的交互式 Web 工具。",
+    "enHash": "d587b0ba7286"
+  },
+  "kikobeats/awesome-network-js": {
+    "summary": "网络相关的 JavaScript 模块：点对点、种子下载、服务发现和协议实现。",
+    "enHash": "e48bd004cf11"
+  },
+  "kilimchoi/engineering-blogs": {
+    "summary": "公司、个人开发者和产品团队撰写的技术博客。",
+    "enHash": "6e8863979826"
+  },
+  "kiloreux/awesome-robotics": {
+    "summary": "机器人领域的课程、书籍、论文、会议、期刊、竞赛和公司。",
+    "enHash": "7141a30da8e7"
+  },
+  "kimberlymunoz/empathy-in-engineering": {
+    "summary": "关于工程团队中同理心与善意的文章和演讲，从代码评审到无责复盘。",
+    "enHash": "b2cbf847b5df"
+  },
+  "kitspace/awesome-electronics": {
+    "summary": "电子学的学习资料、仿真器、电路设计软件、PCB 制造商、元器件搜索引擎和社区。",
+    "enHash": "1d34264d870a"
+  },
+  "kjw0612/awesome-deep-vision": {
+    "summary": "面向识别、检测、分割等计算机视觉任务的深度学习论文、书籍、视频和博客。",
+    "enHash": "0cf7afe44688"
+  },
+  "klaufel/awesome-design-systems": {
+    "summary": "各公司已发布的设计系统，以及构建设计系统的工具、设计令牌、模式库、书籍和演讲。",
+    "enHash": "84b5b004fa4b"
+  },
+  "koolamusic/awesome-imba": {
+    "summary": "Imba 的资源和项目，这是一门编译为 JavaScript 的 Web 应用语言。",
+    "enHash": "b1bbd172f286"
+  },
+  "krispo/awesome-haskell": {
+    "summary": "按领域分类的 Haskell 库和资源：编译器、并发、数据、数据库、编辑器、Web 等。",
+    "enHash": "bd4546a7dff0"
+  },
+  "krzjoa/awesome-python-data-science": {
+    "summary": "数据科学 Python 库：机器学习、深度学习、NLP、视觉、时间序列、统计和可视化。",
+    "enHash": "d02ab13bf7d6"
+  },
+  "kyleterry/awesome-radio": {
+    "summary": "无线电相关资源：民用波段、软件定义无线电、业余无线电和应急通信。",
+    "enHash": "9e259e2eca57"
+  },
+  "lauris/awesome-scala": {
+    "summary": "按领域分类的 Scala 库：数据库、Web 框架、JSON、测试、大数据、函数式编程等。",
+    "enHash": "14e98c038c4f"
+  },
+  "lauthieb/awesome-storybook": {
+    "summary": "Storybook 的官方链接、示例、教程、演讲和文章，它用于独立开发界面组件。",
+    "enHash": "e9fdfdb000cd"
+  },
+  "leomaurodesenv/game-datasets": {
+    "summary": "用于人工智能研究和游戏市场研究的数据集、API 和游戏环境。",
+    "enHash": "19b8aaddcf4a"
+  },
+  "lewisjellis/awesome-lua": {
+    "summary": "小巧可嵌入的脚本语言 Lua 的库、实现和工具。",
+    "enHash": "67231f65dc5d"
+  },
+  "likedan/awesome-coreml-models": {
+    "summary": "适用于苹果端侧框架 Core ML 的现成机器学习模型，以及转换和查看模型的工具。",
+    "enHash": "c3aa83220a25"
+  },
+  "liuchong/awesome-roadmaps": {
+    "summary": "编程语言、Web、移动、运维、数据、安全等职业方向的分步学习路线图。",
+    "enHash": "735213a23f61"
+  },
+  "lnishan/awesome-competitive-programming": {
+    "summary": "算法竞赛的教程、课程、书籍、练习网站和代码实现。",
+    "enHash": "657189b72234"
+  },
+  "love2d-community/awesome-love2d": {
+    "summary": "按领域分类的 LÖVE Lua 游戏框架库：动画、摄像机、实体、输入、光照、网络、物理等。",
+    "enHash": "c47ad56f1564"
+  },
+  "loverajoel/jstips": {
+    "summary": "简短的 JavaScript 技巧，每条一个，帮助写出更清晰、更快的代码。",
+    "enHash": "f328d9b38fc6"
+  },
+  "lucasbassetti/awesome-less": {
+    "summary": "Less 的框架、mixin 库、编辑器、在线编译器、文章和视频，Less 是一种编译为 CSS 的语言。",
+    "enHash": "a38afb1b474a"
+  },
+  "lucasviola/awesome-functional-programming": {
+    "summary": "跨语言学习函数式编程的文章、论文、书籍、讲座、工具和社区。",
+    "enHash": "385718c791ba"
+  },
+  "lucasviola/awesome-tech-videos": {
+    "summary": "关于编程语言、前端、函数式编程、数据库、架构和工程文化的大会演讲。",
+    "enHash": "b29b212f9842"
+  },
+  "lukasz-madon/awesome-remote-job": {
+    "summary": "远程工作的文章、招聘网站、公司、社区、工具和法律建议。",
+    "enHash": "27f58a214680"
+  },
+  "lunohodov/awesome-astrophotography": {
+    "summary": "拍摄夜空的文章、书籍、教程、软件、YouTube 频道和社区。",
+    "enHash": "b88b4317ae6e"
+  },
+  "lutzh/awesome-event-driven-architecture": {
+    "summary": "关于事件驱动架构的文章和视频，在这种架构中服务通过发布和响应事件进行通信。",
+    "enHash": "ca2dbb28310f"
+  },
+  "lvwzhen/tools": {
+    "summary": "面向前端开发者的 Web 工具：占位图、favicon、CDN、图片压缩、配色、字体、API 文档和在线代码编辑器。",
+    "enHash": "c390e17dae8b"
+  },
+  "ly0n/awesome-robotic-tooling": {
+    "summary": "构建机器人的开源工具：仿真、传感器、定位、规划、控制、中间件和可视化。",
+    "enHash": "ad9cfedafebb"
+  },
+  "lyqht/awesome-supabase": {
+    "summary": "Supabase 的入门项目、迁移与开发者工具、课程、视频和指南，这是基于 Postgres 的开源后端。",
+    "enHash": "73cf0b91ca25"
+  },
+  "machinomy/awesome-non-financial-blockchain": {
+    "summary": "将区块链用于金融以外领域的项目：身份、物联网、能源和媒体。",
+    "enHash": "5cf7a08d07d2"
+  },
+  "maehr/awesome-digital-history": {
+    "summary": "用数字方法开展历史研究的在线档案、原始资料和学习资料。",
+    "enHash": "8cee71eb896b"
+  },
+  "mailtoharshit/awesome-salesforce": {
+    "summary": "面向 Salesforce 客户关系平台开发者和管理员的工具、库、集成和资源。",
+    "enHash": "3d439d444b98"
+  },
+  "make-github-pseudonymous-again/awesome-qr-code": {
+    "summary": "生成和识别二维码的应用、命令行工具和库。",
+    "enHash": "06849e39e454"
+  },
+  "manuzhang/awesome-streaming": {
+    "summary": "在事件到达时处理数据流的引擎、库、集成工具、基准测试和读物。",
+    "enHash": "6af8104eb02c"
+  },
+  "marcobiedermann/search-engine-optimization": {
+    "summary": "涵盖 URL、内容、图片、链接和移动端的 SEO 检查清单，以及工具和书籍。",
+    "enHash": "bfe8edba7d89"
+  },
+  "margaretmz/awesome-tensorflow-lite": {
+    "summary": "TensorFlow Lite 的模型、示例应用、插件和教程，它在手机和设备上运行机器学习模型。",
+    "enHash": "1f926299ee70"
+  },
+  "mark-rushakoff/awesome-influxdb": {
+    "summary": "时序数据库 InfluxDB 的客户端库、数据采集器、查询与可视化工具和托管方案。",
+    "enHash": "356be4bf26ce"
+  },
+  "markets/awesome-ruby": {
+    "summary": "按任务分类的 Ruby gem 和工具，从管理后台、身份验证到测试和 Web 服务器。",
+    "enHash": "38feed26b11e"
+  },
+  "markusschanta/awesome-jupyter": {
+    "summary": "Jupyter notebook 的扩展、运行环境、可视化与发布工具、托管服务和教程。",
+    "enHash": "77b0b55e014d"
+  },
+  "marmelab/awesome-rest": {
+    "summary": "REST API 的设计指南、标准、客户端与服务端库、测试和文档工具。",
+    "enHash": "63277e04fdf5"
+  },
+  "martinmiles/awesome-sitecore": {
+    "summary": "按领域分类的 Sitecore 模块、工具、文章和演示，这是一个 .NET 内容与营销平台。",
+    "enHash": "47632e752e72"
+  },
+  "martinzikmund/awesome-uno-platform": {
+    "summary": "Uno Platform 的库、工具、示例、应用、文章、课程和演讲，它让 .NET 界面在各平台运行。",
+    "enHash": "ec1d12bd8b12"
+  },
+  "master-co/awesome-master-css": {
+    "summary": "Master CSS 的官方资源、框架集成、编辑器支持、示例和文章，这是一种工具类风格的样式语言。",
+    "enHash": "4ebe20a8434a"
+  },
+  "matchai/awesome-pinned-gists": {
+    "summary": "让 GitHub 个人主页置顶 gist 显示实时数据（如最近听的音乐）的项目。",
+    "enHash": "fdc027fde868"
+  },
+  "matiassingers/awesome-readme": {
+    "summary": "真实项目中的 README 示例，以及写好 README 的文章和工具。",
+    "enHash": "71960218ecfa"
+  },
+  "matiassingers/awesome-slack": {
+    "summary": "团队聊天服务 Slack 的主题、库和开源应用。",
+    "enHash": "e6fe3806d24c"
+  },
+  "matteocrippa/awesome-swift": {
+    "summary": "iOS 和 macOS 开发的 Swift 库、项目模板、指南、编辑器支持和工具，超过一千条。",
+    "enHash": "a711267c1b24"
+  },
+  "matteofigus/awesome-speaking": {
+    "summary": "成为更好的大会讲者的文章、书籍、视频、俱乐部和征稿网站。",
+    "enHash": "d3dfed56aaa8"
+  },
+  "matthias84/awesome-flying-fpv": {
+    "summary": "FPV 无人机的开源硬件和软件：机架、飞控、遥控、摄像头、遥测和地面站。",
+    "enHash": "a51e80da08f1"
+  },
+  "max-mapper/maintenance-modules": {
+    "summary": "帮助作者创建、编写文档和发布 npm 包的命令行工具。",
+    "enHash": "e0cfa3d8b89b"
+  },
+  "mbiesiad/awesome-translations": {
+    "summary": "文本和软件翻译的平台、应用、工具、文章、课程和书籍。",
+    "enHash": "a85c4bb10926"
+  },
+  "mcanouil/awesome-quarto": {
+    "summary": "Quarto 的文档、教程、演讲、扩展和示例，这是基于 Pandoc 的科学文档发布系统。",
+    "enHash": "fbd77be47009"
+  },
+  "mcauser/awesome-micropython": {
+    "summary": "MicroPython（面向微控制器的 Python）的库、驱动、框架、教程和工具。",
+    "enHash": "ec06f3dacc1d"
+  },
+  "mdbootstrap/awesome-mdbootstrap": {
+    "summary": "MDBootstrap 的模板、工具、数据表格、集成和文章，这是 Material Design 风格的 Bootstrap UI 套件。",
+    "enHash": "295421132d1a"
+  },
+  "meirwah/awesome-incident-response": {
+    "summary": "安全事件响应工具：取证、内存分析、日志分析、分诊和处置手册。",
+    "enHash": "368c9832825b"
+  },
+  "melvin0008/awesome-projects-boilerplates": {
+    "summary": "Android、iOS、JavaScript、Python、PHP、Ruby、.NET、Go 和浏览器扩展的入门项目。",
+    "enHash": "577b77347c55"
+  },
+  "mezod/awesome-indie": {
+    "summary": "面向独立经营小生意的开发者的社区、通讯、播客、案例研究、书籍和工具。",
+    "enHash": "5ee1dd0e68df"
+  },
+  "mfkl/awesome-vlc": {
+    "summary": "开源媒体播放器 VLC 及其 libvlc 库的文档、插件、扩展、应用、绑定和教程。",
+    "enHash": "94b94535d0ba"
+  },
+  "mfornos/awesome-microservices": {
+    "summary": "用小型独立服务构建系统的平台、框架、工具包、标准和理论。",
+    "enHash": "ff2d7756387f"
+  },
+  "mgramin/awesome-db-tools": {
+    "summary": "各类数据库工具：编辑器、图形与命令行客户端、Schema、备份、监控、测试和安全工具。",
+    "enHash": "51516fb21e02"
+  },
+  "mhinz/vim-galore": {
+    "summary": "一份详尽的 Vim 指南，涵盖基础、日常用法和冷门功能，附插件和读物链接。",
+    "enHash": "389ffef32ae7"
+  },
+  "mhxion/awesome-discord-communities": {
+    "summary": "关于编程、语言、Web 开发、安全、硬件、游戏开发和职业的 Discord 服务器。",
+    "enHash": "95618f05adc9"
+  },
+  "michaelbrusegard/awesome-wezterm": {
+    "summary": "WezTerm 的插件、主题和配置辅助工具，这是一款用 Lua 配置的终端模拟器。",
+    "enHash": "ee1853400bac"
+  },
+  "michelpereira/awesome-games-of-coding": {
+    "summary": "教授或考验编程能力的游戏，有的不限语言，有的使用 Python、Java、JavaScript 或汇编。",
+    "enHash": "418f387be4ad"
+  },
+  "michelpereira/awesome-open-source-games": {
+    "summary": "浏览器、桌面和移动端的开源游戏，以及引擎和 mod 工具。",
+    "enHash": "14a0c4050d4e"
+  },
+  "micromata/awesome-css-learning": {
+    "summary": "学习 CSS 本身的文章和参考资料：单位、选择器、自定义属性、布局和动画。",
+    "enHash": "ab06ddf22fb4"
+  },
+  "micromata/awesome-javascript-learning": {
+    "summary": "学习 JavaScript 的参考资料、教程、免费与付费书籍、博客、视频和交互式课程。",
+    "enHash": "83ae962e3333"
+  },
+  "mikbry/awesome-webgpu": {
+    "summary": "WebGPU 的文章、教程、书籍、库、调试器和演示，这是浏览器调用 GPU 进行图形和计算的接口。",
+    "enHash": "3b6da3c7993b"
+  },
+  "mislavcimpersak/awesome-dev-fun": {
+    "summary": "程序员做的玩笑库、搞怪工具和幽默项目，按语言分类。",
+    "enHash": "b4ab8f1520d3"
+  },
+  "mjhea0/awesome-fastapi": {
+    "summary": "FastAPI 的扩展、教程、托管方案和示例项目，这是构建 Web API 的 Python 框架。",
+    "enHash": "e02f67232e98"
+  },
+  "mjhea0/awesome-flask": {
+    "summary": "Flask 的扩展、教程、托管方案和开源项目，这是一个小巧的 Python Web 框架。",
+    "enHash": "628cb80989d2"
+  },
+  "mmccaff/placestopostyourstartup": {
+    "summary": "可以向首批用户发布新创业项目或产品的网站和 Reddit 社区。",
+    "enHash": "99e7a2fa6b11"
+  },
+  "mmcgrana/services-engineering": {
+    "summary": "关于在生产环境中构建和运行网络服务与分布式系统的论文、文章和书籍。",
+    "enHash": "915c8651987c"
+  },
+  "mo-way/awesome-aoip": {
+    "summary": "通过 IP 网络传输专业音频（如 Dante 和 AES67）的工具、标准、组织和培训。",
+    "enHash": "25decdead3fa"
+  },
+  "mobilitydata/awesome-transit": {
+    "summary": "以 GTFS 为核心的公共交通信息数据格式、API、应用、工具和研究。",
+    "enHash": "c73b33cd7658"
+  },
+  "mohataher/awesome-tinkerpop": {
+    "summary": "Apache TinkerPop 的库、教程、社区和值得关注的人，这是使用 Gremlin 语言的图数据库框架。",
+    "enHash": "bdea02998ab3"
+  },
+  "mojoaxel/awesome-regression-testing": {
+    "summary": "视觉回归测试的工具、服务、文章和演讲，通过比对截图发现意外变化。",
+    "enHash": "a2c4394d993b"
+  },
+  "mostafatouny/awesome-theoretical-computer-science": {
+    "summary": "计算机数学理论方面的书籍、讲义和综述：计算、逻辑、算法、密码学和学习理论。",
+    "enHash": "7801df1a685c"
+  },
+  "moul/awesome-ssh": {
+    "summary": "关于 SSH（安全远程 shell 和文件传输协议）的应用、库和读物。",
+    "enHash": "3d8da43dede3"
+  },
+  "mourarthur/awesome-credit-modeling": {
+    "summary": "关于信用评分和信用风险模型的研究论文，包括特征选择和可解释性。",
+    "enHash": "6d963a5c4a08"
+  },
+  "msmolyakov/awesome-waves": {
+    "summary": "基于 Waves 的官方资源、文章、框架、工具和产品，这是一个去中心化应用区块链平台。",
+    "enHash": "04396e5a39c5"
+  },
+  "msub2/awesome-webxr": {
+    "summary": "WebXR（浏览器中的 VR 和 AR）的项目、开发工具、学习资源和社区。",
+    "enHash": "0c87f0f113bf"
+  },
+  "mungell/awesome-for-beginners": {
+    "summary": "欢迎首次贡献者的开源项目，按编程语言分组。",
+    "enHash": "b559994b8850"
+  },
+  "mxschmitt/awesome-playwright": {
+    "summary": "Playwright 的集成、其他语言移植、实用工具、报告器和指南，这是微软的浏览器自动化与测试工具。",
+    "enHash": "0df23acb3f99"
+  },
+  "myhoneybadger/awesome-github-wiki": {
+    "summary": "GitHub wiki 示例，以及在仓库 wiki 中编写项目文档的技巧。",
+    "enHash": "0c77fa762d92"
+  },
+  "myshov/awesome-mobile-web-development": {
+    "summary": "构建在手机上表现良好的网站的文章、书籍、规范、演讲和测试工具。",
+    "enHash": "6b017b5e907d"
+  },
+  "mystenlabs/awesome-move": {
+    "summary": "Move 的书籍、教程、代码、工具、SDK 和论文，这是 Sui 和 Aptos 的智能合约语言。",
+    "enHash": "9d037496965f"
+  },
+  "n0kovo/awesome-password-cracking": {
+    "summary": "从哈希中恢复密码的工具、字典、书籍、研究和指南。",
+    "enHash": "d76a8fbc01b8"
+  },
+  "n2cholas/awesome-jax": {
+    "summary": "JAX 的库、模型、论文、教程和视频，这是用于高速数值计算和机器学习的 Python 库。",
+    "enHash": "df65f4abf077"
+  },
+  "nadunindunil/awesome-material-ui": {
+    "summary": "基于 Material UI 的组件、主题、工具、项目模板和应用，这是遵循 Material Design 的 React 组件库。",
+    "enHash": "80d17c45693c"
+  },
+  "naimo84/awesome-nodered": {
+    "summary": "Node-RED 的安装指南、文档、扩展节点和社区链接，这是连接设备与服务的可视化工具。",
+    "enHash": "a49b23030aa2"
+  },
+  "narkoz/guides": {
+    "summary": "标记语言、编程语言、框架和提交信息的风格指南。",
+    "enHash": "aff0f7c2a201"
+  },
+  "nayafia/awesome-maintainers": {
+    "summary": "关于维护开源项目经历的演讲、文章和人物。",
+    "enHash": "af2db3258e42"
+  },
+  "nekofar/awesome-slim": {
+    "summary": "Slim 的指南、骨架项目、中间件和模板包，这是用于 Web 应用和 API 的轻量级 PHP 框架。",
+    "enHash": "d93c77330925"
+  },
+  "neueda/awesome-neo4j": {
+    "summary": "Neo4j 图数据库的驱动、扩展、导入与可视化工具及其他项目。",
+    "enHash": "fbb96215e485"
+  },
+  "neutraltone/awesome-stock-resources": {
+    "summary": "可在项目中使用的免费照片、插画、矢量图、视频、纹理、字体、图标、模板和音效。",
+    "enHash": "30c9e820efe0"
+  },
+  "nglgzz/awesome-clean-tech": {
+    "summary": "用技术应对气候变化和污染的公司、组织和研究。",
+    "enHash": "4dceeecdd3a8"
+  },
+  "nicolesaidy/awesome-web-design": {
+    "summary": "面向网页设计师的灵感、配色、排版、图标、图片、设计与原型工具、教程和书籍。",
+    "enHash": "f0fdcfa644d3"
+  },
+  "nikgraf/awesome-draft-js": {
+    "summary": "Draft.js 的编辑器、插件、工具、文章、演示和演讲，这是 Facebook 的 React 富文本编辑框架。",
+    "enHash": "3b70c24eec04"
+  },
+  "nirgn975/awesome-drupal": {
+    "summary": "Drupal 的工具、模块、发行版、文档、书籍、视频和播客，这是用 PHP 编写的开源内容管理系统。",
+    "enHash": "3452c180188c"
+  },
+  "nix-community/awesome-nix": {
+    "summary": "可复现包管理器 Nix 和 NixOS 的指南、部署工具、语言集成和 NixOS 模块。",
+    "enHash": "efbfe569d27a"
+  },
+  "noahbuscher/inspire": {
+    "summary": "面向网页设计师和开发者的设计灵感网站、创作工具、协作服务、后端和测试辅助。",
+    "enHash": "a04646cf7cfb"
+  },
+  "noteflakes/awesome-music": {
+    "summary": "制作和处理音乐的软件：音频编辑器、库、MIDI 工具、记谱、编程语言和免费乐谱。",
+    "enHash": "e52bfdc5f596"
+  },
+  "notlmn/awesome-icons": {
+    "summary": "可下载为 SVG、PNG 或字体的开源图标集，包括 logo 和专用图标集。",
+    "enHash": "292ad05083e8"
+  },
+  "notthetup/awesome-webaudio": {
+    "summary": "Web Audio API 的包、教程和资源，它在浏览器中生成和处理声音。",
+    "enHash": "3f26c8399d87"
+  },
+  "npacore/awesome-neuroimaging": {
+    "summary": "分析 MRI 等脑部扫描的查看器、处理流程、库、数据和教程。",
+    "enHash": "8e5c4ed441c5"
+  },
+  "nschloe/awesome-scientific-computing": {
+    "summary": "科学计算软件：线性代数、有限元、网格生成、求解器、数据格式和可视化。",
+    "enHash": "162c98928cd0"
+  },
+  "numetriclabz/awesome-db": {
+    "summary": "按实现语言分组的开源数据库引擎，以及数据库相关研究论文。",
+    "enHash": "a437b87b2e64"
+  },
+  "ocaml-community/awesome-ocaml": {
+    "summary": "按领域分类的 OCaml 库、工具、编译器、书籍、博客和社区链接。",
+    "enHash": "fba969f15382"
+  },
+  "ohenley/awesome-ada": {
+    "summary": "Ada 和 SPARK 的编译器、编辑器、库、框架、嵌入式工具和学习资料。",
+    "enHash": "0d625059bae4"
+  },
+  "oleksbard/awesome-knockout": {
+    "summary": "Knockout 的框架、插件、自定义绑定、组件和示例，这是一个将数据绑定到页面的 JavaScript 库。",
+    "enHash": "d7d4bfceb55f"
+  },
+  "onqtam/awesome-cmake": {
+    "summary": "构建系统生成器 CMake 的模块、脚本、工具链、模板、包管理器和学习资源。",
+    "enHash": "a00dd035b84e"
+  },
+  "opencompany/awesome-open-company": {
+    "summary": "公开内部运作（如财务、薪资、战略或源代码）的公司。",
+    "enHash": "531e976145a6"
+  },
+  "oppoverbakke/awesome-gdpr": {
+    "summary": "欧盟数据保护法 GDPR 的法律文本、官方指引、工具和出版物。",
+    "enHash": "0026d6d3e963"
+  },
+  "osmlab/awesome-openstreetmap": {
+    "summary": "基于人人可编辑的地图 OpenStreetMap 的编辑器、工具、库、API 和地图。",
+    "enHash": "911cfaabfe8d"
+  },
+  "ossu/computer-science": {
+    "summary": "由免费在线课程组成的自学课程体系，覆盖完整的计算机科学本科教育。",
+    "enHash": "734ed2ca08b8"
+  },
+  "owainlewis/awesome-artificial-intelligence": {
+    "summary": "学习 AI 的书籍、论文和课程，以及构建 AI 系统和智能体辅助软件工程的工具。",
+    "enHash": "41c6496e8a51"
+  },
+  "oxnr/awesome-analytics": {
+    "summary": "网站、移动应用、SEO、热力图、归因和社交媒体的分析工具，包括注重隐私的工具。",
+    "enHash": "a6c0fcd7a056"
+  },
+  "oxnr/awesome-bigdata": {
+    "summary": "面向超大规模数据的框架、分布式文件系统、各种数据模型的数据库，以及数据摄取和分析工具。",
+    "enHash": "d0935942a95e"
+  },
+  "packing-box/awesome-executable-packing": {
+    "summary": "关于压缩或伪装可执行文件（常被恶意软件使用）的论文、数据集、加壳器和工具。",
+    "enHash": "809aaba2e2c8"
+  },
+  "pajaydev/awesome-web-performance-budget": {
+    "summary": "性能预算的文章和工具，即网站必须遵守的页面体积和加载时间上限。",
+    "enHash": "c59a1c657648"
+  },
+  "pandafoss/awesome-arch": {
+    "summary": "基于 Arch Linux 的发行版、安装器、AUR 助手及其他项目。",
+    "enHash": "2402a314b365"
+  },
+  "panxproject/awesome-certificates": {
+    "summary": "计算机及相关领域可获得证书的免费在线课程。",
+    "enHash": "e963386dff57"
+  },
+  "papers-we-love/papers-we-love": {
+    "summary": "推荐阅读的计算机科学研究论文，按主题分组，并附相关阅读清单。",
+    "enHash": "be4e2063c268"
+  },
+  "paragonie/awesome-appsec": {
+    "summary": "编写安全应用的文章、书籍和指南，按编程语言分组。",
+    "enHash": "9aef6d8f6b22"
+  },
+  "paralax/awesome-honeypots": {
+    "summary": "蜜罐（吸引攻击者的诱饵系统），以及分析其捕获内容的工具。",
+    "enHash": "1563923c4cb1"
+  },
+  "parro-it/awesome-micro-npm-packages": {
+    "summary": "每个只做一件事的小型 npm 模块，以及关于这种包风格的文章。",
+    "enHash": "75cdc9f99665"
+  },
+  "passy/awesome-purescript": {
+    "summary": "PureScript 的构建工具、prelude、UI 库、路由、测试和学习资源，这是一门面向 JavaScript 的类 Haskell 语言。",
+    "enHash": "0628186854fd"
+  },
+  "passy/awesome-recursion-schemes": {
+    "summary": "递归模式（函数式代码中遍历嵌套数据的模式）的入门、文章、论文、演讲和库。",
+    "enHash": "128e19496f5e"
+  },
+  "patrickjs/awesome-angular": {
+    "summary": "Angular 的数千个库、组件、工具、教程和模板，这是 Google 的 TypeScript Web 框架。",
+    "enHash": "da1b0f762f32"
+  },
+  "pazguille/offline-first": {
+    "summary": "离线可用的 Web 应用的规范、文章、演讲、工具、书籍和示例。",
+    "enHash": "c5a675c54431"
+  },
+  "pehapkari/awesome-symfony-education": {
+    "summary": "学习 Symfony PHP 框架的教程、视频课程、文章和书籍，从表单、安全到 Doctrine。",
+    "enHash": "fff428102a4f"
+  },
+  "perfectcarl/awesome-play1": {
+    "summary": "Java Web 框架 Play Framework 1.x 版本的模块和资源。",
+    "enHash": "d76ad6139eaf"
+  },
+  "pest-parser/awesome-pest": {
+    "summary": "使用 Pest 的项目和工具，这是一个根据语法编写解析器的 Rust 库。",
+    "enHash": "e1121ac5746c"
+  },
+  "petk/awesome-dojo": {
+    "summary": "Dojo Toolkit 的教程、项目模板、包、集成、主题和应用，这是面向大型 Web 应用的 JavaScript 库。",
+    "enHash": "fe96af83f42e"
+  },
+  "petk/awesome-jquery": {
+    "summary": "jQuery 的插件、测试工具、教程和替代品，这是一个操作网页的 JavaScript 库。",
+    "enHash": "ae313f9982d0"
+  },
+  "pfarb/awesome-crypto-papers": {
+    "summary": "向非密码学专业的程序员和工程师讲解密码学的论文和文章。",
+    "enHash": "c3ac3d2f3b24"
+  },
+  "phalcon/awesome-phalcon": {
+    "summary": "按用途分类的 Phalcon 插件、骨架应用和库，这是以 C 扩展形式提供的 PHP 框架。",
+    "enHash": "a274310971d1"
+  },
+  "phanan/htaccess": {
+    "summary": "Apache .htaccess 文件代码片段，涵盖重定向与重写、安全、性能和其他服务器设置。",
+    "enHash": "5d19d8bf3ce9"
+  },
+  "phantomydn/awesome-wicket": {
+    "summary": "Apache Wicket 的库、集成、插件和工具，这是一个基于组件的 Java Web 框架。",
+    "enHash": "fed2a1c41dae"
+  },
+  "phillipadsmith/awesome-github": {
+    "summary": "面向 GitHub 新手的指南、日常用户的技巧和插件，以及这一服务的另类用法。",
+    "enHash": "9b7ad1bb11ae"
+  },
+  "philsturgeon/awesome-earth": {
+    "summary": "帮助人们减少气候影响的产品、服务、组织和媒体。",
+    "enHash": "b7a3b9cfe608"
+  },
+  "pico-8/awesome-pico-8": {
+    "summary": "PICO-8 的教程、工具、库、素材、演讲和仿制品，这是一款制作复古游戏的小型虚拟游戏机。",
+    "enHash": "01f4f7170250"
+  },
+  "piebald-ai/awesome-gemini-cli": {
+    "summary": "Gemini CLI 的扩展、集成和工具，这是 Google 在终端中运行的 AI 编程助手。",
+    "enHash": "4ebb6ef65f4f"
+  },
+  "playcanvas/awesome-playcanvas": {
+    "summary": "用 WebGL 游戏引擎 PlayCanvas 制作的教程、扩展、演示、游戏和产品案例。",
+    "enHash": "b94b5997ef97"
+  },
+  "pmuens/awesome-serverless": {
+    "summary": "关于 Serverless Framework 和基于云函数构建应用的博客、文章、演讲、插件和项目。",
+    "enHash": "f50deda669fe"
+  },
+  "podo/awesome-framer": {
+    "summary": "Framer 的教程、课程、模块、UI 库和示例，这是一款设计交互原型的工具。",
+    "enHash": "3ff5275c7a59"
+  },
+  "polkadot-developers/awesome-substrate": {
+    "summary": "Substrate 的模板、pallet、客户端库、工具和学习资料，这是构建区块链的 Rust 框架。",
+    "enHash": "2dda9990fd28"
+  },
+  "polycarbohydrate/awesome-tor": {
+    "summary": "关于 Tor 的应用、网桥、反审查方法、指南和新闻，Tor 是隐藏网络通信双方身份的网络。",
+    "enHash": "8154ac2eb764"
+  },
+  "prakhar1989/awesome-courses": {
+    "summary": "可在线获取讲座、阅读材料和作业的大学计算机科学课程。",
+    "enHash": "a8a7233e6c3c"
+  },
+  "preactjs/awesome-preact": {
+    "summary": "Preact 的工具包、项目模板、路由、组件、库和示例应用，这是 React 的小巧替代品。",
+    "enHash": "2fb9a1fce6bf"
+  },
+  "qazbnm456/awesome-web-security": {
+    "summary": "Web 应用安全的入门、技巧、速查表、工具、博客和练习网站。",
+    "enHash": "19d3cddf8e9e"
+  },
+  "qinwf/awesome-r": {
+    "summary": "按领域分类的 R 包和工具：数据处理、图形、可复现研究、Web、机器学习、统计等。",
+    "enHash": "2e6972bfeb78"
+  },
+  "qmonnet/awesome-ebpf": {
+    "summary": "eBPF 的文档、文章、教程、示例和项目，它在 Linux 内核中运行小型安全程序。",
+    "enHash": "ceeb80442271"
+  },
+  "quangv/awesome-couchdb": {
+    "summary": "Apache CouchDB 的文章、文档、书籍、视频和库，这是一个可在副本间同步数据的文档数据库。",
+    "enHash": "860081998768"
+  },
+  "quozd/awesome-dotnet": {
+    "summary": "按主题分类的 .NET 开发库、框架和工具，从算法到 Web。",
+    "enHash": "fe30c304374a"
+  },
+  "rabbiabram/awesome-fortran": {
+    "summary": "用于数学、图形、数据格式、测试和构建的 Fortran 库，以及其他资源。",
+    "enHash": "eccdeb738d0a"
+  },
+  "rabschi/awesome-beacon": {
+    "summary": "多平台低功耗蓝牙信标（如 iBeacon 和 Eddystone）的规范、SDK 和应用。",
+    "enHash": "1872cd55cac4"
+  },
+  "radek-sprta/awesome-game-remakes": {
+    "summary": "经典游戏的开源重制和重新实现，按类型分类：动作、冒险、射击、RPG、竞速和策略。",
+    "enHash": "d298804f4061"
+  },
+  "rafaskb/awesome-libgdx": {
+    "summary": "libGDX 的库、教程、素材和社区链接，这是一个跨平台游戏的 Java 框架。",
+    "enHash": "3a0969d03ff0"
+  },
+  "rahulbircodes/awesome-steam": {
+    "summary": "面向中小学和大学科学、技术、工程、艺术和数学课程的教学资料。",
+    "enHash": "c7a7d3541f95"
+  },
+  "ramitsurana/awesome-kubernetes": {
+    "summary": "关于 Kubernetes 的项目、工具和读物，这是在多台机器上运行和管理容器的系统。",
+    "enHash": "1c009da16440"
+  },
+  "ramnes/awesome-mongodb": {
+    "summary": "MongoDB 的教程、驱动、库、工具和应用，这是一个存储类 JSON 记录的文档数据库。",
+    "enHash": "41157198c8df"
+  },
+  "raphamorim/awesome-canvas": {
+    "summary": "用 HTML5 canvas 元素绘制图形的演示、库和教程。",
+    "enHash": "b23a162f9d2d"
+  },
+  "ravirupareliya/awesome-actions-on-google": {
+    "summary": "Actions on Google 的文档、博客、视频、课程和示例代码，它曾用于为 Google Assistant 扩展应用。",
+    "enHash": "8926dc9fc272"
+  },
+  "raybb/awesome-social-enterprise": {
+    "summary": "面向社会企业创业者（兼顾公益与盈利）的读物、播客、课程、奖学金、机构和社区。",
+    "enHash": "58c147b78aca"
+  },
+  "rayokota/awesome-hbase": {
+    "summary": "Apache HBase 的项目和读物，这是运行在 Hadoop 之上的列式存储。",
+    "enHash": "b308847610e5"
+  },
+  "razum2um/awesome-clojure": {
+    "summary": "按领域分类的 Clojure 库、产品和工具，从 Web 框架、数据库到并发和 GUI。",
+    "enHash": "05a84a5ed172"
+  },
+  "readthedocs-examples/awesome-read-the-docs": {
+    "summary": "托管在 Read the Docs 上、用 Sphinx 或 MkDocs 构建的文档项目，可在新建文档时参考。",
+    "enHash": "b5bec296d0e3"
+  },
+  "refinerycms-contrib/awesome-refinerycms": {
+    "summary": "Refinery CMS 的扩展，包括商店集成，这是基于 Ruby on Rails 的内容管理系统。",
+    "enHash": "7df9564e33d4"
+  },
+  "reflex-dev/awesome-reflex": {
+    "summary": "Reflex 的示例应用、模板、组件库和指南，它用纯 Python 构建完整的 Web 应用。",
+    "enHash": "0a0b98bb8ff3"
+  },
+  "rellaner/awesome-position-based-quantum-cryptography": {
+    "summary": "关于基于位置的量子密码学的研究论文，参与方借助量子信号和相对论证明自己的位置。",
+    "enHash": "809a30d109cc"
+  },
+  "richardlitt/awesome-fantasy": {
+    "summary": "奇幻小说和电影，从经典系列到近年新书。",
+    "enHash": "14899a7db687"
+  },
+  "richienb/awesome-ponyfills": {
+    "summary": "ponyfill，即不修改内置对象而补齐缺失 JavaScript 功能的模块。",
+    "enHash": "6ac3fcbbcb1c"
+  },
+  "rickstaa/awesome-adsb": {
+    "summary": "ADS-B（飞机广播自身位置的无线电信号）的指南、聚合平台、软件、数据和接收机。",
+    "enHash": "60299b288f06"
+  },
+  "riderx/awesome-capacitor": {
+    "summary": "Capacitor 的官方与社区插件、工具、学习资料和应用，它把 Web 应用变成移动应用。",
+    "enHash": "9fcc8b835425"
+  },
+  "ripienaar/free-for-dev": {
+    "summary": "为开发者提供免费套餐的软件服务：云托管、代码托管、CI、测试、监控、邮件、日志等。",
+    "enHash": "3dd99cf40852"
+  },
+  "roaldnefs/awesome-prometheus": {
+    "summary": "开源监控告警系统 Prometheus 的教程、书籍、演讲、exporter、仪表盘和部署工具。",
+    "enHash": "ce10a2a379ff"
+  },
+  "robinrodricks/awesome-actionscript3": {
+    "summary": "ActionScript 3（Flash 和 Adobe AIR 的语言）的框架、界面库、工具、运行时和原生扩展。",
+    "enHash": "9fdbed60506b"
+  },
+  "robinstickel/awesome-design-principles": {
+    "summary": "各公司和设计系统发布的设计原则，以及关于如何撰写设计原则的文章。",
+    "enHash": "255213414b8a"
+  },
+  "rockerboo/awesome-neovim": {
+    "summary": "Neovim（Vim 的可扩展分支）的插件：语言服务器、补全、配色方案、文件浏览器等。",
+    "enHash": "19dda62b1c5d"
+  },
+  "rocq-community/awesome-coq": {
+    "summary": "Coq（现名 Rocq）的项目、库、工具和学习资源，这是用于机器验证证明的证明助手。",
+    "enHash": "4e480aa6a13a"
+  },
+  "romantseg/rbooks": {
+    "summary": "关于 R 语言的书籍，面向新手和专家，涵盖数据科学、金融、机器学习和可视化。",
+    "enHash": "810608de5fad"
+  },
+  "rossant/awesome-math": {
+    "summary": "覆盖数学各领域的免费教材、讲义和课程，从逻辑、代数到分析和概率。",
+    "enHash": "4afd49d3b6a8"
+  },
+  "rshipp/awesome-malware-analysis": {
+    "summary": "研究恶意软件的样本、威胁情报、沙箱、调试器、反混淆器和取证工具。",
+    "enHash": "9946d3790d95"
+  },
+  "rtckit/awesome-rtc": {
+    "summary": "实时语音、视频和数据（如 SIP 和 WebRTC）的服务器、客户端、工具、开发者资源和演讲。",
+    "enHash": "8fd8b57de740"
+  },
+  "run-as-root/awesome-magento2": {
+    "summary": "开源 PHP 电商平台 Magento 2 的扩展、工具、前端、博客、播客和社区链接。",
+    "enHash": "42f78f942938"
+  },
+  "rust-unofficial/awesome-rust": {
+    "summary": "数千个 Rust 应用、开发工具、库和学习资源。",
+    "enHash": "682245b4d974"
+  },
+  "ryanzim/awesome-npm-scripts": {
+    "summary": "用 npm scripts 代替 Grunt 或 Gulp 作为构建工具的文章、演讲和实用工具。",
+    "enHash": "782d7dfae855"
+  },
+  "sachin1092/awesome-material": {
+    "summary": "适用于多种前端和桌面框架的 Google Material Design 风格图标、字体、配色、动画和组件。",
+    "enHash": "c9bf42a76374"
+  },
+  "sadcitizen/awesome-backbone": {
+    "summary": "Backbone.js 的教程、书籍、视频、项目模板和库，这是早期用于组织 Web 应用结构的 JavaScript 框架。",
+    "enHash": "b3ba6e7caa0e"
+  },
+  "sadcitizen/awesome-marionette": {
+    "summary": "Marionette.js 的教程、书籍、视频、示例和库，它在 Backbone.js 之上补充应用结构。",
+    "enHash": "dbb37bb7ba75"
+  },
+  "sampart/awesome-tech-ethics": {
+    "summary": "关注技术伦理及其社会危害的工具包、媒体、课程和组织。",
+    "enHash": "75ec8717fb8d"
+  },
+  "sancarn/awesome-vba": {
+    "summary": "VBA（Microsoft Office 宏语言）的库、开发者工具、示例、风格指南和参考资料。",
+    "enHash": "5cc94ced5822"
+  },
+  "satta/awesome-suricata": {
+    "summary": "开源网络入侵检测引擎 Suricata 的工具、规则集、仪表盘、指南和培训。",
+    "enHash": "67a18ca8a1e5"
+  },
+  "sbilly/awesome-security": {
+    "summary": "网络、终端和 Web 安全、威胁情报以及红蓝队的软件、库和文档。",
+    "enHash": "47c1dcdf42f0"
+  },
+  "scaleleap/awesome-amazon-seller": {
+    "summary": "面向亚马逊卖家的软件、选品工具、播客和博客。",
+    "enHash": "7fa369da13e2"
+  },
+  "schlessera/awesome-wp-cli": {
+    "summary": "WP-CLI 的官方链接、第三方包和指南，这是管理 WordPress 网站的命令行工具。",
+    "enHash": "98ae216c60eb"
+  },
+  "scholtzm/awesome-steam": {
+    "summary": "基于 Valve 游戏商店 Steam 进行开发的包和资源，如机器人和 API 客户端。",
+    "enHash": "618c64114e6f"
+  },
+  "sdassow/awesome-veganism": {
+    "summary": "面向植物性饮食人群的书籍、商店、餐厅、品牌、网站、组织、纪录片和应用。",
+    "enHash": "7f68d48ee8ec"
+  },
+  "sdras/awesome-actions": {
+    "summary": "GitHub Actions 的现成 action、教程和资源，这是 GitHub 内置的自动化和 CI 服务。",
+    "enHash": "990e3fa51a8a"
+  },
+  "sduff/awesome-splunk": {
+    "summary": "Splunk 的文档、应用、可视化、聚会和社区资源，这是一个日志搜索与分析平台。",
+    "enHash": "08c7f313721c"
+  },
+  "se-ml/awesome-seml": {
+    "summary": "关于构建、部署和运行机器学习系统的工程实践的文章、论文和工具。",
+    "enHash": "3884281e4d83"
+  },
+  "seancoyne/awesome-coldfusion": {
+    "summary": "ColdFusion 和 CFML 的引擎、框架、测试工具、库、编辑器和参考资料。",
+    "enHash": "23c1a64fb991"
+  },
+  "secdev/awesome-scapy": {
+    "summary": "用 Scapy（构造和解析网络数据包的 Python 库）构建的工具和漏洞利用。",
+    "enHash": "eead6f1098b8"
+  },
+  "secretgeek/awesomecsv": {
+    "summary": "关于 CSV（纯文本表格格式）的工具、Schema 标准、文章、数据和大会。",
+    "enHash": "85ce5c75de7b"
+  },
+  "seed-rs/awesome-seed-rs": {
+    "summary": "Seed 的书籍、快速入门、示例、库和项目，这是以 WebAssembly 运行的 Rust Web 应用框架。",
+    "enHash": "698490e7c75f"
+  },
+  "seifrajhi/awesome-cilium": {
+    "summary": "Cilium 的文档、相关项目、演讲、活动和动手实验，它用 eBPF 处理 Kubernetes 网络。",
+    "enHash": "0565ab6ff5a1"
+  },
+  "sellisd/awesome-complexity": {
+    "summary": "复杂系统科学的概念、期刊、学会、模型、软件和书籍。",
+    "enHash": "e89f4b55df85"
+  },
+  "sergey-pimenov/awesome-web-animation": {
+    "summary": "用 SVG、CSS、canvas 和 React 实现网页动画的库和工具，以及视频。",
+    "enHash": "afc2e17920e0"
+  },
+  "serhii-londar/open-source-mac-os-apps": {
+    "summary": "一千多个开源 macOS 应用，附源码链接。",
+    "enHash": "2d3bde0dd1f6"
+  },
+  "seriousran/awesome-qa": {
+    "summary": "问答系统（用软件回答自然语言提问）的论文、系统、代码、讲座和数据集。",
+    "enHash": "10a2b4bd65e3"
+  },
+  "sfischer13/awesome-ledger": {
+    "summary": "Ledger 的文档、编辑器插件、工具和媒体，这是用纯文本做复式记账的命令行程序。",
+    "enHash": "93e0b92d274f"
+  },
+  "sger/elixirbooks": {
+    "summary": "关于 Elixir 语言、Phoenix 框架及其底层 Erlang 平台的书籍。",
+    "enHash": "0b087f4502b6"
+  },
+  "shano/awesome-backstage": {
+    "summary": "Backstage 的插件、教程、集成和演讲，这是 Spotify 开源的开发者门户框架。",
+    "enHash": "abe93f5d4aea"
+  },
+  "shi-rudo/awesome-stock-trading": {
+    "summary": "面向股票交易者的研究网站、选股器、图表工具、持仓跟踪、回测、API 和书籍。",
+    "enHash": "61d903c577cf"
+  },
+  "shi-yu-zhe/awesome-agi-cocosci": {
+    "summary": "通用人工智能与计算认知科学交叉领域的论文、工具和研究者。",
+    "enHash": "587aa151e47e"
+  },
+  "shlomi-noach/awesome-mysql": {
+    "summary": "运维 MySQL 的工具：备份、复制、高可用、代理、Schema 迁移、监控、客户端和连接器。",
+    "enHash": "2459802f8ac1"
+  },
+  "shopify/awesome-hydrogen": {
+    "summary": "Hydrogen 的文档、工具、集成、示例和演讲，这是 Shopify 用于定制网店的 React 框架。",
+    "enHash": "ea70e3f0f5cd"
+  },
+  "shuaibiyy/awesome-tf": {
+    "summary": "Terraform 的模块、provider、registry、测试工具、教程和书籍，它以代码描述基础设施。",
+    "enHash": "6ddb58862f99"
+  },
+  "siboehm/awesome-learn-datascience": {
+    "summary": "数据科学入门教程：核心算法、Python 工具、练习挑战和延伸阅读。",
+    "enHash": "f07c023e8cfb"
+  },
+  "siddharth11/colorful": {
+    "summary": "设计中选择配色的工具、现成调色板和文章。",
+    "enHash": "02a0579409c0"
+  },
+  "siilwyn/awesome-pixel-art": {
+    "summary": "制作像素画的教程、书籍、艺术家、社区和工具。",
+    "enHash": "7e3072f0bcb8"
+  },
+  "simonaronsson/awesome-software-architecture": {
+    "summary": "设计软件系统结构的原则、模式、方法、文档和建模工具。",
+    "enHash": "2815ea8c3b3c"
+  },
+  "sindresorhus/amas": {
+    "summary": "个人和组织以 AMA（有问必答）形式接受任何人提问的 GitHub 仓库。",
+    "enHash": "cae8eb925c67"
+  },
+  "sindresorhus/awesome": {
+    "summary": "GitHub 上数百个主题清单的总索引，从平台、语言到安全和科学分组整理。",
+    "enHash": "0cdf1cddf8e1"
+  },
+  "sindresorhus/awesome-chatgpt": {
+    "summary": "ChatGPT 的应用、浏览器扩展、命令行工具、机器人、集成和包，这是 OpenAI 的对话式 AI。",
+    "enHash": "2e00ab1668ee"
+  },
+  "sindresorhus/awesome-electron": {
+    "summary": "Electron 的应用、项目模板、工具、组件和学习资料，它用 Web 技术构建桌面应用。",
+    "enHash": "95ce813e172c"
+  },
+  "sindresorhus/awesome-nodejs": {
+    "summary": "覆盖各类任务的 Node.js 包，以及包管理器、教程等资源。",
+    "enHash": "c40120fa6cf8"
+  },
+  "sindresorhus/awesome-npm": {
+    "summary": "JavaScript 包管理器 npm 的文章、工具、包、客户端和文档。",
+    "enHash": "189151acfdd9"
+  },
+  "sindresorhus/awesome-observables": {
+    "summary": "关于 observable（JavaScript 中随时间产生值的流）的实现、包、文章和视频。",
+    "enHash": "7a26e470b96f"
+  },
+  "sindresorhus/awesome-scifi": {
+    "summary": "科幻小说、短篇、电影、电视剧、漫画和有声书。",
+    "enHash": "8f3adb19a48e"
+  },
+  "sindresorhus/awesome-tap": {
+    "summary": "TAP 的报告器、生产者、消费者和工具，TAP 是测试运行器用来输出结果的纯文本格式。",
+    "enHash": "2e986e57b5e0"
+  },
+  "sindresorhus/awesome-whisper": {
+    "summary": "Whisper 的模型变体、应用、命令行工具、包和 API，这是 OpenAI 的开源语音转文字模型。",
+    "enHash": "4dfde43a967d"
+  },
+  "sindresorhus/quick-look-plugins": {
+    "summary": "让 macOS 快速查看预览更多文件类型（如 JSON 和 Markdown）的插件。",
+    "enHash": "74eedec43ee0"
+  },
+  "sitepoint-editors/awesome-symfony": {
+    "summary": "按管理后台、表单、支付、存储等领域分类的 Symfony PHP 框架 bundle 和库。",
+    "enHash": "1a752bba62ff"
+  },
+  "sjfricke/awesome-webgl": {
+    "summary": "WebGL、WebGL 2 和 WebXR 这些浏览器 3D 图形接口的教程、演示、库和社区链接。",
+    "enHash": "adc5a1d0ebdb"
+  },
+  "slevithan/awesome-regex": {
+    "summary": "正则表达式的测试器、构建器、可视化工具、引擎、模式合集、教程和书籍。",
+    "enHash": "efe8cf6e926b"
+  },
+  "sobolevn/awesome-cryptography": {
+    "summary": "密码学理论、工具、多种语言的库和学习资源。",
+    "enHash": "26da91c48834"
+  },
+  "solido/awesome-flutter": {
+    "summary": "Flutter 的组件、插件、模板、框架、开源应用、文章和视频，这是 Google 的跨平台 UI 工具包。",
+    "enHash": "d73144620972"
+  },
+  "sorrycc/awesome-javascript": {
+    "summary": "各类 JavaScript 库和工具：包管理器、加载器、打包工具、框架、实用库和读物。",
+    "enHash": "30b9a84e384f"
+  },
+  "sporto/awesome-elm": {
+    "summary": "Elm 的指南、文章、演讲、库、工具和编辑器插件，这是一门用于 Web 前端的函数式语言。",
+    "enHash": "e52849b4f6b7"
+  },
+  "srinivasantarget/awesome-appium": {
+    "summary": "Appium 的客户端、元素查看器、教程、云服务和示例应用，它用于移动应用自动化测试。",
+    "enHash": "25dc36b4fd45"
+  },
+  "stackshareio/awesome-stacks": {
+    "summary": "可搭配使用的工具组合，用于构建前端、后端、完整应用和移动应用。",
+    "enHash": "58dc35837ee6"
+  },
+  "standard/awesome-standard": {
+    "summary": "JavaScript Standard Style 的包、编辑器与构建集成和格式化工具，这是一个规则固定的 linter。",
+    "enHash": "ce7f0886aad4"
+  },
+  "stefanbuck/awesome-browser-extensions-for-github": {
+    "summary": "为 GitHub 网站增加功能的浏览器扩展，从通知到更好的代码浏览。",
+    "enHash": "45d463310b17"
+  },
+  "stetso/awesome-gideros": {
+    "summary": "Gideros 的入门指南、教程和 Lua 库，这是一款面向手机游戏的 Lua 引擎。",
+    "enHash": "be8109ede0b0"
+  },
+  "stevemao/awesome-git-addons": {
+    "summary": "扩展 Git 命令行的额外命令，如 git-extras 和 Git Town。",
+    "enHash": "ee4a2197018a"
+  },
+  "steven2358/awesome-blockchain-ai": {
+    "summary": "将区块链与人工智能结合的项目和研究，涉及数据、计算、金融、医疗和智能体。",
+    "enHash": "edc036877880"
+  },
+  "steven2358/awesome-generative-ai": {
+    "summary": "用于文本、代码、图像、视频和音频的生成式 AI 产品和项目，以及智能体、读物和学习资源。",
+    "enHash": "9beb46427f18"
+  },
+  "stevesong/awesome-connectivity-info": {
+    "summary": "关于谁能接入互联网和电话网络、费用几何的索引、地图、报告和数据。",
+    "enHash": "ae92f51d50fd"
+  },
+  "stevinz/awesome-game-engine-dev": {
+    "summary": "面向自研游戏引擎开发者的引擎、库、工具、学习资料、专题和素材。",
+    "enHash": "9df157d6264b"
+  },
+  "stingalleman/awesome-audiovisual": {
+    "summary": "剧场和活动中专业灯光、音响和视频的软件、工具、库和教程。",
+    "enHash": "e26cddb081e8"
+  },
+  "stn1slv/awesome-integration": {
+    "summary": "通过 API、消息和事件连接不同软件系统的项目、集成模式和资源。",
+    "enHash": "80199ff7d7ec"
+  },
+  "stoeffel/awesome-ama-answers": {
+    "summary": "按问题收集的 GitHub AMA 仓库中的回答。",
+    "enHash": "ef05d40917e9"
+  },
+  "stoeffel/awesome-fp-js": {
+    "summary": "JavaScript 函数式编程的库、编译为 JavaScript 的语言、工具和读物。",
+    "enHash": "b14d209d8eb4"
+  },
+  "strift/awesome-esports": {
+    "summary": "处理电子竞技数据的库、开发者工具、非官方 API 文档和应用。",
+    "enHash": "81fa9f125299"
+  },
+  "sturobson/bem-resources": {
+    "summary": "关于 BEM（一种 CSS 类命名方法）的文章、工具、代码示例和演讲。",
+    "enHash": "ca287b222fb8"
+  },
+  "stve/awesome-dropwizard": {
+    "summary": "Dropwizard 的 bundle、工具、教程和指南，这是构建 REST Web 服务的 Java 框架。",
+    "enHash": "096911a1bdcb"
+  },
+  "sublimino/awesome-funny-markov": {
+    "summary": "马尔可夫链生成的搞笑文本，从网页小玩具、Twitter 机器人到生成工具。",
+    "enHash": "3f33c9879f7d"
+  },
+  "svaksha/julia.jl": {
+    "summary": "按主题分组的 Julia 包和资源，从 AI、DevOps 到优化和实用工具。",
+    "enHash": "e276cd5a7f7f"
+  },
+  "symbitic/awesome-babylonjs": {
+    "summary": "Babylon.js 的文档、书籍、演示、场景、游戏和示例，这是一款 Web 3D 引擎。",
+    "enHash": "3fef3e6f6b8d"
+  },
+  "szenergy/awesome-lidar": {
+    "summary": "激光雷达（测量距离和形状的激光传感器）的厂商、数据集、库、算法和仿真器。",
+    "enHash": "623cc1395f34"
+  },
+  "talater/awesome-book-authoring": {
+    "summary": "撰写技术书籍的建议：选题提案、合同、版税、出版社、营销、自出版和写作工具。",
+    "enHash": "de8fa34cf77d"
+  },
+  "talater/awesome-progressive-web-apps": {
+    "summary": "关于渐进式 Web 应用（PWA，表现得像已安装应用的网站）的文章、教程、视频和案例研究。",
+    "enHash": "22243471460b"
+  },
+  "talater/awesome-service-workers": {
+    "summary": "service worker 的文章、参考资料、库和案例研究，它是实现离线缓存和推送消息的浏览器脚本。",
+    "enHash": "3b8ca4861657"
+  },
+  "tayllan/awesome-algorithms": {
+    "summary": "学习算法和数据结构的课程、竞赛网站、书籍和速查表。",
+    "enHash": "eb3e26f0142f"
+  },
+  "terkelg/awesome-creative-coding": {
+    "summary": "创意编程（用程序创作艺术）的书籍、课程、工具、社区、活动和灵感。",
+    "enHash": "9331a3c94334"
+  },
+  "terryum/awesome-deep-learning-papers": {
+    "summary": "深度学习领域被广泛引用的论文，按模型、优化、应用等主题分组。",
+    "enHash": "4db694f5d1a0"
+  },
+  "thangchung/awesome-dotnet-core": {
+    "summary": ".NET Core 及其后续版本的框架、库、工具、入门套件、示例项目和学习资料。",
+    "enHash": "3c63eca8b152"
+  },
+  "thecomputerm/awesome-svelte": {
+    "summary": "Svelte 的集成、状态与 UI 库、组件、路由、工具和示例，这是基于编译器的前端框架。",
+    "enHash": "354dc2297e4c"
+  },
+  "theimpossibleastronaut/awesome-linguistics": {
+    "summary": "语言学和语言技术的工具包、算法、数据集、模型、书籍和社区。",
+    "enHash": "01d7bde461f3"
+  },
+  "thejambo/awesome-testing": {
+    "summary": "面向软件测试人员的软件、书籍、培训、博客和通讯。",
+    "enHash": "dcb44e6b3780"
+  },
+  "therebelrobot/awesome-workshopper": {
+    "summary": "在终端中运行的交互式课程（大多来自 NodeSchool 项目），以及制作这类课程的工具。",
+    "enHash": "23818fd2e642"
+  },
+  "thibmaek/awesome-raspberry-pi": {
+    "summary": "单板计算机树莓派的型号、系统镜像、工具、项目和社区资源。",
+    "enHash": "c3e9276a4e65"
+  },
+  "thomasbnt/awesome-web-monetization": {
+    "summary": "Web Monetization 的文档、库和项目，这是一项从浏览器向网站付费的拟议标准。",
+    "enHash": "8d802c79452c"
+  },
+  "thoughtspile/awesome-tiny-js": {
+    "summary": "极小的前端 JavaScript 库：框架、状态、路由、日期、校验、ID、颜色和手势。",
+    "enHash": "3ea60b68944d"
+  },
+  "tiimgreen/github-cheat-sheet": {
+    "summary": "Git 和 GitHub 的冷门功能，配有简短示例讲解。",
+    "enHash": "c94730b4e2cd"
+  },
+  "timofurrer/awesome-asyncio": {
+    "summary": "asyncio 的框架、数据库驱动、网络与测试库、文章和演讲，这是 Python 的异步编程库。",
+    "enHash": "e67b1147447b"
+  },
+  "tindzk/awesome-scala-native": {
+    "summary": "Scala Native 的库、绑定、构建工具和示例，它将 Scala 编译为机器码。",
+    "enHash": "414d030e8cae"
+  },
+  "tmcw/awesome-geojson": {
+    "summary": "GeoJSON（描述地图要素的 JSON 格式）的工具：编辑器、校验器、转换器、服务和数据。",
+    "enHash": "94334aa7550b"
+  },
+  "tobiasbueschel/awesome-pokemon": {
+    "summary": "宝可梦游戏和 Pokémon GO 的开发项目、API 和社区资源。",
+    "enHash": "3fa4b5ea3482"
+  },
+  "tobiasvl/awesome-chip-8": {
+    "summary": "CHIP-8 的文档、模拟器、开发工具和游戏，这是 20 世纪 70 年代的简单游戏虚拟机。",
+    "enHash": "1746d884e9c6"
+  },
+  "tomodachi94/awesome-computercraft": {
+    "summary": "ComputerCraft 的模组、Lua 程序和读物，它为 Minecraft 加入可编程计算机。",
+    "enHash": "ff403d939acb"
+  },
+  "tramcar/awesome-job-boards": {
+    "summary": "细分领域的招聘网站，如 AI、设计、DevOps、金融、游戏、开源和远程工作。",
+    "enHash": "c6f481379ab4"
+  },
+  "transitive-bullshit/awesome-ffmpeg": {
+    "summary": "FFmpeg 的文档、JavaScript 与原生封装、移动端构建和教程，这是处理音视频的命令行工具。",
+    "enHash": "5ef133adbd7f"
+  },
+  "troxler/awesome-css-frameworks": {
+    "summary": "按思路分组的 CSS 框架：样式重置、无类样式、轻量级、通用、Material Design 和工具类。",
+    "enHash": "2a356c07c47b"
+  },
+  "ttt30ga/awesome-product-design": {
+    "summary": "面向产品设计师的资源：用户研究、用户体验、界面与视觉设计、原型、无障碍和文案。",
+    "enHash": "b9bf3f90fc3b"
+  },
+  "ttumiel/awesome-ethereum": {
+    "summary": "以太坊的文档、编程工具、教程、钱包、协议和书籍，这是运行智能合约的区块链。",
+    "enHash": "0d0dbd0e77bc"
+  },
+  "tupletype/awesome-cicd-attacks": {
+    "summary": "针对构建流水线和软件供应链攻击的技术、工具和案例研究。",
+    "enHash": "9c0a1a79ef87"
+  },
+  "tvvocold/foss-for-dev": {
+    "summary": "面向开发者的自由开源软件：代码托管、编辑器、CI、缺陷跟踪、文档和聊天。",
+    "enHash": "ec226d309501"
+  },
+  "tyaga001/awesome-neon": {
+    "summary": "Neon 的文档、指南、示例、视频和文章，这是一项托管的 Serverless Postgres 服务。",
+    "enHash": "bcbcf2c12561"
+  },
+  "typedb/typedb-awesome": {
+    "summary": "TypeDB 的项目、文档、客户端驱动、编辑器支持和演讲，这是一个支持类型化 Schema 和逻辑查询的数据库。",
+    "enHash": "c2d96acba587"
+  },
+  "typeddjango/awesome-python-typing": {
+    "summary": "Python 类型提示的类型检查器、stub 包、扩展类型、工具和文章。",
+    "enHash": "1995968fcfa1"
+  },
+  "ucg8j/awesome-dash": {
+    "summary": "Plotly Dash 的组件库、示例应用、教程、演讲和部署方案，这是构建数据仪表盘的 Python 框架。",
+    "enHash": "715650f2031e"
+  },
+  "ujjwalkarn/machine-learning-tutorials": {
+    "summary": "机器学习方法的教程、文章、速查表和面试资料，从回归到深度学习。",
+    "enHash": "3c4d7e9d1fbf"
+  },
+  "umbraco-community/awesome-umbraco": {
+    "summary": "Umbraco 的官方链接、社区资源、扩展、开发者工具和入门套件，这是基于 .NET 的内容管理系统。",
+    "enHash": "6b89016161e1"
+  },
+  "unicodeveloper/awesome-lumen": {
+    "summary": "Lumen 的教程、包、中间件、演示和书籍，这是基于 Laravel、用于构建 API 的小型 PHP 框架。",
+    "enHash": "c52120b901a4"
+  },
+  "unicodeveloper/awesome-nextjs": {
+    "summary": "Next.js 的项目模板、扩展、文章、书籍、视频和示例应用，这是用于服务端渲染网站的 React 框架。",
+    "enHash": "024679ae17ea"
+  },
+  "unixorn/awesome-zsh-plugins": {
+    "summary": "数千个 zsh shell 的框架、插件、补全、主题和教程。",
+    "enHash": "1a2378b0ebde"
+  },
+  "uraimo/awesome-software-patreons": {
+    "summary": "通过 Patreon 等服务接受资助的开源项目和程序员。",
+    "enHash": "91de0fe4f377"
+  },
+  "uraimo/awesome-swift-playgrounds": {
+    "summary": "用于学习 Swift 语言、探索图形、音频、数学和苹果 API 的 Swift Playgrounds。",
+    "enHash": "27c8ac5aef32"
+  },
+  "uralbash/awesome-pyramid": {
+    "summary": "按任务分类的 Pyramid Python Web 框架扩展包：身份验证、缓存、表单、REST、搜索、模板和测试。",
+    "enHash": "a24fd9bd073b"
+  },
+  "urigo/awesome-meteor": {
+    "summary": "按任务分类的 Meteor JavaScript 平台包：账户、表单、路由、部署、测试、搜索等。",
+    "enHash": "93ac1d8c8b65"
+  },
+  "vala-lang/awesome-vala": {
+    "summary": "Vala 的应用、工具、编辑器插件、语言服务器和库，这是一门面向 GNOME 的类 C 语言。",
+    "enHash": "55519d6a9e03"
+  },
+  "vapor-community/awesome-vapor": {
+    "summary": "Vapor 的库、工具、服务、教程和开源项目，这是 Swift 语言的 Web 框架。",
+    "enHash": "67d50e4788a6"
+  },
+  "veelenga/awesome-crystal": {
+    "summary": "按任务分类的 Crystal 库和工具，从算法、缓存到 Web 框架。",
+    "enHash": "5efb08b3ae51"
+  },
+  "veggiemonk/awesome-docker": {
+    "summary": "围绕 Docker 容器的项目和学习资料：构建、运行、网络、监控和安全工具。",
+    "enHash": "fe0abf74b782"
+  },
+  "vert-x3/vertx-awesome": {
+    "summary": "Vert.x 的库、框架、数据库客户端和集成，这是 JVM 上用于响应式程序的事件驱动工具包。",
+    "enHash": "f5ac68de15af"
+  },
+  "vhladiienko/awesome-game-production": {
+    "summary": "关于电子游戏制作管理的书籍、文章、视频、工具和模板，从规划到发布。",
+    "enHash": "5a871fbd64ec"
+  },
+  "vhpoet/awesome-ripple": {
+    "summary": "Ripple 的官方资源、网关、代码库和托管工具，这是基于 XRP Ledger 的支付网络。",
+    "enHash": "30d410fd1741"
+  },
+  "viatsko/awesome-vscode": {
+    "summary": "Visual Studio Code 的扩展、主题、值得关注的人和课程，这是微软的免费代码编辑器。",
+    "enHash": "f45f384fea65"
+  },
+  "victorlaerte/awesome-it-quotes": {
+    "summary": "业内知名人士关于编程、软件和计算的名言。",
+    "enHash": "86aac52c6719"
+  },
+  "victorshinya/awesome-ibmcloud": {
+    "summary": "面向 IBM Cloud 开发者的命令行工具、SDK、服务和社区链接。",
+    "enHash": "e8f7219899cf"
+  },
+  "vinjn/awesome-vulkan": {
+    "summary": "Vulkan 的 SDK、教程、示例、库、绑定、工具和论文，这是一个底层图形与计算接口。",
+    "enHash": "63ea4403acb9"
+  },
+  "vinta/awesome-python": {
+    "summary": "按主题分类的 Python 框架、库和工具，以及学习资源。",
+    "enHash": "3dc0cd538934"
+  },
+  "virtualroot/awesome-opentofu": {
+    "summary": "OpenTofu 的工具、功能、课程和社区资源，这是 Terraform 的开源分支。",
+    "enHash": "84860be045e6"
+  },
+  "vitalets/awesome-smart-tv": {
+    "summary": "开发智能电视应用的平台、框架、遥控协议、工具和库。",
+    "enHash": "9d10d13c2f99"
+  },
+  "vlang/awesome-v": {
+    "summary": "用 V 编写的应用和库，V 是一门小巧的编译型编程语言。",
+    "enHash": "a7f8ee7eae6e"
+  },
+  "voorhoede/progressive-enhancement-resources": {
+    "summary": "渐进增强的文章、策略、特性检测工具和示例：页面先保证可用，再在浏览器支持时增强。",
+    "enHash": "270c913ae7fe"
+  },
+  "vorpaljs/awesome-vorpal": {
+    "summary": "Vorpal 的扩展、教程和项目，这是 Node.js 中构建交互式命令行应用的框架。",
+    "enHash": "e75731c1a42f"
+  },
+  "vsouza/awesome-ios": {
+    "summary": "数千个 iOS 应用开发的库、框架和工具，按主题分类，从数据分析到用户界面。",
+    "enHash": "fad91bb01395"
+  },
+  "vuejs/awesome-vue": {
+    "summary": "一千多个 Vue.js 组件、库、项目和学习资源，Vue.js 是构建用户界面的 JavaScript 框架。",
+    "enHash": "81c1fb0a00f6"
+  },
+  "wagtail/awesome-wagtail": {
+    "summary": "Wagtail 的应用、工具、编辑指南、演讲和开源网站，这是基于 Django 的内容管理系统。",
+    "enHash": "5037e0740c12"
+  },
+  "wardley-maps-community/awesome-wardley-maps": {
+    "summary": "关于 Wardley 地图（一种描绘商业格局的方法）的入门、书籍、视频、课程、应用和活动。",
+    "enHash": "b10c53031449"
+  },
+  "wasabeef/awesome-android-ui": {
+    "summary": "Android 应用的开源界面组件：布局、按钮、列表、图片、菜单、对话框、图表和动画。",
+    "enHash": "25a7741d7525"
+  },
+  "watson/awesome-computer-history": {
+    "summary": "关于计算机历史的纪录片、录音、文献、历史源代码和网站。",
+    "enHash": "7b178906502e"
+  },
+  "wbinnssmith/awesome-promises": {
+    "summary": "JavaScript Promise 的文章、书籍、实现和辅助库。",
+    "enHash": "1bd407aebd82"
+  },
+  "wbkd/awesome-d3": {
+    "summary": "基于数据可视化 JavaScript 库 D3 的图表、地图、工具和示例。",
+    "enHash": "90a89664fd10"
+  },
+  "web-padawan/awesome-lit": {
+    "summary": "Lit 的教程、入门模板、组件库、设计系统、工具和集成，这是 Google 的 Web 组件库。",
+    "enHash": "8fc36812019c"
+  },
+  "web-padawan/awesome-web-components": {
+    "summary": "关于 Web 组件（浏览器原生的可复用自定义元素）的标准、指南、文章、库、框架和书籍。",
+    "enHash": "bff338342477"
+  },
+  "weblancaster/awesome-iot-hybrid": {
+    "summary": "物联网以及用 Web 技术构建混合桌面与移动应用的平台和框架。",
+    "enHash": "10f840649217"
+  },
+  "webpro/awesome-dotfiles": {
+    "summary": "管理和分享 Unix 主目录配置文件（dotfiles）的文章、工具和示例仓库。",
+    "enHash": "b45d8f60ec61"
+  },
+  "websemantics/awesome-ant-design": {
+    "summary": "Ant Design 的组件、工具、主题、项目模板和移植版本，这是阿里巴巴的 React UI 库和设计语言。",
+    "enHash": "2188ec0f506a"
+  },
+  "wernerkrauss/awesome-silverstripe-cms": {
+    "summary": "Silverstripe CMS 的文档、模块和开发者工具，这是一个 PHP 内容管理系统和框架。",
+    "enHash": "9432ffcc38bf"
+  },
+  "willianjusten/awesome-audio-visualization": {
+    "summary": "将声音转化为动态画面的库、实验、教程和视频，多数在浏览器中实现。",
+    "enHash": "4744a07a6e79"
+  },
+  "willianjusten/awesome-svg": {
+    "summary": "SVG（Web 矢量图格式）的教程、库、工具、图标、动画和无障碍说明。",
+    "enHash": "c18706306840"
+  },
+  "woop/awesome-quantified-self": {
+    "summary": "记录个人数据（量化自我）的应用、平台、可穿戴设备、文章、书籍和开源项目。",
+    "enHash": "a89c21add413"
+  },
+  "writing-resources/awesome-scientific-writing": {
+    "summary": "用纯文本格式撰写科学论文的编辑器、参考文献工具、转换器、检查工具和模板。",
+    "enHash": "2b70866f815c"
+  },
+  "xavidop/awesome-genkit": {
+    "summary": "Genkit 的插件、参考资料、演讲和教程，这是 Google 为应用添加生成式 AI 的开源工具包。",
+    "enHash": "3523fb798538"
+  },
+  "xen0l/awesome-dtrace": {
+    "summary": "DTrace 的指南、文章、视频、脚本和工具，它追踪运行中的系统及程序的行为。",
+    "enHash": "2a3d221c8d42"
+  },
+  "xiaohanyu/awesome-tikz": {
+    "summary": "TikZ 的书籍、示例图库、库、工具和视频，这是 LaTeX 中绘制图表的宏包。",
+    "enHash": "28a8a4a458fa"
+  },
+  "xxczaki/awesome-calculators": {
+    "summary": "手机、桌面和 Web 上的计算器应用，以及关于计算器的资源。",
+    "enHash": "4496031cbf90"
+  },
+  "yenchenlin/awesome-watchos": {
+    "summary": "开发 Apple Watch 应用的指南、库、设计建议、工具、示例应用和教程。",
+    "enHash": "a1cbe866123b"
+  },
+  "yissachar/awesome-dart": {
+    "summary": "用于 Web、服务端和跨平台应用的 Dart 框架，以及数据库、测试等方面的库。",
+    "enHash": "e3fc59dc2827"
+  },
+  "youngwookim/awesome-hadoop": {
+    "summary": "集群大数据的 Hadoop 生态项目：YARN、SQL 引擎、数据摄取、工作流、搜索和安全。",
+    "enHash": "d29d44bc11d1"
+  },
+  "yrgo/awesome-educational-games": {
+    "summary": "教授艺术、设计、CSS、语言、数学、音乐和编程的游戏。",
+    "enHash": "59edbdca84b5"
+  },
+  "zachflower/awesome-open-source-supporters": {
+    "summary": "允许开源项目免费使用其服务（如 CI、代码质量和监控）的公司。",
+    "enHash": "ec0050a93968"
+  },
+  "zenitysec/awesome-low-code": {
+    "summary": "低代码开发（少写代码构建应用）的平台、工具、参考资料、模板和社区。",
+    "enHash": "ff78304483f9"
+  },
+  "zheaoli/awesome-coins": {
+    "summary": "加密货币的钱包、交易所、挖矿、行情工具和读物。",
+    "enHash": "0199c829aad3"
+  },
+  "ziadoz/awesome-php": {
+    "summary": "按任务分类的 PHP 库、框架和工具，从依赖管理到测试和安全。",
+    "enHash": "33a4724f3931"
+  },
+  "zingchart/awesome-charting": {
+    "summary": "商业和开源的 Web 图表库，以及框架绑定和数据可视化资源。",
+    "enHash": "1c269bb04728"
+  },
+  "zolagonano/awesome-zeronet": {
+    "summary": "ZeroNet 的实现、插件、指南和公共代理，这是一个点对点托管网站的网络。",
+    "enHash": "ff470607b41a"
+  },
+  "zudochkin/awesome-newsletters": {
+    "summary": "关于编程、前端、数据库、移动端、AI、安全、领导力和商业的邮件通讯。",
+    "enHash": "d086c73e7f19"
+  },
+  "zyszys/awesome-captcha": {
+    "summary": "生成验证码的库和工具，以及自动识别验证码的项目。",
+    "enHash": "2bce179d93fe"
+  }
+}

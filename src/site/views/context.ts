@@ -1,5 +1,6 @@
-// What every view may read: the site's settings and the small tables held in memory.
+// What every view may read: the site's settings, the small tables held in memory, and the request's language.
 import type { CategoryRow, ListRow, Meta } from '../db.js';
+import type { Loc } from '../i18n/loc.js';
 
 export type Assets = Meta['assets'];
 
@@ -16,4 +17,8 @@ export interface Ctx {
   categories: readonly CategoryRow[];
   categoryById: ReadonlyMap<number, CategoryRow>;
   categoryBySlug: ReadonlyMap<string, CategoryRow>;
+  /** The language of this request: messages, formatters, addresses, translated summaries and categories. */
+  loc: Loc;
+  /** The address asked for, without its language prefix (path and query), for the language switcher. */
+  here: string;
 }

@@ -1,0 +1,2686 @@
+{
+  "0pandadev/awesome-windows": {
+    "summary": "Software untuk Windows per kategori: utilitas developer, browser, file manager, backup, media, kustomisasi, keamanan, dan lainnya.",
+    "enHash": "b07a54db04bf"
+  },
+  "44bits/awesome-opensource-documents": {
+    "summary": "Buku, tutorial, dan dokumentasi berlisensi terbuka tentang bahasa pemrograman, tool, dan library, sebagian dalam bahasa Jepang.",
+    "enHash": "133d3fdd88a8"
+  },
+  "aaronhma/awesome-tensorflow-js": {
+    "summary": "Dokumentasi, tool, model, buku, dan tautan komunitas untuk TensorFlow.js, yang menjalankan machine learning di JavaScript.",
+    "enHash": "1a9e5e942607"
+  },
+  "academic/awesome-datascience": {
+    "summary": "Kursus, tool, literatur, komunitas, dan proyek agent untuk belajar dan mempraktikkan data science.",
+    "enHash": "0d1b8b942825"
+  },
+  "accelerated-text/awesome-nlg": {
+    "summary": "Dataset, library, paper, produk, dan bahasa templating untuk natural language generation, yaitu pembuatan teks dari data.",
+    "enHash": "ee95a48029aa"
+  },
+  "achoarnold/discount-for-student-dev": {
+    "summary": "Tool dan layanan developer gratis atau lebih murah untuk pelajar: hosting kode, editor, cloud hosting, software desain, dan lainnya.",
+    "enHash": "8ed01be57886"
+  },
+  "adafruit/awesome-adafruitio": {
+    "summary": "Panduan, library kode, board, dan tautan komunitas untuk Adafruit IO, layanan cloud yang menampilkan data sensor dalam grafik.",
+    "enHash": "ee6b31617482"
+  },
+  "adafruit/awesome-circuitpython": {
+    "summary": "Panduan, library, hardware, video, buku, dan tautan komunitas untuk CircuitPython, Python dari Adafruit untuk board mikrokontroler.",
+    "enHash": "d8df37a3b852"
+  },
+  "addyosmani/critical-path-css-tools": {
+    "summary": "Tool untuk menemukan dan menyisipkan inline CSS yang dibutuhkan halaman lebih dulu, agar halaman tampil lebih cepat.",
+    "enHash": "246a73dc1467"
+  },
+  "addyosmani/es6-tools": {
+    "summary": "Transpiler, module loader, polyfill, boilerplate, dan plugin dari masa ketika JavaScript ES6 masih baru.",
+    "enHash": "b1eac9252699"
+  },
+  "adrientorris/awesome-blazor": {
+    "summary": "Library, template, contoh, tutorial, video, dan buku untuk Blazor, framework dari Microsoft untuk antarmuka web yang ditulis dengan C#.",
+    "enHash": "5bc13708152f"
+  },
+  "afonsopacifer/awesome-flexbox": {
+    "summary": "Spesifikasi, panduan, artikel, tool, dan framework untuk CSS flexbox, model layout untuk menata item dalam satu baris.",
+    "enHash": "7e77529f8f79"
+  },
+  "agamm/awesome-developer-first": {
+    "summary": "Produk dan layanan yang dibuat untuk developer, dikelompokkan per kebutuhan: autentikasi, database, deployment, testing, dokumentasi, dan banyak lagi.",
+    "enHash": "39e9f20dc79b"
+  },
+  "agarrharr/awesome-cli-apps": {
+    "summary": "Program yang berjalan di terminal, untuk development, produktivitas, file, version control, gambar, hiburan, dan lainnya.",
+    "enHash": "e1e3115e670f"
+  },
+  "agarrharr/awesome-macos-screensavers": {
+    "summary": "Screensaver untuk macOS, gratis dan open source.",
+    "enHash": "12029fcc6401"
+  },
+  "agarrharr/awesome-static-website-services": {
+    "summary": "Layanan hosted yang menambahkan fitur seperti form, komentar, pencarian, pembayaran, dan peta ke website statis.",
+    "enHash": "2e9b2e6a58bd"
+  },
+  "agucova/awesome-esp": {
+    "summary": "Firmware, tool, library, dan proyek untuk ESP8266 dan ESP32, mikrokontroler Wi-Fi yang murah.",
+    "enHash": "936e4e8aa229"
+  },
+  "ahkscript/awesome-autohotkey": {
+    "summary": "Library, skrip, tool, dan tutorial untuk AutoHotkey, bahasa scripting untuk otomatisasi Windows.",
+    "enHash": "70bf5ad0e7bc"
+  },
+  "airscripts/awesome-steam-deck": {
+    "summary": "Panduan, aksesori, software, emulator, plugin, dan komunitas untuk Steam Deck, PC gaming genggam dari Valve.",
+    "enHash": "83fc5c4e9d77"
+  },
+  "akullpp/awesome-java": {
+    "summary": "Library, framework, dan tool Java untuk setiap bidang development, ditambah buku, situs, dan referensi lainnya.",
+    "enHash": "3937f8a7303d"
+  },
+  "alebcay/awesome-shell": {
+    "summary": "Shell, utilitas command-line, kustomisasi, framework, dan panduan untuk bekerja di shell Unix seperti bash dan zsh.",
+    "enHash": "468178e11813"
+  },
+  "aleixmorgadas/awesome-engineering-strategy": {
+    "summary": "Buku, tulisan, video, metode, dan template untuk menyusun dan menjalankan strategi organisasi software engineering.",
+    "enHash": "152f14c413f1"
+  },
+  "alexk111/awesome-bitcoin-payment-processors": {
+    "summary": "Layanan hosted dan self-hosted yang memungkinkan bisnis menerima pembayaran dengan Bitcoin.",
+    "enHash": "fcdecde3e5c2"
+  },
+  "alferov/awesome-gulp": {
+    "summary": "Plugin, scaffolding, dan referensi untuk gulp, task runner JavaScript untuk build front-end.",
+    "enHash": "566772e1e8e0"
+  },
+  "aliesbelik/awesome-gatling": {
+    "summary": "Tutorial, tool, integrasi CI, dan kursus untuk Gatling, tool load testing untuk aplikasi web.",
+    "enHash": "6f0f9034f189"
+  },
+  "aliesbelik/awesome-jmeter": {
+    "summary": "Tutorial, plugin, integrasi CI, layanan cloud, dan buku untuk Apache JMeter, tool load testing.",
+    "enHash": "76470c664bc9"
+  },
+  "allthingssmitty/css-protips": {
+    "summary": "Teknik CSS singkat untuk stylesheet yang lebih rapi dan tangguh, dengan terjemahan ke banyak bahasa.",
+    "enHash": "91198fc07258"
+  },
+  "allthingssmitty/jquery-tips-everyone-should-know": {
+    "summary": "Potongan kode jQuery singkat untuk tugas umum, dengan terjemahan ke banyak bahasa.",
+    "enHash": "3b1f36c7d9af"
+  },
+  "allthingssmitty/must-watch-css": {
+    "summary": "Talk konferensi tentang CSS, diurutkan per tahun dari yang terbaru ke yang lama.",
+    "enHash": "f773d8fb4ace"
+  },
+  "altamiracorp/awesome-xai": {
+    "summary": "Paper, kode, video, dan tokoh di bidang explainable AI, yang menunjukkan alasan di balik keputusan model machine learning.",
+    "enHash": "efc8b6a20282"
+  },
+  "ambster-public/awesome-qlik": {
+    "summary": "Dokumentasi, blog, buku, dan ekstensi untuk produk analitik dan dashboard Qlik Sense dan QlikView.",
+    "enHash": "149b34715e04"
+  },
+  "analysis-tools-dev/static-analysis": {
+    "summary": "Linter, pemeriksa kode, dan tool kualitas yang memeriksa source code tanpa menjalankannya, diurutkan per bahasa pemrograman.",
+    "enHash": "0a923039cb4e"
+  },
+  "analyticalmonk/awesome-neuroscience": {
+    "summary": "Software, blog, dan referensi lain untuk mempelajari otak dan sistem saraf.",
+    "enHash": "62fcb9835f23"
+  },
+  "andrewda/awesome-frc": {
+    "summary": "Pemasok, library pemrograman, tool vision dan scouting, serta tautan komunitas untuk tim FIRST Robotics Competition.",
+    "enHash": "7c56d30d7c8b"
+  },
+  "angrykoala/awesome-esolangs": {
+    "summary": "Bahasa pemrograman esoterik yang dibuat sebagai lelucon atau eksperimen, beserta algoritma, artikel, dan komunitasnya.",
+    "enHash": "77cf68575bbe"
+  },
+  "aniftyco/awesome-tailwindcss": {
+    "summary": "Plugin, UI kit, template, ekstensi editor, dan tool untuk Tailwind CSS, yang memberi gaya halaman dengan utility class kecil.",
+    "enHash": "46644e8f9d1a"
+  },
+  "ansible-community/awesome-ansible": {
+    "summary": "Dokumentasi, tutorial, buku, video, tool, role, dan integrasi editor untuk Ansible, yang mengotomatiskan konfigurasi server.",
+    "enHash": "47c694cbe146"
+  },
+  "antontarasenko/awesome-economics": {
+    "summary": "Kursus, data, tool riset, situs diskusi, dan saran karier untuk pelajar dan peneliti di bidang ekonomi.",
+    "enHash": "ab10ddd59e39"
+  },
+  "aorumbayev/awesome-omarchy": {
+    "summary": "Plugin, tema, tool, build alternatif, dan panduan untuk Omarchy, setup Arch Linux siap pakai dengan Hyprland.",
+    "enHash": "6488f18e8f0d"
+  },
+  "apa-technology-division/urban-and-regional-planning-resources": {
+    "summary": "Data publik, standar data, kode, software, dan materi belajar untuk perencana kota dan wilayah.",
+    "enHash": "083df9bff73c"
+  },
+  "appimagecommunity/awesome-appimage": {
+    "summary": "Tool untuk mencari, menjalankan, membuat, dan memperbarui AppImage, paket aplikasi Linux dalam satu file.",
+    "enHash": "ba3be003d8dc"
+  },
+  "apsdehal/awesome-ctf": {
+    "summary": "Tool dan referensi untuk membuat dan menyelesaikan kompetisi keamanan capture-the-flag.",
+    "enHash": "3e611496dc2e"
+  },
+  "arbox/machine-learning-with-ruby": {
+    "summary": "Tutorial, library, contoh proyek, buku, dan komunitas untuk machine learning dengan bahasa Ruby.",
+    "enHash": "d169bf5b2e0f"
+  },
+  "arbox/nlp-with-ruby": {
+    "summary": "Library Ruby untuk pemrosesan bahasa manusia: tokenisasi, tagging, parsing, pencarian, OCR, dan sumber data bahasa, plus buku dan komunitas.",
+    "enHash": "6700baa735b3"
+  },
+  "arslanbilal/git-cheat-sheet": {
+    "summary": "Referensi cepat perintah Git sehari-hari, dengan catatan tentang model branching Git Flow.",
+    "enHash": "23e644f68ec1"
+  },
+  "ashishb/android-security-awesome": {
+    "summary": "Tool analisis, paper riset, dan exploit seputar keamanan aplikasi dan perangkat Android.",
+    "enHash": "37c38f00f801"
+  },
+  "atblueprints/awesome-atproto": {
+    "summary": "Aplikasi, tool, platform, dan panduan untuk AT Protocol, jaringan terbuka di balik Bluesky.",
+    "enHash": "6c35ceef1eb7"
+  },
+  "atkirtland/awesome-computational-geometry": {
+    "summary": "Buku, catatan kuliah, library, visualisasi, kursus, dan jurnal tentang algoritma untuk masalah geometri.",
+    "enHash": "c6a1d4b03ebd"
+  },
+  "aurelia-contrib/awesome-aurelia": {
+    "summary": "Plugin, tutorial, starter kit, dan artikel untuk Aurelia, framework JavaScript untuk membangun aplikasi web.",
+    "enHash": "8773c73a6807"
+  },
+  "automata/awesome-jamstack": {
+    "summary": "Static site generator, headless CMS, API, hosting, dan tutorial untuk situs Jamstack, yang menyajikan halaman siap jadi plus JavaScript.",
+    "enHash": "dea4089c352c"
+  },
+  "avajs/awesome-ava": {
+    "summary": "Artikel, video, paket, dan tutorial untuk AVA, test runner untuk Node.js.",
+    "enHash": "ae8d27dd1df5"
+  },
+  "avelino/awesome-go": {
+    "summary": "Ribuan paket, framework, dan tool Go yang diurutkan per tugas, plus sumber belajar.",
+    "enHash": "f439849a4b51"
+  },
+  "aviaryan/awesome-no-login-web-apps": {
+    "summary": "Aplikasi web yang bisa dipakai tanpa akun, untuk menggambar, dokumen, konversi file, berbagi, musik, game, dan tugas lainnya.",
+    "enHash": "f3b7b2640545"
+  },
+  "awesome-algorand/awesome-algorand": {
+    "summary": "Sumber belajar, tool developer, wallet, infrastruktur, dan standar untuk Algorand, blockchain dengan smart contract.",
+    "enHash": "b8b9f462b7c0"
+  },
+  "awesome-css-group/awesome-css": {
+    "summary": "Framework, preprocessor, tool, style guide, metode penamaan, dan materi belajar untuk CSS, bahasa untuk mengatur tampilan halaman web.",
+    "enHash": "fcf3089c1707"
+  },
+  "awesome-mqtt/awesome-mqtt": {
+    "summary": "Broker, client, platform, tool, dan dashboard untuk MQTT, protokol pesan ringan yang dipakai perangkat terhubung.",
+    "enHash": "10e84b1862b7"
+  },
+  "awesome-roblox/awesome-roblox": {
+    "summary": "Software, plugin, modul, library, dan tool developer untuk membuat experience di Roblox, platform game online.",
+    "enHash": "a6bfcb5952e2"
+  },
+  "awesome-scripts/awesome-userscripts": {
+    "summary": "Userscript, program kecil yang mengubah website di browser, beserta tutorial dan katalognya.",
+    "enHash": "4604d6c33221"
+  },
+  "awesome-selfhosted/awesome-selfhosted": {
+    "summary": "Lebih dari seribu software gratis untuk dijalankan di server sendiri sebagai pengganti layanan hosted.",
+    "enHash": "c128ffabd5b8"
+  },
+  "awesome-spark/awesome-spark": {
+    "summary": "Paket dan sumber belajar untuk Apache Spark, engine yang memproses dataset besar di sebuah cluster.",
+    "enHash": "53ad0a736927"
+  },
+  "awesomedata/awesome-public-datasets": {
+    "summary": "Dataset yang tersedia bebas tentang banyak topik, dari biologi dan iklim sampai ekonomi, olahraga, dan transportasi.",
+    "enHash": "7df77831e574"
+  },
+  "awkward/awesome-netherlands-events": {
+    "summary": "Meetup dan konferensi teknologi di Amsterdam, Rotterdam, Utrecht, dan kota lain di Belanda.",
+    "enHash": "ff40659c22de"
+  },
+  "ayr-ton/awesome-geek-podcasts": {
+    "summary": "Podcast tentang pemrograman, teknologi, dan sains, dikelompokkan menurut bahasa yang dipakai.",
+    "enHash": "053f91b1e6d0"
+  },
+  "balintkissdev/awesome-dos": {
+    "summary": "Tool development, tutorial, buku, video, source code, driver, dan emulator untuk MS-DOS dan sistem yang kompatibel.",
+    "enHash": "14cd7311de78"
+  },
+  "bcoe/awesome-cross-platform-nodejs": {
+    "summary": "Referensi, library, layanan CI, dan masalah yang diketahui untuk menulis kode Node.js yang berjalan di Windows, macOS, dan Linux.",
+    "enHash": "fa6d341147e4"
+  },
+  "beardicus/awesome-plotters": {
+    "summary": "Hardware, software, manual, kursus, dan komunitas untuk pen plotter, mesin yang menggambar dengan kendali komputer.",
+    "enHash": "0f65d7dacbd5"
+  },
+  "benallfree/awesome-pocketbase": {
+    "summary": "Library client, plugin, proyek, dan panduan hosting untuk PocketBase, database dan backend autentikasi dalam satu program Go.",
+    "enHash": "aa3708a8aa99"
+  },
+  "bnb/awesome-hyper": {
+    "summary": "Plugin dan tema untuk Hyper, aplikasi terminal yang dibuat dengan teknologi web.",
+    "enHash": "6db6035719bc"
+  },
+  "bolshchikov/js-must-watch": {
+    "summary": "Talk konferensi tentang JavaScript, diurutkan per tahun.",
+    "enHash": "5dad7f5ddcdd"
+  },
+  "brabadu/awesome-fonts": {
+    "summary": "Font gratis, icon font, set emoji, font pemrograman, dan library JavaScript untuk mengolah tipografi.",
+    "enHash": "d592c5fc35b2"
+  },
+  "briatte/awesome-network-analysis": {
+    "summary": "Buku, kursus, dataset, jurnal, paper, dan software untuk mempelajari jaringan dalam ilmu sosial dan ilmu alam.",
+    "enHash": "b9142625e26b"
+  },
+  "brillout/awesome-redux": {
+    "summary": "Utilitas, tool developer, integrasi, dan boilerplate untuk Redux, library JavaScript untuk menyimpan state aplikasi dalam satu store.",
+    "enHash": "c30ae690dc56"
+  },
+  "brootware/awesome-cyber-security-university": {
+    "summary": "Kursus praktik gratis dan ruang latihan yang membentuk jalur belajar keamanan, untuk sisi penyerang maupun bertahan.",
+    "enHash": "7e8badb421ec"
+  },
+  "browserify/awesome-browserify": {
+    "summary": "Tutorial, artikel, demo, dan tool untuk Browserify, yang mem-bundle modul gaya Node untuk browser.",
+    "enHash": "035e32dc8553"
+  },
+  "brunopulis/awesome-a11y": {
+    "summary": "Tool, artikel, pedoman, dan referensi lain untuk membuat website yang aksesibel bagi penyandang disabilitas.",
+    "enHash": "66383ad59cd9"
+  },
+  "brycejohnston/awesome-agriculture": {
+    "summary": "Software open source, data, hardware, dan proyek machine learning untuk pertanian, tanaman, tanah, dan sistem pangan.",
+    "enHash": "5cc4c5a9ac97"
+  },
+  "bs-community/awesome-minecraft": {
+    "summary": "Mod, mod loader, plugin server, resource pack, shader, dan tool development untuk Minecraft.",
+    "enHash": "1498430d9e52"
+  },
+  "bubuanabelas/awesome-markdown": {
+    "summary": "Parser, editor, tool, layanan, dan blog engine untuk format teks Markdown.",
+    "enHash": "ab691419bef2"
+  },
+  "burningtree/awesome-json": {
+    "summary": "Library, tool command-line, editor, spesifikasi schema, dataset, dan tool online untuk mengolah data JSON.",
+    "enHash": "0a29a4db2c6b"
+  },
+  "busterc/awesome-cordova": {
+    "summary": "Plugin, framework UI, tool, dan materi belajar untuk Apache Cordova, yang mengemas aplikasi web menjadi aplikasi mobile.",
+    "enHash": "61c0f2a58ab3"
+  },
+  "bytecauldron/awesome-gamemaker": {
+    "summary": "Library, ekstensi, tool, dan tutorial untuk engine GameMaker, untuk input, antarmuka, fisika, audio, shader, dan lainnya.",
+    "enHash": "a30a5e1c601d"
+  },
+  "caesar0301/awesome-pcaptools": {
+    "summary": "Tool untuk menangkap dan menganalisis lalu lintas jaringan yang disimpan dalam file pcap, termasuk ekstraksi DNS dan file.",
+    "enHash": "6c1a9b7365cc"
+  },
+  "calinou/awesome-godot": {
+    "summary": "Game, template, demo, plugin, modul, dan dukungan editor untuk Godot, game engine open source.",
+    "enHash": "04157fdba181"
+  },
+  "cap-go/awesome-ionic": {
+    "summary": "Plugin, tutorial, aplikasi starter, dan tool untuk Ionic dan Capacitor, yang membangun aplikasi mobile dengan teknologi web.",
+    "enHash": "f207e6cfd8ad"
+  },
+  "carpedm20/awesome-hacking": {
+    "summary": "Tool dan tutorial hacking: reverse engineering, web, jaringan, forensik, kriptografi, dan wargame untuk latihan.",
+    "enHash": "e8eafcad449c"
+  },
+  "catalinmiron/awesome-prisma": {
+    "summary": "Dokumentasi, tutorial, tool, dan proyek untuk Prisma, ORM untuk Node.js dan TypeScript.",
+    "enHash": "35cb989d7ce4"
+  },
+  "caufieldjh/awesome-bioie": {
+    "summary": "Paper, grup, tool, model, dataset, dan ontologi untuk mengekstrak fakta dari teks biomedis.",
+    "enHash": "b9c1514d6a18"
+  },
+  "cenoura/awesome-ads": {
+    "summary": "Artikel dan tool teknologi iklan untuk website: ad server, pembelian programmatic, dan header bidding dengan Prebid.",
+    "enHash": "658c06432ef3"
+  },
+  "cerberauth/awesome-openid-connect": {
+    "summary": "Identity provider, library client, software, dan spesifikasi untuk OpenID Connect, single sign-on di atas OAuth.",
+    "enHash": "af640f5a2eaf"
+  },
+  "chainstacklabs/awesome-corda": {
+    "summary": "Dokumentasi, tool, tutorial, kursus, dan contoh aplikasi untuk Corda, platform blockchain yang ditujukan untuk bisnis.",
+    "enHash": "cd4677de0d71"
+  },
+  "chalarangelo/30-seconds-of-code": {
+    "summary": "Potongan kode singkat yang masing-masing menyelesaikan satu masalah kecil, terutama dalam JavaScript, beserta penjelasannya.",
+    "enHash": "80c0c6f85512"
+  },
+  "chentsulin/awesome-graphql": {
+    "summary": "Spesifikasi, implementasi server dan client, tool, layanan, tutorial, dan buku untuk GraphQL, bahasa query untuk API.",
+    "enHash": "7a0a24336015"
+  },
+  "chiraggude/awesome-laravel": {
+    "summary": "Paket, opsi hosting dan deployment, tutorial, buku, podcast, dan proyek starter untuk Laravel, framework web PHP.",
+    "enHash": "543822861b0d"
+  },
+  "choojs/awesome-choo": {
+    "summary": "Plugin, komponen, template, demo, dan proyek untuk Choo, framework JavaScript kecil untuk aplikasi front-end.",
+    "enHash": "6e8b6fe6baf9"
+  },
+  "chrissimpkins/codeface": {
+    "summary": "Font monospace untuk menulis kode di text editor dan terminal, lengkap dengan contohnya.",
+    "enHash": "fddc552668dd"
+  },
+  "christian-bromann/awesome-selenium": {
+    "summary": "Library, framework, layanan, dan referensi untuk Selenium, yang mengendalikan browser untuk pengujian otomatis.",
+    "enHash": "f4563f93bd01"
+  },
+  "christoschristofidis/awesome-deep-learning": {
+    "summary": "Buku, kursus, kuliah, paper, tutorial, dan peneliti untuk belajar deep learning dengan neural network.",
+    "enHash": "97107c81f2f6"
+  },
+  "chromedevtools/awesome-chrome-devtools": {
+    "summary": "Tips, tool profiling, ekstensi, dan proyek yang dibangun di atas protokol DevTools, developer tools bawaan Chrome.",
+    "enHash": "e04547dcdc3d"
+  },
+  "cicdops/awesome-ciandcd": {
+    "summary": "Tool dan teori untuk continuous integration dan delivery: build server, code review, testing, packaging, dan deployment.",
+    "enHash": "756a2ed566c1"
+  },
+  "cjbarber/toolsofthetrade": {
+    "summary": "Layanan software yang dipakai startup untuk menjalankan bisnis, dari manajemen proyek dan analitik hingga penggajian.",
+    "enHash": "563f28215ca2"
+  },
+  "cjwirth/awesome-ios-ui": {
+    "summary": "Komponen antarmuka open source untuk aplikasi iOS: animasi, kalender, menu, alert, progress view, dan kontrol input.",
+    "enHash": "db7b5100ce59"
+  },
+  "code-and-sorts/awesome-copilot-agents": {
+    "summary": "File instruksi, prompt, custom agent, skill, dan server MCP untuk GitHub Copilot, asisten coding berbasis AI.",
+    "enHash": "79356f5f53ea"
+  },
+  "codepoints/awesome-codepoints": {
+    "summary": "Karakter Unicode yang tidak biasa, seperti tanda yang tak terlihat, karakter yang mengubah karakter lain, dan pemegang rekor.",
+    "enHash": "d8da50083efb"
+  },
+  "coderabbitai/awesome-coderabbit": {
+    "summary": "Dokumentasi, panduan integrasi, tutorial, dan proyek untuk CodeRabbit, layanan yang me-review pull request dengan AI.",
+    "enHash": "f64a20052f96"
+  },
+  "codyreichert/awesome-cl": {
+    "summary": "Library, implementasi, dan tool Common Lisp per bidang, dari AI dan database hingga grafis, web, dan materi belajar.",
+    "enHash": "9fb7fa64d0d5"
+  },
+  "collective/awesome-plone": {
+    "summary": "Add-on untuk Plone, sistem manajemen konten yang ditulis dengan Python, dikelompokkan per fitur seperti editing dan tema.",
+    "enHash": "7ace94b5b1d3"
+  },
+  "componently-com/awesome-building-blocks-for-web-apps": {
+    "summary": "Layanan siap pakai untuk dipasang di aplikasi web, seperti login, booking, chat, form, notifikasi, dan banner persetujuan.",
+    "enHash": "0ebff387916c"
+  },
+  "compscilauren/awesome-git-hooks": {
+    "summary": "Skrip hook, tool, dan panduan siap pakai untuk menjalankan pemeriksaan otomatis saat Git melakukan commit atau push.",
+    "enHash": "4b879dedc458"
+  },
+  "constructcommunity/awesome-construct": {
+    "summary": "Addon, tool, opsi hosting dan ekspor, tutorial, dan channel untuk Construct, game engine yang diprogram dengan event visual.",
+    "enHash": "c123daa58d31"
+  },
+  "cosmos/awesome-cosmos": {
+    "summary": "Modul, library client, explorer, tool validator, dan template untuk Cosmos SDK, framework Go untuk membangun blockchain.",
+    "enHash": "87a327bec5c8"
+  },
+  "cpuu/awesome-fuzzing": {
+    "summary": "Buku, talk, paper, dan tool tentang fuzzing, yaitu mencari bug dengan memberi program input acak atau yang dirancang khusus.",
+    "enHash": "030a8bf75d3b"
+  },
+  "craftcms/awesome": {
+    "summary": "Plugin, tutorial, tautan komunitas, dan situs showcase untuk Craft CMS, sistem manajemen konten yang ditulis dengan PHP.",
+    "enHash": "616b992fd761"
+  },
+  "cristianoliveira/awesome4girls": {
+    "summary": "Acara, program, organisasi, dan toolkit yang mendorong perempuan dan anak perempuan untuk belajar pemrograman.",
+    "enHash": "17622025746f"
+  },
+  "csabapalfi/awesome-pagespeed-metrics": {
+    "summary": "Penjelasan, dokumentasi, dan tool untuk metrik yang mengukur seberapa cepat halaman web dimuat dan merespons.",
+    "enHash": "afec6cd35778"
+  },
+  "cvyl/awesome-transgender": {
+    "summary": "Website, komunitas, latihan suara, informasi medis, organisasi, dan riset untuk orang transgender.",
+    "enHash": "f74c3b8d80b1"
+  },
+  "cyclejs-community/awesome-cyclejs": {
+    "summary": "Tutorial, tool, library, dan tautan komunitas untuk Cycle.js, framework JavaScript berbasis reactive stream.",
+    "enHash": "a77922f02824"
+  },
+  "cytodata/awesome-cytodata": {
+    "summary": "Referensi untuk profiling sel dari gambar mikroskop, seperti software, dataset, dan paper.",
+    "enHash": "4a713623bc45"
+  },
+  "dahlia/awesome-sqlalchemy": {
+    "summary": "Ekstensi dan library yang bekerja dengan SQLAlchemy, toolkit Python untuk database dan ORM.",
+    "enHash": "d036295ef25e"
+  },
+  "danailminchev/awesome-eosio": {
+    "summary": "Referensi resmi, tool, block producer, materi developer, dan aplikasi untuk EOSIO, platform blockchain untuk aplikasi terdesentralisasi.",
+    "enHash": "ee782b1e491f"
+  },
+  "danailminchev/awesome-payload": {
+    "summary": "Tautan resmi, tutorial, komponen, template, dan plugin untuk Payload, headless CMS open source untuk Next.js.",
+    "enHash": "1aff24d9d9b1"
+  },
+  "danielecook/awesome-bioinformatics": {
+    "summary": "Software, tool data, pipeline sequencing, tool visualisasi, dan database untuk menganalisis data biologi.",
+    "enHash": "37b58c48db37"
+  },
+  "danvoyce/awesome-creative-tech-events": {
+    "summary": "Festival, meetup, dan konferensi di seluruh dunia tentang creative coding, seni digital, desain, dan teknologi musik.",
+    "enHash": "7727c22b3954"
+  },
+  "dariubs/gobooks": {
+    "summary": "Buku tentang bahasa pemrograman Go, dari tingkat pemula dan lanjutan hingga web development.",
+    "enHash": "ff8f757a8d1e"
+  },
+  "dastergon/awesome-sre": {
+    "summary": "Artikel, buku, talk, dan tool tentang site reliability engineering: monitoring, on-call, post-mortem, kapasitas, dan service level.",
+    "enHash": "2980383d46bb"
+  },
+  "datadaode/awesome-foss-apps": {
+    "summary": "Aplikasi web dan desktop open source yang benar-benar dipakai perusahaan di production.",
+    "enHash": "c81c6e742420"
+  },
+  "dav009/awesome-spanish-nlp": {
+    "summary": "Korpus, tool, dan riset untuk pemrosesan bahasa Spanyol dengan komputer, termasuk speech dan clustering.",
+    "enHash": "53b9bc189b7a"
+  },
+  "daviddias/awesome-hacking-locations": {
+    "summary": "Kafe dan tempat di seluruh dunia, per negara, yang nyaman untuk duduk sambil ngoding.",
+    "enHash": "837e2baff71c"
+  },
+  "davidsonfellipe/awesome-wpo": {
+    "summary": "Buku, studi kasus, analyzer, layanan monitoring, CDN, dan optimizer untuk membuat website dimuat lebih cepat.",
+    "enHash": "efcc61470418"
+  },
+  "davidtheclark/scalable-css-reading-list": {
+    "summary": "Artikel, style guide, dan talk tentang menulis CSS yang tetap mudah dikelola seiring situs berkembang.",
+    "enHash": "ba054a823243"
+  },
+  "davisonio/awesome-gif": {
+    "summary": "Tool, library, aplikasi, dan layanan online untuk membuat, mengedit, dan meng-hosting gambar GIF animasi.",
+    "enHash": "d7023fac74eb"
+  },
+  "davisonio/awesome-irc": {
+    "summary": "Client, bouncer, server, bot, framework, jaringan, dan panduan untuk IRC, protokol chat yang sudah lama ada.",
+    "enHash": "32d1fc0542e8"
+  },
+  "dawdle-deer/awesome-learn-gamedev": {
+    "summary": "Artikel, buku, dan talk untuk belajar membuat video game: pemrograman, art, desain, audio, penulisan, produksi, dan karier.",
+    "enHash": "d2864d1204f2"
+  },
+  "deanhume/typography": {
+    "summary": "Artikel, tool, buku, dan talk tentang tipografi untuk web, termasuk cara memuat web font dengan cepat.",
+    "enHash": "2b08facec776"
+  },
+  "deephacks/awesome-jvm": {
+    "summary": "Tool dan library untuk Java virtual machine: bytecode, garbage collector, bahasa, profiler, runtime, dan concurrency.",
+    "enHash": "2d9c07b0a2c0"
+  },
+  "delftopenhardware/awesome-open-hardware": {
+    "summary": "Proyek, tool desain, talk, paper, platform, dan buku tentang hardware yang desainnya dipublikasikan secara terbuka.",
+    "enHash": "8f157445f202"
+  },
+  "dend/awesome-product-management": {
+    "summary": "Artikel, buku, komunitas, dan konferensi untuk orang yang mengelola produk software.",
+    "enHash": "c2d986704652"
+  },
+  "denolib/awesome-deno": {
+    "summary": "Modul, tool, integrasi, artikel, dan talk untuk Deno, runtime JavaScript dan TypeScript dengan sistem permission bawaan.",
+    "enHash": "0e783963b057"
+  },
+  "dersvenhesse/awesome-scriptable": {
+    "summary": "Widget dan skrip untuk Scriptable, aplikasi iPhone yang mengotomatiskan tugas dengan JavaScript, dikelompokkan per topik.",
+    "enHash": "adb08f861a2b"
+  },
+  "desireevl/awesome-quantum-computing": {
+    "summary": "Kursus, tool development, buku, blog, video, dan podcast untuk belajar dan memprogram komputer kuantum.",
+    "enHash": "0ee47c236c90"
+  },
+  "devopshivehq/awesome-kustomize": {
+    "summary": "Plugin, panduan, dan potongan kode untuk Kustomize, yang mengkustomisasi file konfigurasi Kubernetes tanpa template.",
+    "enHash": "b49b4718e750"
+  },
+  "dh-tech/awesome-digital-humanities": {
+    "summary": "Software, platform, pusat studi, jurnal, dan panduan untuk riset humaniora yang memanfaatkan komputer dan data.",
+    "enHash": "ddc0d973024d"
+  },
+  "dhamaniasad/awesome-postgres": {
+    "summary": "Tool untuk PostgreSQL: high availability, backup, client grafis dan command-line, ekstensi, monitoring, layanan hosted, dan operator Kubernetes.",
+    "enHash": "b95e42d1270f"
+  },
+  "diegocard/awesome-html5": {
+    "summary": "Artikel, spesifikasi, dan contoh fitur HTML5: media, elemen semantik, storage, worker, aksesibilitas, dan aplikasi offline.",
+    "enHash": "03efbb10e59a"
+  },
+  "directus-labs/awesome-directus": {
+    "summary": "Dokumentasi, SDK, integrasi, ekstensi, dan showcase untuk Directus, yang menyediakan API dan aplikasi admin di atas database SQL.",
+    "enHash": "92fce5f9b01f"
+  },
+  "dlang-community/awesome-d": {
+    "summary": "Compiler, tool, editor, library, buku, tutorial, dan tautan komunitas untuk bahasa pemrograman D.",
+    "enHash": "5dbdb0dd7bce"
+  },
+  "dok/awesome-text-editing": {
+    "summary": "Library untuk membangun text editor di browser: editor rich text, kode, dan Markdown.",
+    "enHash": "fa9aaec169ec"
+  },
+  "domenicosolazzo/awesome-okr": {
+    "summary": "Artikel, buku, panduan, template, dan software untuk menetapkan tujuan dengan Objectives and Key Results (OKR).",
+    "enHash": "063d8b2c612c"
+  },
+  "donbarbos/awesome-standards": {
+    "summary": "Standar dan proposal formal untuk web, API, bahasa pemrograman, keamanan, hardware, database, dan telekomunikasi.",
+    "enHash": "6a93c738e699"
+  },
+  "donnemartin/awesome-aws": {
+    "summary": "SDK, tool command-line, proyek open source, dan panduan untuk Amazon Web Services, dikelompokkan per layanan.",
+    "enHash": "43e82076969b"
+  },
+  "dotintent/awesome-ble": {
+    "summary": "Library dan tool untuk Bluetooth Low Energy di iOS, Android, Flutter, web, dan mikrokontroler, plus artikel.",
+    "enHash": "abd98d778780"
+  },
+  "dreamingechoes/awesome-mental-health": {
+    "summary": "Artikel, aplikasi, buku, talk, podcast, dan organisasi tentang kesehatan mental bagi orang yang bekerja di bidang software.",
+    "enHash": "9a3cdacf7004"
+  },
+  "dreikanter/sublime-bookmarks": {
+    "summary": "Paket, tips, buku, screencast, dan tautan komunitas untuk editor Sublime Text.",
+    "enHash": "7e5ad90f5578"
+  },
+  "drewrwilson/toolsforactivism": {
+    "summary": "Software dan layanan untuk aktivis dan pengorganisasi, seperti petisi, tool untuk menghubungi wakil rakyat, dan database kampanye.",
+    "enHash": "ceb9ec31bb69"
+  },
+  "dribdat/awesome-hackathon": {
+    "summary": "Platform, tool, dan panduan untuk menyelenggarakan dan menjalankan hackathon.",
+    "enHash": "3884074662c4"
+  },
+  "drmonkeyninja/awesome-textpattern": {
+    "summary": "Plugin, tema, dan sumber belajar untuk Textpattern, sistem manajemen konten open source kecil yang ditulis dengan PHP.",
+    "enHash": "8a209f3fc19d"
+  },
+  "drobakowski/awesome-erlang": {
+    "summary": "Library dan tool Erlang untuk framework web, HTTP, testing, logging, deployment, sistem terdistribusi, dan lainnya.",
+    "enHash": "83868917f575"
+  },
+  "dspinellis/awesome-msr": {
+    "summary": "Dataset, tool, dan forum riset untuk mempelajari software lewat repositori, bug, dan riwayat pengembangannya.",
+    "enHash": "d9b0175d111a"
+  },
+  "dstdev/awesome-hpc": {
+    "summary": "Software untuk high-performance computing: provisioning cluster, job scheduler, MPI, compiler, parallel file system, dan benchmark.",
+    "enHash": "d5a61d3cbd83"
+  },
+  "dustinspecker/awesome-eslint": {
+    "summary": "Config yang bisa dibagikan, plugin, parser, formatter, dan tutorial untuk ESLint, linter JavaScript.",
+    "enHash": "041c094b59e0"
+  },
+  "dvergar/awesome-haxe-gamedev": {
+    "summary": "Engine, library fisika dan networking, game, dan artikel untuk membuat game dengan Haxe, bahasa untuk banyak platform.",
+    "enHash": "c8a8e0a05f9a"
+  },
+  "dylanrees/citizen-science": {
+    "summary": "Software, peralatan, panduan riset, lab komunitas, pendanaan, dan acara untuk sains yang dilakukan di luar institusi.",
+    "enHash": "87be03b540f6"
+  },
+  "dypsilon/frontend-dev-bookmarks": {
+    "summary": "Tautan ke artikel, tool, dan referensi untuk front-end web developer, dengan cakupan topik yang luas.",
+    "enHash": "2b0e48f79c15"
+  },
+  "ebookfoundation/free-programming-books": {
+    "summary": "Buku pemrograman, kursus, dan materi belajar lain yang bisa dibaca gratis, dalam banyak bahasa.",
+    "enHash": "cbc424fc0a12"
+  },
+  "ebraminio/awesome-qsharp": {
+    "summary": "Dokumentasi, tutorial, buku, video, kontes, dan contoh untuk Q#, bahasa dari Microsoft untuk program kuantum.",
+    "enHash": "8bb966656eda"
+  },
+  "ebu/awesome-broadcasting": {
+    "summary": "Software open source untuk penyiaran: grafis, codec, player, sistem kontrol, media IP, monitoring, dan radio.",
+    "enHash": "79c8ed023fff"
+  },
+  "ecohealthalliance/awesome-parasite": {
+    "summary": "Database, koleksi museum, sistem pelaporan, taksonomi, dan jurnal tentang parasit dan inangnya.",
+    "enHash": "c7dd7e4ddaf8"
+  },
+  "edm00se/awesome-board-games": {
+    "summary": "Board game untuk keluarga, penggemar strategi, dan pesta.",
+    "enHash": "9e6cacdd5f8c"
+  },
+  "edobashira/speech-language-processing": {
+    "summary": "Referensi untuk speech recognition dan natural language processing: software, korpus, buku, kursus, dan forum riset.",
+    "enHash": "90a2184ad537"
+  },
+  "egeerardyn/awesome-latex": {
+    "summary": "Distribusi, editor, build tool, paket, template, tutorial, dan buku untuk LaTeX, sistem typesetting dokumen.",
+    "enHash": "236c62487384"
+  },
+  "eleventigers/awesome-rxjava": {
+    "summary": "Binding, utilitas, helper testing, panduan, dan artikel untuk RxJava, pemrograman reaktif dengan stream di JVM.",
+    "enHash": "5a188b81c354"
+  },
+  "ellisonleao/magictools": {
+    "summary": "Tool grafis, audio, dan kode, engine, aset, serta sumber belajar untuk membuat game.",
+    "enHash": "813c8b51a50a"
+  },
+  "emacs-tw/awesome-emacs": {
+    "summary": "Paket dan referensi konfigurasi untuk Emacs, text editor yang bisa diperluas, diurutkan per tugas.",
+    "enHash": "ecccbafc6b40"
+  },
+  "ember-community-russia/awesome-ember": {
+    "summary": "Addon, tool, panduan, dan tutorial untuk Ember.js, framework JavaScript untuk aplikasi web yang ambisius.",
+    "enHash": "5d4e9356d2d8"
+  },
+  "eminyagiz42/awesome-sap-commerce": {
+    "summary": "Dokumentasi, blog, dan teknologi terkait untuk SAP Commerce, dulu bernama Hybris, platform e-commerce yang ditulis dengan Java.",
+    "enHash": "f77049ed08f3"
+  },
+  "emptymalei/awesome-research": {
+    "summary": "Software untuk peneliti: mengatur pekerjaan, mencatat, menulis dan menerbitkan, presentasi, visualisasi data, dan LaTeX.",
+    "enHash": "e36122ad5a03"
+  },
+  "enaqx/awesome-react": {
+    "summary": "Library, tool, dan sumber belajar untuk React, library JavaScript untuk antarmuka pengguna, dan React Native.",
+    "enHash": "a1efe1946c0c"
+  },
+  "enjalot/algovis": {
+    "summary": "Proyek, library, dan contoh yang menjelaskan algoritma lewat visualisasi interaktif.",
+    "enHash": "1f2f4ab02939"
+  },
+  "eozer/awesome-snmp": {
+    "summary": "Library, tool, paper, server uji, dan koleksi MIB untuk SNMP, protokol untuk memantau perangkat jaringan.",
+    "enHash": "08b7637a303f"
+  },
+  "erictleung/awesome-nosql-guides": {
+    "summary": "Artikel dan panduan tentang database NoSQL: pemodelan data, trade-off CAP, graph database, dan perdebatan seputarnya.",
+    "enHash": "b39a763b647a"
+  },
+  "erwanlemerrer/awesome-audit-algorithms": {
+    "summary": "Paper riset dan acara tentang audit algoritma dari luar, misalnya memeriksa bias pada sistem rekomendasi.",
+    "enHash": "e0b5079d0a0f"
+  },
+  "eselkin/awesome-computational-neuroscience": {
+    "summary": "Lab universitas dan grup riset computational neuroscience di Eropa dan Amerika Utara.",
+    "enHash": "01b36f2ce408"
+  },
+  "esri/awesome-arcgis-developers": {
+    "summary": "API, SDK, contoh, tool data, dan panduan untuk membangun aplikasi peta di platform ArcGIS dari Esri.",
+    "enHash": "f001d3d8bdcc"
+  },
+  "eug/awesome-opengl": {
+    "summary": "Artikel, buku, debugger, editor shader, library, referensi, dan talk untuk OpenGL, antarmuka pemrograman grafis.",
+    "enHash": "0d2b42aa6787"
+  },
+  "exaspark/awesome-chatops": {
+    "summary": "Artikel, talk, buku, layanan, dan framework bot untuk ChatOps, menjalankan pekerjaan operasional lewat ruang chat.",
+    "enHash": "095a98df57f8"
+  },
+  "expede/awesome-relay": {
+    "summary": "Sumber belajar, library, dukungan server, dan tool testing untuk Relay, framework data GraphQL dari Facebook untuk React.",
+    "enHash": "68b643ca7494"
+  },
+  "fabacab/awesome-cybersecurity-blueteam": {
+    "summary": "Tool dan panduan untuk mempertahankan sistem: hardening, monitoring, incident response, honeypot, identitas, dan threat intelligence.",
+    "enHash": "87b2dbba1841"
+  },
+  "fabacab/awesome-lockpicking": {
+    "summary": "Panduan, buku, komunitas, acara, proyek hobi, dan vendor untuk lockpicking dan locksport.",
+    "enHash": "989a26c8679a"
+  },
+  "famolus/awesome-sass": {
+    "summary": "Panduan, framework, library mixin, tool, buku, dan video untuk Sass, bahasa yang dikompilasi menjadi CSS.",
+    "enHash": "98e97a65fc5c"
+  },
+  "faroit/awesome-python-scientific-audio": {
+    "summary": "Paket Python, tutorial, buku, dan paper untuk riset audio, ucapan, dan musik.",
+    "enHash": "183f9c03922a"
+  },
+  "fcambus/nginx-resources": {
+    "summary": "Artikel, tutorial, dan talk tentang konfigurasi, pengamanan, dan pengembangan web server nginx, termasuk Lua dan OpenResty.",
+    "enHash": "547df0301c41"
+  },
+  "feross/awesome-mad-science": {
+    "summary": "Paket npm mengejutkan yang melakukan hal yang tampaknya mustahil, dari jaringan peer-to-peer hingga virtual machine.",
+    "enHash": "8c035a90e517"
+  },
+  "fffaraz/awesome-cpp": {
+    "summary": "Library, framework, dan tool C dan C++ per bidang, dari audio dan kompresi hingga database, networking, dan grafis.",
+    "enHash": "8c2d580e1464"
+  },
+  "filipelinhares/awesome-slack": {
+    "summary": "Workspace Slack untuk developer dan desainer, per topik dan wilayah.",
+    "enHash": "87bfd3bc9eb3"
+  },
+  "fityanos/awesome-quality-assurance-roadmap": {
+    "summary": "Jalur belajar untuk menjadi software tester, dengan contoh test plan dan saran praktis.",
+    "enHash": "a7743a356cea"
+  },
+  "fkie-cad/awesome-embedded-and-iot-security": {
+    "summary": "Tool software dan hardware, studi kasus, pelatihan, dan website tentang keamanan perangkat embedded dan terhubung.",
+    "enHash": "178e05f10220"
+  },
+  "flame-engine/awesome-flame": {
+    "summary": "Tutorial, plugin, dan contoh proyek untuk Flame, game engine 2D yang dibangun di atas Flutter.",
+    "enHash": "bbdd4737804f"
+  },
+  "fliptheweb/motion-ui-design": {
+    "summary": "Inspirasi, artikel, software, library, talk, dan pedoman untuk animasi di antarmuka pengguna.",
+    "enHash": "046948733cac"
+  },
+  "folkswhocode/awesome-diversity": {
+    "summary": "Organisasi, acara, artikel, talk, dan buku tentang menjadikan industri teknologi lebih beragam dan inklusif.",
+    "enHash": "3bf9cd85716f"
+  },
+  "foxfil/awesome-geocaching": {
+    "summary": "Website, aplikasi, dan tool untuk geocaching, permainan luar ruang mencari wadah tersembunyi dengan GPS.",
+    "enHash": "f9f05a24bbd4"
+  },
+  "fr0st-brutal/awesome-pascal": {
+    "summary": "Library, komponen, dan tool untuk Delphi dan Free Pascal, mencakup grafis, networking, database, GUI, dan lainnya.",
+    "enHash": "8cedb73af4d4"
+  },
+  "francoism90/awesome-kde": {
+    "summary": "Aplikasi, kustomisasi, dokumentasi, dan komunitas untuk KDE, desktop Linux beserta software-nya.",
+    "enHash": "925f2de054ef"
+  },
+  "fregante/awesome-webextensions": {
+    "summary": "Dokumentasi, library, tool, helper testing, boilerplate, dan contoh untuk membuat ekstensi browser yang berjalan di berbagai browser.",
+    "enHash": "88cbceaa909b"
+  },
+  "frenck/awesome-home-assistant": {
+    "summary": "Integrasi, dashboard, card, tema, aplikasi, tool, dan setup publik untuk Home Assistant, hub otomatisasi rumah open source.",
+    "enHash": "4416af9c9a71"
+  },
+  "friedger/awesome-stacks-chain": {
+    "summary": "Aplikasi, tool development, dan materi belajar untuk Stacks, yang menambahkan smart contract ke Bitcoin, beserta bahasa Clarity.",
+    "enHash": "aab01f8e06f8"
+  },
+  "friendsofcake/awesome-cakephp": {
+    "summary": "Plugin, aplikasi, dan sumber belajar untuk CakePHP, framework web yang ditulis dengan PHP.",
+    "enHash": "c0288604194f"
+  },
+  "friz-zy/awesome-linux-containers": {
+    "summary": "Spesifikasi, runtime, sandbox, hypervisor, file system, dan tool keamanan untuk container di Linux.",
+    "enHash": "0ecb78ceba25"
+  },
+  "fsprojects/awesome-fsharp": {
+    "summary": "Library, framework, dan tool untuk F#, bahasa fungsional di .NET, dari build tool hingga data science.",
+    "enHash": "10c1c52c42b3"
+  },
+  "fukuball/awesome-laravel-education": {
+    "summary": "Materi belajar framework PHP Laravel: bab dokumentasi, screencast, artikel, dan buku, dalam bahasa Inggris dan Mandarin.",
+    "enHash": "649d8125a26a"
+  },
+  "fuse-compound/awesome-fuse": {
+    "summary": "Aplikasi, artikel, plugin, dan proyek open source yang dibuat dengan Fuse, toolkit untuk membangun aplikasi mobile.",
+    "enHash": "3e0ecd972545"
+  },
+  "gaerae/awesome-algorithms-education": {
+    "summary": "Kursus, situs latihan, visualisasi, buku, video, dan materi wawancara untuk belajar algoritma.",
+    "enHash": "cb709aa83da8"
+  },
+  "gamontal/awesome-katas": {
+    "summary": "Latihan pemrograman yang disebut kata, untuk melatih desain dan test-driven development.",
+    "enHash": "219277ec3e74"
+  },
+  "gbdev/awesome-gbdev": {
+    "summary": "Dokumentasi, emulator, tool pemrograman, game homebrew, dan catatan reverse engineering untuk development di Nintendo Game Boy.",
+    "enHash": "679df995492a"
+  },
+  "georgezouq/awesome-ai-in-finance": {
+    "summary": "Trading agent, language model, strategi, paper, sumber data, dan API exchange untuk menerapkan machine learning di pasar.",
+    "enHash": "f0c665f3dada"
+  },
+  "git-tips/tips": {
+    "summary": "Perintah Git singkat untuk tugas sehari-hari dan fitur version control yang jarang diketahui.",
+    "enHash": "090db5fa6717"
+  },
+  "gitfrage/guitarspecs": {
+    "summary": "Tautan referensi tentang bagian-bagian gitar listrik: neck, body, bridge, elektronik, senar, dan jenis kayu.",
+    "enHash": "71d48c4daeb3"
+  },
+  "glauberfc/awesome-react-hooks": {
+    "summary": "Dokumentasi, tutorial, diskusi, contoh, dan library custom hook untuk React.",
+    "enHash": "287595eea041"
+  },
+  "gofiber/awesome-fiber": {
+    "summary": "Middleware, boilerplate, resep, tool, artikel, dan benchmark untuk Fiber, framework web Go bergaya Express.",
+    "enHash": "a88db3ff02a2"
+  },
+  "gokayfem/awesome-vlm-architectures": {
+    "summary": "Deskripsi dan referensi arsitektur vision language model, yang menangani gambar sekaligus teks.",
+    "enHash": "28a6ad388a22"
+  },
+  "golemfactory/awesome-golem": {
+    "summary": "Tool dan panduan untuk requestor dan provider di Golem, jaringan tempat orang menyewakan daya komputasi yang tidak terpakai.",
+    "enHash": "579caa0eb626"
+  },
+  "grafana/awesome-k6": {
+    "summary": "Artikel, video, contoh, ekstensi, dan integrasi CI untuk k6, tool load testing dari Grafana yang ditulis skripnya dengan JavaScript.",
+    "enHash": "babab37abda6"
+  },
+  "gramantin/awesome-rails": {
+    "summary": "Sumber belajar, aplikasi open source, gem, dan template starter untuk Ruby on Rails, framework web Ruby.",
+    "enHash": "a3b23584b9a2"
+  },
+  "granze/awesome-polymer": {
+    "summary": "Tutorial, artikel, video, elemen, dan tool untuk Polymer, library dari Google untuk membangun web component.",
+    "enHash": "32e9909189a0"
+  },
+  "gruhn/awesome-naming": {
+    "summary": "Istilah untuk berbagai konsep komputasi, dari algoritma dan design pattern hingga istilah keamanan, beserta penjelasannya.",
+    "enHash": "380a32da7274"
+  },
+  "guillaume-chevalier/awesome-deep-learning-resources": {
+    "summary": "Kelas online, buku, artikel, paper, dan video untuk mempelajari deep learning, dengan fokus pada recurrent network.",
+    "enHash": "7781cfa5f615"
+  },
+  "gustavbertram/awesome-common-lisp-learning": {
+    "summary": "Environment, referensi, buku online dan cetak, komunitas, dan implementasi untuk belajar Common Lisp.",
+    "enHash": "2d854c4c7f9a"
+  },
+  "h2oai/awesome-h2o": {
+    "summary": "Tutorial, buku, paper, benchmark, dan software berbasis H2O, platform machine learning dan AutoML open source.",
+    "enHash": "9b7febaa169a"
+  },
+  "h4cc/awesome-elixir": {
+    "summary": "Lebih dari seribu library dan tool Elixir per bidang, dari actor dan autentikasi hingga testing dan web.",
+    "enHash": "54266d41878f"
+  },
+  "hachiojipm/awesome-perl": {
+    "summary": "Modul Perl yang diurutkan per tugas: parsing command-line, database, tanggal, email, template, framework web, dan lainnya.",
+    "enHash": "6985a6216627"
+  },
+  "hackerkid/bots": {
+    "summary": "Platform, tool, library, analitik, tutorial, dan komunitas untuk membangun chatbot.",
+    "enHash": "c79aba14cf9e"
+  },
+  "hackerkid/mind-expanding-books": {
+    "summary": "Buku tentang sains, filsafat, sejarah, bisnis, dan topik lain yang mengubah cara pembaca berpikir, beserta ratingnya.",
+    "enHash": "dab6457fe62f"
+  },
+  "hal9ai/awesome-dataviz": {
+    "summary": "Library charting dan visualisasi data untuk banyak bahasa, dari JavaScript dan Python hingga R dan Rust, plus dashboard.",
+    "enHash": "0e6bfb553a14"
+  },
+  "hallvaaw/awesome-biological-image-analysis": {
+    "summary": "Software untuk menganalisis gambar biologi, dari segmentasi dan pelacakan sel hingga patologi dan neurosains.",
+    "enHash": "e014c4d1ac60"
+  },
+  "hantuzun/awesome-clojurescript": {
+    "summary": "Library, framework, tool, dan sumber belajar untuk ClojureScript, bahasa Clojure yang dikompilasi ke JavaScript.",
+    "enHash": "ada32f1747bf"
+  },
+  "harpribot/awesome-information-retrieval": {
+    "summary": "Buku, kursus, software, dataset, dan talk tentang information retrieval, ilmu di balik mesin pencari.",
+    "enHash": "6a8f0d6025d3"
+  },
+  "heapy/awesome-kotlin": {
+    "summary": "Library, framework, tool, artikel, dan video untuk bahasa pemrograman Kotlin, dikelola di website kotlin.link.",
+    "enHash": "bc48ffa0ee6c"
+  },
+  "henrikwirth/awesome-wordpress-gatsby": {
+    "summary": "Plugin, starter, tema, dan tautan komunitas untuk membangun situs Gatsby yang mengambil kontennya dari WordPress.",
+    "enHash": "65a5eab04565"
+  },
+  "hesreallyhim/awesome-claude-code": {
+    "summary": "Skill, hook, plugin, client alternatif, orchestrator, dan panduan untuk Claude Code, coding agent untuk terminal.",
+    "enHash": "e4d7e93d5af2"
+  },
+  "heynickc/awesome-ddd": {
+    "summary": "Buku, kursus, video, blog, contoh proyek, library, dan konferensi tentang domain-driven design.",
+    "enHash": "2fe85f335017"
+  },
+  "hkirat/awesome-chess": {
+    "summary": "Buku, bot, validator langkah, parser notasi, grafis papan dan bidak, serta website seputar catur.",
+    "enHash": "bbf75cf6103e"
+  },
+  "hlaueriksson/awesome-powertoys-run-plugins": {
+    "summary": "Plugin komunitas dan panduan untuk PowerToys Run, quick launcher di PowerToys dari Microsoft untuk Windows.",
+    "enHash": "e14780c38bd1"
+  },
+  "hollyadele/awesome-programming-for-kids": {
+    "summary": "Aplikasi, game, robot, dan website yang mengajarkan pemrograman kepada anak-anak, per kelompok usia.",
+    "enHash": "52e96b5f525e"
+  },
+  "homematic-community/awesome-homematic": {
+    "summary": "Dokumentasi, aplikasi, add-on, hardware alternatif, dan software untuk Homematic, sistem otomatisasi rumah.",
+    "enHash": "38529122eb7c"
+  },
+  "hothero/awesome-rails-gem": {
+    "summary": "Gem Ruby untuk aplikasi Rails, dikelompokkan per fungsi: autentikasi, Active Record, upload, background job, panel admin, dan testing.",
+    "enHash": "6c90e593ee48"
+  },
+  "hqarroum/awesome-iot": {
+    "summary": "Hardware, software, protokol, standar, dan bacaan tentang internet of things, perangkat yang terhubung ke jaringan.",
+    "enHash": "8bd17bdb5106"
+  },
+  "hsavit1/awesome-swift-education": {
+    "summary": "Materi belajar untuk Swift, bahasa pemrograman dari Apple untuk platform-platformnya.",
+    "enHash": "c2a12acb2119"
+  },
+  "hsiaoyi0504/awesome-cheminformatics": {
+    "summary": "Aplikasi, library, jurnal, dan referensi lain untuk menerapkan komputasi di bidang kimia.",
+    "enHash": "0ea05a50a210"
+  },
+  "hstsethi/awesome-j2me": {
+    "summary": "Development kit, emulator, aplikasi, tool reverse engineering, dan proyek pelestarian untuk J2ME, Java di ponsel lama.",
+    "enHash": "86212617914f"
+  },
+  "hyperupcall/awesome-mastodon": {
+    "summary": "Instance, client, tool, library, bot, dan panduan hosting untuk Mastodon, alternatif Twitter yang terfederasi.",
+    "enHash": "3d15ed683f41"
+  },
+  "hzoo/awesome-gametalks": {
+    "summary": "Podcast dan talk tentang game design dan proses pembuatan video game.",
+    "enHash": "cf9c1f384fef"
+  },
+  "iamcoder/awesome-lucid-dreams": {
+    "summary": "Riset, buku, aplikasi, perangkat, program audio, forum, dan referensi lain tentang lucid dreaming.",
+    "enHash": "7747e46fdc64"
+  },
+  "iamericfletcher/awesome-r-learning-resources": {
+    "summary": "Tutorial per topik, blog, buku, komunitas, podcast, dan channel YouTube untuk belajar bahasa R.",
+    "enHash": "b303cda73d41"
+  },
+  "ianstormtaylor/awesome-heroku": {
+    "summary": "Buildpack, add-on, tool, dan panduan untuk Heroku, layanan cloud untuk deploy dan hosting aplikasi.",
+    "enHash": "df918a73bb15"
+  },
+  "ibaaj/awesome-opensourcephotography": {
+    "summary": "Software foto open source: RAW developer, HDR, panorama, organizer, editor EXIF, firmware kamera, dan komunitas.",
+    "enHash": "55d914ddbdd4"
+  },
+  "igorbarinov/awesome-bitcoin": {
+    "summary": "Layanan, API, wallet, explorer, dan library dalam banyak bahasa untuk membangun software di atas Bitcoin.",
+    "enHash": "1d3e83b9d234"
+  },
+  "igorbarinov/awesome-data-engineering": {
+    "summary": "Database, tool ingestion dan stream processing, format file, workflow scheduler, dan tool monitoring untuk membangun data pipeline.",
+    "enHash": "f87b8a01d4b5"
+  },
+  "iipc/awesome-web-archiving": {
+    "summary": "Pelatihan, tool, layanan, referensi komunitas, dan data publik untuk mengarsipkan website.",
+    "enHash": "2dfe22caae83"
+  },
+  "ijackua/awesome-vagrant": {
+    "summary": "Box, tool provisioning, plugin, tutorial, dan environment siap pakai untuk Vagrant, yang membuat virtual machine development yang reproducible.",
+    "enHash": "a613d14c4500"
+  },
+  "ildoc/awesome-italy-events": {
+    "summary": "Konferensi dan meetup teknologi yang diadakan di Italia.",
+    "enHash": "d5bc1ff5bcb6"
+  },
+  "infosecb/awesome-detection-engineering": {
+    "summary": "Framework, aturan deteksi, sumber log, dan referensi lain untuk menulis aturan yang mendeteksi serangan.",
+    "enHash": "fcbc1fcf5d4f"
+  },
+  "innocenzi/awesome-inertiajs": {
+    "summary": "Adapter, hook, dan referensi untuk Inertia.js, yang menghubungkan framework server-side dengan front-end React atau Vue.",
+    "enHash": "68a4ece143a3"
+  },
+  "inoue0426/awesome-computational-biology": {
+    "summary": "Database, benchmark, API, tool preprocessing, dan model machine learning untuk biologi komputasional.",
+    "enHash": "6f32d290aa6f"
+  },
+  "inspectit-labs/awesome-inspectit": {
+    "summary": "Dokumentasi, tutorial, video, dan tulisan untuk inspectIT, tool open source yang memantau performa aplikasi Java.",
+    "enHash": "057d98282034"
+  },
+  "ipfs/awesome-ipfs": {
+    "summary": "Aplikasi, browser, tool, layanan, dan penyedia pinning untuk IPFS, jaringan peer-to-peer untuk menyimpan dan berbagi file.",
+    "enHash": "fb12e6f21086"
+  },
+  "irazasyed/awesome-cloudflare": {
+    "summary": "Tool, proyek Workers, aplikasi, utilitas DNS, dan tautan komunitas untuk layanan jaringan dan keamanan Cloudflare.",
+    "enHash": "a736c80673ef"
+  },
+  "ironcev/awesome-roslyn": {
+    "summary": "Buku, tutorial, analyzer, source generator, library, dan talk untuk Roslyn, platform compiler .NET untuk C#.",
+    "enHash": "4ffb05e357dd"
+  },
+  "isamorph/awesome-permacomputing": {
+    "summary": "Bacaan, proyek, dan komunitas tentang permacomputing, pendekatan komputasi yang lebih hemat energi dan tahan lama.",
+    "enHash": "da9c2a78696a"
+  },
+  "isamorph/awesome-webassembly": {
+    "summary": "Panduan, buku, compiler, runtime, dan proyek untuk WebAssembly, format kode ringkas yang berjalan di browser dan tempat lain.",
+    "enHash": "323115b2fdcd"
+  },
+  "j0hnm4r5/awesome-creative-technology": {
+    "summary": "Studio, kolektif, fabrikator, agensi, museum, dan festival yang bekerja di pertemuan seni, desain, dan teknologi.",
+    "enHash": "83f53c93b74c"
+  },
+  "j2team/awesome-autoit": {
+    "summary": "User-defined function, library, dan tool untuk AutoIt, bahasa scripting untuk otomatisasi Windows.",
+    "enHash": "4dfec8bb9252"
+  },
+  "jacobdjwilson/awesome-annual-security-reports": {
+    "summary": "Laporan dan survei tahunan tentang keamanan siber yang diterbitkan vendor, pemerintah, dan peneliti.",
+    "enHash": "4938aee9655c"
+  },
+  "jagracey/awesome-unicode": {
+    "summary": "Keanehan, catatan troubleshooting, dan gambaran umum script dan blok Unicode, standar untuk karakter teks.",
+    "enHash": "6180922a8c62"
+  },
+  "jakob-pennington/awesome-devsecops": {
+    "summary": "Artikel, pelatihan, dan tool untuk memasukkan pemeriksaan keamanan ke dalam proses delivery dan operasional software.",
+    "enHash": "35e0ea34fc47"
+  },
+  "jakoch/awesome-composer": {
+    "summary": "Plugin, tool, layanan, tutorial, dan repositori paket untuk Composer, dependency manager untuk PHP.",
+    "enHash": "99f8991bb0f3"
+  },
+  "janvanryswyck/awesome-talks": {
+    "summary": "Rekaman talk tentang software development, desain, arsitektur, dan budaya pemrograman.",
+    "enHash": "a92c68ea5cc1"
+  },
+  "jaredthecoder/awesome-vehicle-security": {
+    "summary": "Riset, proyek, hardware, dan software untuk keamanan dan hacking mobil, seperti tool CAN bus.",
+    "enHash": "045b1f3e4e48"
+  },
+  "jaywcjlove/awesome-mac": {
+    "summary": "Aplikasi macOS gratis dan berbayar per kategori: menulis, development, desain, komunikasi, media, dan utilitas.",
+    "enHash": "b3434c405763"
+  },
+  "jbhuang0604/awesome-computer-vision": {
+    "summary": "Buku, kursus, paper, software, pre-trained model, dan dataset untuk computer vision, yaitu mengajari mesin memahami gambar.",
+    "enHash": "6f8ddd92924b"
+  },
+  "jdrgoms/awesome-postcss": {
+    "summary": "Artikel, panduan, plugin, talk, dan tokoh untuk diikuti seputar PostCSS, tool yang mentransformasi CSS lewat plugin JavaScript.",
+    "enHash": "cbbf45c84396"
+  },
+  "jetli/awesome-yew": {
+    "summary": "Proyek, template, crate, tool, artikel, dan kursus untuk Yew, framework Rust untuk front-end web dengan WebAssembly.",
+    "enHash": "beece6dd2747"
+  },
+  "joaomilho/awesome-idris": {
+    "summary": "Referensi resmi, artikel, buku, paper, proyek, dan backend untuk Idris, bahasa fungsional dengan dependent type.",
+    "enHash": "80002d0e814d"
+  },
+  "joe-b-security/awesome-prompt-injection": {
+    "summary": "Artikel, tutorial, paper, tool, dan game latihan tentang serangan prompt injection pada language model.",
+    "enHash": "601e4c115ad7"
+  },
+  "joewdavies/awesome-frontend-gis": {
+    "summary": "Library peta JavaScript, sumber data geografis, notebook, contoh peta, dan bacaan untuk menampilkan peta di browser.",
+    "enHash": "feb3658f9c45"
+  },
+  "johnjago/awesome-ad-free": {
+    "summary": "Website dan layanan tanpa iklan, plus bacaan tentang hidup tanpa iklan.",
+    "enHash": "58225a72e47a"
+  },
+  "johnjago/awesome-free-software": {
+    "summary": "Software dan hardware bebas yang boleh dipelajari, diubah, dan dibagikan penggunanya, beserta bacaan terkait.",
+    "enHash": "fb52ffafd464"
+  },
+  "johnjago/awesome-theravada": {
+    "summary": "Teks, talk, buku, forum, organisasi, dan tempat yang berkaitan dengan Buddhisme Theravada.",
+    "enHash": "e916d45cac3b"
+  },
+  "johnjago/awesome-uncopyright": {
+    "summary": "Karya seni, buku, gambar, dan software domain publik, beserta tulisan tentang hidup tanpa hak cipta.",
+    "enHash": "7a3ab2aa796f"
+  },
+  "joho/awesome-code-review": {
+    "summary": "Paper, artikel, buku, talk, dan tool tentang code review.",
+    "enHash": "1ef3fa72a79f"
+  },
+  "jonathandion/awesome-emails": {
+    "summary": "Framework, template, tool testing, layanan, inspirasi desain, dan artikel untuk membuat email HTML.",
+    "enHash": "874596932146"
+  },
+  "jondot/awesome-devenv": {
+    "summary": "Tool, plugin editor, dan setup untuk development environment yang produktif, dari helper shell hingga ekstensi Git.",
+    "enHash": "a77b3d99362f"
+  },
+  "jondot/awesome-react-native": {
+    "summary": "Komponen, library, tool, starter, aplikasi open source, dan materi belajar untuk aplikasi mobile React Native.",
+    "enHash": "517bfae13ee0"
+  },
+  "jonleibowitz/awesome-digitalocean": {
+    "summary": "Tool konfigurasi, library client, integrasi, proyek, dan tutorial untuk DigitalOcean, penyedia cloud hosting.",
+    "enHash": "75050b597f1e"
+  },
+  "jorgebucaran/awsm.fish": {
+    "summary": "Plugin, prompt, package manager, dan panduan untuk shell fish.",
+    "enHash": "c23bb5c97896"
+  },
+  "josedefreitas/awesome-youtubers": {
+    "summary": "Channel YouTube yang mengajarkan pemrograman, ilmu komputer, keamanan, hardware, dan topik terkait.",
+    "enHash": "c2907e290bbb"
+  },
+  "josephmisiti/awesome-machine-learning": {
+    "summary": "Framework dan library machine learning yang diurutkan per bahasa pemrograman, dari C++ dan Java hingga Python dan R.",
+    "enHash": "4adc446406c6"
+  },
+  "joshwiens/awesome-rethinkdb": {
+    "summary": "Dokumentasi, driver, artikel, talk, contoh, dan tool admin untuk RethinkDB, database dokumen yang mengirim hasil query secara live.",
+    "enHash": "c687a9e8f5b4"
+  },
+  "jstumpp/awesome-android": {
+    "summary": "Emulator, library, sumber belajar, dan build tool untuk pengembangan aplikasi Android.",
+    "enHash": "95d99e90b890"
+  },
+  "jthegedus/awesome-firebase": {
+    "summary": "Ekstensi, library untuk web, mobile, dan server, tool editor, dan panduan untuk Firebase, layanan backend aplikasi dari Google.",
+    "enHash": "cdd162ec473f"
+  },
+  "jtoy/awesome-tensorflow": {
+    "summary": "Tutorial, model, library, tool, paper, dan buku tentang TensorFlow, framework machine learning dari Google.",
+    "enHash": "aee61e1766e3"
+  },
+  "jyguyomarch/awesome-conversational-ai": {
+    "summary": "Paper, client pesan, saran desain, layanan pemahaman bahasa, dan platform untuk membangun chatbot dan asisten suara.",
+    "enHash": "eaa689197f73"
+  },
+  "jyguyomarch/awesome-productivity": {
+    "summary": "Website, buku, dan aplikasi untuk mengatur pekerjaan dan menyelesaikan lebih banyak hal.",
+    "enHash": "4c85614a05d0"
+  },
+  "jzarca01/awesome-food": {
+    "summary": "Proyek open source tentang makanan: koleksi resep, API makanan, masakan nabati, nutrisi, kursus, dan video.",
+    "enHash": "e9fde9b3d275"
+  },
+  "k4m4/terminals-are-sexy": {
+    "summary": "Shell, terminal emulator, package manager, editor, dan tool command-line untuk yang suka bekerja di terminal.",
+    "enHash": "69680d8c8d77"
+  },
+  "kakoni/awesome-healthcare": {
+    "summary": "Software open source untuk layanan kesehatan: rekam medis, pencitraan, laboratorium, telemedis, standar, dan library.",
+    "enHash": "b48ad9e4477c"
+  },
+  "kalaiser/awesome-cdk": {
+    "summary": "Library construct, tool, dan pelatihan untuk AWS Cloud Development Kit, yang mendefinisikan resource cloud dengan kode biasa.",
+    "enHash": "04c9c3cb093a"
+  },
+  "kareniel/awesome-evm-security": {
+    "summary": "Panduan, standar, daftar ancaman, dan registri kerentanan tentang keamanan smart contract Ethereum.",
+    "enHash": "23268ff1388b"
+  },
+  "karlhorky/awesome-speakers": {
+    "summary": "Pembicara yang mengisi talk di konferensi dan meetup pemrograman dan desain.",
+    "enHash": "137c7368e5ab"
+  },
+  "karlhorky/learn-to-program": {
+    "summary": "Kursus dan website untuk belajar pemrograman, dibagi ke tingkat pemula, menengah, dan lanjutan.",
+    "enHash": "dbd382812a63"
+  },
+  "karneades/awesome-malware-persistence": {
+    "summary": "Teknik yang dipakai penyerang agar tetap bertahan di mesin setelah reboot, beserta tool untuk mendeteksi dan menghapusnya.",
+    "enHash": "372ef0ebe6fc"
+  },
+  "karneades/awesome-security-card-games": {
+    "summary": "Permainan kartu yang mengajarkan topik keamanan seperti threat modelling, incident response, dan privasi.",
+    "enHash": "d34712fc8b3e"
+  },
+  "kazhnuz/awesome-gnome": {
+    "summary": "Aplikasi, shell extension, tema, tautan komunitas, dan referensi developer untuk desktop GNOME di Linux.",
+    "enHash": "28ee1c36a4b7"
+  },
+  "kdabir/awesome-groovy": {
+    "summary": "Build tool, dukungan editor, framework web, testing, dan library lain untuk Groovy, bahasa dinamis di JVM.",
+    "enHash": "b78add4e1db5"
+  },
+  "kdeldycke/awesome-billing": {
+    "summary": "Artikel dan tool tentang penagihan pelanggan: harga, invoice, pajak, pembayaran, akuntansi, fraud, dan analisis pendapatan.",
+    "enHash": "8a072b0080ec"
+  },
+  "kdeldycke/awesome-engineering-team-management": {
+    "summary": "Bacaan untuk engineer yang menjadi manajer: membangun tim, rekrutmen, onboarding, budaya, rapat, kerja remote, dan manajemen proyek.",
+    "enHash": "9c77e8269ad4"
+  },
+  "kdeldycke/awesome-falsehood": {
+    "summary": "Artikel tentang asumsi keliru programmer soal nama, tanggal, alamat, nomor telepon, uang, dan data dunia nyata lainnya.",
+    "enHash": "a8f5f4f648a0"
+  },
+  "kdeldycke/awesome-iam": {
+    "summary": "Artikel dan tool tentang identity and access management: akun, password, multi-factor sign-in, OAuth, SAML, secret, dan privasi.",
+    "enHash": "567719cf8c2b"
+  },
+  "keller-mark/awesome-biological-visualizations": {
+    "summary": "Tool web interaktif untuk menampilkan data biologi seperti genom, protein, sel, dan mikroskopi.",
+    "enHash": "d587b0ba7286"
+  },
+  "kikobeats/awesome-network-js": {
+    "summary": "Modul JavaScript untuk networking: peer-to-peer, torrent, discovery, dan implementasi protokol.",
+    "enHash": "e48bd004cf11"
+  },
+  "kilimchoi/engineering-blogs": {
+    "summary": "Blog engineering yang ditulis perusahaan, developer perorangan, dan tim produk.",
+    "enHash": "6e8863979826"
+  },
+  "kiloreux/awesome-robotics": {
+    "summary": "Kursus, buku, paper, konferensi, jurnal, kompetisi, dan perusahaan di bidang robotika.",
+    "enHash": "7141a30da8e7"
+  },
+  "kimberlymunoz/empathy-in-engineering": {
+    "summary": "Artikel dan talk tentang empati dan kebaikan dalam tim engineering, dari code review hingga post-mortem tanpa saling menyalahkan.",
+    "enHash": "b2cbf847b5df"
+  },
+  "kitspace/awesome-electronics": {
+    "summary": "Materi belajar, simulator, software desain rangkaian, pembuat PCB, mesin pencari komponen, dan komunitas untuk elektronika.",
+    "enHash": "1d34264d870a"
+  },
+  "kjw0612/awesome-deep-vision": {
+    "summary": "Paper, buku, video, dan blog tentang deep learning untuk tugas computer vision seperti pengenalan, deteksi, dan segmentasi.",
+    "enHash": "0cf7afe44688"
+  },
+  "klaufel/awesome-design-systems": {
+    "summary": "Design system yang dipublikasikan perusahaan, plus tool, design token, pattern library, buku, dan talk tentang cara membangunnya.",
+    "enHash": "84b5b004fa4b"
+  },
+  "koolamusic/awesome-imba": {
+    "summary": "Referensi dan proyek untuk Imba, bahasa untuk aplikasi web yang dikompilasi ke JavaScript.",
+    "enHash": "b1bbd172f286"
+  },
+  "krispo/awesome-haskell": {
+    "summary": "Library dan referensi Haskell per bidang: compiler, concurrency, data, database, editor, web, dan lainnya.",
+    "enHash": "bd4546a7dff0"
+  },
+  "krzjoa/awesome-python-data-science": {
+    "summary": "Library Python untuk data science: machine learning, deep learning, NLP, vision, time series, statistik, dan visualisasi.",
+    "enHash": "d02ab13bf7d6"
+  },
+  "kyleterry/awesome-radio": {
+    "summary": "Referensi tentang radio: citizens band, software-defined radio, radio amatir, dan komunikasi darurat.",
+    "enHash": "9e259e2eca57"
+  },
+  "lauris/awesome-scala": {
+    "summary": "Library Scala per bidang: database, framework web, JSON, testing, big data, pemrograman fungsional, dan lainnya.",
+    "enHash": "14e98c038c4f"
+  },
+  "lauthieb/awesome-storybook": {
+    "summary": "Tautan resmi, contoh, tutorial, talk, dan tulisan untuk Storybook, workshop untuk membangun komponen antarmuka secara terpisah.",
+    "enHash": "e9fdfdb000cd"
+  },
+  "leomaurodesenv/game-datasets": {
+    "summary": "Dataset, API, dan environment game untuk riset kecerdasan buatan dan studi pasar video game.",
+    "enHash": "19b8aaddcf4a"
+  },
+  "lewisjellis/awesome-lua": {
+    "summary": "Library, implementasi, dan tool untuk Lua, bahasa scripting kecil yang bisa di-embed.",
+    "enHash": "67231f65dc5d"
+  },
+  "likedan/awesome-coreml-models": {
+    "summary": "Model machine learning siap pakai untuk Core ML, framework on-device dari Apple, dengan tool untuk mengonversi dan memeriksanya.",
+    "enHash": "c3aa83220a25"
+  },
+  "liuchong/awesome-roadmaps": {
+    "summary": "Jalur belajar langkah demi langkah untuk bahasa pemrograman, web, mobile, operasional, data, keamanan, dan karier lainnya.",
+    "enHash": "735213a23f61"
+  },
+  "lnishan/awesome-competitive-programming": {
+    "summary": "Tutorial, kursus, buku, situs latihan, dan implementasi untuk kontes competitive programming.",
+    "enHash": "657189b72234"
+  },
+  "love2d-community/awesome-love2d": {
+    "summary": "Library untuk framework game Lua LÖVE per bidang: animasi, kamera, entity, input, pencahayaan, networking, fisika, dan lainnya.",
+    "enHash": "c47ad56f1564"
+  },
+  "loverajoel/jstips": {
+    "summary": "Tips JavaScript singkat, satu per entri, untuk menulis kode yang lebih jelas dan cepat.",
+    "enHash": "f328d9b38fc6"
+  },
+  "lucasbassetti/awesome-less": {
+    "summary": "Framework, library mixin, editor, compiler online, artikel, dan video untuk Less, bahasa yang dikompilasi menjadi CSS.",
+    "enHash": "a38afb1b474a"
+  },
+  "lucasviola/awesome-functional-programming": {
+    "summary": "Tulisan, paper, buku, kuliah, tool, dan komunitas untuk belajar pemrograman fungsional di berbagai bahasa.",
+    "enHash": "385718c791ba"
+  },
+  "lucasviola/awesome-tech-videos": {
+    "summary": "Talk konferensi tentang bahasa pemrograman, front-end, pemrograman fungsional, database, arsitektur, dan budaya engineering.",
+    "enHash": "b29b212f9842"
+  },
+  "lukasz-madon/awesome-remote-job": {
+    "summary": "Artikel, situs lowongan kerja, perusahaan, komunitas, tool, dan saran hukum untuk bekerja remote.",
+    "enHash": "27f58a214680"
+  },
+  "lunohodov/awesome-astrophotography": {
+    "summary": "Artikel, buku, tutorial, software, channel YouTube, dan komunitas untuk memotret langit malam.",
+    "enHash": "b88b4317ae6e"
+  },
+  "lutzh/awesome-event-driven-architecture": {
+    "summary": "Artikel dan video tentang event-driven architecture, tempat layanan berkomunikasi dengan menerbitkan dan merespons event.",
+    "enHash": "ca2dbb28310f"
+  },
+  "lvwzhen/tools": {
+    "summary": "Tool web untuk front-end developer: placeholder, favicon, CDN, kompresi gambar, warna, font, dokumentasi API, dan code playground.",
+    "enHash": "c390e17dae8b"
+  },
+  "ly0n/awesome-robotic-tooling": {
+    "summary": "Tool open source untuk membangun robot: simulasi, sensor, lokalisasi, perencanaan, kontrol, middleware, dan visualisasi.",
+    "enHash": "ad9cfedafebb"
+  },
+  "lyqht/awesome-supabase": {
+    "summary": "Proyek starter, tool migrasi dan developer, kursus, video, dan panduan untuk Supabase, backend open source di atas Postgres.",
+    "enHash": "73cf0b91ca25"
+  },
+  "machinomy/awesome-non-financial-blockchain": {
+    "summary": "Proyek yang memakai blockchain untuk hal selain uang: identitas, internet of things, energi, dan media.",
+    "enHash": "5cf7a08d07d2"
+  },
+  "maehr/awesome-digital-history": {
+    "summary": "Arsip online, sumber primer, dan materi belajar untuk riset sejarah dengan metode digital.",
+    "enHash": "8cee71eb896b"
+  },
+  "mailtoharshit/awesome-salesforce": {
+    "summary": "Tool, library, integrasi, dan referensi untuk developer dan admin yang bekerja dengan Salesforce, platform manajemen hubungan pelanggan.",
+    "enHash": "3d439d444b98"
+  },
+  "make-github-pseudonymous-again/awesome-qr-code": {
+    "summary": "Aplikasi, tool command-line, dan library untuk membuat dan membaca kode QR.",
+    "enHash": "06849e39e454"
+  },
+  "manuzhang/awesome-streaming": {
+    "summary": "Engine, library, tool integrasi, benchmark, dan bacaan untuk memproses data stream saat event datang.",
+    "enHash": "6af8104eb02c"
+  },
+  "marcobiedermann/search-engine-optimization": {
+    "summary": "Checklist search engine optimization untuk URL, konten, gambar, link, dan mobile, plus tool dan buku.",
+    "enHash": "bfe8edba7d89"
+  },
+  "margaretmz/awesome-tensorflow-lite": {
+    "summary": "Model, contoh aplikasi, plugin, dan tutorial untuk TensorFlow Lite, yang menjalankan model machine learning di ponsel dan perangkat.",
+    "enHash": "1f926299ee70"
+  },
+  "mark-rushakoff/awesome-influxdb": {
+    "summary": "Library client, pengumpul data, tool query dan visualisasi, serta opsi hosting untuk InfluxDB, database untuk time series.",
+    "enHash": "356be4bf26ce"
+  },
+  "markets/awesome-ruby": {
+    "summary": "Gem dan tool Ruby yang diurutkan per tugas, dari panel admin dan autentikasi hingga testing dan web server.",
+    "enHash": "38feed26b11e"
+  },
+  "markusschanta/awesome-jupyter": {
+    "summary": "Ekstensi, runtime, tool visualisasi dan publikasi, layanan hosted, dan tutorial untuk notebook Jupyter.",
+    "enHash": "77b0b55e014d"
+  },
+  "marmelab/awesome-rest": {
+    "summary": "Panduan desain, standar, library client dan server, serta tool testing dan dokumentasi untuk REST API.",
+    "enHash": "63277e04fdf5"
+  },
+  "martinmiles/awesome-sitecore": {
+    "summary": "Modul, tool, artikel, dan demo untuk Sitecore, platform konten dan marketing berbasis .NET, diurutkan per bidang.",
+    "enHash": "47632e752e72"
+  },
+  "martinzikmund/awesome-uno-platform": {
+    "summary": "Library, tool, contoh, aplikasi, artikel, kursus, dan talk untuk Uno Platform, yang menjalankan antarmuka .NET di mana saja.",
+    "enHash": "ec1d12bd8b12"
+  },
+  "master-co/awesome-master-css": {
+    "summary": "Referensi resmi, integrasi framework, dukungan editor, contoh, dan artikel untuk Master CSS, bahasa bergaya utility untuk menata markup.",
+    "enHash": "4ebe20a8434a"
+  },
+  "matchai/awesome-pinned-gists": {
+    "summary": "Proyek yang mengisi gist yang di-pin di profil GitHub dengan data live, seperti musik yang baru diputar.",
+    "enHash": "fdc027fde868"
+  },
+  "matiassingers/awesome-readme": {
+    "summary": "Contoh file readme dari proyek nyata, plus artikel dan tool untuk menulis readme yang baik.",
+    "enHash": "71960218ecfa"
+  },
+  "matiassingers/awesome-slack": {
+    "summary": "Tema, library, dan aplikasi open source untuk Slack, layanan chat tim.",
+    "enHash": "e6fe3806d24c"
+  },
+  "matteocrippa/awesome-swift": {
+    "summary": "Lebih dari seribu library, boilerplate, panduan, dukungan editor, dan tool Swift untuk development iOS dan macOS.",
+    "enHash": "a711267c1b24"
+  },
+  "matteofigus/awesome-speaking": {
+    "summary": "Tulisan, buku, video, klub, dan situs call-for-papers untuk menjadi pembicara konferensi yang lebih baik.",
+    "enHash": "d3dfed56aaa8"
+  },
+  "matthias84/awesome-flying-fpv": {
+    "summary": "Hardware dan software terbuka untuk drone yang diterbangkan lewat video: frame, flight controller, radio, kamera, telemetri, dan ground station.",
+    "enHash": "a51e80da08f1"
+  },
+  "max-mapper/maintenance-modules": {
+    "summary": "Tool command-line yang membantu pembuat paket npm membuat, mendokumentasikan, dan merilis paketnya.",
+    "enHash": "e0cfa3d8b89b"
+  },
+  "mbiesiad/awesome-translations": {
+    "summary": "Platform, aplikasi, tool, artikel, kursus, dan buku untuk menerjemahkan teks dan software antarbahasa.",
+    "enHash": "a85c4bb10926"
+  },
+  "mcanouil/awesome-quarto": {
+    "summary": "Dokumentasi, tutorial, talk, ekstensi, dan contoh untuk Quarto, sistem publikasi dokumen ilmiah berbasis Pandoc.",
+    "enHash": "fbd77be47009"
+  },
+  "mcauser/awesome-micropython": {
+    "summary": "Library, driver, framework, tutorial, dan tool untuk MicroPython, Python untuk mikrokontroler.",
+    "enHash": "ec06f3dacc1d"
+  },
+  "mdbootstrap/awesome-mdbootstrap": {
+    "summary": "Template, tool, data grid, integrasi, dan artikel untuk MDBootstrap, UI kit Bootstrap bergaya Material Design.",
+    "enHash": "295421132d1a"
+  },
+  "meirwah/awesome-incident-response": {
+    "summary": "Tool untuk menangani insiden keamanan: forensik, analisis memori, analisis log, triase, dan playbook.",
+    "enHash": "368c9832825b"
+  },
+  "melvin0008/awesome-projects-boilerplates": {
+    "summary": "Proyek starter untuk Android, iOS, JavaScript, Python, PHP, Ruby, .NET, Go, dan ekstensi browser.",
+    "enHash": "577b77347c55"
+  },
+  "mezod/awesome-indie": {
+    "summary": "Komunitas, newsletter, podcast, studi kasus, buku, dan tool untuk developer yang menjalankan bisnis kecil sendirian.",
+    "enHash": "5ee1dd0e68df"
+  },
+  "mfkl/awesome-vlc": {
+    "summary": "Dokumentasi, plugin, ekstensi, aplikasi, binding, dan tutorial untuk VLC, media player open source, dan library libvlc-nya.",
+    "enHash": "94b94535d0ba"
+  },
+  "mfornos/awesome-microservices": {
+    "summary": "Platform, framework, toolkit, standar, dan teori untuk membangun sistem dari layanan-layanan kecil yang independen.",
+    "enHash": "ff2d7756387f"
+  },
+  "mgramin/awesome-db-tools": {
+    "summary": "Berbagai tool database: editor, client grafis dan command-line, serta tool schema, backup, monitoring, testing, dan keamanan.",
+    "enHash": "51516fb21e02"
+  },
+  "mhinz/vim-galore": {
+    "summary": "Panduan panjang Vim yang mencakup dasar, penggunaan sehari-hari, dan fitur yang jarang diketahui, dengan tautan ke plugin dan bacaan.",
+    "enHash": "389ffef32ae7"
+  },
+  "mhxion/awesome-discord-communities": {
+    "summary": "Server Discord tentang pemrograman, bahasa, web development, keamanan, hardware, game development, dan karier.",
+    "enHash": "95618f05adc9"
+  },
+  "michaelbrusegard/awesome-wezterm": {
+    "summary": "Plugin, tema, dan helper konfigurasi untuk WezTerm, terminal emulator yang dikonfigurasi dengan Lua.",
+    "enHash": "ee1853400bac"
+  },
+  "michelpereira/awesome-games-of-coding": {
+    "summary": "Game yang mengajarkan atau menguji kemampuan pemrograman, sebagian untuk bahasa apa saja dan sebagian untuk Python, Java, JavaScript, atau assembly.",
+    "enHash": "418f387be4ad"
+  },
+  "michelpereira/awesome-open-source-games": {
+    "summary": "Game open source untuk browser, desktop, dan mobile, plus engine dan tool modding.",
+    "enHash": "14a0c4050d4e"
+  },
+  "micromata/awesome-css-learning": {
+    "summary": "Artikel dan referensi untuk mempelajari CSS itu sendiri: unit, selector, custom property, layout, dan animasi.",
+    "enHash": "ab06ddf22fb4"
+  },
+  "micromata/awesome-javascript-learning": {
+    "summary": "Referensi, tutorial, buku gratis dan berbayar, blog, video, dan kursus interaktif untuk belajar JavaScript.",
+    "enHash": "83ae962e3333"
+  },
+  "mikbry/awesome-webgpu": {
+    "summary": "Artikel, tutorial, buku, library, debugger, dan demo untuk WebGPU, antarmuka browser untuk grafis dan komputasi di GPU.",
+    "enHash": "3b6da3c7993b"
+  },
+  "mislavcimpersak/awesome-dev-fun": {
+    "summary": "Library lelucon, tool konyol, dan proyek humor buatan programmer, diurutkan per bahasa.",
+    "enHash": "b4ab8f1520d3"
+  },
+  "mjhea0/awesome-fastapi": {
+    "summary": "Ekstensi, tutorial, opsi hosting, dan contoh proyek untuk FastAPI, framework Python untuk membangun web API.",
+    "enHash": "e02f67232e98"
+  },
+  "mjhea0/awesome-flask": {
+    "summary": "Ekstensi, tutorial, opsi hosting, dan proyek open source untuk Flask, framework web Python yang kecil.",
+    "enHash": "628cb80989d2"
+  },
+  "mmccaff/placestopostyourstartup": {
+    "summary": "Website dan komunitas Reddit tempat startup atau produk baru bisa diumumkan ke pengguna pertamanya.",
+    "enHash": "99e7a2fa6b11"
+  },
+  "mmcgrana/services-engineering": {
+    "summary": "Paper, artikel, dan buku tentang membangun dan menjalankan layanan jaringan dan sistem terdistribusi di production.",
+    "enHash": "915c8651987c"
+  },
+  "mo-way/awesome-aoip": {
+    "summary": "Tool, standar, organisasi, dan pelatihan untuk mengirim audio profesional lewat jaringan IP, seperti Dante dan AES67.",
+    "enHash": "25decdead3fa"
+  },
+  "mobilitydata/awesome-transit": {
+    "summary": "Format data, API, aplikasi, tool, dan riset untuk informasi transportasi umum, berpusat pada GTFS.",
+    "enHash": "c73b33cd7658"
+  },
+  "mohataher/awesome-tinkerpop": {
+    "summary": "Library, tutorial, komunitas, dan tokoh untuk diikuti seputar Apache TinkerPop, framework graph database dengan bahasa Gremlin.",
+    "enHash": "bdea02998ab3"
+  },
+  "mojoaxel/awesome-regression-testing": {
+    "summary": "Tool, layanan, artikel, dan talk tentang visual regression testing, yaitu membandingkan screenshot untuk menangkap perubahan yang tidak diinginkan.",
+    "enHash": "a2c4394d993b"
+  },
+  "mostafatouny/awesome-theoretical-computer-science": {
+    "summary": "Buku, catatan kuliah, dan survei tentang sisi matematis komputasi: komputasi, logika, algoritma, kriptografi, dan teori pembelajaran.",
+    "enHash": "7801df1a685c"
+  },
+  "moul/awesome-ssh": {
+    "summary": "Aplikasi, library, dan bacaan tentang SSH, protokol untuk shell jarak jauh dan transfer file yang aman.",
+    "enHash": "3d8da43dede3"
+  },
+  "mourarthur/awesome-credit-modeling": {
+    "summary": "Paper riset tentang credit scoring dan model risiko kredit, termasuk feature selection dan explainability.",
+    "enHash": "6d963a5c4a08"
+  },
+  "msmolyakov/awesome-waves": {
+    "summary": "Referensi resmi, artikel, framework, tool, dan produk yang dibangun di atas Waves, platform blockchain untuk aplikasi terdesentralisasi.",
+    "enHash": "04396e5a39c5"
+  },
+  "msub2/awesome-webxr": {
+    "summary": "Proyek, tool development, sumber belajar, dan komunitas untuk WebXR, virtual reality dan augmented reality di browser.",
+    "enHash": "0c87f0f113bf"
+  },
+  "mungell/awesome-for-beginners": {
+    "summary": "Proyek open source yang menyambut kontributor pemula, dikelompokkan per bahasa pemrograman.",
+    "enHash": "b559994b8850"
+  },
+  "mxschmitt/awesome-playwright": {
+    "summary": "Integrasi, port bahasa, utilitas, reporter, dan panduan untuk Playwright, tool otomatisasi dan testing browser dari Microsoft.",
+    "enHash": "0df23acb3f99"
+  },
+  "myhoneybadger/awesome-github-wiki": {
+    "summary": "Contoh wiki GitHub dan tips menulis dokumentasi proyek di wiki repositori.",
+    "enHash": "0c77fa762d92"
+  },
+  "myshov/awesome-mobile-web-development": {
+    "summary": "Artikel, buku, spesifikasi, talk, dan tool testing untuk membangun website yang nyaman dipakai di ponsel.",
+    "enHash": "6b017b5e907d"
+  },
+  "mystenlabs/awesome-move": {
+    "summary": "Buku, tutorial, kode, tool, SDK, dan paper untuk Move, bahasa smart contract di Sui dan Aptos.",
+    "enHash": "9d037496965f"
+  },
+  "n0kovo/awesome-password-cracking": {
+    "summary": "Tool, wordlist, buku, riset, dan panduan untuk memulihkan password dari hash-nya.",
+    "enHash": "d76a8fbc01b8"
+  },
+  "n2cholas/awesome-jax": {
+    "summary": "Library, model, paper, tutorial, dan video untuk JAX, library Python untuk komputasi numerik cepat dan machine learning.",
+    "enHash": "df65f4abf077"
+  },
+  "nadunindunil/awesome-material-ui": {
+    "summary": "Komponen, tema, tool, boilerplate, dan aplikasi yang dibangun dengan Material UI, library komponen React yang mengikuti Material Design.",
+    "enHash": "80d17c45693c"
+  },
+  "naimo84/awesome-nodered": {
+    "summary": "Panduan instalasi, dokumentasi, node tambahan, dan tautan komunitas untuk Node-RED, tool visual untuk menghubungkan perangkat dan layanan.",
+    "enHash": "a49b23030aa2"
+  },
+  "narkoz/guides": {
+    "summary": "Style guide untuk markup, bahasa pemrograman, framework, dan pesan commit.",
+    "enHash": "aff0f7c2a201"
+  },
+  "nayafia/awesome-maintainers": {
+    "summary": "Talk, tulisan, dan tokoh seputar pengalaman menjadi maintainer proyek open source.",
+    "enHash": "af2db3258e42"
+  },
+  "nekofar/awesome-slim": {
+    "summary": "Panduan, proyek kerangka, middleware, dan paket templating untuk Slim, framework PHP ringan untuk aplikasi web dan API.",
+    "enHash": "d93c77330925"
+  },
+  "neueda/awesome-neo4j": {
+    "summary": "Driver, ekstensi, tool impor dan visualisasi, serta proyek lain untuk graph database Neo4j.",
+    "enHash": "fbb96215e485"
+  },
+  "neutraltone/awesome-stock-resources": {
+    "summary": "Foto, ilustrasi, grafis vektor, video, tekstur, font, ikon, template, dan suara gratis untuk dipakai di proyek.",
+    "enHash": "30c9e820efe0"
+  },
+  "nglgzz/awesome-clean-tech": {
+    "summary": "Perusahaan, organisasi, dan riset yang memanfaatkan teknologi untuk melawan perubahan iklim dan polusi.",
+    "enHash": "4dceeecdd3a8"
+  },
+  "nicolesaidy/awesome-web-design": {
+    "summary": "Inspirasi, warna, tipografi, ikon, gambar, tool desain dan prototyping, tutorial, dan buku untuk web designer.",
+    "enHash": "f0fdcfa644d3"
+  },
+  "nikgraf/awesome-draft-js": {
+    "summary": "Editor, plugin, utilitas, artikel, demo, dan talk untuk Draft.js, framework React dari Facebook untuk editing rich text.",
+    "enHash": "3b70c24eec04"
+  },
+  "nirgn975/awesome-drupal": {
+    "summary": "Tool, modul, distribusi, dokumentasi, buku, video, dan podcast untuk Drupal, sistem manajemen konten open source berbasis PHP.",
+    "enHash": "3452c180188c"
+  },
+  "nix-community/awesome-nix": {
+    "summary": "Panduan, tool deployment, integrasi bahasa, dan modul NixOS untuk Nix, package manager yang reproducible, dan NixOS.",
+    "enHash": "efbfe569d27a"
+  },
+  "noahbuscher/inspire": {
+    "summary": "Situs inspirasi desain, tool pembuatan, layanan kolaborasi, backend, dan helper testing untuk web designer dan developer.",
+    "enHash": "a04646cf7cfb"
+  },
+  "noteflakes/awesome-music": {
+    "summary": "Software untuk membuat dan mengolah musik: editor audio, library, tool MIDI, notasi, bahasa pemrograman, dan partitur gratis.",
+    "enHash": "e52bfdc5f596"
+  },
+  "notlmn/awesome-icons": {
+    "summary": "Set ikon terbuka untuk diunduh sebagai SVG, PNG, atau font, termasuk logo dan set untuk keperluan khusus.",
+    "enHash": "292ad05083e8"
+  },
+  "notthetup/awesome-webaudio": {
+    "summary": "Paket, tutorial, dan referensi untuk Web Audio API, yang membuat dan memproses suara di browser.",
+    "enHash": "3f26c8399d87"
+  },
+  "npacore/awesome-neuroimaging": {
+    "summary": "Viewer, pipeline, library, data, dan tutorial untuk menganalisis hasil pemindaian otak seperti MRI.",
+    "enHash": "8e5c4ed441c5"
+  },
+  "nschloe/awesome-scientific-computing": {
+    "summary": "Software untuk komputasi ilmiah: aljabar linear, elemen hingga, meshing, solver, format data, dan visualisasi.",
+    "enHash": "162c98928cd0"
+  },
+  "numetriclabz/awesome-db": {
+    "summary": "Database engine open source yang dikelompokkan menurut bahasa penulisannya, plus paper riset tentang database.",
+    "enHash": "a437b87b2e64"
+  },
+  "ocaml-community/awesome-ocaml": {
+    "summary": "Library, tool, compiler, buku, blog, dan tautan komunitas OCaml, diurutkan per bidang.",
+    "enHash": "fba969f15382"
+  },
+  "ohenley/awesome-ada": {
+    "summary": "Compiler, editor, library, framework, tool embedded, dan materi belajar untuk Ada dan SPARK.",
+    "enHash": "0d625059bae4"
+  },
+  "oleksbard/awesome-knockout": {
+    "summary": "Framework, plugin, custom binding, komponen, dan contoh untuk Knockout, library JavaScript yang mengikat data ke halaman.",
+    "enHash": "d7d4bfceb55f"
+  },
+  "onqtam/awesome-cmake": {
+    "summary": "Modul, skrip, toolchain, template, package manager, dan sumber belajar untuk CMake, generator build system.",
+    "enHash": "a00dd035b84e"
+  },
+  "opencompany/awesome-open-company": {
+    "summary": "Perusahaan yang membagikan cara kerja internalnya secara publik, seperti keuangan, gaji, strategi, atau source code.",
+    "enHash": "531e976145a6"
+  },
+  "oppoverbakke/awesome-gdpr": {
+    "summary": "Teks hukum, panduan resmi, tool, dan publikasi untuk GDPR, undang-undang perlindungan data Uni Eropa.",
+    "enHash": "0026d6d3e963"
+  },
+  "osmlab/awesome-openstreetmap": {
+    "summary": "Editor, tool, library, API, dan peta yang dibangun di atas OpenStreetMap, peta yang bisa diedit siapa saja.",
+    "enHash": "911cfaabfe8d"
+  },
+  "ossu/computer-science": {
+    "summary": "Kurikulum belajar mandiri berisi kursus online gratis yang mencakup pendidikan ilmu komputer setara S1.",
+    "enHash": "734ed2ca08b8"
+  },
+  "owainlewis/awesome-artificial-intelligence": {
+    "summary": "Buku, paper, dan kursus untuk belajar AI, plus tool untuk membangun sistem AI dan software engineering dengan bantuan agent.",
+    "enHash": "41c6496e8a51"
+  },
+  "oxnr/awesome-analytics": {
+    "summary": "Tool analitik untuk website, aplikasi mobile, SEO, heatmap, atribusi, dan media sosial, termasuk yang berfokus pada privasi.",
+    "enHash": "a6c0fcd7a056"
+  },
+  "oxnr/awesome-bigdata": {
+    "summary": "Framework, distributed file system, database dari segala model data, serta tool ingestion dan analisis untuk data berukuran sangat besar.",
+    "enHash": "d0935942a95e"
+  },
+  "packing-box/awesome-executable-packing": {
+    "summary": "Paper, dataset, packer, dan tool tentang kompresi atau penyamaran file executable, yang sering dipakai malware.",
+    "enHash": "809aaba2e2c8"
+  },
+  "pajaydev/awesome-web-performance-budget": {
+    "summary": "Artikel dan tool untuk performance budget, yaitu batas ukuran halaman dan waktu muat yang harus dijaga website.",
+    "enHash": "c59a1c657648"
+  },
+  "pandafoss/awesome-arch": {
+    "summary": "Distribusi Linux, installer, AUR helper, dan proyek lain yang dibangun di atas Arch Linux.",
+    "enHash": "2402a314b365"
+  },
+  "panxproject/awesome-certificates": {
+    "summary": "Kursus online gratis di bidang komputasi dan bidang terkait yang memberikan sertifikat.",
+    "enHash": "e963386dff57"
+  },
+  "papers-we-love/papers-we-love": {
+    "summary": "Paper riset ilmu komputer yang direkomendasikan untuk dibaca, dikelompokkan per topik, plus daftar bacaan terkait.",
+    "enHash": "be4e2063c268"
+  },
+  "paragonie/awesome-appsec": {
+    "summary": "Artikel, buku, dan panduan tentang menulis aplikasi yang aman, dikelompokkan per bahasa pemrograman.",
+    "enHash": "9aef6d8f6b22"
+  },
+  "paralax/awesome-honeypots": {
+    "summary": "Honeypot, sistem umpan yang menarik penyerang, plus tool untuk menganalisis apa yang tertangkap.",
+    "enHash": "1563923c4cb1"
+  },
+  "parro-it/awesome-micro-npm-packages": {
+    "summary": "Modul npm kecil yang masing-masing melakukan satu hal, plus artikel tentang gaya paket seperti itu.",
+    "enHash": "75cdc9f99665"
+  },
+  "passy/awesome-purescript": {
+    "summary": "Build tool, prelude, library UI, router, testing, dan sumber belajar untuk PureScript, bahasa mirip Haskell untuk JavaScript.",
+    "enHash": "0628186854fd"
+  },
+  "passy/awesome-recursion-schemes": {
+    "summary": "Pengantar, artikel, paper, talk, dan library tentang recursion scheme, pola untuk menelusuri data bersarang dalam kode fungsional.",
+    "enHash": "128e19496f5e"
+  },
+  "patrickjs/awesome-angular": {
+    "summary": "Ribuan library, komponen, tool, tutorial, dan template untuk Angular, framework web TypeScript dari Google.",
+    "enHash": "da1b0f762f32"
+  },
+  "pazguille/offline-first": {
+    "summary": "Spesifikasi, tulisan, talk, tool, buku, dan contoh untuk aplikasi web yang tetap berjalan tanpa koneksi jaringan.",
+    "enHash": "c5a675c54431"
+  },
+  "pehapkari/awesome-symfony-education": {
+    "summary": "Tutorial, kursus video, artikel, dan buku untuk belajar framework PHP Symfony, dari form dan keamanan hingga Doctrine.",
+    "enHash": "fff428102a4f"
+  },
+  "perfectcarl/awesome-play1": {
+    "summary": "Modul dan referensi untuk Play Framework versi 1, framework web untuk Java.",
+    "enHash": "d76ad6139eaf"
+  },
+  "pest-parser/awesome-pest": {
+    "summary": "Proyek dan tool yang memakai Pest, library Rust untuk menulis parser dari grammar.",
+    "enHash": "e1121ac5746c"
+  },
+  "petk/awesome-dojo": {
+    "summary": "Tutorial, boilerplate, paket, integrasi, tema, dan aplikasi untuk Dojo Toolkit, library JavaScript untuk aplikasi web besar.",
+    "enHash": "fe96af83f42e"
+  },
+  "petk/awesome-jquery": {
+    "summary": "Plugin, tool testing, tutorial, dan alternatif untuk jQuery, library JavaScript untuk memanipulasi halaman web.",
+    "enHash": "ae313f9982d0"
+  },
+  "pfarb/awesome-crypto-papers": {
+    "summary": "Paper dan artikel yang menjelaskan kriptografi kepada programmer dan engineer yang bukan spesialis di bidang itu.",
+    "enHash": "c3ac3d2f3b24"
+  },
+  "phalcon/awesome-phalcon": {
+    "summary": "Plugin, aplikasi kerangka, dan library untuk Phalcon, framework PHP yang dikirim sebagai ekstensi C, diurutkan per kegunaan.",
+    "enHash": "a274310971d1"
+  },
+  "phanan/htaccess": {
+    "summary": "Potongan kode untuk file .htaccess Apache yang mencakup redirect dan rewrite, keamanan, performa, dan pengaturan server lainnya.",
+    "enHash": "5d19d8bf3ce9"
+  },
+  "phantomydn/awesome-wicket": {
+    "summary": "Library, integrasi, plugin, dan tool untuk Apache Wicket, framework web berbasis komponen untuk Java.",
+    "enHash": "fed2a1c41dae"
+  },
+  "phillipadsmith/awesome-github": {
+    "summary": "Panduan untuk pendatang baru di GitHub, tips dan add-on untuk pengguna rutin, dan cara-cara tak biasa memakai layanannya.",
+    "enHash": "9b7ad1bb11ae"
+  },
+  "philsturgeon/awesome-earth": {
+    "summary": "Produk, layanan, organisasi, dan media yang membantu orang mengurangi dampaknya terhadap iklim.",
+    "enHash": "b7a3b9cfe608"
+  },
+  "pico-8/awesome-pico-8": {
+    "summary": "Tutorial, tool, library, aset, talk, dan klon untuk PICO-8, konsol imajiner kecil untuk membuat game retro.",
+    "enHash": "01f4f7170250"
+  },
+  "piebald-ai/awesome-gemini-cli": {
+    "summary": "Ekstensi, integrasi, dan tool untuk Gemini CLI, asisten coding AI dari Google yang berjalan di terminal.",
+    "enHash": "4ebb6ef65f4f"
+  },
+  "playcanvas/awesome-playcanvas": {
+    "summary": "Tutorial, ekstensi, demo, game, dan showcase produk yang dibuat dengan PlayCanvas, game engine WebGL.",
+    "enHash": "b94b5997ef97"
+  },
+  "pmuens/awesome-serverless": {
+    "summary": "Blog, tulisan, talk, plugin, dan proyek tentang Serverless Framework dan membangun aplikasi di atas cloud function.",
+    "enHash": "f50deda669fe"
+  },
+  "podo/awesome-framer": {
+    "summary": "Tutorial, kursus, modul, library UI, dan contoh untuk Framer, tool untuk mendesain prototipe interaktif.",
+    "enHash": "3ff5275c7a59"
+  },
+  "polkadot-developers/awesome-substrate": {
+    "summary": "Template, pallet, library client, tool, dan materi belajar untuk Substrate, framework Rust untuk membangun blockchain.",
+    "enHash": "2dda9990fd28"
+  },
+  "polycarbohydrate/awesome-tor": {
+    "summary": "Aplikasi, bridge, cara mengakali sensor, panduan, dan berita tentang Tor, jaringan yang menyembunyikan siapa berkomunikasi dengan siapa di internet.",
+    "enHash": "8154ac2eb764"
+  },
+  "prakhar1989/awesome-courses": {
+    "summary": "Mata kuliah ilmu komputer dari universitas yang kuliah, bacaan, dan tugasnya tersedia online.",
+    "enHash": "a8a7233e6c3c"
+  },
+  "preactjs/awesome-preact": {
+    "summary": "Toolkit, boilerplate, router, komponen, library, dan contoh aplikasi untuk Preact, alternatif React yang kecil.",
+    "enHash": "2fb9a1fce6bf"
+  },
+  "qazbnm456/awesome-web-security": {
+    "summary": "Pengantar, trik, cheat sheet, tool, blog, dan situs latihan untuk keamanan aplikasi web.",
+    "enHash": "19d3cddf8e9e"
+  },
+  "qinwf/awesome-r": {
+    "summary": "Paket dan tool R per bidang: pengolahan data, grafis, riset yang reproducible, web, machine learning, statistik, dan lainnya.",
+    "enHash": "2e6972bfeb78"
+  },
+  "qmonnet/awesome-ebpf": {
+    "summary": "Dokumentasi, artikel, tutorial, contoh, dan proyek untuk eBPF, yang menjalankan program kecil yang aman di dalam kernel Linux.",
+    "enHash": "ceeb80442271"
+  },
+  "quangv/awesome-couchdb": {
+    "summary": "Artikel, dokumentasi, buku, video, dan library untuk Apache CouchDB, database dokumen yang menyinkronkan data antar-replika.",
+    "enHash": "860081998768"
+  },
+  "quozd/awesome-dotnet": {
+    "summary": "Library, framework, dan tool untuk development .NET, diurutkan per topik dari algoritma hingga web.",
+    "enHash": "fe30c304374a"
+  },
+  "rabbiabram/awesome-fortran": {
+    "summary": "Library Fortran untuk matematika, grafis, format data, testing, dan build, plus referensi lainnya.",
+    "enHash": "eccdeb738d0a"
+  },
+  "rabschi/awesome-beacon": {
+    "summary": "Spesifikasi, SDK, dan aplikasi untuk beacon Bluetooth Low Energy seperti iBeacon dan Eddystone, di banyak platform.",
+    "enHash": "1872cd55cac4"
+  },
+  "radek-sprta/awesome-game-remakes": {
+    "summary": "Remake dan implementasi ulang open source dari game klasik per genre: action, adventure, shooter, RPG, balap, dan strategi.",
+    "enHash": "d298804f4061"
+  },
+  "rafaskb/awesome-libgdx": {
+    "summary": "Library, tutorial, aset, dan tautan komunitas untuk libGDX, framework Java untuk game lintas platform.",
+    "enHash": "3a0969d03ff0"
+  },
+  "rahulbircodes/awesome-steam": {
+    "summary": "Materi ajar untuk kelas sekolah dan universitas di bidang sains, teknologi, teknik, seni, dan matematika.",
+    "enHash": "c7a7d3541f95"
+  },
+  "ramitsurana/awesome-kubernetes": {
+    "summary": "Proyek, tool, dan bacaan tentang Kubernetes, sistem untuk menjalankan dan mengelola container di banyak mesin.",
+    "enHash": "1c009da16440"
+  },
+  "ramnes/awesome-mongodb": {
+    "summary": "Tutorial, driver, library, tool, dan aplikasi untuk MongoDB, database dokumen yang menyimpan record mirip JSON.",
+    "enHash": "41157198c8df"
+  },
+  "raphamorim/awesome-canvas": {
+    "summary": "Demo, library, dan tutorial untuk menggambar grafis dengan elemen canvas HTML5.",
+    "enHash": "b23a162f9d2d"
+  },
+  "ravirupareliya/awesome-actions-on-google": {
+    "summary": "Dokumentasi, blog, video, kursus, dan contoh kode untuk Actions on Google, yang menambahkan aplikasi ke Google Assistant.",
+    "enHash": "8926dc9fc272"
+  },
+  "raybb/awesome-social-enterprise": {
+    "summary": "Bacaan, podcast, kursus, program fellowship, institusi, dan komunitas untuk orang yang mendirikan organisasi berdampak sosial sekaligus menghasilkan pendapatan.",
+    "enHash": "58c147b78aca"
+  },
+  "rayokota/awesome-hbase": {
+    "summary": "Proyek dan bacaan untuk Apache HBase, column store yang berjalan di atas Hadoop.",
+    "enHash": "b308847610e5"
+  },
+  "razum2um/awesome-clojure": {
+    "summary": "Library, produk, dan tool Clojure per bidang, dari framework web dan database hingga concurrency dan GUI.",
+    "enHash": "05a84a5ed172"
+  },
+  "readthedocs-examples/awesome-read-the-docs": {
+    "summary": "Proyek dokumentasi yang di-hosting di Read the Docs, dibuat dengan Sphinx atau MkDocs, untuk dicontoh saat memulai dokumentasi baru.",
+    "enHash": "b5bec296d0e3"
+  },
+  "refinerycms-contrib/awesome-refinerycms": {
+    "summary": "Ekstensi untuk Refinery CMS, sistem manajemen konten berbasis Ruby on Rails, termasuk integrasi toko online.",
+    "enHash": "7df9564e33d4"
+  },
+  "reflex-dev/awesome-reflex": {
+    "summary": "Contoh aplikasi, template, library komponen, dan panduan untuk Reflex, yang membangun aplikasi web lengkap dengan Python murni.",
+    "enHash": "0a0b98bb8ff3"
+  },
+  "rellaner/awesome-position-based-quantum-cryptography": {
+    "summary": "Paper riset tentang kriptografi kuantum berbasis posisi, tempat suatu pihak membuktikan lokasinya dengan sinyal kuantum dan relativitas.",
+    "enHash": "809a30d109cc"
+  },
+  "richardlitt/awesome-fantasy": {
+    "summary": "Novel dan film fantasi, dari seri klasik hingga buku terbaru.",
+    "enHash": "14899a7db687"
+  },
+  "richienb/awesome-ponyfills": {
+    "summary": "Ponyfill, modul yang menambahkan fitur JavaScript yang belum ada tanpa mengubah objek bawaan.",
+    "enHash": "6ac3fcbbcb1c"
+  },
+  "rickstaa/awesome-adsb": {
+    "summary": "Panduan, agregator, software, data, dan receiver untuk ADS-B, sinyal radio yang dikirim pesawat berisi posisinya.",
+    "enHash": "60299b288f06"
+  },
+  "riderx/awesome-capacitor": {
+    "summary": "Plugin resmi dan komunitas, tool, materi belajar, dan aplikasi untuk Capacitor, yang mengubah aplikasi web menjadi aplikasi mobile.",
+    "enHash": "9fcc8b835425"
+  },
+  "ripienaar/free-for-dev": {
+    "summary": "Layanan software dengan paket gratis untuk developer: cloud hosting, hosting kode, CI, testing, monitoring, email, log, dan lainnya.",
+    "enHash": "3dd99cf40852"
+  },
+  "roaldnefs/awesome-prometheus": {
+    "summary": "Tutorial, buku, talk, exporter, dashboard, dan tool deployment untuk Prometheus, sistem monitoring dan alerting open source.",
+    "enHash": "ce10a2a379ff"
+  },
+  "robinrodricks/awesome-actionscript3": {
+    "summary": "Framework, library antarmuka, tool, runtime, dan native extension untuk ActionScript 3, bahasa Flash dan Adobe AIR.",
+    "enHash": "9fdbed60506b"
+  },
+  "robinstickel/awesome-design-principles": {
+    "summary": "Prinsip desain yang dipublikasikan perusahaan dan design system, plus artikel tentang cara menulisnya.",
+    "enHash": "255213414b8a"
+  },
+  "rockerboo/awesome-neovim": {
+    "summary": "Plugin untuk Neovim, fork Vim yang bisa diperluas: language server, completion, color scheme, file browser, dan banyak lagi.",
+    "enHash": "19dda62b1c5d"
+  },
+  "rocq-community/awesome-coq": {
+    "summary": "Proyek, library, tool, dan sumber belajar untuk Coq, kini bernama Rocq, proof assistant untuk bukti yang diperiksa mesin.",
+    "enHash": "4e480aa6a13a"
+  },
+  "romantseg/rbooks": {
+    "summary": "Buku tentang bahasa R, untuk pemula dan ahli, seputar data science, keuangan, machine learning, dan visualisasi.",
+    "enHash": "810608de5fad"
+  },
+  "rossant/awesome-math": {
+    "summary": "Buku teks, catatan kuliah, dan kursus gratis di berbagai bidang matematika, dari logika dan aljabar hingga analisis dan probabilitas.",
+    "enHash": "4afd49d3b6a8"
+  },
+  "rshipp/awesome-malware-analysis": {
+    "summary": "Sampel malware, threat intelligence, sandbox, debugger, deobfuscator, dan tool forensik untuk mempelajari software berbahaya.",
+    "enHash": "9946d3790d95"
+  },
+  "rtckit/awesome-rtc": {
+    "summary": "Server, client, tool, referensi developer, dan talk tentang suara, video, dan data real-time, seperti SIP dan WebRTC.",
+    "enHash": "8fd8b57de740"
+  },
+  "run-as-root/awesome-magento2": {
+    "summary": "Ekstensi, tool, front-end, blog, podcast, dan tautan komunitas untuk Magento 2, platform toko online open source berbasis PHP.",
+    "enHash": "42f78f942938"
+  },
+  "rust-unofficial/awesome-rust": {
+    "summary": "Ribuan aplikasi, tool development, library, dan sumber belajar Rust.",
+    "enHash": "682245b4d974"
+  },
+  "ryanzim/awesome-npm-scripts": {
+    "summary": "Artikel, talk, dan utilitas untuk memakai npm script sebagai build tool sebagai pengganti Grunt atau Gulp.",
+    "enHash": "782d7dfae855"
+  },
+  "sachin1092/awesome-material": {
+    "summary": "Ikon, font, warna, animasi, dan komponen bergaya Material Design dari Google untuk banyak framework front-end dan desktop.",
+    "enHash": "c9bf42a76374"
+  },
+  "sadcitizen/awesome-backbone": {
+    "summary": "Tutorial, buku, video, boilerplate, dan library untuk Backbone.js, framework JavaScript generasi awal untuk menyusun struktur aplikasi web.",
+    "enHash": "b3ba6e7caa0e"
+  },
+  "sadcitizen/awesome-marionette": {
+    "summary": "Tutorial, buku, video, contoh, dan library untuk Marionette.js, yang menambahkan struktur aplikasi di atas Backbone.js.",
+    "enHash": "dbb37bb7ba75"
+  },
+  "sampart/awesome-tech-ethics": {
+    "summary": "Toolkit, media, kursus, dan organisasi yang peduli pada etika teknologi dan dampak buruknya bagi masyarakat.",
+    "enHash": "75ec8717fb8d"
+  },
+  "sancarn/awesome-vba": {
+    "summary": "Library, tool developer, contoh, style guide, dan referensi untuk VBA, bahasa makro Microsoft Office.",
+    "enHash": "5cc94ced5822"
+  },
+  "satta/awesome-suricata": {
+    "summary": "Tool, rule set, dashboard, panduan, dan pelatihan untuk Suricata, engine deteksi intrusi jaringan open source.",
+    "enHash": "67a18ca8a1e5"
+  },
+  "sbilly/awesome-security": {
+    "summary": "Software, library, dan dokumen tentang keamanan jaringan, endpoint, dan web, threat intelligence, serta red team dan blue team.",
+    "enHash": "47c1dcdf42f0"
+  },
+  "scaleleap/awesome-amazon-seller": {
+    "summary": "Software, tool riset produk, podcast, dan blog untuk orang yang berjualan di Amazon.",
+    "enHash": "7fa369da13e2"
+  },
+  "schlessera/awesome-wp-cli": {
+    "summary": "Tautan resmi, paket pihak ketiga, dan panduan untuk WP-CLI, tool command-line untuk mengelola situs WordPress.",
+    "enHash": "98ae216c60eb"
+  },
+  "scholtzm/awesome-steam": {
+    "summary": "Paket dan referensi untuk membangun di atas Steam, toko game dari Valve, seperti bot dan client API.",
+    "enHash": "618c64114e6f"
+  },
+  "sdassow/awesome-veganism": {
+    "summary": "Buku, toko, restoran, merek, website, organisasi, film dokumenter, dan aplikasi untuk orang yang menjalani pola makan nabati.",
+    "enHash": "7f68d48ee8ec"
+  },
+  "sdras/awesome-actions": {
+    "summary": "Action siap pakai, tutorial, dan referensi untuk GitHub Actions, layanan otomatisasi dan CI bawaan GitHub.",
+    "enHash": "990e3fa51a8a"
+  },
+  "sduff/awesome-splunk": {
+    "summary": "Dokumentasi, aplikasi, visualisasi, meetup, dan referensi komunitas untuk Splunk, platform untuk mencari dan menganalisis log.",
+    "enHash": "08c7f313721c"
+  },
+  "se-ml/awesome-seml": {
+    "summary": "Artikel, paper, dan tool tentang praktik engineering membangun, men-deploy, dan menjalankan sistem machine learning.",
+    "enHash": "3884281e4d83"
+  },
+  "seancoyne/awesome-coldfusion": {
+    "summary": "Engine, framework, tool testing, library, editor, dan referensi untuk ColdFusion dan CFML.",
+    "enHash": "23c1a64fb991"
+  },
+  "secdev/awesome-scapy": {
+    "summary": "Tool dan exploit yang dibuat dengan Scapy, library Python untuk merakit dan membedah paket jaringan.",
+    "enHash": "eead6f1098b8"
+  },
+  "secretgeek/awesomecsv": {
+    "summary": "Tool, standar schema, esai, data, dan konferensi tentang CSV, format teks biasa untuk tabel.",
+    "enHash": "85ce5c75de7b"
+  },
+  "seed-rs/awesome-seed-rs": {
+    "summary": "Buku, quickstart, contoh, library, dan proyek untuk Seed, framework Rust untuk aplikasi web yang berjalan sebagai WebAssembly.",
+    "enHash": "698490e7c75f"
+  },
+  "seifrajhi/awesome-cilium": {
+    "summary": "Dokumentasi, proyek terkait, talk, acara, dan lab praktik untuk Cilium, yang menangani networking Kubernetes dengan eBPF.",
+    "enHash": "0565ab6ff5a1"
+  },
+  "sellisd/awesome-complexity": {
+    "summary": "Konsep, jurnal, perkumpulan, model, software, dan buku tentang ilmu sistem kompleks.",
+    "enHash": "e89f4b55df85"
+  },
+  "sergey-pimenov/awesome-web-animation": {
+    "summary": "Library dan tool untuk animasi di halaman web dengan SVG, CSS, canvas, dan React, plus video.",
+    "enHash": "afc2e17920e0"
+  },
+  "serhii-londar/open-source-mac-os-apps": {
+    "summary": "Lebih dari seribu aplikasi open source untuk macOS, dengan tautan ke kodenya.",
+    "enHash": "2d3bde0dd1f6"
+  },
+  "seriousran/awesome-qa": {
+    "summary": "Paper, sistem, kode, kuliah, dan dataset tentang question answering, tempat software menjawab pertanyaan dalam bahasa alami.",
+    "enHash": "10a2b4bd65e3"
+  },
+  "sfischer13/awesome-ledger": {
+    "summary": "Dokumentasi, plugin editor, tool, dan media untuk Ledger, program command-line untuk pembukuan double-entry dalam teks biasa.",
+    "enHash": "93e0b92d274f"
+  },
+  "sger/elixirbooks": {
+    "summary": "Buku tentang bahasa pemrograman Elixir, framework Phoenix, dan platform Erlang di baliknya.",
+    "enHash": "0b087f4502b6"
+  },
+  "shano/awesome-backstage": {
+    "summary": "Plugin, tutorial, integrasi, dan talk untuk Backstage, framework open source dari Spotify untuk developer portal.",
+    "enHash": "abe93f5d4aea"
+  },
+  "shi-rudo/awesome-stock-trading": {
+    "summary": "Situs riset, screener, tool charting, pelacak portofolio, backtesting, API, dan buku untuk orang yang trading saham.",
+    "enHash": "61d903c577cf"
+  },
+  "shi-yu-zhe/awesome-agi-cocosci": {
+    "summary": "Paper, tool, dan peneliti di pertemuan artificial general intelligence dan ilmu kognitif komputasional.",
+    "enHash": "587aa151e47e"
+  },
+  "shlomi-noach/awesome-mysql": {
+    "summary": "Tool untuk menjalankan MySQL: backup, replikasi, high availability, proxy, migrasi schema, monitoring, client, dan connector.",
+    "enHash": "2459802f8ac1"
+  },
+  "shopify/awesome-hydrogen": {
+    "summary": "Dokumentasi, tool, integrasi, contoh, dan talk untuk Hydrogen, framework React dari Shopify untuk toko online kustom.",
+    "enHash": "ea70e3f0f5cd"
+  },
+  "shuaibiyy/awesome-tf": {
+    "summary": "Modul, provider, registry, tool testing, tutorial, dan buku untuk Terraform, yang mendeskripsikan infrastruktur sebagai kode.",
+    "enHash": "6ddb58862f99"
+  },
+  "siboehm/awesome-learn-datascience": {
+    "summary": "Tutorial data science untuk pemula: algoritma inti, tool Python, tantangan latihan, dan bacaan lanjutan.",
+    "enHash": "f07c023e8cfb"
+  },
+  "siddharth11/colorful": {
+    "summary": "Tool, palet siap pakai, dan artikel untuk memilih warna dalam desain.",
+    "enHash": "02a0579409c0"
+  },
+  "siilwyn/awesome-pixel-art": {
+    "summary": "Tutorial, buku, seniman, komunitas, dan tool untuk membuat pixel art.",
+    "enHash": "7e3072f0bcb8"
+  },
+  "simonaronsson/awesome-software-architecture": {
+    "summary": "Prinsip, pattern, metode, dokumentasi, dan tool pemodelan untuk merancang struktur sistem software.",
+    "enHash": "2815ea8c3b3c"
+  },
+  "sindresorhus/amas": {
+    "summary": "Repositori GitHub tempat orang dan organisasi menerima pertanyaan dari siapa saja, ala ask-me-anything.",
+    "enHash": "cae8eb925c67"
+  },
+  "sindresorhus/awesome": {
+    "summary": "Indeks ratusan daftar topik di GitHub, dikelompokkan dari platform dan bahasa hingga keamanan dan sains.",
+    "enHash": "0cdf1cddf8e1"
+  },
+  "sindresorhus/awesome-chatgpt": {
+    "summary": "Aplikasi, ekstensi browser, tool command-line, bot, integrasi, dan paket untuk ChatGPT, AI percakapan dari OpenAI.",
+    "enHash": "2e00ab1668ee"
+  },
+  "sindresorhus/awesome-electron": {
+    "summary": "Aplikasi, boilerplate, tool, komponen, dan materi belajar untuk Electron, yang membangun aplikasi desktop dengan teknologi web.",
+    "enHash": "95ce813e172c"
+  },
+  "sindresorhus/awesome-nodejs": {
+    "summary": "Paket Node.js untuk segala tugas, plus package manager, tutorial, dan referensi lain untuk runtime JavaScript ini.",
+    "enHash": "c40120fa6cf8"
+  },
+  "sindresorhus/awesome-npm": {
+    "summary": "Artikel, tool, paket, client, dan dokumentasi untuk npm, package manager JavaScript.",
+    "enHash": "189151acfdd9"
+  },
+  "sindresorhus/awesome-observables": {
+    "summary": "Implementasi, paket, artikel, dan video tentang observable, aliran nilai dari waktu ke waktu di JavaScript.",
+    "enHash": "7a26e470b96f"
+  },
+  "sindresorhus/awesome-scifi": {
+    "summary": "Novel, cerita pendek, film, serial TV, komik, dan audiobook fiksi ilmiah.",
+    "enHash": "8f3adb19a48e"
+  },
+  "sindresorhus/awesome-tap": {
+    "summary": "Reporter, producer, consumer, dan tool untuk TAP, format teks biasa yang dipakai test runner untuk hasil tes.",
+    "enHash": "2e986e57b5e0"
+  },
+  "sindresorhus/awesome-whisper": {
+    "summary": "Varian model, aplikasi, tool command-line, paket, dan API untuk Whisper, model speech-to-text terbuka dari OpenAI.",
+    "enHash": "4dfde43a967d"
+  },
+  "sindresorhus/quick-look-plugins": {
+    "summary": "Plugin yang membuat Quick Look di macOS bisa menampilkan pratinjau lebih banyak jenis file, seperti JSON dan Markdown.",
+    "enHash": "74eedec43ee0"
+  },
+  "sitepoint-editors/awesome-symfony": {
+    "summary": "Bundle dan library untuk framework PHP Symfony, diurutkan per bidang seperti admin, form, pembayaran, dan storage.",
+    "enHash": "1a752bba62ff"
+  },
+  "sjfricke/awesome-webgl": {
+    "summary": "Tutorial, demo, library, dan tautan komunitas untuk WebGL, WebGL 2, dan WebXR, antarmuka browser untuk grafis 3D.",
+    "enHash": "adc5a1d0ebdb"
+  },
+  "slevithan/awesome-regex": {
+    "summary": "Tester, builder, visualizer, engine, koleksi pola, tutorial, dan buku untuk regular expression.",
+    "enHash": "efe8cf6e926b"
+  },
+  "sobolevn/awesome-cryptography": {
+    "summary": "Teori kriptografi, tool, library untuk banyak bahasa, dan sumber belajar.",
+    "enHash": "26da91c48834"
+  },
+  "solido/awesome-flutter": {
+    "summary": "Komponen, plugin, template, framework, aplikasi open source, artikel, dan video untuk Flutter, UI toolkit lintas platform dari Google.",
+    "enHash": "d73144620972"
+  },
+  "sorrycc/awesome-javascript": {
+    "summary": "Segala macam library dan tool JavaScript: package manager, loader, bundler, framework, utilitas, dan bacaan.",
+    "enHash": "30b9a84e384f"
+  },
+  "sporto/awesome-elm": {
+    "summary": "Panduan, artikel, talk, library, tool, dan plugin editor untuk Elm, bahasa fungsional untuk front-end web.",
+    "enHash": "e52849b4f6b7"
+  },
+  "srinivasantarget/awesome-appium": {
+    "summary": "Client, inspector, tutorial, layanan cloud, dan contoh aplikasi untuk Appium, yang mengotomatiskan testing aplikasi mobile.",
+    "enHash": "25dc36b4fd45"
+  },
+  "stackshareio/awesome-stacks": {
+    "summary": "Kumpulan tool yang saling cocok untuk membangun front-end, backend, aplikasi lengkap, dan aplikasi mobile.",
+    "enHash": "58dc35837ee6"
+  },
+  "standard/awesome-standard": {
+    "summary": "Paket, integrasi editor dan build, serta formatter untuk JavaScript Standard Style, linter dengan aturan tetap.",
+    "enHash": "ce7f0886aad4"
+  },
+  "stefanbuck/awesome-browser-extensions-for-github": {
+    "summary": "Ekstensi browser yang menambahkan fitur ke website GitHub, dari notifikasi hingga tampilan kode yang lebih baik.",
+    "enHash": "45d463310b17"
+  },
+  "stetso/awesome-gideros": {
+    "summary": "Panduan memulai, tutorial, dan library Lua untuk Gideros, engine Lua untuk game mobile.",
+    "enHash": "be8109ede0b0"
+  },
+  "stevemao/awesome-git-addons": {
+    "summary": "Perintah tambahan yang memperluas command line Git, seperti git-extras dan Git Town.",
+    "enHash": "ee4a2197018a"
+  },
+  "steven2358/awesome-blockchain-ai": {
+    "summary": "Proyek dan riset yang menggabungkan blockchain dengan kecerdasan buatan, untuk data, komputasi, keuangan, kedokteran, dan agent.",
+    "enHash": "edc036877880"
+  },
+  "steven2358/awesome-generative-ai": {
+    "summary": "Produk dan proyek generative AI untuk teks, kode, gambar, video, dan audio, beserta agent, bacaan, dan sumber belajar.",
+    "enHash": "9beb46427f18"
+  },
+  "stevesong/awesome-connectivity-info": {
+    "summary": "Indeks, peta, laporan, dan data tentang siapa saja yang bisa mengakses internet dan jaringan telepon, dan berapa biayanya.",
+    "enHash": "ae92f51d50fd"
+  },
+  "stevinz/awesome-game-engine-dev": {
+    "summary": "Engine, library, tool, materi belajar, topik khusus, dan aset untuk orang yang menulis game engine sendiri.",
+    "enHash": "9df157d6264b"
+  },
+  "stingalleman/awesome-audiovisual": {
+    "summary": "Software, tool, library, dan tutorial untuk tata cahaya, suara, dan video profesional di teater dan acara.",
+    "enHash": "e26cddb081e8"
+  },
+  "stn1slv/awesome-integration": {
+    "summary": "Proyek, pola integrasi, dan referensi untuk menghubungkan sistem software yang terpisah lewat API, messaging, dan event.",
+    "enHash": "80199ff7d7ec"
+  },
+  "stoeffel/awesome-ama-answers": {
+    "summary": "Jawaban yang diberikan orang di repositori ask-me-anything mereka di GitHub, dikumpulkan per pertanyaan.",
+    "enHash": "ef05d40917e9"
+  },
+  "stoeffel/awesome-fp-js": {
+    "summary": "Library, bahasa yang dikompilasi ke JavaScript, tool, dan bacaan untuk pemrograman fungsional di JavaScript.",
+    "enHash": "b14d209d8eb4"
+  },
+  "strift/awesome-esports": {
+    "summary": "Library, tool developer, dokumentasi API tidak resmi, dan aplikasi untuk mengolah data game kompetitif.",
+    "enHash": "81fa9f125299"
+  },
+  "sturobson/bem-resources": {
+    "summary": "Artikel, tool, contoh kode, dan talk tentang BEM, metode penamaan class CSS.",
+    "enHash": "ca287b222fb8"
+  },
+  "stve/awesome-dropwizard": {
+    "summary": "Bundle, tool, tutorial, dan panduan untuk Dropwizard, framework Java untuk membangun layanan web REST.",
+    "enHash": "096911a1bdcb"
+  },
+  "sublimino/awesome-funny-markov": {
+    "summary": "Teks lucu yang dihasilkan rantai Markov, dari mainan web dan bot Twitter hingga tool untuk membuat lebih banyak lagi.",
+    "enHash": "3f33c9879f7d"
+  },
+  "svaksha/julia.jl": {
+    "summary": "Paket dan referensi Julia yang dikelompokkan per topik, dari AI dan DevOps hingga optimisasi dan utilitas.",
+    "enHash": "e276cd5a7f7f"
+  },
+  "symbitic/awesome-babylonjs": {
+    "summary": "Dokumentasi, buku, demo, scene, game, dan contoh untuk Babylon.js, engine 3D untuk web.",
+    "enHash": "3fef3e6f6b8d"
+  },
+  "szenergy/awesome-lidar": {
+    "summary": "Produsen, dataset, library, algoritma, dan simulator untuk lidar, sensor laser yang mengukur jarak dan bentuk.",
+    "enHash": "623cc1395f34"
+  },
+  "talater/awesome-book-authoring": {
+    "summary": "Saran menulis buku teknis: proposal, kontrak, royalti, penerbit, pemasaran, penerbitan mandiri, dan tool menulis.",
+    "enHash": "de8fa34cf77d"
+  },
+  "talater/awesome-progressive-web-apps": {
+    "summary": "Artikel, tutorial, video, dan studi kasus tentang progressive web app, website yang berperilaku seperti aplikasi terpasang.",
+    "enHash": "22243471460b"
+  },
+  "talater/awesome-service-workers": {
+    "summary": "Artikel, referensi, library, dan studi kasus untuk service worker, skrip browser di balik caching offline dan push message.",
+    "enHash": "3b8ca4861657"
+  },
+  "tayllan/awesome-algorithms": {
+    "summary": "Kursus, situs kontes, buku, dan cheat sheet untuk belajar algoritma dan struktur data.",
+    "enHash": "eb3e26f0142f"
+  },
+  "terkelg/awesome-creative-coding": {
+    "summary": "Buku, kursus, tool, komunitas, acara, dan inspirasi untuk creative coding, menulis program untuk membuat karya seni.",
+    "enHash": "9331a3c94334"
+  },
+  "terryum/awesome-deep-learning-papers": {
+    "summary": "Paper riset deep learning yang banyak dikutip, dikelompokkan per topik seperti model, optimisasi, dan aplikasi.",
+    "enHash": "4db694f5d1a0"
+  },
+  "thangchung/awesome-dotnet-core": {
+    "summary": "Framework, library, tool, starter kit, contoh proyek, dan materi belajar untuk .NET Core dan penerusnya.",
+    "enHash": "3c63eca8b152"
+  },
+  "thecomputerm/awesome-svelte": {
+    "summary": "Integrasi, library state dan UI, komponen, router, tool, dan contoh untuk Svelte, framework front-end berbasis compiler.",
+    "enHash": "354dc2297e4c"
+  },
+  "theimpossibleastronaut/awesome-linguistics": {
+    "summary": "Toolkit, algoritma, dataset, model, buku, dan komunitas untuk linguistik dan teknologi bahasa.",
+    "enHash": "01d7bde461f3"
+  },
+  "thejambo/awesome-testing": {
+    "summary": "Software, buku, pelatihan, blog, dan newsletter untuk software tester.",
+    "enHash": "dcb44e6b3780"
+  },
+  "therebelrobot/awesome-workshopper": {
+    "summary": "Pelajaran interaktif yang berjalan di terminal, sebagian besar dari proyek NodeSchool, beserta tool untuk membuatnya.",
+    "enHash": "23818fd2e642"
+  },
+  "thibmaek/awesome-raspberry-pi": {
+    "summary": "Model, image sistem operasi, tool, proyek, dan referensi komunitas untuk komputer papan tunggal Raspberry Pi.",
+    "enHash": "c3e9276a4e65"
+  },
+  "thomasbnt/awesome-web-monetization": {
+    "summary": "Dokumentasi, library, dan proyek untuk Web Monetization, usulan standar untuk membayar website langsung dari browser.",
+    "enHash": "8d802c79452c"
+  },
+  "thoughtspile/awesome-tiny-js": {
+    "summary": "Library JavaScript yang sangat kecil untuk front-end: framework, state, routing, tanggal, validasi, ID, warna, dan gesture.",
+    "enHash": "3ea60b68944d"
+  },
+  "tiimgreen/github-cheat-sheet": {
+    "summary": "Fitur Git dan GitHub yang jarang diketahui, dijelaskan dengan contoh singkat.",
+    "enHash": "c94730b4e2cd"
+  },
+  "timofurrer/awesome-asyncio": {
+    "summary": "Framework, driver database, library networking dan testing, artikel, dan talk untuk asyncio, library pemrograman asinkron Python.",
+    "enHash": "e67b1147447b"
+  },
+  "tindzk/awesome-scala-native": {
+    "summary": "Library, binding, build tool, dan contoh untuk Scala Native, yang mengompilasi Scala menjadi kode mesin.",
+    "enHash": "414d030e8cae"
+  },
+  "tmcw/awesome-geojson": {
+    "summary": "Tool untuk GeoJSON, format JSON untuk fitur peta: editor, validator, konverter, layanan, dan data.",
+    "enHash": "94334aa7550b"
+  },
+  "tobiasbueschel/awesome-pokemon": {
+    "summary": "Proyek development, API, dan referensi komunitas untuk game Pokémon dan Pokémon GO.",
+    "enHash": "3fa4b5ea3482"
+  },
+  "tobiasvl/awesome-chip-8": {
+    "summary": "Dokumentasi, emulator, tool development, dan game untuk CHIP-8, virtual machine sederhana untuk game dari tahun 1970-an.",
+    "enHash": "1746d884e9c6"
+  },
+  "tomodachi94/awesome-computercraft": {
+    "summary": "Mod, program Lua, dan bacaan untuk ComputerCraft, yang menambahkan komputer yang bisa diprogram ke Minecraft.",
+    "enHash": "ff403d939acb"
+  },
+  "tramcar/awesome-job-boards": {
+    "summary": "Situs lowongan kerja untuk bidang khusus seperti AI, desain, DevOps, keuangan, gaming, open source, dan kerja remote.",
+    "enHash": "c6f481379ab4"
+  },
+  "transitive-bullshit/awesome-ffmpeg": {
+    "summary": "Dokumentasi, wrapper JavaScript dan native, build mobile, dan tutorial untuk FFmpeg, tool command-line untuk audio dan video.",
+    "enHash": "5ef133adbd7f"
+  },
+  "troxler/awesome-css-frameworks": {
+    "summary": "Framework CSS yang dikelompokkan per pendekatan: reset, gaya tanpa class, ringan, serba guna, Material Design, dan utility class.",
+    "enHash": "2a356c07c47b"
+  },
+  "ttt30ga/awesome-product-design": {
+    "summary": "Referensi untuk product designer tentang riset, user experience, desain antarmuka dan visual, prototyping, aksesibilitas, dan penulisan.",
+    "enHash": "b9bf3f90fc3b"
+  },
+  "ttumiel/awesome-ethereum": {
+    "summary": "Dokumentasi, tool pemrograman, tutorial, wallet, protokol, dan buku untuk Ethereum, blockchain yang menjalankan smart contract.",
+    "enHash": "0d0dbd0e77bc"
+  },
+  "tupletype/awesome-cicd-attacks": {
+    "summary": "Teknik, tool, dan studi kasus serangan terhadap build pipeline dan software supply chain.",
+    "enHash": "9c0a1a79ef87"
+  },
+  "tvvocold/foss-for-dev": {
+    "summary": "Software gratis dan open source untuk developer: hosting kode, editor, CI, bug tracker, dokumentasi, dan chat.",
+    "enHash": "ec226d309501"
+  },
+  "tyaga001/awesome-neon": {
+    "summary": "Dokumentasi, panduan, contoh, video, dan artikel untuk Neon, layanan Postgres serverless yang di-hosting.",
+    "enHash": "bcbcf2c12561"
+  },
+  "typedb/typedb-awesome": {
+    "summary": "Proyek, dokumentasi, driver client, dukungan editor, dan talk untuk TypeDB, database dengan schema bertipe dan query logis.",
+    "enHash": "c2d96acba587"
+  },
+  "typeddjango/awesome-python-typing": {
+    "summary": "Type checker, paket stub, tipe tambahan, tool, dan artikel untuk type hint di Python.",
+    "enHash": "1995968fcfa1"
+  },
+  "ucg8j/awesome-dash": {
+    "summary": "Library komponen, contoh aplikasi, tutorial, talk, dan opsi deployment untuk Plotly Dash, framework Python untuk dashboard data.",
+    "enHash": "715650f2031e"
+  },
+  "ujjwalkarn/machine-learning-tutorials": {
+    "summary": "Tutorial, artikel, cheat sheet, dan materi wawancara tentang metode machine learning, dari regresi hingga deep learning.",
+    "enHash": "3c4d7e9d1fbf"
+  },
+  "umbraco-community/awesome-umbraco": {
+    "summary": "Tautan resmi, referensi komunitas, ekstensi, tool developer, dan starter kit untuk Umbraco, sistem manajemen konten berbasis .NET.",
+    "enHash": "6b89016161e1"
+  },
+  "unicodeveloper/awesome-lumen": {
+    "summary": "Tutorial, paket, middleware, demo, dan buku untuk Lumen, framework PHP kecil berbasis Laravel untuk API.",
+    "enHash": "c52120b901a4"
+  },
+  "unicodeveloper/awesome-nextjs": {
+    "summary": "Boilerplate, ekstensi, artikel, buku, video, dan contoh aplikasi untuk Next.js, framework React untuk situs yang di-render di server.",
+    "enHash": "024679ae17ea"
+  },
+  "unixorn/awesome-zsh-plugins": {
+    "summary": "Ribuan framework, plugin, completion, tema, dan tutorial untuk shell zsh.",
+    "enHash": "1a2378b0ebde"
+  },
+  "uraimo/awesome-software-patreons": {
+    "summary": "Proyek open source dan programmer yang menerima dukungan dana lewat Patreon dan layanan serupa.",
+    "enHash": "91de0fe4f377"
+  },
+  "uraimo/awesome-swift-playgrounds": {
+    "summary": "Swift playground untuk belajar bahasa ini dan menjelajahi grafis, audio, matematika, dan API Apple.",
+    "enHash": "27c8ac5aef32"
+  },
+  "uralbash/awesome-pyramid": {
+    "summary": "Paket tambahan untuk framework web Python Pyramid, per tugas: autentikasi, caching, form, REST, pencarian, template, dan testing.",
+    "enHash": "a24fd9bd073b"
+  },
+  "urigo/awesome-meteor": {
+    "summary": "Paket untuk platform JavaScript Meteor, per tugas: akun, form, routing, deployment, testing, pencarian, dan lainnya.",
+    "enHash": "93ac1d8c8b65"
+  },
+  "vala-lang/awesome-vala": {
+    "summary": "Aplikasi, tool, plugin editor, language server, dan library untuk Vala, bahasa mirip C untuk GNOME.",
+    "enHash": "55519d6a9e03"
+  },
+  "vapor-community/awesome-vapor": {
+    "summary": "Library, tool, layanan, tutorial, dan proyek open source untuk Vapor, framework web untuk bahasa Swift.",
+    "enHash": "67d50e4788a6"
+  },
+  "veelenga/awesome-crystal": {
+    "summary": "Library dan tool Crystal yang diurutkan per tugas, dari algoritma dan caching hingga framework web.",
+    "enHash": "5efb08b3ae51"
+  },
+  "veggiemonk/awesome-docker": {
+    "summary": "Proyek dan materi belajar seputar container Docker: tool untuk membuat, menjalankan, networking, monitoring, dan mengamankannya.",
+    "enHash": "fe0abf74b782"
+  },
+  "vert-x3/vertx-awesome": {
+    "summary": "Library, framework, client database, dan integrasi untuk Vert.x, toolkit event-driven untuk program reaktif di JVM.",
+    "enHash": "f5ac68de15af"
+  },
+  "vhladiienko/awesome-game-production": {
+    "summary": "Buku, artikel, video, tool, dan template tentang produksi video game, dari perencanaan hingga rilis.",
+    "enHash": "5a871fbd64ec"
+  },
+  "vhpoet/awesome-ripple": {
+    "summary": "Referensi resmi, gateway, library kode, dan tool hosted untuk Ripple, jaringan pembayaran yang dibangun di atas XRP Ledger.",
+    "enHash": "30d410fd1741"
+  },
+  "viatsko/awesome-vscode": {
+    "summary": "Ekstensi, tema, tokoh untuk diikuti, dan kursus untuk Visual Studio Code, code editor gratis dari Microsoft.",
+    "enHash": "f45f384fea65"
+  },
+  "victorlaerte/awesome-it-quotes": {
+    "summary": "Kutipan tentang pemrograman, software, dan komputasi dari tokoh-tokoh terkenal di bidangnya.",
+    "enHash": "86aac52c6719"
+  },
+  "victorshinya/awesome-ibmcloud": {
+    "summary": "Tool command-line, SDK, layanan, dan tautan komunitas untuk developer di IBM Cloud.",
+    "enHash": "e8f7219899cf"
+  },
+  "vinjn/awesome-vulkan": {
+    "summary": "SDK, tutorial, contoh, library, binding, tool, dan paper untuk Vulkan, antarmuka grafis dan komputasi tingkat rendah.",
+    "enHash": "63ea4403acb9"
+  },
+  "vinta/awesome-python": {
+    "summary": "Framework, library, dan tool Python yang diurutkan per topik, plus sumber belajar.",
+    "enHash": "3dc0cd538934"
+  },
+  "virtualroot/awesome-opentofu": {
+    "summary": "Tool, fitur, kursus, dan referensi komunitas untuk OpenTofu, fork open source dari Terraform.",
+    "enHash": "84860be045e6"
+  },
+  "vitalets/awesome-smart-tv": {
+    "summary": "Platform, framework, protokol remote control, tool, dan library untuk membuat aplikasi smart TV.",
+    "enHash": "9d10d13c2f99"
+  },
+  "vlang/awesome-v": {
+    "summary": "Aplikasi dan library yang ditulis dengan V, bahasa pemrograman terkompilasi yang kecil.",
+    "enHash": "a7f8ee7eae6e"
+  },
+  "voorhoede/progressive-enhancement-resources": {
+    "summary": "Artikel, strategi, tool deteksi fitur, dan contoh untuk membangun halaman yang berfungsi dulu lalu ditingkatkan sejauh browser mendukung.",
+    "enHash": "270c913ae7fe"
+  },
+  "vorpaljs/awesome-vorpal": {
+    "summary": "Ekstensi, tutorial, dan proyek untuk Vorpal, framework untuk aplikasi command-line interaktif di Node.js.",
+    "enHash": "e75731c1a42f"
+  },
+  "vsouza/awesome-ios": {
+    "summary": "Ribuan library, framework, dan tool untuk development aplikasi iOS, per topik dari analitik hingga antarmuka pengguna.",
+    "enHash": "fad91bb01395"
+  },
+  "vuejs/awesome-vue": {
+    "summary": "Lebih dari seribu komponen, library, proyek, dan sumber belajar untuk Vue.js, framework JavaScript untuk antarmuka pengguna.",
+    "enHash": "81c1fb0a00f6"
+  },
+  "wagtail/awesome-wagtail": {
+    "summary": "Aplikasi, tool, panduan editor, talk, dan situs open source yang dibuat dengan Wagtail, sistem manajemen konten berbasis Django.",
+    "enHash": "5037e0740c12"
+  },
+  "wardley-maps-community/awesome-wardley-maps": {
+    "summary": "Pengantar, buku, video, kursus, aplikasi, dan acara tentang Wardley map, cara memetakan lanskap bisnis.",
+    "enHash": "b10c53031449"
+  },
+  "wasabeef/awesome-android-ui": {
+    "summary": "Komponen antarmuka open source untuk aplikasi Android: layout, tombol, list, gambar, menu, dialog, chart, dan animasi.",
+    "enHash": "25a7741d7525"
+  },
+  "watson/awesome-computer-history": {
+    "summary": "Film dokumenter, rekaman, teks, source code bersejarah, dan website tentang sejarah komputasi.",
+    "enHash": "7b178906502e"
+  },
+  "wbinnssmith/awesome-promises": {
+    "summary": "Artikel, buku, implementasi, dan library pembantu untuk promise JavaScript.",
+    "enHash": "1bd407aebd82"
+  },
+  "wbkd/awesome-d3": {
+    "summary": "Chart, peta, utilitas, dan contoh yang dibangun dengan D3, library JavaScript untuk visualisasi data.",
+    "enHash": "90a89664fd10"
+  },
+  "web-padawan/awesome-lit": {
+    "summary": "Tutorial, template starter, library komponen, design system, tool, dan integrasi untuk Lit, library dari Google untuk web component.",
+    "enHash": "8fc36812019c"
+  },
+  "web-padawan/awesome-web-components": {
+    "summary": "Standar, panduan, artikel, library, framework, dan buku tentang web component, custom element bawaan browser yang bisa dipakai ulang.",
+    "enHash": "bff338342477"
+  },
+  "weblancaster/awesome-iot-hybrid": {
+    "summary": "Platform dan framework untuk internet of things dan aplikasi hybrid desktop dan mobile dengan teknologi web.",
+    "enHash": "10f840649217"
+  },
+  "webpro/awesome-dotfiles": {
+    "summary": "Artikel, tool, dan contoh repositori untuk menyimpan dan berbagi file konfigurasi di folder home Unix.",
+    "enHash": "b45d8f60ec61"
+  },
+  "websemantics/awesome-ant-design": {
+    "summary": "Komponen, tool, tema, boilerplate, dan port untuk Ant Design, library UI React dan design language dari Alibaba.",
+    "enHash": "2188ec0f506a"
+  },
+  "wernerkrauss/awesome-silverstripe-cms": {
+    "summary": "Dokumentasi, modul, dan tool developer untuk Silverstripe CMS, sistem manajemen konten dan framework PHP.",
+    "enHash": "9432ffcc38bf"
+  },
+  "willianjusten/awesome-audio-visualization": {
+    "summary": "Library, eksperimen, tutorial, dan video untuk mengubah suara menjadi gambar bergerak, sebagian besar di browser.",
+    "enHash": "4744a07a6e79"
+  },
+  "willianjusten/awesome-svg": {
+    "summary": "Tutorial, library, tool, ikon, animasi, dan catatan aksesibilitas untuk SVG, format gambar vektor di web.",
+    "enHash": "c18706306840"
+  },
+  "woop/awesome-quantified-self": {
+    "summary": "Aplikasi, platform, perangkat wearable, artikel, buku, dan proyek open source untuk mencatat data tentang diri sendiri.",
+    "enHash": "a89c21add413"
+  },
+  "writing-resources/awesome-scientific-writing": {
+    "summary": "Editor, tool bibliografi, konverter, linter, dan template untuk menulis paper ilmiah dalam format teks biasa.",
+    "enHash": "2b70866f815c"
+  },
+  "xavidop/awesome-genkit": {
+    "summary": "Plugin, referensi, talk, dan tutorial untuk Genkit, toolkit open source dari Google untuk menambahkan generative AI ke aplikasi.",
+    "enHash": "3523fb798538"
+  },
+  "xen0l/awesome-dtrace": {
+    "summary": "Panduan, artikel, video, skrip, dan tool untuk DTrace, yang melacak apa yang dilakukan sistem yang sedang berjalan dan program-programnya.",
+    "enHash": "2a3d221c8d42"
+  },
+  "xiaohanyu/awesome-tikz": {
+    "summary": "Buku, galeri, library, tool, dan video untuk TikZ, paket LaTeX untuk menggambar diagram.",
+    "enHash": "28a8a4a458fa"
+  },
+  "xxczaki/awesome-calculators": {
+    "summary": "Aplikasi kalkulator untuk ponsel, desktop, dan web, plus referensi tentang kalkulator.",
+    "enHash": "4496031cbf90"
+  },
+  "yenchenlin/awesome-watchos": {
+    "summary": "Panduan, library, saran desain, tool, contoh aplikasi, dan tutorial untuk membuat aplikasi Apple Watch.",
+    "enHash": "a1cbe866123b"
+  },
+  "yissachar/awesome-dart": {
+    "summary": "Framework Dart untuk aplikasi web, server, dan lintas platform, plus library untuk database, testing, dan lainnya.",
+    "enHash": "e3fc59dc2827"
+  },
+  "youngwookim/awesome-hadoop": {
+    "summary": "Proyek di ekosistem Hadoop untuk big data di cluster: YARN, SQL engine, ingestion, workflow, pencarian, dan keamanan.",
+    "enHash": "d29d44bc11d1"
+  },
+  "yrgo/awesome-educational-games": {
+    "summary": "Game yang mengajarkan seni, desain, CSS, bahasa, matematika, musik, dan pemrograman.",
+    "enHash": "59edbdca84b5"
+  },
+  "zachflower/awesome-open-source-supporters": {
+    "summary": "Perusahaan yang membolehkan proyek open source memakai layanannya secara gratis, seperti CI, kualitas kode, dan monitoring.",
+    "enHash": "ec0050a93968"
+  },
+  "zenitysec/awesome-low-code": {
+    "summary": "Platform, tool, referensi, template, dan komunitas untuk low-code development, membangun aplikasi dengan sedikit pemrograman.",
+    "enHash": "ff78304483f9"
+  },
+  "zheaoli/awesome-coins": {
+    "summary": "Wallet, exchange, mining, tool pasar, dan bacaan seputar cryptocurrency.",
+    "enHash": "0199c829aad3"
+  },
+  "ziadoz/awesome-php": {
+    "summary": "Library, framework, dan tool PHP yang diurutkan per tugas, dari dependency management hingga testing dan keamanan.",
+    "enHash": "33a4724f3931"
+  },
+  "zingchart/awesome-charting": {
+    "summary": "Library charting untuk web, komersial dan open source, plus binding framework dan referensi visualisasi data.",
+    "enHash": "1c269bb04728"
+  },
+  "zolagonano/awesome-zeronet": {
+    "summary": "Implementasi, plugin, panduan, dan proxy publik untuk ZeroNet, jaringan website yang disajikan secara peer-to-peer.",
+    "enHash": "ff470607b41a"
+  },
+  "zudochkin/awesome-newsletters": {
+    "summary": "Newsletter email tentang pemrograman, front-end, database, mobile, AI, keamanan, kepemimpinan, dan bisnis.",
+    "enHash": "d086c73e7f19"
+  },
+  "zyszys/awesome-captcha": {
+    "summary": "Library dan tool untuk membuat tes CAPTCHA, serta proyek yang menyelesaikannya secara otomatis.",
+    "enHash": "2bce179d93fe"
+  }
+}

@@ -27,6 +27,9 @@ An item's URL never goes in the path.
 | `/about` | What this is, the rule above, attribution, how a list is left out, coverage numbers, the data date |
 | `/api/quick?q=` | JSON for quick search |
 | `/sitemap.xml`, `/sitemaps/*.xml`, `/robots.txt`, `/healthz`, `/assets/{hash}/…` | Crawling, health, static files |
+| `/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png`, `/site.webmanifest` | Icons and the manifest, static files cached for a day |
+
+**Languages** (`docs/i18n-seo.md`). English has no prefix; nine more languages are every route above behind `/zh`, `/es`, `/pt`, `/ja`, `/de`, `/fr`, `/ru`, `/ko` and `/id` (the table is `src/site/i18n/locales.ts`). `/en/…` answers 301 to the address without it; `/api/quick`, `/item?url=` and `/healthz` have no prefix. A URL always answers in its own language: nothing looks at `Accept-Language`, and the footer has a switcher to the same page in each language. Words are message keys (`src/site/i18n/messages/`); our summaries and category names come from `translations/`, through `/_data/i18n/{lang}.json`, with the English shown (marked `lang="en"`) where one is missing.
 
 Across routes:
 
@@ -112,7 +115,9 @@ What a person types is never passed as it is: it is split on whitespace, each to
 
 - `/_data/facets.bin`: the facet arrays (below), with a JSON header of offsets (`src/site/facets-file.ts`).
 - `/_data/terms.json`: every language, licence and topic as `[id, ns, slug, label, itemCount]`.
-- `/assets/{hash}/…`: the CSS and scripts.
+- `/_data/i18n/{lang}.json`: one per language but English, `{ categories: { slug: name }, summaries: { listSlug: text } }`, read once per isolate on the first request in that language. Their bytes are part of the build id.
+- `/assets/{hash}/…`: the CSS, the scripts and `og.png`, the one share image.
+- `/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png`, `/site.webmanifest`, unhashed.
 - `/sitemap.xml`, `/sitemaps/*.xml`, `/robots.txt`, written with `SITE_ORIGIN`; and `_headers`.
 
 **Facets in memory.** The build writes the items' columns in id order as typed arrays: kind and status as `Uint8Array`; language, licence and list count as `Uint16Array`; stars and the day of the last push as `Int32Array`; item → topics and item → lists as CSR arrays; a permutation for each other sort; and the owner logins. The Worker fetches `facets.bin` once per isolate, on the first `/items`, never at start; only `/items` loads it, and only `/items` and `/api/quick` load `terms.json`. A request:
@@ -163,6 +168,7 @@ Components: the header (name, search, Lists, Items, About); `row` (for items and
 | `/api/quick` | `public, max-age=3600, s-maxage=86400` | the Worker |
 | `/assets/{hash}/…` | `public, max-age=31536000, immutable` | `_headers` |
 | sitemaps, robots | `public, max-age=3600, s-maxage=86400` | `_headers` |
+| icons, manifest | `public, max-age=86400` | `_headers` |
 | 404 | `public, max-age=60` | the Worker |
 | `/healthz` | `no-store` | the Worker |
 
@@ -171,17 +177,20 @@ Components: the header (name, search, Lists, Items, About); `row` (for items and
 - `/healthz` reads `meta.build_id` and answers `ok {buildId}`, or 503 when it differs from the Worker's `BUILD_ID`; `no-store`, never 304.
 - `Content-Security-Policy: default-src 'self'`: no inline script or style, no request to anyone else (so no avatars). `X-Content-Type-Options: nosniff` and `Referrer-Policy: strict-origin-when-cross-origin` on every answer of the Worker; `_headers` puts `nosniff` on every static file.
 - Redirects (renames, case, a trailing slash, `/item?url=`) are the Worker's.
-- Every page has a canonical link, params in the fixed order. A listing page with `q`, two or more filters, or a sort other than the default is `noindex,follow`.
+- The Worker adds `Content-Language` to HTML answers (informative only). The language is in the URL, so caching and the ETag are unchanged.
+- Which pages are indexed in which languages is one function, `indexedIn` in `src/site/i18n/indexing.ts`: the home, `/lists` (bare, a category, and their pages), list pages, `/items` (bare) and `/about` are indexed in every language, self-canonical with eleven `hreflang` alternates; item, owner and filtered pages are canonical to the English address in every language, with no alternates; `noindex` pages are `noindex` in every language.
+- Every page has a canonical link, params in the fixed order. A listing page with `q`, two or more filters, or a sort other than the default is `noindex,follow`; so is `/items` with one filter past page 1 or with fewer than 5 results. Facet and sort links to a `noindex` page carry `rel="nofollow"`. A page past the last is a 404.
 - An item page is indexable only when it has repository facts or is in two lists or more. The rest are `noindex,follow` and are not in the sitemaps.
-- `/sitemap.xml` is an index of `pages.xml`, `lists.xml`, `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. `lastmod` is the data date. They are static files, written by the build.
-- `robots.txt`: `Allow: /`, `Disallow: /api/`, `Disallow: /search`, and the sitemap.
+- Every page has Open Graph and Twitter tags (one static image), `theme-color`, the icons and the manifest. Self-canonical pages carry JSON-LD: `WebSite` on the home page, `CollectionPage` with an `ItemList` on `/lists` and list pages, `BreadcrumbList` on category and list pages, `SoftwareSourceCode` on a repository's page.
+- `/sitemap.xml` is an index of `pages.xml` (the home, `/lists`, `/items`, `/about` and the category pages, in ten languages), `lists-{lang}.xml` (ten files), `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. Pages and lists carry their `xhtml:link` alternates; owners and items are English only. `lastmod`: a list's last push (never after the data date), the data date for `pages.xml`, none for owners and items. They are static files, written by the build.
+- `robots.txt`: `Allow: /`, `Disallow: /api/`, `Disallow: /_data/`, `Disallow: /search` in every language, and the sitemap.
 
 ## Attribution
 
 - List page: "This page is an index of **{name}**, a list kept by {owner} and its contributors at github.com/{owner}/{repo}. The selection and order are theirs; the summary above is ours. Read at commit {oid7} on {date}." Then the licence, if any.
 - Item page: "Named by the lists above. Follow a list to read what its curators say about it."
-- Footer: "{SITE_NAME} indexes names, sections and links. Descriptions belong to the lists and are not copied here. Keep a list and want it left out? Open an issue."
+- Footer: "{SITE_NAME} indexes names, sections and links. Descriptions belong to the lists and are not copied here. Keep a list and want it left out? Open an issue." Then the language switcher.
 
 ## Not in this version
 
-Trending and star history; item descriptions; accounts, saved items, comments; a theme switch; avatars, favicons or any request to another site; category, tag and section routes; choosing several values of one facet; RSS; a JSON API beyond quick search; downloads of the data; analytics; translations; share images; checking links beyond GitHub's `gone`; search that forgives typos.
+Trending and star history; item descriptions; accounts, saved items, comments; a theme switch; avatars, favicons or any request to another site; category, tag and section routes; choosing several values of one facet; RSS; a JSON API beyond quick search; downloads of the data; analytics; share images per page; translated section headings or item names; checking links beyond GitHub's `gone`; search that forgives typos.

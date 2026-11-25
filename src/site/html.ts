@@ -65,3 +65,12 @@ export function inbound(path: string, text: Part, cls?: string): Html {
   if (!path.startsWith('/') || path.startsWith('//')) return html`${text}`;
   return html`<a href="${path}"${cls ? html` class="${cls}"` : ''}>${text}</a>`;
 }
+
+/**
+ * A JSON-LD block. A data block, not script, so the CSP allows it. `<`, `>`, `&` and the two line separators are
+ * written as \u escapes, so no name can close the tag or start a comment.
+ */
+export function jsonLd(value: unknown): Html {
+  const text = JSON.stringify(value).replace(/[<>&\u2028\u2029]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`);
+  return new Html(`<script type="application/ld+json">${text}</script>`);
+}

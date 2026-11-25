@@ -44,7 +44,7 @@ export interface Meta {
     itemsInTwoOrMore: number;
   };
   /** The paths of the site's CSS and scripts, /assets/{hash}/{name}. */
-  assets: { css: string; quick: string; listfilter: string };
+  assets: { css: string; quick: string; listfilter: string; og: string };
 }
 
 export interface CategoryRow { id: number; name: string; slug: string; position: number; listCount: number }
@@ -246,7 +246,7 @@ export function metaOf(rows: readonly Row[]): Meta {
     coverage: JSON.parse(
       m.get('coverage') ?? '{"listsByStatus":{},"itemsByKind":{},"reposByStatus":{},"itemsInTwoOrMore":0}',
     ) as Meta['coverage'],
-    assets: JSON.parse(m.get('assets') ?? '{"css":"","quick":"","listfilter":""}') as Meta['assets'],
+    assets: JSON.parse(m.get('assets') ?? '{"css":"","quick":"","listfilter":"","og":""}') as Meta['assets'],
   };
 }
 
