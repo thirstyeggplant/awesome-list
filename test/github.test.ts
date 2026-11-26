@@ -20,6 +20,8 @@ function repoNode(nameWithOwner: string, extra: Record<string, unknown> = {}): R
 interface Reply {
   status?: number;
   body?: unknown;
+  /** The raw body, in place of `body`. */
+  text?: string;
   retryAfter?: string;
 }
 
@@ -40,7 +42,7 @@ function scripted(replies: Reply[], remaining = 4000): { transport: Transport; q
     return Promise.resolve({
       status: reply.status ?? 200,
       retryAfter: reply.retryAfter ?? null,
-      text: JSON.stringify(reply.body ?? {}),
+      text: reply.text ?? JSON.stringify(reply.body ?? {}),
     });
   };
   return { transport, queries };
@@ -103,6 +105,18 @@ describe('GraphQLGitHub', () => {
     expect(queries.filter((q) => q.includes('repository('))).toHaveLength(4);
     expect(result.get('o/a')?.kind).toBe('found');
     expect(result.get('o/b')?.kind).toBe('found');
+  });
+
+  it('tries again after an answer that is empty or cut short', async () => {
+    const { transport, queries } = scripted([
+      { text: '' },
+      { text: '{"data":{"r0"' },
+      { body: { data: { r0: repoNode('o/a'), rateLimit: rate(3999) } } },
+    ]);
+    const gh = new GraphQLGitHub({ token: () => Promise.resolve('t'), transport, gatewayRetries: 3, sleep: noSleep });
+    const result = await gh.lookup([{ owner: 'o', repo: 'a' }], { withTree: false });
+    expect(queries.filter((q) => q.includes('repository('))).toHaveLength(3);
+    expect(result.get('o/a')?.kind).toBe('found');
   });
 
   it('marks a lone repository as failed when its query keeps failing', async () => {
