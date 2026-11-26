@@ -67,7 +67,7 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
     const path = l.path.map((t, i) => link(loc, `/lists/${list.slug}#${l.anchors[i] ?? ''}`, t));
     const extras = l.extraLinks.map((e) => outbound(e.url, e.text, { rel: 'nofollow noopener', cls: 'extra' }));
     return html`<li class="listing">${link(loc, `/lists/${list.slug}`, html`<span translate="no">${list.name}</span>`, { cls: 'name serif' })}${
-      path.length > 0 ? html` <span class="crumbs inline">${join(path, html`<span class="sep"> › </span>`)}</span>` : ''
+      path.length > 0 ? html` <span class="path">${join(path, html`<span class="sep"> › </span>`)}</span>` : ''
     }${l.name !== null ? html` <span class="as">${loc.h(m.item.listedAs, { name: html`<span translate="no">${l.name}</span>` })}</span>` : ''}${
       extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''
     }</li>`;

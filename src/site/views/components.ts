@@ -38,7 +38,7 @@ export function link(loc: Loc, path: string, text: Part, attrs: { cls?: string; 
 
 /** A tag chip such as lang:go, linking to /items?lang=go. Query syntax, the same in every language. */
 export function tag(loc: Loc, ns: string, slug: string): Html {
-  return html`<a class="chip" translate="no" href="${loc.href(`/items?${ns}=${encodeParam(slug)}`)}">${ns}:${slug}</a>`;
+  return html`<a class="chip" translate="no" href="${loc.href(`/items?${ns}=${encodeParam(slug)}`)}"><span class="ns">${ns}:</span>${slug}</a>`;
 }
 
 /** The tags of an item: language, licence, kind (when it says something), status, then topics. */
@@ -74,13 +74,13 @@ export function itemRow(loc: Loc, item: ItemRow, o: ItemRowOptions = {}): Html {
   const name = o.name ?? item.name;
   const chips = tagsOf(loc, item, o.topics ?? false).slice(0, 3);
   const extras = (o.extras ?? []).map((e) => outbound(e.url, e.text, { rel: 'nofollow noopener', cls: 'extra' }));
-  return html`<li class="row${o.child ? ' child' : ''}"><span class="main"><a class="name" translate="no" href="${loc.href(itemPath(item))}">${
+  return html`<li class="row${o.child ? ' child' : ''}"><span class="main"><span class="who"><a class="name" translate="no" href="${loc.href(itemPath(item))}">${
     item.status === 'gone' ? html`<s>${name}</s>` : name
-  }</a> <span class="sub" translate="no">${item.owner ?? item.host}</span>${rot(loc, itemRot(item))}${
+  }</a> <span class="sub" translate="no">${item.owner ?? item.host}</span>${rot(loc, itemRot(item))}</span>${
     chips.length > 0 ? html` <span class="chips">${join(chips, ' ')}</span>` : ''
   }${extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''}</span><span class="num stars">${
     item.stars === null ? '' : html`${loc.n(item.stars)}<span class="unit"> ★</span>`
-  }</span><span class="num">${loc.plural(loc.m.count.lists, item.listCount)}</span><span class="num year">${yearOf(item.pushedDay)}</span></li>`;
+  }</span><span class="num in">${loc.plural(loc.m.count.lists, item.listCount)}</span><span class="num year">${yearOf(item.pushedDay)}</span></li>`;
 }
 
 export function itemRows(loc: Loc, items: readonly ItemRow[], topics = false): Html {
@@ -92,11 +92,11 @@ export function listRow(ctx: Ctx, list: ListRow): Html {
   const { loc } = ctx;
   const cat = list.categoryId === null ? undefined : ctx.categoryById.get(list.categoryId);
   const summary = loc.summary(list);
-  return html`<li class="row list-row"><span class="main"><a class="name serif" translate="no" href="${loc.href(`/lists/${list.slug}`)}">${list.name}</a> <span class="sub" translate="no">${
+  return html`<li class="row list-row"><span class="main"><span class="who"><a class="name serif" translate="no" href="${loc.href(`/lists/${list.slug}`)}">${list.name}</a> <span class="sub mono" translate="no">${
     list.slug
-  }</span>${rot(loc, listRot(list, ctx.dataDay))}${
-    cat ? html` <a class="chip" href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a>` : ''
-  }</span><span class="num">${loc.plural(loc.m.count.items, list.itemsMade)}</span><span class="num stars">${
+  }</span>${rot(loc, listRot(list, ctx.dataDay))}</span>${
+    cat ? html` <span class="chips"><a class="chip" href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a></span>` : ''
+  }</span><span class="num in">${loc.plural(loc.m.count.items, list.itemsMade)}</span><span class="num stars">${
     list.stars === null ? '' : html`${loc.n(list.stars)}<span class="unit"> ★</span>`
   }</span><span class="num year">${yearOf(list.pushedDay)}</span>${
     summary ? html`<span class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</span>` : ''
@@ -115,7 +115,7 @@ export function crumbs(loc: Loc, parts: readonly Part[]): Html {
 /** Previous and next. Both are inside the site; `rel` marks a target that is noindex. */
 export function pager(loc: Loc, prev: string | null, next: string | null, rel?: string): Html {
   if (prev === null && next === null) return html``;
-  const a = (path: string, text: string): Html => link(loc, path, text, rel === undefined ? {} : { rel });
+  const a = (path: string, text: string): Html => link(loc, path, text, rel === undefined ? { cls: 'btn' } : { cls: 'btn', rel });
   return html`<nav class="pager">${prev === null ? html`<span></span>` : a(prev, loc.m.common.previous)}${
     next === null ? html`<span></span>` : a(next, loc.m.common.next)
   }</nav>`;
@@ -124,12 +124,12 @@ export function pager(loc: Loc, prev: string | null, next: string | null, rel?: 
 export function searchBox(loc: Loc, value: string | null, label = loc.m.common.searchListsAndItems): Html {
   return html`<form class="search-box" action="${loc.href('/search')}" method="get" role="search"><input type="search" name="q" value="${
     value ?? ''
-  }" aria-label="${label}" placeholder="${label}"><button type="submit">${loc.m.common.search}</button></form>`;
+  }" aria-label="${label}" placeholder="${label}"><button type="submit" class="btn primary">${loc.m.common.search}</button></form>`;
 }
 
 /** "12 lists · sort by stars · items · …": the count, then the sort words, the current one in bold. */
 export function sortLine(loc: Loc, count: Part, sorts: readonly Html[]): Html {
-  return loc.h(loc.m.common.sortBy, { count, sorts: join(sorts, ' · ') });
+  return loc.h(loc.m.common.sortBy, { count: html`<span class="total">${count}</span>`, sorts: html`<span class="sorts">${join(sorts, ' · ')}</span>` });
 }
 
 /** An absolute address inside the site, in the request's language (for structured data). */
