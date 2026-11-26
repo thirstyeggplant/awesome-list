@@ -287,8 +287,10 @@ export class GraphQLGitHub implements GitHub {
     let timedOut = 0;
     for (;;) {
       const response = await this.transport(body, this.tokenValue);
-      if (response.status === 200) {
-        const parsed = Answer.safeParse(JSON.parse(response.text));
+      // A 200 whose body is cut short or empty happens while GitHub is failing; it is tried again like a bad gateway.
+      const json = response.status === 200 ? parseJson(response.text) : undefined;
+      if (response.status === 200 && json !== undefined) {
+        const parsed = Answer.safeParse(json);
         if (!parsed.success) throw new Error('GitHub answered with something that is not a GraphQL answer.');
         return parsed.data;
       }
@@ -303,16 +305,26 @@ export class GraphQLGitHub implements GitHub {
         await this.sleep(wait);
         continue;
       }
-      if ([502, 503, 504].includes(response.status)) {
+      if (response.status === 200 || [502, 503, 504].includes(response.status)) {
+        const what = response.status === 200 ? 'an answer that is not JSON' : `HTTP ${response.status}`;
         timedOut += 1;
-        if (timedOut > this.gatewayRetries) throw new Retryable(`still HTTP ${response.status} after ${timedOut} tries`);
+        if (timedOut > this.gatewayRetries) throw new Retryable(`still ${what} after ${timedOut} tries`);
         const wait = 2000 * 2 ** (timedOut - 1);
-        this.log(`GitHub: HTTP ${response.status}; trying again in ${wait / 1000}s`);
+        this.log(`GitHub: ${what}; trying again in ${wait / 1000}s`);
         await this.sleep(wait);
         continue;
       }
       throw new Error(`GitHub answered HTTP ${response.status}: ${response.text.slice(0, 200)}`);
     }
+  }
+}
+
+/** The parsed body, or undefined when it is not JSON (empty, or cut short). */
+function parseJson(text: string): unknown {
+  try {
+    return JSON.parse(text) as unknown;
+  } catch {
+    return undefined;
   }
 }
 
