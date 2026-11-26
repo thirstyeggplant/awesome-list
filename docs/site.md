@@ -17,7 +17,7 @@ An item's URL never goes in the path.
 
 | Route | Shows, top to bottom |
 | --- | --- |
-| `/` | Search box; one line of counts and the data date; categories in the index's order, each an `h2` with its lists as a dense multi-column grid of names (subcategory lists indented under their parent); a strip of the 12 items named by most lists; footer |
+| `/` | The `h1`, the search box, one line of counts and the data date; a contents rail of the categories; categories in the index's order, each an `h2` with its lists as a dense multi-column grid of names (subcategory lists indented under their parent); a strip of the 12 items named by most lists; footer |
 | `/lists` | Params `q, category, license, status, sort=stars\|items\|updated\|name, page`. Rows: name, `owner/repo`, our summary, category, item count, stars, last push, rot mark |
 | `/lists/{owner}/{repo}` | The list page, below |
 | `/items` | Params `q, kind, status, lang, license, topic` (repeatable, AND), `list, category, owner, stars=100\|1000\|10000, in=2\|5\|10, sort=lists\|stars\|updated\|name, page`. Removable filter chips; a facet rail (kind, status, language top 15, licence, topic top 20, category, list top 10, stars, "in N+ lists"); the result count; 50 rows; previous and next |
@@ -144,21 +144,9 @@ What a person types is never passed as it is: it is split on whitespace, each to
 
 ## The look
 
-A reading-room catalogue: paper, ink, one accent, hairlines; no cards, shadows, gradients or hero. System fonts only: serif for headings and list names, sans for the rest, mono for tags and addresses, tabular figures aligned right. Light and dark follow the system (`light-dark()`); there is no switch. The content column is at most 72rem; listing pages have a 15rem facet rail at the left; item and about pages use a 46rem measure. A row is one line, 2rem tall: the name, the owner or host dimmed, up to 3 chips, then stars, "N lists" and the year of the last push at the right. A list row's summary wraps onto a second line.
+`docs/design.md` has the design: the palette, the type scale, the spacing, the pieces and each page's layout. In short: a catalogue on paper and ink with one green; a serif for titles and the names of lists, the system sans for everything that is scanned; names are ink, not link-coloured; a rail at the left and the content at the right on every browsing page. System fonts only. Light and dark follow the system (`light-dark()`); there is no switch. The tokens are at the top of `src/site/assets/site.css`.
 
-```css
-:root{color-scheme:light dark;
---bg:light-dark(#faf8f3,#16171a); --surface:light-dark(#fff,#1d1f23);
---ink:light-dark(#1c1b19,#e8e6e1); --muted:light-dark(#6b6862,#9a978f);
---rule:light-dark(#e4e0d6,#2c2e33); --accent:light-dark(#1f5f4a,#7fc8a9);
---warn:light-dark(#8a5a00,#e0b354); --gone:light-dark(#9b2c2c,#e58a8a);
---mark:light-dark(#fff1b8,#4a4010);
---serif:"Iowan Old Style",Charter,"Palatino Linotype",Georgia,serif;
---sans:system-ui,-apple-system,"Segoe UI",sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
---s1:.25rem;--s2:.5rem;--s3:1rem;--s4:1.5rem;--s5:2.5rem; --row:2rem; --radius:3px; --measure:46rem; --wide:72rem;}
-```
-
-Components: the header (name, search, Lists, Items, About); `row` (for items and lists); `chip` (mono, hairline border, no fill); `rot` (a word: "archived" in `--warn`, "quiet" in `--muted`, "gone" in `--gone`, never colour alone); `facts`; `facet` (a `<details>` of links with counts); `crumbs`; a section heading with its count and `#` anchor; `toc`; `pager`; `attribution`; the quick-search dialog.
+Components: the header (the mark and name, Lists, Items, About, search); `row` (for items and lists; two lines in a narrow container); `chip` (a sunk fill, the namespace dimmed); `rot` (a word in a hairline box: "archived" in `--warn`, "quiet" in `--muted`, "gone" in `--gone`, never colour alone); `facts`; `facet` (a `<details>` of links with counts); `crumbs`; a section heading with its count and `#` anchor; `toc`; `pager`; `btn`; `attribution`; the quick-search dialog; the footer (what is indexed, the sections, the languages).
 
 ## Caching and crawling
 

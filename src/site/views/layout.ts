@@ -62,9 +62,15 @@ function switcher(ctx: Ctx): Html {
   })}</ul></nav>`;
 }
 
+/** The mark beside the name: the favicon's four books on their shelf, in the theme's colours. */
+const MARK = html`<svg class="mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false"><g class="books"><rect x="6" y="8" width="4" height="17"/><rect x="11.5" y="6" width="4" height="19"/><rect x="17" y="10" width="4" height="15"/><rect x="21.6" y="9.2" width="4" height="16" transform="rotate(-14 23.6 25)"/></g><rect class="board" x="4" y="25" width="24" height="2"/></svg>`;
+
 export function layout(ctx: Ctx, page: Page): string {
   const { loc } = ctx;
   const m = loc.m;
+  /** A link of the header: marked as the page being read, or as the section the page is in. */
+  const navLink = (path: string, text: string, self: Route, child?: Route): Html =>
+    html`<a href="${loc.href(path)}"${page.route === self ? html` aria-current="page"` : page.route === child ? html` class="in"` : ''}>${text}</a>`;
   const limit = titleLimit(loc.info.cjk);
   const suffix = ` · ${ctx.siteName}`;
   const title = page.headTitle ?? loc.t(m.site.title, { title: fitTitle(page.title, limit, suffix), site: ctx.siteName });
@@ -104,7 +110,7 @@ ${page.description ? html`<meta name="description" content="${page.description}"
     (a) => html`<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">\n`,
   )}${og}
 <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16171a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#141517" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -117,15 +123,19 @@ ${(page.scripts ?? []).map((s) => html`<script src="${ctx.assets[s]}" defer></sc
 <body class="${page.shape ?? 'wide'}">
 <a class="skip" href="#main">${m.site.skip}</a>
 <header class="top"><div class="bar">
-<a class="brand" href="${loc.href('/')}" translate="no">${ctx.siteName}</a>
-<form class="top-search" action="${loc.href('/search')}" method="get" role="search"><input type="search" name="q" value="${
+<a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
+<nav class="nav">${navLink('/lists', m.nav.lists, 'lists', 'list')}${navLink('/items', m.nav.items, 'items', 'item')}${navLink('/about', m.nav.about, 'about')}</nav>
+${page.route === 'home' ? '' : html`<form class="top-search" action="${loc.href('/search')}" method="get" role="search"><input type="search" name="q" value="${
     page.q ?? ''
-  }" aria-label="${m.nav.search}" placeholder="${m.nav.searchHint}" autocomplete="off"></form>
-<nav class="nav"><a href="${loc.href('/lists')}">${m.nav.lists}</a><a href="${loc.href('/items')}">${m.nav.items}</a><a href="${loc.href('/about')}">${m.nav.about}</a></nav>
+  }" aria-label="${m.nav.search}" placeholder="${m.nav.searchHint}" autocomplete="off"></form>`}
 </div></header>
 <main id="main">${page.main}</main>
-<footer class="foot"><p>${loc.h(m.site.footer, { site: ctx.siteName }, { 1: (t) => html`<a href="${loc.href('/about')}#leave-out">${t}</a>` })}</p>
-${switcher(ctx)}</footer>
+<footer class="foot"><div class="foot-in">
+<div class="foot-about"><a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
+<p>${loc.h(m.site.footer, { site: ctx.siteName }, { 1: (t) => html`<a href="${loc.href('/about')}#leave-out">${t}</a>` })}</p></div>
+<div class="foot-links"><ul class="foot-nav"><li><a href="${loc.href('/lists')}">${m.nav.lists}</a></li><li><a href="${loc.href('/items')}">${m.nav.items}</a></li><li><a href="${loc.href('/about')}">${m.nav.about}</a></li></ul>
+${switcher(ctx)}</div>
+</div></footer>
 <dialog id="quick" aria-label="${m.quick.label}" data-lists="${m.quick.lists}" data-items="${m.quick.items}" data-tags="${m.quick.tags}" data-n-lists="${JSON.stringify(m.count.lists)}" data-n-items="${JSON.stringify(m.count.items)}"><form method="get" action="${loc.href('/search')}" class="quick-form">
 <input id="quick-input" type="search" name="q" role="combobox" aria-expanded="false" aria-controls="quick-options" aria-autocomplete="list" autocomplete="off" placeholder="${m.quick.placeholder}" aria-label="${m.quick.label}">
 <ul id="quick-options" role="listbox" aria-label="${m.quick.results}"></ul>

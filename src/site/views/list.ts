@@ -128,7 +128,7 @@ ${facts([
   [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
   [m.facts.state, word === null ? '' : rot(loc, word)],
 ])}
-<p class="actions">${outbound(gh, m.list.readOriginal)} · ${outbound(`${gh}/issues`, m.list.suggestChange)}</p>
+<p class="actions">${outbound(gh, m.list.readOriginal, { cls: 'btn primary' })} ${outbound(`${gh}/issues`, m.list.suggestChange, { cls: 'btn' })}</p>
 </header>`;
 
   let content: Html;
@@ -140,7 +140,7 @@ ${facts([
 <nav class="toc toc-rail" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${toc(loc, contents)}</nav>
 <div class="list-body">
 <details class="toc toc-narrow"><summary>${m.list.contents}</summary>${toc(loc, contents)}</details>
-<div class="list-filter"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"> <output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output> <button type="button" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
+<div class="list-filter"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"> <output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
 <div id="entries">${body(loc, sections, entries)}</div>
 </div></div>`;
   }

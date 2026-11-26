@@ -50,7 +50,11 @@ export async function homePage(ctx: Ctx, db: Db): Promise<ViewResult> {
   const lists = c.lists ?? 0;
   const top = await db.itemsByIds(Array.from({ length: 12 }, (_, i) => i + 1));
   const h1 = loc.plural(m.home.h1, lists);
+  const contents = html`<ol class="toc-list">${ctx.categories.map(
+    (cat) => html`<li><a href="#${cat.slug}">${categoryName(loc, cat)}</a> <span class="num">${loc.n(cat.listCount)}</span></li>`,
+  )}</ol>`;
   const main = html`<div class="home">
+<header class="hero">
 <h1 class="home-title">${h1}</h1>
 ${searchBox(loc, null)}
 <p class="counts">${loc.t(m.home.counts, {
@@ -59,11 +63,17 @@ ${searchBox(loc, null)}
     listings: loc.plural(m.count.listings, c.listings ?? 0),
     date: loc.dayIso(ctx.meta.dataFinished),
   })}</p>
+</header>
+<div class="list-layout">
+<nav class="toc toc-rail" aria-label="${m.list.contents}"><p class="rail-title">${m.list.contents}</p>${contents}</nav>
+<div class="home-body">
+<details class="toc toc-narrow"><summary>${m.list.contents}</summary>${contents}</details>
 ${ctx.categories.map(
   (cat) => html`<section class="category"><h2 id="${cat.slug}"><a href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a> <span class="count">${loc.n(cat.listCount)}</span></h2>
 ${categoryLists(ctx, byCat.get(cat.id) ?? [])}</section>`,
 )}
 <section class="most"><h2>${m.home.mostNamed}</h2>${itemRows(loc, top)}</section>
+</div></div>
 </div>`;
   return page(
     layout(ctx, {

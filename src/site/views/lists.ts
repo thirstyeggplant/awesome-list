@@ -83,7 +83,7 @@ export async function listsPage(ctx: Ctx, db: Db, q: ListsQuery): Promise<ViewRe
     })}</ul></details>`;
   };
   const catPos = new Map(ctx.categories.map((c) => [c.slug, c.position]));
-  const rail = html`<aside class="rail">
+  const rail = html`<aside class="rail" id="filters">
 ${facet('category', m.lists.category, (a, b) => (catPos.get(a[0]) ?? 0) - (catPos.get(b[0]) ?? 0))}
 ${facet('license', m.lists.licence, (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))}
 ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never) - LIST_STATUSES.indexOf(b[0] as never))}
@@ -94,7 +94,7 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
   const prev = q.page > 1 && !beyond ? `/lists${serialiseLists({ ...q, page: q.page - 1 })}` : null;
   const next = q.page < pages && q.page < MAX_PAGE ? `/lists${serialiseLists({ ...q, page: q.page + 1 })}` : null;
   const chip = (text: string, target: ListsQuery): Html =>
-    html`<a class="chip" href="${loc.href(`/lists${serialiseLists(target)}`)}">${text} ×</a>`;
+    html`<a class="chip on" href="${loc.href(`/lists${serialiseLists(target)}`)}">${text}<span class="x"> ×</span></a>`;
   const chips = [
     q.q !== null ? chip(loc.t(m.common.searchChip, { q: q.q }), to({ q: null })) : null,
     ...dims.map((d) => {
@@ -125,9 +125,9 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
 
   const main = html`<div class="with-rail">${rail}<div class="results">
 <h1>${h1}</h1>
-<form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit">${m.common.filter}</button></form>
+<form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit" class="btn">${m.common.filter}</button></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll)}</p>` : ''}
-<p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
+<p class="result-count"><a class="to-filters" href="#filters">${m.common.filter}</a>${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
 <ol class="rows lists">${shown.map((l) => listRow(ctx, l))}</ol>
 ${pager(loc, prev, next)}

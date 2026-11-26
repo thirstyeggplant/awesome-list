@@ -181,7 +181,8 @@ describe('no English in the chrome (test 5)', () => {
     add('rocket');
     const strings = [...data].sort((a, b) => b.length - a.length);
     const SIGNS = /^[\s\d.,:;·×›‹←→↑↓★#/()+\-–—“”‘’'"|!?%&*@_=[\]<>]*$/u;
-    const TAGS = /\b(kind|status|lang|license|topic|list|category|owner|stars|in):\S+/g;
+    // A chip's namespace is in a span of its own, so with the tags taken out a space follows its colon.
+    const TAGS = /\b(kind|status|lang|license|topic|list|category|owner|stars|in):\s?\S+/g;
 
     const leftOver = (text: string): string => {
       let t = text;
