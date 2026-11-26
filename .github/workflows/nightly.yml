@@ -107,7 +107,11 @@ jobs:
         if: steps.live.outputs.same == 'false'
         run: |
           w() { pnpm exec wrangler "$@" --config wrangler.deploy.json; }
-          w d1 execute "shelf-$BUILD" --remote --file out/d1/load.sql -y --json > load.json
+          # Wrangler can print progress before its JSON even with --json: keep from the first line that opens
+          # the JSON, and show what came before it.
+          json() { sed -n '/^[[{]/,$p' "$1.out" > "$1.json"; sed '/^[[{]/,$d' "$1.out"; jq -e . "$1.json" > /dev/null || { echo "::error::no JSON from wrangler"; cat "$1.out"; exit 1; }; }
+          w d1 execute "shelf-$BUILD" --remote --file out/d1/load.sql -y --json > load.out
+          json load
           rows=$(jq -r '.[0].meta.rows_written // .[0].results[0]["Rows written"] // empty' load.json)
           estimate=$(jq -r .load.rowsWritten out/d1/build.json)
           echo "Rows written: ${rows:-unknown} (the build estimated $estimate)."
@@ -115,7 +119,8 @@ jobs:
           if [ "$rows" -gt "$MAX_ROWS_WRITTEN" ]; then echo "::error::the load wrote $rows rows, more than $MAX_ROWS_WRITTEN"; exit 1; fi
           w d1 execute "shelf-$BUILD" --remote --json --command \
             "SELECT (SELECT COUNT(*) FROM list) AS lists, (SELECT COUNT(*) FROM item) AS items, (SELECT COUNT(*) FROM listing) AS listings" \
-            > counts.json
+            > counts.out
+          json counts
           got=$(jq -c '.[0].results[0] | {lists, items, listings}' counts.json)
           want=$(jq -c '.counts | {lists, items, listings}' out/run.json)
           echo "In the database: $got. In run.json: $want."
