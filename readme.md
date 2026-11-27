@@ -43,7 +43,6 @@ If you maintain a list and would rather it was not included, open an issue in th
 
 ## Not built yet
 
-- publishing the data every night
 - our own summaries of items (lists have theirs, in `summaries/lists.json`)
 - lists from sources other than the one index, up to about ten thousand
 - readmes that are not Markdown, and lists spread over several files
