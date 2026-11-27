@@ -60,6 +60,8 @@ export const pt: Messages = {
     itemsFromLinks: '{items} de {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} de {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ one: 'em {n} lista', many: 'em {n} de listas', other: 'em {n} listas' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,8 @@ export const pt: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Nome', language: 'Linguagem', stars: 'Estrelas', lists: 'Listas', updated: 'Atualizado', items: 'Itens' },
   },
   facts: {
     stars: 'Estrelas',

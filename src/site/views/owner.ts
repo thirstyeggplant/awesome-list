@@ -2,7 +2,7 @@
 import type { Db, OwnerRow } from '../db.js';
 import { html, outbound } from '../html.js';
 import { encodeParam } from '../query.js';
-import { itemRows, link, listRow } from './components.js';
+import { itemRows, link, listRows } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
@@ -15,7 +15,7 @@ export async function ownerPage(ctx: Ctx, db: Db, owner: OwnerRow): Promise<View
   const main = html`<div class="owner-page">
 <h1 translate="no">${owner.display}</h1>
 <p class="repo-link">${outbound(`https://github.com/${owner.display}`, `github.com/${owner.display}`, { cls: 'mono' })}</p>
-${lists.length > 0 ? html`<section><h2>${m.owner.listsTheyKeep}</h2><ol class="rows lists">${lists.map((l) => listRow(ctx, l))}</ol></section>` : ''}
+${lists.length > 0 ? html`<section><h2>${m.owner.listsTheyKeep}</h2>${listRows(ctx, lists)}</section>` : ''}
 ${items.length > 0 ? html`<section><h2>${m.owner.theirProjects}</h2>${itemRows(loc, items, true)}<p class="more">${link(loc, `/items?owner=${encodeParam(owner.login)}`, loc.plural(m.owner.allInItems, owner.itemCount))}</p></section>` : ''}
 </div>`;
   return page(

@@ -60,6 +60,8 @@ export const ko: Messages = {
     itemsFromLinks: '{links} 중 {items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{m}개 중 {n}개',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: '목록 {n}개에 실림' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,8 @@ export const ko: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: '이름', language: '언어', stars: '스타', lists: '목록', updated: '업데이트', items: '항목' },
   },
   facts: {
     stars: '스타',

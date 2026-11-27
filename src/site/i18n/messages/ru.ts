@@ -59,6 +59,8 @@ export const ru: Messages = {
     itemsFromLinks: '{items} из: {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} из {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ one: 'в {n} списке', few: 'в {n} списках', many: 'в {n} списках', other: 'в {n} списка' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -111,6 +113,8 @@ export const ru: Messages = {
     searchChip: '«{q}»',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Название', language: 'Язык', stars: 'Звёзды', lists: 'Списки', updated: 'Обновлено', items: 'Элементы' },
   },
   facts: {
     stars: 'Звёзды',

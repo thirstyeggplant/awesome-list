@@ -4,7 +4,7 @@ import { html } from '../html.js';
 import { slugify } from '../keys.js';
 import { EMPTY_ITEMS, liftNamespaces, serialiseItems, withLifted } from '../query.js';
 import * as search from '../search.js';
-import { itemRows, link, listRow, searchBox } from './components.js';
+import { itemRows, link, listRows, searchBox } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, redirect, type ViewResult } from './result.js';
@@ -30,7 +30,7 @@ export async function searchPage(ctx: Ctx, db: Db, q: string | null): Promise<Vi
   const main = html`<div class="search-page">
 <h1>${m.search.h1}</h1>
 ${searchBox(loc, q)}
-${lists.length > 0 ? html`<section><h2>${m.search.lists}</h2><ol class="rows lists">${lists.map((l) => listRow(ctx, l))}</ol></section>` : ''}
+${lists.length > 0 ? html`<section><h2>${m.search.lists}</h2>${listRows(ctx, lists)}</section>` : ''}
 ${sections.length > 0 ? html`<section><h2>${m.search.sections}</h2><ol class="rows">${sections.map((s) => {
   const list = ctx.listById.get(s.listId);
   if (!list) return '';

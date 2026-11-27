@@ -114,7 +114,7 @@ describe('messages', () => {
       zh: ['facts.fork'],
       es: ['kind.video', 'no', 'facts.fork'],
       pt: ['quick.tags', 'kind.paper', 'kind.site', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
-      de: ['quick.tags', 'count.itemsInSections', 'facts.fork', 'facts.host', 'lists.status', 'items.status', 'search.inList'],
+      de: ['quick.tags', 'count.itemsInSections', 'common.columns.name', 'facts.fork', 'facts.host', 'lists.status', 'items.status', 'search.inList'],
       fr: ['quick.tags', 'kind.article', 'kind.site', 'facts.licence', 'facts.fork', 'lists.licence', 'items.licence', 'search.sections', 'about.attributionTitle', 'meta.page'],
       id: ['site.breadcrumb', 'kind.video', 'kind.paper', 'common.filter', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
     };

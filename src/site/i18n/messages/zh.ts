@@ -60,6 +60,8 @@ export const zh: Messages = {
     itemsFromLinks: '从 {links}中读取到 {items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} / {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: '收录于 {n} 个清单' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,8 @@ export const zh: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: '、',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: '名称', language: '语言', stars: '星标', lists: '清单', updated: '更新', items: '条目' },
   },
   facts: {
     stars: '星标',

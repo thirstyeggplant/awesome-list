@@ -6,7 +6,7 @@ import { slugify } from '../keys.js';
 import { LIST_STATUSES } from '../../enums.js';
 import { serialiseLists, type ListsQuery } from '../query.js';
 import { listIds } from '../search.js';
-import { absolute, breadcrumbLd, link, listRow, pager, sortLine, sheetHead } from './components.js';
+import { absolute, breadcrumbLd, link, listRows, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { webSite } from './home.js';
 import { layout } from './layout.js';
@@ -130,7 +130,7 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
-<ol class="rows lists">${shown.map((l) => listRow(ctx, l))}</ol>
+${listRows(ctx, shown, { noCategory: q.category !== null })}
 ${pager(loc, prev, next)}
 </div></div>`;
 

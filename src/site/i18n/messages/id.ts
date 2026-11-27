@@ -60,6 +60,8 @@ export const id: Messages = {
     itemsFromLinks: '{items} dari {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} dari {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: 'di {n} daftar' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,8 @@ export const id: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Nama', language: 'Bahasa', stars: 'Bintang', lists: 'Daftar', updated: 'Diperbarui', items: 'Item' },
   },
   facts: {
     stars: 'Bintang',

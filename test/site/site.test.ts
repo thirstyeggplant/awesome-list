@@ -97,6 +97,26 @@ describe('routes', () => {
     expect(owner).toContain('href="/gh/own1/proj1"');
   });
 
+  it('makes rows of names and columns: language, stars, lists only from two, the year', async () => {
+    const page = await body('/items');
+    expect(page).toContain('<div class="rows-head" aria-hidden="true"><span>Name</span><span>Language</span>');
+    // The licence and the language are columns or facts, never chips in a row; a row's chips are topics.
+    const rows = page.slice(page.indexOf('<ol class="rows">'));
+    expect(rows).not.toMatch(/class="chip"[^>]*><span class="ns">(lang|license):/);
+    expect(rows).toContain('<span class="num lang"><a href="/items?lang=go" translate="no">Go</a></span>');
+    expect(rows).toContain('<span class="long">in 2 lists</span>');
+    expect(rows).not.toContain('1 list<');
+    // A list page has one header, in its filter bar, and no chips in its rows.
+    const list = await body('/lists/alpha/awesome-widgets');
+    expect([...list.matchAll(/class="rows-head"/g)]).toHaveLength(1);
+    expect(list.slice(list.indexOf('id="entries"'))).not.toContain('class="chip"');
+    // A list we could not read says so, not "0 items"; a category page leaves out the category chip.
+    const lists = await body('/lists');
+    expect(lists).toContain('<span class="rot rot-quiet">not read yet</span>');
+    expect(lists).not.toContain('>0 items<');
+    expect(await body('/lists?category=tools')).not.toContain('class="chip" href="/lists?category=tools"');
+  });
+
   it('escapes hostile names and drops javascript: addresses', async () => {
     for (const p of ['/lists/delta/awesome-hostile', '/lists/alpha/awesome-widgets', `/item/${shortHash('https://example.com/hostile')}`, '/lists', '/']) {
       const page = await body(p);
