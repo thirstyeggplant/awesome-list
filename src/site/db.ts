@@ -72,6 +72,8 @@ export interface ListRow {
   sectionCount: number;
   itemId: number | null;
   position: number;
+  /** The lists most like this one: [listId, projects both name], best first. */
+  related: [number, number][];
 }
 
 export interface SectionRow {
@@ -212,6 +214,7 @@ function listOf(r: Row): ListRow {
     sectionCount: num(r, 'section_count'),
     itemId: numOrNull(r, 'item_id'),
     position: num(r, 'position'),
+    related: json<[number, number][]>(r, 'related', []),
   };
 }
 

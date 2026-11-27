@@ -177,6 +177,11 @@ export const ko: Messages = {
     licence: '라이선스: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '{category} 카테고리의 다른 목록',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '함께 보기',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '관련 목록',
+    inCommon: p({ other: '공통 프로젝트 {n}개' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -287,8 +292,8 @@ export const ko: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, {page}쪽',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: 항목 {n}개의 awesome list' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): 항목 {n}개의 awesome list' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{repo}에서 관리하는 awesome list {name}.',
     },

@@ -185,6 +185,11 @@ export const en = {
     licence: 'Licence: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'More in {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'See also',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Related lists',
+    inCommon: p({ one: '{n} project in common', other: '{n} projects in common' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -296,8 +301,8 @@ export const en = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, page {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ one: '{name}: an awesome list of {n} item', other: '{name}: an awesome list of {n} items' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ one: '{name} ({repo}): awesome list of {n} item', other: '{name} ({repo}): awesome list of {n} items' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, an awesome list kept at {repo}.',
     },

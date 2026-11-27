@@ -181,6 +181,11 @@ export const fr: Messages = {
     licence: 'Licence : {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Plus dans {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'Voir aussi',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Listes apparentées',
+    inCommon: p({ one: '{n} projet en commun', many: '{n} de projets en commun', other: '{n} projets en commun' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -305,8 +310,8 @@ export const fr: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, page {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ one: '{name} : une liste awesome de {n} élément', many: '{name} : une liste awesome de {n} d’éléments', other: '{name} : une liste awesome de {n} éléments' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ one: '{name} ({repo}) : une liste awesome de {n} élément', many: '{name} ({repo}) : une liste awesome de {n} d’éléments', other: '{name} ({repo}) : une liste awesome de {n} éléments' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, une liste awesome maintenue sur {repo}.',
     },

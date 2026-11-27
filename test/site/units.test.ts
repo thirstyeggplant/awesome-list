@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { fitTitle } from '../../src/site/views/layout.js';
+import { relatedLists, topOf } from '../../src/site/build/cli.js';
 import { alongside } from '../../src/site/build/alongside.js';
 import { itemKey, itemKeys, shortHash } from '../../src/site/build/item-keys.js';
 import { headersFile, sitemaps } from '../../src/site/build/static.js';
@@ -216,5 +218,39 @@ describe('sitemaps', () => {
     expect(of('/_data/facets.bin')).toEqual({ 'X-Content-Type-Options': 'nosniff' });
     expect(of('/favicon.ico')['Cache-Control']).toBe('public, max-age=86400');
     expect(of('/site.webmanifest')['Cache-Control']).toBe('public, max-age=86400');
+  });
+});
+
+describe('fitTitle', () => {
+  it('keeps a list title\'s name and repository when it cuts', () => {
+    const title = 'Node.js (awesome-nodejs): awesome list of 591 items';
+    expect(fitTitle(title, 60, ' · Shelf')).toBe(title);
+    expect(fitTitle(`Something Rather Long (awesome-something-rather-long): awesome list of 3,196 items`, 60, ' · Shelf')).toBe(
+      'Something Rather Long (awesome-something-rather-long)',
+    );
+    expect(fitTitle('Node.js (awesome-nodejs) : une liste awesome de 591 éléments', 30)).toBe('Node.js (awesome-nodejs)');
+  });
+});
+
+describe('relatedLists and topOf', () => {
+  it('relate lists that name at least three projects in common, best score first, ties by stars', () => {
+    const rows: { listId: number; itemId: number }[] = [];
+    const add = (listId: number, items: number[]): void => { for (const itemId of items) rows.push({ listId, itemId }); };
+    add(1, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    add(2, [1, 2, 3, 4]); // 4 of 4 in common with 1
+    add(3, [1, 2, 3, 20, 21, 22, 23, 24]); // 3 in common with 1, a larger list
+    add(4, [1, 2, 30]); // only 2 in common
+    add(2, [1]); // an item twice in one list counts once
+    const r = relatedLists(rows);
+    expect(r.get(1)).toEqual([[2, 4], [3, 3]]);
+    expect(r.get(2)).toEqual([[1, 4], [3, 3]]);
+    expect(r.has(4)).toBe(false);
+  });
+
+  it('keeps the twelve languages with the most items for the home page', () => {
+    const terms = Array.from({ length: 15 }, (_, i) => ({ id: i + 1, ns: 'lang' as const, slug: `l${i}`, label: `L${i}`, itemCount: i }));
+    const top = topOf({ terms: [...terms, { id: 99, ns: 'topic', slug: 't', label: 't', itemCount: 999 }] });
+    expect(top.langs).toHaveLength(12);
+    expect(top.langs[0]).toEqual(['l14', 'L14', 14]);
   });
 });

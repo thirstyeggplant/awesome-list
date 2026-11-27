@@ -157,7 +157,7 @@ describe('structured data (test 13)', () => {
         absolute(ld, `${l} ${p}`, false);
       }
     }
-    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'SearchAction', 'SoftwareSourceCode', 'Thing', 'WebPage', 'WebSite']);
+    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'SearchAction', 'SoftwareSourceCode', 'Thing', 'WebPage', 'WebPageElement', 'WebSite']);
     // A hostile name stays inside its block.
     const hostile = (await get('/lists/delta/awesome-hostile')).body;
     const block = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(hostile)?.[1] ?? '';
@@ -274,7 +274,7 @@ describe('the head (test 16)', () => {
     expect(await title('/')).toBe('Shelf: 5 awesome lists and everything in them');
     expect(await title('/lists')).toBe('All 5 awesome lists · Shelf');
     expect(await title('/lists?category=tools')).toBe('Tools: 3 awesome lists · Shelf');
-    expect(await title('/lists/alpha/awesome-widgets')).toMatch(/^Widgets: an awesome list of \d+ items · Shelf$/);
+    expect(await title('/lists/alpha/awesome-widgets')).toMatch(/^Widgets \(awesome-widgets\): awesome list of \d+ items · Shelf$/);
     expect(await title('/gh/acme/rocket')).toBe('Acme/Rocket: in 2 awesome lists · Shelf');
     expect(await title('/items')).toMatch(/^\d+ projects named by awesome lists · Shelf$/);
     expect(await title('/items?lang=go')).toMatch(/^Go: \d+ projects in awesome lists · Shelf$/);
@@ -287,5 +287,10 @@ describe('the head (test 16)', () => {
     expect(decode(one)).toMatch(/^proj1 is in the Gadgets awesome list, under Group 1\. Alongside proj\d+, proj\d+, proj\d+\. .+, [\d,]+ stars\.$/);
     expect((await get('/')).body).toContain('<h1 class="home-title">5 awesome lists and everything in them</h1>');
     expect((await get('/lists/beta/awesome-gadgets')).body).toContain('More in Tools');
+    // The lists most like a list: in its head, and as cards after its entries.
+    const widgets = (await get('/lists/alpha/awesome-widgets')).body;
+    expect(widgets).toMatch(/<p class="see-also"><span class="label">See also<\/span> <a href="\/lists\/beta\/awesome-gadgets"><span translate="no">Gadgets<\/span><\/a><\/p>/);
+    expect(widgets).toContain('<h2>Related lists</h2>');
+    expect(widgets).toMatch(/projects in common<\/p>/);
   });
 });

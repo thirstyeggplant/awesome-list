@@ -177,6 +177,11 @@ export const zh: Messages = {
     licence: '许可证：{license}。',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '更多{category}清单',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '另见',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '相关清单',
+    inCommon: p({ other: '{n} 个共同项目' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -287,8 +292,8 @@ export const zh: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}，第 {page} 页',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}：收录 {n} 个条目的 awesome 清单' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo})：收录 {n} 个条目的 awesome 清单' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}，维护于 {repo} 的 awesome 清单。',
     },

@@ -177,6 +177,11 @@ export const ja: Messages = {
     licence: 'ライセンス: {license}。',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '{category}の他のリスト',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '関連',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '関連するリスト',
+    inCommon: p({ other: '共通のプロジェクト{n}件' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -287,8 +292,8 @@ export const ja: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}（{page}ページ目）',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: {n}項目のawesomeリスト' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): {n}項目のawesomeリスト' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{repo}で管理されているawesomeリスト{name}。',
     },

@@ -181,6 +181,11 @@ export const ru: Messages = {
     licence: 'Лицензия: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Ещё в категории «{category}»',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'См. также',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Похожие списки',
+    inCommon: p({ one: '{n} общий проект', few: '{n} общих проекта', many: '{n} общих проектов', other: '{n} общего проекта' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -309,12 +314,12 @@ export const ru: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, страница {page}',
     list: {
-      /** {name} is the list's name. */
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
       title: p({
-        one: '{name}: awesome-список, {n} элемент',
-        few: '{name}: awesome-список, {n} элемента',
-        many: '{name}: awesome-список, {n} элементов',
-        other: '{name}: awesome-список, {n} элемента',
+        one: '{name} ({repo}): awesome-список, {n} элемент',
+        few: '{name} ({repo}): awesome-список, {n} элемента',
+        many: '{name} ({repo}): awesome-список, {n} элементов',
+        other: '{name} ({repo}): awesome-список, {n} элемента',
       }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name} — awesome-список, который ведётся в {repo}.',

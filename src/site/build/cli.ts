@@ -128,6 +128,49 @@ export function topOf(model: Pick<Model, 'terms'>): { langs: [string, string, nu
   return { langs };
 }
 
+/** Lists kept as related to a list, and the fewest projects two lists must share to be. */
+export const RELATED_KEEP = 6;
+export const RELATED_MIN_SHARED = 3;
+
+/**
+ * The lists most like each list, by the projects both name: [listId, shared] pairs, best first. The score is
+ * shared / sqrt(itemsA × itemsB) over distinct items; a pair needs RELATED_MIN_SHARED in common; ties go to the
+ * other list's stars (a lower id). One more column on the same rows, no rows of its own.
+ */
+export function relatedLists(listings: readonly { listId: number; itemId: number }[]): Map<number, [number, number][]> {
+  const itemsOf = new Map<number, Set<number>>();
+  const listsOf = new Map<number, Set<number>>();
+  for (const l of listings) {
+    let a = itemsOf.get(l.listId);
+    if (!a) itemsOf.set(l.listId, (a = new Set<number>()));
+    a.add(l.itemId);
+    let b = listsOf.get(l.itemId);
+    if (!b) listsOf.set(l.itemId, (b = new Set<number>()));
+    b.add(l.listId);
+  }
+  const shared = new Map<number, Map<number, number>>();
+  for (const lists of listsOf.values()) {
+    if (lists.size < 2) continue;
+    const ids = [...lists];
+    for (const a of ids) {
+      let m = shared.get(a);
+      if (!m) shared.set(a, (m = new Map<number, number>()));
+      for (const b of ids) if (b !== a) m.set(b, (m.get(b) ?? 0) + 1);
+    }
+  }
+  const out = new Map<number, [number, number][]>();
+  for (const [a, m] of shared) {
+    const size = itemsOf.get(a)?.size ?? 0;
+    const ranked = [...m]
+      .filter(([, n]) => n >= RELATED_MIN_SHARED)
+      .map(([b, n]) => ({ b, n, score: n / Math.sqrt(size * (itemsOf.get(b)?.size ?? 1)) }))
+      .sort((x, y) => y.score - x.score || x.b - y.b)
+      .slice(0, RELATED_KEEP);
+    if (ranked.length > 0) out.set(a, ranked.map((r): [number, number] => [r.b, r.n]));
+  }
+  return out;
+}
+
 interface LoadInput {
   model: Model;
   meta: [string, string][];
@@ -138,6 +181,7 @@ type Listed = [number, number, string | null, { text: string; url: string }[]];
 
 /** The statements of load.sql, in order. */
 function writeLoad(w: LoadWriter, { model, meta, owners }: LoadInput): void {
+  const related = relatedLists(model.listings);
   for (const s of DDL) w.statement(s);
   w.insert('meta', ['key', 'value'], meta);
   w.insert(
@@ -148,11 +192,12 @@ function writeLoad(w: LoadWriter, { model, meta, owners }: LoadInput): void {
   w.insert(
     'list',
     ['id', 'slug', 'owner', 'repo', 'name', 'category_id', 'subcategory', 'summary', 'stars', 'pushed_day', 'archived',
-      'license', 'status', 'reason', 'readme_path', 'readme_oid', 'items_made', 'section_count', 'item_id', 'position'],
+      'license', 'status', 'reason', 'readme_path', 'readme_oid', 'items_made', 'section_count', 'item_id', 'position',
+      'related'],
     model.lists.map((l) => [
       l.id, l.slug, l.owner, l.repo, l.name, l.categoryId, l.subcategory, l.summary, l.stars, l.pushedDay,
       b(l.archived), l.license, l.status, l.reason, l.readmePath, l.readmeOid, l.itemsMade, l.sectionCount,
-      l.itemId, l.position,
+      l.itemId, l.position, JSON.stringify(related.get(l.id) ?? []),
     ]),
   );
   w.insert(

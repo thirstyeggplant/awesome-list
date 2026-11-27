@@ -177,6 +177,11 @@ export const id: Messages = {
     licence: 'Lisensi: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Lainnya di {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'Lihat juga',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Daftar terkait',
+    inCommon: p({ other: '{n} proyek yang sama' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -287,8 +292,8 @@ export const id: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, halaman {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: awesome list berisi {n} item' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): awesome list berisi {n} item' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, awesome list yang dikelola di {repo}.',
     },
