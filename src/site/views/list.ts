@@ -7,6 +7,7 @@ import type { Ctx } from './context.js';
 import { listCard, webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { shareRow } from './share.js';
 
 /** Other lists of a list's category shown after its entries, by stars. */
 const MORE_IN_CATEGORY = 8;
@@ -123,6 +124,7 @@ export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewRes
     .map(([id, n]) => ({ l: ctx.listById.get(id), n }))
     .filter((r): r is { l: ListRow; n: number } => r.l !== undefined);
   const seeAlso = related.slice(0, 3).map((r) => link(loc, `/lists/${r.l.slug}`, html`<span translate="no">${r.l.name}</span>`));
+  const head = { route: 'list' as const, title: loc.plural(m.meta.list.title, itemCount, { name: list.name, repo: list.repo }), canonical: `/lists/${list.slug}` };
   const top = html`<header class="list-head">
 ${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
 <div class="head-main">
@@ -141,6 +143,7 @@ ${facts([
   [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
   [m.facts.state, word === null ? '' : rot(loc, word)],
 ])}
+${shareRow(ctx, head)}
 </div>
 </header>`;
 
@@ -185,10 +188,8 @@ ${facts([
 
   return page(
     layout(ctx, {
-      route: 'list',
-      title: loc.plural(m.meta.list.title, itemCount, { name: list.name, repo: list.repo }),
+      ...head,
       description,
-      canonical: `/lists/${list.slug}`,
       main,
       shape: 'list',
       scripts: ['listfilter'],

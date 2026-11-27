@@ -44,6 +44,19 @@ export const ru: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: 'Закрыть',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: 'Поделиться',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: 'Поделиться в {service}',
+    /** The email link's name. */
+    email: 'Отправить по почте',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'Скопировать ссылку',
+    copied: 'Скопировано',
+    /** A button that opens the phone's own share sheet. */
+    native: 'Поделиться…',
+  },
   count: {
     lists: p({ one: '{n} список', few: '{n} списка', many: '{n} списков', other: '{n} списка' }),
     items: p({ one: '{n} элемент', few: '{n} элемента', many: '{n} элементов', other: '{n} элемента' }),

@@ -4,7 +4,9 @@ A free library of every awesome list and everything in them.
 
 People keep hundreds of curated "awesome" lists on GitHub, each a readme of links on one subject. This project reads all of them and turns them into one dataset: the lists, the sections inside them, the things they name, and every place a list names a thing, with current facts about each GitHub repository. A thing named by seven lists is one entry that knows all seven.
 
-This is the first stage: the data pipeline. There is no website yet.
+The site is live at **[weeklymatcha.com](https://weeklymatcha.com)**: every list, section and item, in ten languages. This repository holds the data pipeline and the site.
+
+Share: [X](https://x.com/intent/post?text=Shelf%3A%20every%20awesome%20list%20and%20everything%20in%20them&url=https%3A%2F%2Fweeklymatcha.com%2F) · [Bluesky](https://bsky.app/intent/compose?text=Shelf%3A%20every%20awesome%20list%20and%20everything%20in%20them%20https%3A%2F%2Fweeklymatcha.com%2F) · [LinkedIn](https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fweeklymatcha.com%2F) · [Reddit](https://www.reddit.com/submit?url=https%3A%2F%2Fweeklymatcha.com%2F&title=Shelf%3A%20every%20awesome%20list%20and%20everything%20in%20them) · [Hacker News](https://news.ycombinator.com/submitlink?u=https%3A%2F%2Fweeklymatcha.com%2F&t=Shelf%3A%20every%20awesome%20list%20and%20everything%20in%20them)
 
 ## What the pipeline does
 
@@ -33,7 +35,7 @@ Options: `--limit N` reads the first N lists, `--only owner/repo` reads one list
 
 Into `out/`: `lists.jsonl`, `items.jsonl` and `listings.jsonl`, a coverage report (`coverage.md`, `coverage.json`) and `run.json`. The fields are described in [docs/data.md](docs/data.md).
 
-Every item links back to each list that named it. The descriptions shown on the future site will be our own wording, not copied from the lists, so the published files leave the lists' descriptions out. They are kept in `out/private/` only to write our own summaries from and to notice when the original changes. Our one-line summary of each list is in `summaries/lists.json`, and `pnpm check-summaries` says which are missing, which are out of date, and which repeat the original's words.
+Every item links back to each list that named it. The descriptions shown on the site are our own wording, not copied from the lists, so the published files leave the lists' descriptions out. They are kept in `out/private/` only to write our own summaries from and to notice when the original changes. Our one-line summary of each list is in `summaries/lists.json`, and `pnpm check-summaries` says which are missing, which are out of date, and which repeat the original's words.
 
 ## Leaving a list out
 
@@ -41,8 +43,6 @@ If you maintain a list and would rather it was not included, open an issue in th
 
 ## Not built yet
 
-- the website
-- publishing the data every night
 - our own summaries of items (lists have theirs, in `summaries/lists.json`)
 - lists from sources other than the one index, up to about ten thousand
 - readmes that are not Markdown, and lists spread over several files

@@ -7,6 +7,7 @@ import type { Ctx } from './context.js';
 import { itemsNoindex } from './items.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { shareRow } from './share.js';
 
 /** A category's lists in the index's order, each subcategory's lists indented under their parent. */
 function categoryLists(ctx: Ctx, lists: readonly ListRow[]): Html {
@@ -74,6 +75,7 @@ export async function homePage(ctx: Ctx, db: Db): Promise<ViewResult> {
   const contents = html`<ol class="toc-list">${ctx.categories.map(
     (cat) => html`<li><a href="#${cat.slug}">${categoryName(loc, cat)}</a> <span class="num">${loc.n(cat.listCount)}</span></li>`,
   )}</ol>`;
+  const head = { route: 'home' as const, title: h1, headTitle: loc.plural(m.meta.home.title, lists, { site: ctx.siteName }), canonical: '/' };
   const main = html`<div class="home">
 <header class="hero">
 <h1 class="home-title">${h1}</h1>
@@ -85,6 +87,7 @@ ${searchBox(loc, null)}
     date: loc.dayIso(ctx.meta.dataFinished),
   })}</p>
 ${langs.length > 0 ? html`<p class="by-lang"><span class="label">${m.home.browseByLanguage}</span> ${join(langs, html`<span class="sep"> · </span>`)}<span class="sep"> · </span>${link(loc, '/items', m.home.allProjects, { cls: 'all' })}</p>` : ''}
+${shareRow(ctx, head)}
 </header>
 <section class="home-part"><h2>${m.home.startHere}</h2>
 <ul class="cards">${start.map((l) => listCard(ctx, l))}</ul>
@@ -103,11 +106,8 @@ ${categoryLists(ctx, byCat.get(cat.id) ?? [])}</details>`,
 </div>`;
   return page(
     layout(ctx, {
-      route: 'home',
-      title: h1,
-      headTitle: loc.plural(m.meta.home.title, lists, { site: ctx.siteName }),
+      ...head,
       description: loc.plural(m.meta.home.description, lists, { items: loc.n(c.items ?? 0) }),
-      canonical: '/',
       main,
       jsonLd: [
         {

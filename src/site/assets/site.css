@@ -189,7 +189,7 @@ p.chips{margin:var(--s4) 0}
 /* facts, crumbs, the sort line, the pager, notices */
 .facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:var(--s4) var(--s5);margin:var(--s5) 0;padding:var(--s4) 0;border-block:1px solid var(--rule)}
 .facts div{min-width:0}
-.facts dt,.rows-head,.see-also .label,.by-lang .label,.side-label,.facet summary,.toc-rail h2,.rail-title,#quick-options .group{font:600 var(--f-xs)/1.5 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts dt,.rows-head,.see-also .label,.share-label,.by-lang .label,.side-label,.facet summary,.toc-rail h2,.rail-title,#quick-options .group{font:600 var(--f-xs)/1.5 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .facts dd{margin:2px 0 0;font-size:1rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
 .facts dd .rot{vertical-align:.15em}
 .crumbs{margin-top:var(--s5);font-size:var(--f-sm);color:var(--muted)}
@@ -355,6 +355,17 @@ h3.sh{margin-top:var(--s6);font-size:1.125rem}
 .notfound ul{list-style:none;padding:0}
 .notfound li{padding:.1875rem 0}
 
+/* the share row: a quiet label and muted icons, the accent when pointed at */
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:0 var(--s2);margin:var(--s4) 0 0}
+.share ul{display:flex;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;padding:0;color:var(--muted);background:none;border:0;border-radius:var(--radius);cursor:pointer}
+.share a:hover,.share button:hover{color:var(--accent);background:var(--sunk)}
+.share svg{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.share-status{font-size:var(--f-sm);color:var(--accent)}
+.share-status:empty{display:none}
+.item-side .share,.head-side .share{margin-top:var(--s3)}
+.hero .share{margin-top:var(--s3)}
+
 /* quick search */
 dialog#quick{width:min(38rem,calc(100vw - 2rem));margin-top:12vh;padding:0;overflow:hidden;background:var(--surface);color:var(--ink);border:1px solid var(--rule-strong);border-radius:10px;box-shadow:0 1.5rem 4rem rgb(0 0 0 / .28)}
 dialog#quick::backdrop{background:rgb(16 17 19 / .5)}
@@ -444,6 +455,10 @@ input[type=search],input[type=text]{font-size:1rem}
 .lang-bar a{padding-block:var(--s2)}
 .lang-bar button{position:relative;align-self:stretch;min-width:2.75rem;margin-inline-end:calc(-1 * var(--s3))}
 .lang-bar button::after{content:"";position:absolute;inset:-.25rem 0}
+.share{margin-top:var(--s2)}
+.share-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.share ul{margin-inline-start:calc(-1 * var(--s3))}
+.share a,.share button{width:2.625rem;height:2.75rem}
 .hero{padding:var(--s5) 0 var(--s4)}
 .home-title{margin-bottom:var(--s4)}
 .by-lang{margin:var(--s2) calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 0 var(--gl);white-space:nowrap;overflow-x:auto;scrollbar-width:none}

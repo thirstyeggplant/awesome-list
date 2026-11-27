@@ -45,6 +45,19 @@ export const pt: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: 'Fechar',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: 'Compartilhar',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: 'Compartilhar no {service}',
+    /** The email link's name. */
+    email: 'Compartilhar por e-mail',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'Copiar link',
+    copied: 'Copiado',
+    /** A button that opens the phone's own share sheet. */
+    native: 'Compartilhar…',
+  },
   count: {
     lists: p({ one: '{n} lista', many: '{n} de listas', other: '{n} listas' }),
     items: p({ one: '{n} item', many: '{n} de itens', other: '{n} itens' }),

@@ -11,6 +11,7 @@ import { itemListLd, itemRows, link, pager, sortLine, sheetHead } from './compon
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { shareRow } from './share.js';
 
 /** Below this many results a page of /items with one filter is thin, and noindex. */
 export const THIN_ITEMS = 5;
@@ -229,9 +230,13 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
 
   const noindex = itemsNoindex(q, result.total);
+  // A language or a topic by itself is a page worth sharing; a search, a combination or a sort is not.
+  const shareable = q.q === null && filters === 1 && (q.lang !== null || q.topic.length === 1) && q.sort === null && q.page === 1 && !beyond;
+  const head = { route: 'items' as const, title, canonical: `/items${serialiseItems(q)}`, noindex };
   const main = html`<div class="with-rail">${rail}<div class="results" id="results">
 <h1>${q.q === null && label !== null ? label : m.items.h1}</h1>
 ${q.q === null && label !== null ? html`<p class="h1-note">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
+${shareable ? shareRow(ctx, head) : ''}
 <form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
@@ -241,11 +246,8 @@ ${pager(loc, prev, next, pagerRel, { page: q.page, pages: Math.min(pages, MAX_PA
 </div></div>`;
   return page(
     layout(ctx, {
-      route: 'items',
-      title,
+      ...head,
       description,
-      canonical: `/items${serialiseItems(q)}`,
-      noindex,
       main,
       q: q.q,
       prev,

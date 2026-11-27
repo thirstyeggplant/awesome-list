@@ -45,6 +45,19 @@ export const fr: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: 'Fermer',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: 'Partager',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: 'Partager sur {service}',
+    /** The email link's name. */
+    email: 'Partager par e-mail',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'Copier le lien',
+    copied: 'Copié',
+    /** A button that opens the phone's own share sheet. */
+    native: 'Partager…',
+  },
   count: {
     lists: p({ one: '{n} liste', many: '{n} de listes', other: '{n} listes' }),
     items: p({ one: '{n} élément', many: '{n} d’éléments', other: '{n} éléments' }),

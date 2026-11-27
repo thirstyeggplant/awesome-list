@@ -68,6 +68,14 @@ function switcher(ctx: Ctx): Html {
 /** The mark beside the name: the favicon's four books on their shelf, in the theme's colours. */
 const MARK = html`<svg class="mark" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true" focusable="false"><g class="books"><rect x="6" y="8" width="4" height="17"/><rect x="11.5" y="6" width="4" height="19"/><rect x="17" y="10" width="4" height="15"/><rect x="21.6" y="9.2" width="4" height="16" transform="rotate(-14 23.6 25)"/></g><rect class="board" x="4" y="25" width="24" height="2"/></svg>`;
 
+/** How a page is indexed and its absolute canonical address: the one the page names in its head and shares. */
+export function canonicalOf(ctx: Ctx, page: Pick<Page, 'route' | 'canonical' | 'noindex'>): { indexing: Indexing; canonical: string | null } {
+  if (page.canonical === null) return { indexing: 'none', canonical: null };
+  const [path, query] = splitPath(page.canonical);
+  const indexing = indexedIn(page.route, query, page.noindex ?? false);
+  return { indexing, canonical: ctx.origin + (indexing === 'english' ? page.canonical : localePath(ctx.loc.locale, path) + query) };
+}
+
 export function layout(ctx: Ctx, page: Page): string {
   const { loc } = ctx;
   const m = loc.m;
@@ -78,13 +86,7 @@ export function layout(ctx: Ctx, page: Page): string {
   const suffix = ` · ${ctx.siteName}`;
   const title = page.headTitle ?? loc.t(m.site.title, { title: fitTitle(page.title, limit, suffix), site: ctx.siteName });
 
-  let indexing: Indexing = 'none';
-  let canonical: string | null = null;
-  if (page.canonical !== null) {
-    const [path, query] = splitPath(page.canonical);
-    indexing = indexedIn(page.route, query, page.noindex ?? false);
-    canonical = ctx.origin + (indexing === 'english' ? page.canonical : localePath(loc.locale, path) + query);
-  }
+  const { indexing, canonical } = canonicalOf(ctx, page);
   const alts = page.canonical !== null && indexing === 'each' ? alternates(ctx.origin, ...splitPath(page.canonical)) : [];
   const selfCanonical = indexing === 'each' || (indexing === 'english' && loc.locale === 'en');
   const ogTitle = page.title;
@@ -99,7 +101,10 @@ ${indexing === 'each' ? LOCALES.filter((l) => l !== loc.locale).map((l) => html`
 <meta property="og:image:width" content="${OG_IMAGE.width}">
 <meta property="og:image:height" content="${OG_IMAGE.height}">
 <meta property="og:image:alt" content="${ctx.siteName}">\n` : ''
-  }<meta name="twitter:card" content="summary_large_image">`;
+  }<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${ogTitle}">${
+    page.description ? html`\n<meta name="twitter:description" content="${page.description}">` : ''
+  }`;
 
   const body = html`<!doctype html>
 <html lang="${loc.info.htmlLang}" dir="${loc.info.dir}" data-prefix="${loc.prefix}">

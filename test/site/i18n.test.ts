@@ -205,7 +205,7 @@ describe('no English in the chrome (test 5)', () => {
       const rest = leftOver(text);
       expect(SIGNS.test(rest), `${path}: ${rest.replace(/\s+/g, ' ').trim()}`).toBe(true);
       // Attributes that people read or hear, and the words the scripts read.
-      const attrs = /\s(aria-label|placeholder|title|alt|data-suggest|data-close|data-lists|data-items|data-tags|data-of|data-collapse|data-expand|data-n-[a-z]+)="([^"]*)"/g;
+      const attrs = /\s(aria-label|placeholder|title|alt|data-suggest|data-close|data-lists|data-items|data-tags|data-of|data-collapse|data-expand|data-copied|data-n-[a-z]+)="([^"]*)"/g;
       for (const m of withoutLd.matchAll(attrs)) {
         const v = decode(m[2] ?? '');
         // The switcher's links are each in their own language: their words are from that language's messages.

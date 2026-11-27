@@ -45,6 +45,19 @@ export const ko: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: '닫기',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: '공유',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: '{service}에 공유',
+    /** The email link's name. */
+    email: '이메일로 공유',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: '링크 복사',
+    copied: '복사됨',
+    /** A button that opens the phone's own share sheet. */
+    native: '공유…',
+  },
   count: {
     lists: p({ other: '목록 {n}개' }),
     items: p({ other: '항목 {n}개' }),
