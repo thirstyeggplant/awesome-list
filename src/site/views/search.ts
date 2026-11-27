@@ -1,10 +1,10 @@
 // /search?q=: lists, sections and items at once. ns:value tokens become filters on /items.
 import type { Db, ListRow } from '../db.js';
-import { html } from '../html.js';
+import { html, join } from '../html.js';
 import { slugify } from '../keys.js';
 import { EMPTY_ITEMS, liftNamespaces, serialiseItems, withLifted } from '../query.js';
 import * as search from '../search.js';
-import { itemRows, link, listRow, searchBox } from './components.js';
+import { itemRows, link, listRows, searchBox } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, redirect, type ViewResult } from './result.js';
@@ -27,16 +27,21 @@ export async function searchPage(ctx: Ctx, db: Db, q: string | null): Promise<Vi
   ]);
   const lists = listIds.map((id) => ctx.listById.get(id)).filter((l): l is ListRow => l !== undefined);
   const items = await db.itemsByIds(itemIds);
+  // A line of jumps to the three groups, with how many each holds; a group with nothing is left out.
+  const jumps = ([['lists', m.search.lists, lists.length], ['sections', m.search.sections, sections.length], ['items', m.search.items, total]] as const)
+    .filter(([, , n]) => n > 0)
+    .map(([id, word, n]) => html`<a href="#${id}">${word} <span class="n">${loc.n(n)}</span></a>`);
   const main = html`<div class="search-page">
 <h1>${m.search.h1}</h1>
 ${searchBox(loc, q)}
-${lists.length > 0 ? html`<section><h2>${m.search.lists}</h2><ol class="rows lists">${lists.map((l) => listRow(ctx, l))}</ol></section>` : ''}
-${sections.length > 0 ? html`<section><h2>${m.search.sections}</h2><ol class="rows">${sections.map((s) => {
+${jumps.length > 1 ? html`<p class="jumps">${join(jumps, html`<span class="sep"> · </span>`)}</p>` : ''}
+${lists.length > 0 ? html`<section id="lists"><h2>${m.search.lists}</h2>${listRows(ctx, lists)}</section>` : ''}
+${sections.length > 0 ? html`<section id="sections"><h2>${m.search.sections}</h2><ol class="rows">${sections.map((s) => {
   const list = ctx.listById.get(s.listId);
   if (!list) return '';
   return html`<li class="row section-row"><span class="main"><span class="who">${link(loc, `/lists/${list.slug}#${s.anchor}`, s.path.join(' › '), { cls: 'name' })} <span class="sub">${loc.h(m.search.inList, { list: html`<span translate="no">${list.name}</span>` })}</span></span></span><span class="num in">${loc.plural(m.count.items, s.itemCount)}</span></li>`;
 })}</ol></section>` : ''}
-<section><h2>${m.search.items}</h2>${items.length > 0 ? itemRows(loc, items, true) : html`<p class="empty">${m.search.noItems}</p>`}
+<section id="items"><h2>${m.search.items}</h2>${items.length > 0 ? itemRows(loc, items, true) : html`<p class="empty">${m.search.noItems}</p>`}
 ${total > items.length ? html`<p class="more">${link(loc, `/items${serialiseItems({ ...EMPTY_ITEMS, q })}`, loc.plural(m.search.allItems, total))}</p>` : ''}</section>
 </div>`;
   return page(layout(ctx, { route: 'search', title: loc.t(m.common.searchChip, { q }), canonical: `/search?q=${encodeURIComponent(q)}`, noindex: true, main, q }));

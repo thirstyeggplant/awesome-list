@@ -45,6 +45,8 @@ export interface Meta {
   };
   /** The paths of the site's CSS and scripts, /assets/{hash}/{name}. */
   assets: { css: string; quick: string; listfilter: string; og: string };
+  /** What the home page shows from the terms: the languages with the most items, as [slug, label, count]. */
+  top: { langs: [string, string, number][] };
 }
 
 export interface CategoryRow { id: number; name: string; slug: string; position: number; listCount: number }
@@ -70,6 +72,8 @@ export interface ListRow {
   sectionCount: number;
   itemId: number | null;
   position: number;
+  /** The lists most like this one: [listId, projects both name], best first. */
+  related: [number, number][];
 }
 
 export interface SectionRow {
@@ -210,6 +214,7 @@ function listOf(r: Row): ListRow {
     sectionCount: num(r, 'section_count'),
     itemId: numOrNull(r, 'item_id'),
     position: num(r, 'position'),
+    related: json<[number, number][]>(r, 'related', []),
   };
 }
 
@@ -247,6 +252,7 @@ export function metaOf(rows: readonly Row[]): Meta {
       m.get('coverage') ?? '{"listsByStatus":{},"itemsByKind":{},"reposByStatus":{},"itemsInTwoOrMore":0}',
     ) as Meta['coverage'],
     assets: JSON.parse(m.get('assets') ?? '{"css":"","quick":"","listfilter":"","og":""}') as Meta['assets'],
+    top: JSON.parse(m.get('top') ?? '{"langs":[]}') as Meta['top'],
   };
 }
 

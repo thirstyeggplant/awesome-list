@@ -6,9 +6,8 @@ import { slugify } from '../keys.js';
 import { LIST_STATUSES } from '../../enums.js';
 import { serialiseLists, type ListsQuery } from '../query.js';
 import { listIds } from '../search.js';
-import { absolute, breadcrumbLd, link, listRow, pager, sortLine, sheetHead } from './components.js';
+import { breadcrumbLd, itemListLd, link, listRows, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
-import { webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 
@@ -20,10 +19,13 @@ function value(ctx: Ctx, l: ListRow, d: Dim): string | null {
   return l.status;
 }
 
-/** Whether a page of /lists is kept out of search engines: a search, two filters, a sort, or past the paging. */
+/**
+ * Whether a page of /lists is kept out of search engines: a search, two filters, a sort, past the paging, or a
+ * licence or a status (slices nobody searches for). The bare page, a category and their pages stay.
+ */
 export function listsNoindex(q: ListsQuery): boolean {
   const filters = [q.category, q.license, q.status].filter((v) => v !== null).length;
-  return q.q !== null || filters >= 2 || q.sort !== null || q.page > MAX_PAGE;
+  return q.q !== null || filters >= 2 || q.sort !== null || q.page > MAX_PAGE || q.license !== null || q.status !== null;
 }
 
 export async function listsPage(ctx: Ctx, db: Db, q: ListsQuery): Promise<ViewResult> {
@@ -121,7 +123,15 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
     title = loc.plural(m.meta.lists.title, total);
   }
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
-  const h1 = cat && onlyCategory ? loc.shown(loc.category(cat)) : html`${m.lists.h1}`;
+  // The h1 says the one filter: a category's name, a licence, a status.
+  const onlyOne = q.q === null && [q.category, q.license, q.status].filter((v) => v !== null).length === 1;
+  const h1 = cat && onlyCategory
+    ? loc.shown(loc.category(cat))
+    : onlyOne && q.license !== null
+      ? label('license', q.license)
+      : onlyOne && q.status !== null
+        ? label('status', q.status)
+        : html`${m.lists.h1}`;
   const canonical = `/lists${serialiseLists(q)}`;
 
   const main = html`<div class="with-rail">${rail}<div class="results" id="results">
@@ -130,29 +140,12 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
-<ol class="rows lists">${shown.map((l) => listRow(ctx, l))}</ol>
-${pager(loc, prev, next)}
+${listRows(ctx, shown, { noCategory: q.category !== null })}
+${pager(loc, prev, next, undefined, { page: q.page, pages: Math.min(pages, MAX_PAGE) })}
 </div></div>`;
 
   const ld: unknown[] = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: title,
-      url: absolute(ctx, canonical),
-      inLanguage: loc.info.hreflang,
-      isPartOf: webSite(ctx),
-      mainEntity: {
-        '@type': 'ItemList',
-        numberOfItems: total,
-        itemListElement: shown.map((l, i) => ({
-          '@type': 'ListItem',
-          position: (q.page - 1) * PAGE_SIZE + i + 1,
-          url: absolute(ctx, `/lists/${l.slug}`),
-          name: l.name,
-        })),
-      },
-    },
+    itemListLd(ctx, title, canonical, total, shown.map((l) => ({ path: `/lists/${l.slug}`, name: l.name })), (q.page - 1) * PAGE_SIZE + 1),
   ];
   if (cat && onlyCategory) ld.push(breadcrumbLd(ctx, [[m.nav.lists, '/lists'], [catName, `/lists?category=${cat.slug}`]]));
 
@@ -164,6 +157,8 @@ ${pager(loc, prev, next)}
       canonical,
       noindex: listsNoindex(q),
       main,
+      prev,
+      next,
       jsonLd: ld,
     }),
   );

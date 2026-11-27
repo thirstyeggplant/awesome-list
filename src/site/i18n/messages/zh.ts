@@ -60,6 +60,8 @@ export const zh: Messages = {
     itemsFromLinks: '从 {links}中读取到 {items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} / {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: '收录于 {n} 个清单' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,10 @@ export const zh: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: '、',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: '名称', language: '语言', stars: '星标', lists: '清单', updated: '更新', items: '条目' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '第 {page} 页，共 {pages} 页',
   },
   facts: {
     stars: '星标',
@@ -132,6 +138,16 @@ export const zh: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · 数据日期 {date}',
     mostNamed: '被最多清单收录',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '按语言浏览',
+    allProjects: '全部项目',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: '从这里开始',
+    allLists: p({ other: '全部 {n} 个清单' }),
+    /** A heading over every list, category by category. */
+    byCategory: '按分类浏览全部清单',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '所有被 2 个及以上清单收录的项目',
   },
   lists: {
     h1: '清单',
@@ -163,6 +179,11 @@ export const zh: Messages = {
     licence: '许可证：{license}。',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '更多{category}清单',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '另见',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '相关清单',
+    inCommon: p({ other: '{n} 个共同项目' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -180,6 +201,15 @@ export const zh: Messages = {
     listedAs: '收录名称为“{name}”',
     alongside: '一同收录的条目',
     attribution: '由上方清单收录。点开清单可阅读维护者对它的介绍。如需建议修改，请在相应清单的仓库提交 issue。',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: '在 GitHub 上打开 ↗',
+    visit: '访问 {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner} 的更多项目',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner} 的全部 {n} 个项目' }),
+    /** The label over an item's topic chips. */
+    topics: '主题',
   },
   items: {
     h1: '条目',
@@ -204,6 +234,8 @@ export const zh: Messages = {
     theirProjects: '被清单收录的项目',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '在条目页查看全部 {n} 个' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '维护的清单：{lists} · 被清单收录的项目：{projects}',
   },
   search: {
     h1: '搜索',
@@ -264,8 +296,8 @@ export const zh: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}，第 {page} 页',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}：收录 {n} 个条目的 awesome 清单' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo})：收录 {n} 个条目的 awesome 清单' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}，维护于 {repo} 的 awesome 清单。',
     },
@@ -278,6 +310,13 @@ export const zh: Messages = {
       repoDescription: p({ other: '{name} 被 {n} 个 awesome 清单收录：{lists}。' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}（{host}）被 {n} 个 awesome 清单收录：{lists}。' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}：收录于 {list} awesome 清单',
+      titleOne: '{name}：收录于 {list} awesome 清单',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} 收录于 {list} awesome 清单的「{section}」部分。',
+      under: '在 {list} 中列于「{section}」。',
+      alongside: '一同收录的有 {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */

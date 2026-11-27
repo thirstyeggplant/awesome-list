@@ -41,4 +41,12 @@ export const CACHE = {
   /** The icons and the manifest, at fixed addresses. */
   icon: 'public, max-age=86400',
   health: 'no-store',
+  /** The redirect from plain http to https. */
+  toHttps: 'public, max-age=3600',
 } as const;
+
+/**
+ * Topics that say nothing about a project (or only repeat its language): left out of a row's chips, the topic
+ * facet and the browse sitemap. They stay in the data, on the item page and in search.
+ */
+export const TOPIC_STOP: ReadonlySet<string> = new Set(['hacktoberfest', 'awesome', 'awesome-list', 'awesome-lists', 'list', 'lists', 'golang']);

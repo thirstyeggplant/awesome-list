@@ -7,7 +7,7 @@ import type { Sql } from './data.js';
 import { Db, type Base } from './db.js';
 import { FacetIndex } from './facets.js';
 import { decodeFacets } from './facets-file.js';
-import { etagOf, matches, notModified, reply, TYPES, type Answer } from './http.js';
+import { etagOf, httpsAddress, matches, notModified, reply, TYPES, type Answer } from './http.js';
 import { ENGLISH, Loc, NO_I18N_DATA, type I18nData } from './i18n/loc.js';
 import { OTHER_LOCALES, localeOfPath, type Locale } from './i18n/locales.js';
 import type { Messages } from './i18n/messages/en.js';
@@ -259,14 +259,17 @@ export function createApp(options: AppOptions): Handler {
   }
 
   return async (req) => {
-    if (req.method !== 'GET' && req.method !== 'HEAD') {
-      return reply(req, text(405, 'Method not allowed\n', 'no-store'), null);
-    }
     let url: URL;
     try {
       url = new URL(req.url);
     } catch {
       return reply(req, text(400, 'Bad request\n', 'no-store'), null);
+    }
+    // Before anything else: plain http to the site's host goes to https.
+    const secure = httpsAddress(url);
+    if (secure !== null) return reply(req, { ...moved(secure), cache: CACHE.toHttps }, null);
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+      return reply(req, text(405, 'Method not allowed\n', 'no-store'), null);
     }
     try {
       const db = new Db(options.sql());

@@ -1,15 +1,19 @@
 // /lists/{owner}/{repo}: one list, every entry on one server-rendered page.
 import type { Db, ListEntry, ListRow, SectionRow } from '../db.js';
-import { html, outbound, type Html } from '../html.js';
+import { html, join, outbound, type Html } from '../html.js';
 import type { Loc } from '../i18n/loc.js';
-import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, link, listRot, rot, sheetHead } from './components.js';
+import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, itemRowsHead, link, listRot, listRows, rot, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
-import { webSite } from './home.js';
+import { listCard, webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 
 /** Other lists of a list's category shown after its entries, by stars. */
 const MORE_IN_CATEGORY = 8;
+/** Related lists shown as cards after the entries. */
+const RELATED_CARDS = 6;
+/** Top-level sections named in the structured data. */
+const MAX_PARTS = 30;
 
 interface TocEntry { title: string; anchor: string; depth: number; count: number }
 
@@ -115,11 +119,20 @@ export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewRes
     sections: loc.plural(m.count.sections, list.sectionCount),
   });
 
+  const related = list.related
+    .map(([id, n]) => ({ l: ctx.listById.get(id), n }))
+    .filter((r): r is { l: ListRow; n: number } => r.l !== undefined);
+  const seeAlso = related.slice(0, 3).map((r) => link(loc, `/lists/${r.l.slug}`, html`<span translate="no">${r.l.name}</span>`));
   const top = html`<header class="list-head">
 ${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
+<div class="head-main">
 <h1 class="serif" translate="no">${list.name}</h1>
 <p class="repo-link">${outbound(gh, list.slug, { cls: 'mono' })}</p>
 ${summary ? html`<p class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''}
+${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.seeAlso}</span> ${join(seeAlso, loc.m.common.separator)}</p>` : ''}
+<p class="actions">${outbound(gh, m.list.readOriginal, { cls: 'btn primary' })} ${outbound(`${gh}/issues`, m.list.suggestChange, { cls: 'btn' })}</p>
+</div>
+<div class="head-side">
 ${facts([
   [m.facts.stars, loc.n(list.stars)],
   [m.facts.lastPush, loc.day(list.pushedDay)],
@@ -128,7 +141,7 @@ ${facts([
   [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
   [m.facts.state, word === null ? '' : rot(loc, word)],
 ])}
-<p class="actions">${outbound(gh, m.list.readOriginal, { cls: 'btn primary' })} ${outbound(`${gh}/issues`, m.list.suggestChange, { cls: 'btn' })}</p>
+</div>
 </header>`;
 
   let content: Html;
@@ -139,18 +152,21 @@ ${facts([
     content = html`<div class="list-layout">
 <nav class="toc toc-rail sheet" id="_contents" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${sheetHead(loc, m.list.contents, 'entries')}${toc(loc, contents)}</nav>
 <div class="list-body">
-<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
+<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button>${itemRowsHead(loc)}</div>
 <div id="entries">${body(loc, sections, entries)}</div>
 </div></div>`;
   }
 
-  // More in the category: other lists of it by stars (ctx.lists is in that order).
-  const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && l.id !== list.id).slice(0, MORE_IN_CATEGORY);
-  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2><ul>${more.map(
-    (l) => html`<li>${link(loc, `/lists/${l.slug}`, html`<span translate="no">${l.name}</span>`)}</li>`,
+  // The lists most like it, as cards; then more of its category by stars (ctx.lists is in that order), as rows.
+  const shown = related.slice(0, RELATED_CARDS);
+  const relatedHtml = shown.length === 0 ? '' : html`<section class="related"><h2>${m.list.related}</h2><ul class="cards">${shown.map(
+    (r) => listCard(ctx, r.l, loc.plural(m.list.inCommon, r.n)),
   )}</ul></section>`;
+  const taken = new Set([list.id, ...shown.map((r) => r.l.id)]);
+  const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && !taken.has(l.id)).slice(0, MORE_IN_CATEGORY);
+  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listRows(ctx, more, { noCategory: true })}</section>`;
 
-  const main = html`<article class="list-page">${top}${content}${moreHtml}${attributionOfList(loc, list, ctx.meta.dataFinished)}</article>`;
+  const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${attributionOfList(loc, list, ctx.meta.dataFinished)}</article>`;
 
   const fallback = loc.t(m.meta.list.description, { name: list.name, repo: `github.com/${list.slug}` });
   let description = summary?.text ?? fallback;
@@ -161,10 +177,16 @@ ${facts([
   if (cat && catName !== null) trail.push([catName, `/lists?category=${cat.slug}`]);
   trail.push([list.name, `/lists/${list.slug}`]);
 
+  // Its top-level sections, as parts of the page (not one ListItem per entry: they would double the page).
+  const parts = contents
+    .filter((e) => e.depth === 1)
+    .slice(0, MAX_PARTS)
+    .map((e) => ({ '@type': 'WebPageElement', name: e.title, url: `${absolute(ctx, `/lists/${list.slug}`)}#${e.anchor}` }));
+
   return page(
     layout(ctx, {
       route: 'list',
-      title: loc.plural(m.meta.list.title, itemCount, { name: list.name }),
+      title: loc.plural(m.meta.list.title, itemCount, { name: list.name, repo: list.repo }),
       description,
       canonical: `/lists/${list.slug}`,
       main,
@@ -182,6 +204,7 @@ ${facts([
           isPartOf: webSite(ctx),
           isBasedOn: gh,
           mainEntity: { '@type': 'ItemList', numberOfItems: itemCount },
+          ...(parts.length > 0 ? { hasPart: parts } : {}),
         },
       ],
     }),

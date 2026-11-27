@@ -60,6 +60,8 @@ export const ko: Messages = {
     itemsFromLinks: '{links} 중 {items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{m}개 중 {n}개',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: '목록 {n}개에 실림' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,10 @@ export const ko: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: '이름', language: '언어', stars: '스타', lists: '목록', updated: '업데이트', items: '항목' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '{pages}페이지 중 {page}페이지',
   },
   facts: {
     stars: '스타',
@@ -132,6 +138,16 @@ export const ko: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · {date} 기준 데이터',
     mostNamed: '가장 많은 목록에 실린 항목',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '언어별로 보기',
+    allProjects: '모든 프로젝트',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: '여기서 시작하기',
+    allLists: p({ other: '목록 {n}개 모두' }),
+    /** A heading over every list, category by category. */
+    byCategory: '카테고리별 전체 목록',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '2개 이상의 목록에 실린 모든 프로젝트',
   },
   lists: {
     h1: '목록',
@@ -163,6 +179,11 @@ export const ko: Messages = {
     licence: '라이선스: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '{category} 카테고리의 다른 목록',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '함께 보기',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '관련 목록',
+    inCommon: p({ other: '공통 프로젝트 {n}개' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -180,6 +201,15 @@ export const ko: Messages = {
     listedAs: '‘{name}’ 이름으로 실림',
     alongside: '함께 실린 항목',
     attribution: '위 목록들에 실린 항목입니다. 큐레이터가 이 항목을 어떻게 소개하는지는 각 목록에서 읽어 보세요. 변경을 제안하려면 해당 목록에 이슈를 열어 주세요.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'GitHub에서 열기 ↗',
+    visit: '{host} 방문 ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner}의 다른 프로젝트',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner}의 프로젝트 {n}개 모두' }),
+    /** The label over an item's topic chips. */
+    topics: '토픽',
   },
   items: {
     h1: '항목',
@@ -204,6 +234,8 @@ export const ko: Messages = {
     theirProjects: '목록에 실린 프로젝트',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '항목에서 {n}개 모두 보기' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '관리하는 목록: {lists} · 목록에 실린 프로젝트: {projects}',
   },
   search: {
     h1: '검색',
@@ -264,8 +296,8 @@ export const ko: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, {page}쪽',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: 항목 {n}개의 awesome list' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): 항목 {n}개의 awesome list' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{repo}에서 관리하는 awesome list {name}.',
     },
@@ -278,6 +310,13 @@ export const ko: Messages = {
       repoDescription: p({ other: '{name}이(가) 실린 awesome list {n}개: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}({host})이(가) 실린 awesome list {n}개: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: awesome list {list}에 실림',
+      titleOne: '{name}: awesome list {list}에 실림',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name}은(는) awesome list {list}의 {section} 항목에 실려 있어요.',
+      under: '{list}에서는 {section} 항목에 실려 있어요.',
+      alongside: '함께 실린 항목: {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

@@ -68,6 +68,8 @@ export const en = {
     itemsFromLinks: '{items} from {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} of {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ one: 'in {n} list', other: 'in {n} lists' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -120,6 +122,10 @@ export const en = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Name', language: 'Language', stars: 'Stars', lists: 'Lists', updated: 'Updated', items: 'Items' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Page {page} of {pages}',
   },
   facts: {
     stars: 'Stars',
@@ -140,6 +146,16 @@ export const en = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · data of {date}',
     mostNamed: 'Named by the most lists',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Browse by language',
+    allProjects: 'All projects',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Start here',
+    allLists: p({ one: '{n} list', other: 'All {n} lists' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'All lists by category',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'All projects named by 2 or more lists',
   },
   lists: {
     h1: 'Lists',
@@ -171,6 +187,11 @@ export const en = {
     licence: 'Licence: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'More in {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'See also',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Related lists',
+    inCommon: p({ one: '{n} project in common', other: '{n} projects in common' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -188,6 +209,15 @@ export const en = {
     listedAs: 'listed as ‘{name}’',
     alongside: 'Listed alongside',
     attribution: 'Named by the lists above. Follow a list to read what its curators say about it. To suggest a change, open an issue on one of those lists.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Open on GitHub ↗',
+    visit: 'Visit {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'More from {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: 'All {n} project by {owner}', other: 'All {n} projects by {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Topics',
   },
   items: {
     h1: 'Items',
@@ -212,6 +242,8 @@ export const en = {
     theirProjects: 'Their projects named by lists',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'All {n} in Items', other: 'All {n} in Items' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '{lists} kept · {projects} named by lists',
   },
   search: {
     h1: 'Search',
@@ -273,8 +305,8 @@ export const en = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, page {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ one: '{name}: an awesome list of {n} item', other: '{name}: an awesome list of {n} items' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ one: '{name} ({repo}): awesome list of {n} item', other: '{name} ({repo}): awesome list of {n} items' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, an awesome list kept at {repo}.',
     },
@@ -287,6 +319,13 @@ export const en = {
       repoDescription: p({ one: '{name} is named by {n} awesome list: {lists}.', other: '{name} is named by {n} awesome lists: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ one: '{name} ({host}) is named by {n} awesome list: {lists}.', other: '{name} ({host}) is named by {n} awesome lists: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: in the {list} awesome list',
+      titleOne: '{name}: in the {list} awesome list',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} is in the {list} awesome list, under {section}.',
+      under: 'Listed under {section} in {list}.',
+      alongside: 'Alongside {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

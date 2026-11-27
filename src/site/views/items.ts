@@ -1,5 +1,5 @@
 // /items: every item, filtered by facets, 50 at a time.
-import { MAX_MATCHES, MAX_PAGE, PAGE_SIZE } from '../config.js';
+import { MAX_MATCHES, MAX_PAGE, PAGE_SIZE, TOPIC_STOP } from '../config.js';
 import type { Db } from '../db.js';
 import { NO_FILTERS, type FacetIndex, type Filters } from '../facets.js';
 import { html, type Html } from '../html.js';
@@ -7,22 +7,30 @@ import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
 import type { Terms } from '../terms.js';
-import { itemRows, link, pager, sortLine, sheetHead } from './components.js';
+import { itemListLd, itemRows, link, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 
 /** Below this many results a page of /items with one filter is thin, and noindex. */
 export const THIN_ITEMS = 5;
+/** The same for a topic, which more often names a handful of projects. */
+export const THIN_TOPIC = 20;
 
 /**
- * Whether a page of /items is kept out of search engines: a search, two filters, a sort, past the paging, and
- * for one filter, a later page or fewer than THIN_ITEMS results. `total` is the page's result count, when known.
+ * Whether a page of /items is kept out of search engines: a search, two filters, a sort, past the paging, any
+ * page but the first; a filter that has a page of its own elsewhere (owner, list) or that nobody searches for
+ * (category, status, stars, in); a topic that says nothing (TOPIC_STOP); and a thin page: fewer than THIN_ITEMS
+ * results, THIN_TOPIC for a topic. `total` is the page's result count, when known.
  */
 export function itemsNoindex(q: ItemsQuery, total = Number.POSITIVE_INFINITY): boolean {
   const filters = filterCount(q);
-  if (q.q !== null || filters >= 2 || q.sort !== null || q.page > MAX_PAGE) return true;
-  return filters === 1 && (q.page > 1 || total < THIN_ITEMS);
+  if (q.q !== null || filters >= 2 || q.sort !== null || q.page > 1) return true;
+  if (filters === 0) return false;
+  if (q.owner !== null || q.list !== null || q.category !== null || q.status !== null || q.stars !== null || q.in !== null) return true;
+  const topic = q.topic[0];
+  if (topic !== undefined) return TOPIC_STOP.has(topic) || total < THIN_TOPIC;
+  return total < THIN_ITEMS;
 }
 
 /** The query as numbers for the facet index, or null when a value names nothing (a 404). */
@@ -119,13 +127,14 @@ export async function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, terms: Ter
   };
 
   const c = result.counts;
-  const top = (arr: Uint32Array, ns: string, limit: number, chosen: readonly string[]): FacetValue[] => {
+  const top = (arr: Uint32Array, ns: string, limit: number, chosen: readonly string[], skip?: ReadonlySet<string>): FacetValue[] => {
     const values: { label: string; slug: string; count: number; on: boolean }[] = [];
     arr.forEach((n, id) => {
       if (n === 0 && chosen.length === 0) return;
       const t = terms.byId.get(id);
       if (!t || t.ns !== ns) return;
       const on = chosen.includes(t.slug);
+      if (!on && skip?.has(t.slug)) return;
       if (n > 0 || on) values.push({ label: t.label, slug: t.slug, count: n, on });
     });
     values.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
@@ -166,7 +175,7 @@ ${facetBlock(ctx, m.items.kind, kinds)}
 ${facetBlock(ctx, m.items.status, statuses)}
 ${facetBlock(ctx, m.items.language, top(c.lang, 'lang', 15, q.lang === null ? [] : [q.lang]))}
 ${facetBlock(ctx, m.items.licence, top(c.license, 'license', 100, q.license === null ? [] : [q.license]), false)}
-${facetBlock(ctx, m.items.topic, top(c.topic, 'topic', 20, q.topic), false)}
+${facetBlock(ctx, m.items.topic, top(c.topic, 'topic', 15, q.topic, TOPIC_STOP), false)}
 ${facetBlock(ctx, m.items.category, categories, false)}
 ${facetBlock(ctx, m.items.list, lists, false)}
 ${facetBlock(ctx, m.items.stars, stars)}
@@ -197,8 +206,8 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   });
   const prev = q.page > 1 && !beyond ? `/items${serialiseItems({ ...q, page: q.page - 1 })}` : null;
   const next = q.page < pages && q.page < MAX_PAGE ? `/items${serialiseItems({ ...q, page: q.page + 1 })}` : null;
-  // Later pages are noindex whenever there is a filter.
-  const pagerRel = filterCount(q) > 0 || q.q !== null || q.sort !== null ? 'nofollow' : undefined;
+  // Every page but the first is noindex.
+  const pagerRel = 'nofollow';
 
   const filters = filterCount(q);
   const label = filters === 1 ? filterLabel(ctx, terms, q) : null;
@@ -219,14 +228,16 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   }
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
 
+  const noindex = itemsNoindex(q, result.total);
   const main = html`<div class="with-rail">${rail}<div class="results" id="results">
-<h1>${m.items.h1}</h1>
+<h1>${q.q === null && label !== null ? label : m.items.h1}</h1>
+${q.q === null && label !== null ? html`<p class="h1-note">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
 <form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
 ${beyond ? '' : itemRows(loc, items, true)}
-${pager(loc, prev, next, pagerRel)}
+${pager(loc, prev, next, pagerRel, { page: q.page, pages: Math.min(pages, MAX_PAGE) })}
 </div></div>`;
   return page(
     layout(ctx, {
@@ -234,9 +245,12 @@ ${pager(loc, prev, next, pagerRel)}
       title,
       description,
       canonical: `/items${serialiseItems(q)}`,
-      noindex: itemsNoindex(q, result.total),
+      noindex,
       main,
       q: q.q,
+      prev,
+      next,
+      jsonLd: noindex ? [] : [itemListLd(ctx, title, `/items${serialiseItems(q)}`, result.total, items.map((it) => ({ path: `/${it.key}`, name: it.name })), 1)],
     }),
   );
 }

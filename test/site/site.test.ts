@@ -92,9 +92,61 @@ describe('routes', () => {
     expect(page).toContain('href="/items?lang=go"><span translate="no">Go</span></a>');
     expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘<span translate="no">Hostile</span>’');
     expect(await body('/lists/alpha/awesome-widgets')).toContain('Named by');
+    // One outbound action, a breadcrumb from the list with the most stars, more from the owner, the lists' sizes.
+    expect(page).toContain('<a class="btn primary" href="https://github.com/acme/rocket" rel="nofollow noopener" title="https://github.com/acme/rocket">Open on GitHub ↗</a>');
+    expect(page).toMatch(/<nav class="crumbs"[^>]*><a href="\/lists">Lists<\/a>.*Widgets.*Launchers<\/a><\/nav>/);
+    expect(page).not.toMatch(/<a class="chip"[^>]*><span class="ns">(lang|license|status):/);
+    expect(page).toContain('<span class="size">');
+    const proj = await body('/gh/own1/proj1');
+    expect(proj).toContain('More from <span translate="no">own1</span>');
+    expect(proj).toContain('href="/gh/own1">All 8 projects by own1</a>');
+    expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('Visit example.com ↗');
     const owner = await body('/gh/own1');
     expect(owner).toContain('Their projects named by lists');
     expect(owner).toContain('href="/gh/own1/proj1"');
+  });
+
+  it('makes rows of names and columns: language, stars, lists only from two, the year', async () => {
+    const page = await body('/items');
+    expect(page).toContain('<div class="rows-head" aria-hidden="true"><span>Name</span><span>Language</span>');
+    // The licence and the language are columns or facts, never chips in a row; a row's chips are topics.
+    const rows = page.slice(page.indexOf('<ol class="rows">'));
+    expect(rows).not.toMatch(/class="chip"[^>]*><span class="ns">(lang|license):/);
+    expect(rows).toContain('<span class="num lang"><a href="/items?lang=go" translate="no">Go</a></span>');
+    expect(rows).toContain('<span class="long">in 2 lists</span>');
+    expect(rows).not.toContain('1 list<');
+    // A list page has one header, in its filter bar, and no chips in its rows.
+    const list = await body('/lists/alpha/awesome-widgets');
+    expect([...list.matchAll(/class="rows-head"/g)]).toHaveLength(1);
+    expect(list.slice(list.indexOf('id="entries"'))).not.toContain('class="chip"');
+    // A list we could not read says so, not "0 items"; a category page leaves out the category chip.
+    const lists = await body('/lists');
+    expect(lists).toContain('<span class="rot rot-quiet">not read yet</span>');
+    expect(lists).not.toContain('>0 items<');
+    expect(await body('/lists?category=tools')).not.toContain('class="chip" href="/lists?category=tools"');
+  });
+
+  it('makes a home page that starts somewhere: languages, the lists with the most stars, then every category', async () => {
+    const page = await body('/');
+    expect(ctx.meta.top.langs.map(([slug]) => slug)).toEqual(['go', 'cplusplus', 'rust']);
+    expect(page).toMatch(/<p class="by-lang">.*<a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a>/);
+    const h2 = [...page.matchAll(/<h2[^>]*>([^<]*)</g)].map((x) => x[1]);
+    expect(h2).toEqual(['Start here', 'Named by the most lists', 'All lists by category']);
+    expect([...page.matchAll(/<h3><a href="\/lists\?category=/g)]).toHaveLength(ctx.categories.length);
+    // Cards for the lists with the most stars, leaving out what could not be read.
+    expect(page).toContain('<li class="card"><a class="card-name serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a>');
+    expect(page).not.toContain('class="card-name serif" href="/lists/gamma/awesome-broken"');
+    expect(page).toContain('<span class="peek" translate="no">Gadgets, awesome-broken, ');
+  });
+
+  it('says where a listing is: the one filter as its h1, the page of how many, jumps on search, an owner\'s line', async () => {
+    const go = await body('/items?lang=go');
+    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="h1-note">\d+ projects named by awesome lists<\/p>/);
+    expect(await body('/lists?license=mit')).toContain('<h1>MIT</h1>');
+    const search = await body('/search?q=project');
+    expect(search).toMatch(/<p class="jumps"><a href="#lists">Lists <span class="n">\d+<\/span><\/a>.*<a href="#items">Items <span class="n">\d+<\/span><\/a><\/p>/);
+    expect(search).toContain('<section id="items">');
+    expect(await body('/gh/own1')).toContain('<p class="owner-line">0 lists kept · 8 projects named by lists</p>');
   });
 
   it('escapes hostile names and drops javascript: addresses', async () => {
@@ -195,6 +247,34 @@ describe('routes', () => {
     expect(s.headers.get('Cache-Control')).toBe('no-store');
   });
 
+  it('sends plain http to https before anything else, except on this computer', async () => {
+    for (const [from, to] of [
+      ['http://weeklymatcha.com/', 'https://weeklymatcha.com/'],
+      ['http://weeklymatcha.com/lists?category=tools&page=2', 'https://weeklymatcha.com/lists?category=tools&page=2'],
+      ['http://www.weeklymatcha.com:80/de/gh/acme/rocket', 'https://www.weeklymatcha.com/de/gh/acme/rocket'],
+    ]) {
+      const r = await fixture.app(new Request(from ?? ''));
+      expect(r.status, from).toBe(301);
+      expect(r.headers.get('Location'), from).toBe(to);
+      expect(r.headers.get('Cache-Control'), from).toBe('public, max-age=3600');
+    }
+    // Even a POST, which would otherwise be a 405: nothing is asked of the database first.
+    expect((await fixture.app(new Request('http://weeklymatcha.com/', { method: 'POST' }))).status).toBe(301);
+    for (const local of ['http://localhost:8080/lists', 'http://127.0.0.1:8080/lists', 'http://[::1]:8080/lists']) {
+      expect((await fixture.app(new Request(local))).status, local).toBe(200);
+    }
+  });
+
+  it('asks browsers to come back over https for a year, on every answer of the Worker and every static file', async () => {
+    for (const p of ['/', '/lists', '/nope', '/api/quick?q=ro', '/healthz']) {
+      expect((await get(p)).headers.get('Strict-Transport-Security'), p).toBe('max-age=31536000');
+    }
+    expect((await fixture.app(new Request('http://weeklymatcha.com/'))).headers.get('Strict-Transport-Security')).toBe('max-age=31536000');
+    for (const p of [await cssPath(), '/robots.txt', '/favicon.ico']) {
+      expect((await get(p)).headers.get('Strict-Transport-Security'), p).toBe('max-age=31536000');
+    }
+  });
+
   it('sends the static files with their own headers', async () => {
     const asset = await get(await cssPath());
     expect(asset.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable');
@@ -245,7 +325,7 @@ describe('sitemaps', () => {
       expect(row.n).toBeLessThan(all.n);
       const files = Math.ceil(row.n / 10);
       const index = (await get('/sitemap.xml', {}, small)).body;
-      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(12 + files);
+      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(13 + files);
       expect(index).toContain('<loc>https://example.test/sitemaps/items-1.xml</loc>');
       let urls = 0;
       for (let n = 1; n <= files; n++) {

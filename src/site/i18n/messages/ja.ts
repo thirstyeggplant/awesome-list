@@ -60,6 +60,8 @@ export const ja: Messages = {
     itemsFromLinks: '{links}中{items}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{m}件中{n}件',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: '{n}件のリストに掲載' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,10 @@ export const ja: Messages = {
     searchChip: '「{q}」',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: '、',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: '名前', language: '言語', stars: 'スター', lists: 'リスト', updated: '更新', items: '項目' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '{page} / {pages} ページ',
   },
   facts: {
     stars: 'スター',
@@ -132,6 +138,16 @@ export const ja: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · {date}時点のデータ',
     mostNamed: '最も多くのリストに掲載',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '言語で探す',
+    allProjects: 'すべてのプロジェクト',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'まずはここから',
+    allLists: p({ other: '全{n}件のリスト' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'カテゴリ別のすべてのリスト',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '2件以上のリストに掲載されたすべてのプロジェクト',
   },
   lists: {
     h1: 'リスト',
@@ -163,6 +179,11 @@ export const ja: Messages = {
     licence: 'ライセンス: {license}。',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: '{category}の他のリスト',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: '関連',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: '関連するリスト',
+    inCommon: p({ other: '共通のプロジェクト{n}件' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -180,6 +201,15 @@ export const ja: Messages = {
     listedAs: '「{name}」として掲載',
     alongside: '一緒に掲載されているもの',
     attribution: '上のリストに掲載されています。キュレーターによる説明は各リストでお読みください。変更を提案するには、該当するリストでIssueを作成してください。',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'GitHubで開く ↗',
+    visit: '{host} を開く ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner} の他のプロジェクト',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner} のプロジェクト全{n}件' }),
+    /** The label over an item's topic chips. */
+    topics: 'トピック',
   },
   items: {
     h1: '項目',
@@ -204,6 +234,8 @@ export const ja: Messages = {
     theirProjects: 'リストに掲載されたプロジェクト',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '項目ページで全{n}件を見る' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '管理するリスト: {lists} · リストに掲載: {projects}',
   },
   search: {
     h1: '検索',
@@ -264,8 +296,8 @@ export const ja: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}（{page}ページ目）',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: {n}項目のawesomeリスト' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): {n}項目のawesomeリスト' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{repo}で管理されているawesomeリスト{name}。',
     },
@@ -278,6 +310,13 @@ export const ja: Messages = {
       repoDescription: p({ other: '{name}は{n}件のawesomeリストに掲載されています: {lists}。' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}（{host}）は{n}件のawesomeリストに掲載されています: {lists}。' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: awesomeリスト「{list}」に掲載',
+      titleOne: '{name}: awesomeリスト「{list}」に掲載',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name}はawesomeリスト「{list}」の「{section}」に掲載されています。',
+      under: '{list}では「{section}」に掲載。',
+      alongside: '一緒に掲載: {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */

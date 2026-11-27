@@ -59,6 +59,8 @@ export const ru: Messages = {
     itemsFromLinks: '{items} из: {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} из {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ one: 'в {n} списке', few: 'в {n} списках', many: 'в {n} списках', other: 'в {n} списка' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -111,6 +113,10 @@ export const ru: Messages = {
     searchChip: '«{q}»',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Название', language: 'Язык', stars: 'Звёзды', lists: 'Списки', updated: 'Обновлено', items: 'Элементы' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Страница {page} из {pages}',
   },
   facts: {
     stars: 'Звёзды',
@@ -136,6 +142,16 @@ export const ru: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · данные на {date}',
     mostNamed: 'Чаще всего в списках',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'По языкам',
+    allProjects: 'Все проекты',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'С чего начать',
+    allLists: p({ one: '{n} список', few: 'Все {n} списка', many: 'Все {n} списков', other: 'Все {n} списка' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Все списки по категориям',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Все проекты, упомянутые в 2 списках и более',
   },
   lists: {
     h1: 'Списки',
@@ -167,6 +183,11 @@ export const ru: Messages = {
     licence: 'Лицензия: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Ещё в категории «{category}»',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'См. также',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Похожие списки',
+    inCommon: p({ one: '{n} общий проект', few: '{n} общих проекта', many: '{n} общих проектов', other: '{n} общего проекта' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -184,6 +205,15 @@ export const ru: Messages = {
     listedAs: 'указан как «{name}»',
     alongside: 'Встречается рядом',
     attribution: 'Упоминается в списках выше. Перейдите в список, чтобы прочитать, что о нём пишут кураторы. Чтобы предложить изменение, создайте issue в одном из этих списков.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Открыть на GitHub ↗',
+    visit: 'Перейти на {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Ещё от {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} проект от {owner}', few: 'Все {n} проекта от {owner}', many: 'Все {n} проектов от {owner}', other: 'Все {n} проекта от {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Темы',
   },
   items: {
     h1: 'Элементы',
@@ -208,6 +238,8 @@ export const ru: Messages = {
     theirProjects: 'Проекты, упомянутые в списках',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'Все {n} в элементах', few: 'Все {n} в элементах', many: 'Все {n} в элементах', other: 'Все {n} в элементах' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Ведёт: {lists} · В списках: {projects}',
   },
   search: {
     h1: 'Поиск',
@@ -286,12 +318,12 @@ export const ru: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, страница {page}',
     list: {
-      /** {name} is the list's name. */
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
       title: p({
-        one: '{name}: awesome-список, {n} элемент',
-        few: '{name}: awesome-список, {n} элемента',
-        many: '{name}: awesome-список, {n} элементов',
-        other: '{name}: awesome-список, {n} элемента',
+        one: '{name} ({repo}): awesome-список, {n} элемент',
+        few: '{name} ({repo}): awesome-список, {n} элемента',
+        many: '{name} ({repo}): awesome-список, {n} элементов',
+        other: '{name} ({repo}): awesome-список, {n} элемента',
       }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name} — awesome-список, который ведётся в {repo}.',
@@ -315,6 +347,13 @@ export const ru: Messages = {
         many: '{name} ({host}) упоминается в {n} awesome-списках: {lists}.',
         other: '{name} ({host}) упоминается в {n} awesome-списка: {lists}.',
       }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: в awesome-списке {list}',
+      titleOne: '{name}: в awesome-списке {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} есть в awesome-списке {list}, в разделе «{section}».',
+      under: 'В {list} — в разделе «{section}».',
+      alongside: 'Рядом с {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

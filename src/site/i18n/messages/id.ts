@@ -60,6 +60,8 @@ export const id: Messages = {
     itemsFromLinks: '{items} dari {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} dari {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ other: 'di {n} daftar' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,10 @@ export const id: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Nama', language: 'Bahasa', stars: 'Bintang', lists: 'Daftar', updated: 'Diperbarui', items: 'Item' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Halaman {page} dari {pages}',
   },
   facts: {
     stars: 'Bintang',
@@ -132,6 +138,16 @@ export const id: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · data per {date}',
     mostNamed: 'Paling banyak disebut daftar',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Jelajahi menurut bahasa',
+    allProjects: 'Semua proyek',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Mulai di sini',
+    allLists: p({ other: 'Semua {n} daftar' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Semua daftar menurut kategori',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Semua proyek yang disebut 2 daftar atau lebih',
   },
   lists: {
     h1: 'Daftar',
@@ -163,6 +179,11 @@ export const id: Messages = {
     licence: 'Lisensi: {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Lainnya di {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'Lihat juga',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Daftar terkait',
+    inCommon: p({ other: '{n} proyek yang sama' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -180,6 +201,15 @@ export const id: Messages = {
     listedAs: 'tercantum sebagai ‘{name}’',
     alongside: 'Tercantum bersama',
     attribution: 'Disebut oleh daftar-daftar di atas. Buka sebuah daftar untuk membaca apa kata kuratornya. Untuk mengusulkan perubahan, buka issue di salah satu daftar tersebut.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Buka di GitHub ↗',
+    visit: 'Kunjungi {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Lainnya dari {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: 'Semua {n} proyek dari {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Topik',
   },
   items: {
     h1: 'Item',
@@ -204,6 +234,8 @@ export const id: Messages = {
     theirProjects: 'Proyek miliknya yang disebut daftar',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: 'Semua {n} di Item' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Mengelola {lists} · {projects} disebut daftar',
   },
   search: {
     h1: 'Cari',
@@ -264,8 +296,8 @@ export const id: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, halaman {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ other: '{name}: awesome list berisi {n} item' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ other: '{name} ({repo}): awesome list berisi {n} item' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, awesome list yang dikelola di {repo}.',
     },
@@ -278,6 +310,13 @@ export const id: Messages = {
       repoDescription: p({ other: '{name} disebut oleh {n} awesome list: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name} ({host}) disebut oleh {n} awesome list: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: ada di awesome list {list}',
+      titleOne: '{name}: ada di awesome list {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} ada di awesome list {list}, di bagian {section}.',
+      under: 'Di {list}, ada di bagian {section}.',
+      alongside: 'Bersama {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

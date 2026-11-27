@@ -26,7 +26,22 @@ export const SECURITY_HEADERS: Readonly<Record<string, string>> = {
   'Content-Security-Policy': "default-src 'self'",
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
+  // HTTPS only, for a year, this host alone. A browser ignores it on a plain-http answer (RFC 6797, 8.1), so it
+  // does nothing to `pnpm serve` on http://localhost.
+  'Strict-Transport-Security': 'max-age=31536000',
 };
+
+/** Hosts answered over plain http: this computer, for `pnpm serve`. Every other host is sent to https first. */
+const PLAIN_HTTP_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]']);
+
+/** The https address of a plain-http request to another host than this computer, else null. */
+export function httpsAddress(url: URL): string | null {
+  if (url.protocol !== 'http:' || PLAIN_HTTP_HOSTS.has(url.hostname)) return null;
+  const to = new URL(url.href);
+  to.protocol = 'https:';
+  to.port = '';
+  return to.href;
+}
 
 export function etagOf(buildId: string): string {
   return `W/"${buildId}"`;

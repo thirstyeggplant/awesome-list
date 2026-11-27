@@ -60,6 +60,8 @@ export const fr: Messages = {
     itemsFromLinks: '{items} sur {links}',
     /** "N of M" in a list page's filter: how many entries are shown of all. */
     shownOf: '{n} sur {m}',
+    /** On a phone, how many lists name an item, in a row's second line. */
+    inLists: p({ one: 'dans {n} liste', many: 'dans {n} de listes', other: 'dans {n} listes' }),
   },
   /** One-word labels of an item's kind, shown beside "Kind" and in the facet rail. */
   kind: {
@@ -112,6 +114,10 @@ export const fr: Messages = {
     searchChip: '« {q} »',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
+    /** The labels over the columns of a listing's rows. */
+    columns: { name: 'Nom', language: 'Langage', stars: 'Étoiles', lists: 'Listes', updated: 'Mis à jour', items: 'Éléments' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Page {page} sur {pages}',
   },
   facts: {
     stars: 'Étoiles',
@@ -136,6 +142,16 @@ export const fr: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · données du {date}',
     mostNamed: 'Cités par le plus de listes',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Parcourir par langage',
+    allProjects: 'Tous les projets',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Commencer ici',
+    allLists: p({ one: '{n} liste', many: 'Les {n} de listes', other: 'Les {n} listes' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Toutes les listes par catégorie',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Tous les projets cités par 2 listes ou plus',
   },
   lists: {
     h1: 'Listes',
@@ -167,6 +183,11 @@ export const fr: Messages = {
     licence: 'Licence : {license}.',
     /** A heading after a list's entries: other lists of the same category. */
     moreIn: 'Plus dans {category}',
+    /** In a list's head, before the names of the lists most like it. */
+    seeAlso: 'Voir aussi',
+    /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
+    related: 'Listes apparentées',
+    inCommon: p({ one: '{n} projet en commun', many: '{n} de projets en commun', other: '{n} projets en commun' }),
   },
   item: {
     /** Under an item's name: the other names lists give it. */
@@ -184,6 +205,15 @@ export const fr: Messages = {
     listedAs: 'référencé sous « {name} »',
     alongside: 'Référencé aux côtés de',
     attribution: 'Cité par les listes ci-dessus. Suivez une liste pour lire ce qu’en disent ses curateurs. Pour proposer une modification, ouvrez une issue sur l’une de ces listes.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Ouvrir sur GitHub ↗',
+    visit: 'Visiter {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Plus de {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} projet de {owner}', many: 'Les {n} de projets de {owner}', other: 'Les {n} projets de {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Sujets',
   },
   items: {
     h1: 'Éléments',
@@ -208,6 +238,8 @@ export const fr: Messages = {
     theirProjects: 'Ses projets cités par des listes',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'Voir {n} dans Éléments', many: 'Voir les {n} dans Éléments', other: 'Voir les {n} dans Éléments' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Maintient : {lists} · Cités par des listes : {projects}',
   },
   search: {
     h1: 'Recherche',
@@ -282,8 +314,8 @@ export const fr: Messages = {
     /** A later page of a listing: {title} is the first page's title. */
     page: '{title}, page {page}',
     list: {
-      /** {name} is the list's name. */
-      title: p({ one: '{name} : une liste awesome de {n} élément', many: '{name} : une liste awesome de {n} d’éléments', other: '{name} : une liste awesome de {n} éléments' }),
+      /** {name} is the list's name, {repo} its repository's (awesome-nodejs). */
+      title: p({ one: '{name} ({repo}) : une liste awesome de {n} élément', many: '{name} ({repo}) : une liste awesome de {n} d’éléments', other: '{name} ({repo}) : une liste awesome de {n} éléments' }),
       /** When the list has no summary of ours; {repo} is github.com/owner/repo. */
       description: '{name}, une liste awesome maintenue sur {repo}.',
     },
@@ -304,6 +336,13 @@ export const fr: Messages = {
         many: '{name} ({host}) est cité par {n} de listes awesome : {lists}.',
         other: '{name} ({host}) est cité par {n} listes awesome : {lists}.',
       }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo} : dans la liste awesome {list}',
+      titleOne: '{name} : dans la liste awesome {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} figure dans la liste awesome {list}, sous {section}.',
+      under: 'Dans {list}, sous {section}.',
+      alongside: 'Aux côtés de {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

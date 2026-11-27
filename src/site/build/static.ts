@@ -5,6 +5,7 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import { CACHE, SITEMAP_CHUNK } from '../config.js';
 import { escape } from '../html.js';
+import { SECURITY_HEADERS } from '../http.js';
 import { isoDay } from '../i18n/format.js';
 import { alternates } from '../i18n/indexing.js';
 import { LOCALES, localePath, type Locale } from '../i18n/locales.js';
@@ -70,6 +71,8 @@ export interface SitemapSource {
   categories: readonly string[];
   lists: readonly SitemapList[];
   owners: readonly string[];
+  /** One-filter pages of /items worth finding (browse.xml, English only): addresses with their query. */
+  browse?: readonly string[];
   itemKeys: readonly string[];
   /** Item URLs in one items-{n}.xml. */
   chunk?: number;
@@ -116,7 +119,7 @@ export function pageAddresses(categories: readonly string[]): string[] {
 }
 
 /**
- * /sitemap.xml (an index) and /sitemaps/{pages, lists-{code}, owners, items-n}.xml, by path. Pages and lists are
+ * /sitemap.xml (an index) and /sitemaps/{pages, lists-{code}, browse, owners, items-n}.xml, by path. Pages and lists are
  * in every language with their alternates; owners and items are English only (their other languages point their
  * canonical at the English). List pages carry their last push as lastmod (never after the data date), the other
  * pages the data date; owners and items none, since nothing records when their pages changed.
@@ -134,6 +137,7 @@ export function sitemaps(s: SitemapSource): Map<string, string> {
     return e;
   });
   for (const l of LOCALES) files.set(`lists-${l}.xml`, urlset(origin, lists, l));
+  files.set('browse.xml', urlset(origin, (s.browse ?? []).map((address) => ({ address }))));
   files.set('owners.xml', urlset(origin, s.owners.map((o) => ({ address: `/gh/${o}` }))));
   for (let n = 1; (n - 1) * chunk < s.itemKeys.length; n++) {
     files.set(`items-${n}.xml`, urlset(origin, s.itemKeys.slice((n - 1) * chunk, n * chunk).map((k) => ({ address: `/${k}` }))));
@@ -159,6 +163,7 @@ export function headersFile(): string {
   return [
     '/*',
     '  X-Content-Type-Options: nosniff',
+    `  Strict-Transport-Security: ${SECURITY_HEADERS['Strict-Transport-Security'] ?? ''}`,
     '/assets/*',
     `  Cache-Control: ${CACHE.asset}`,
     '/sitemap.xml',
