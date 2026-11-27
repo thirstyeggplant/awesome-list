@@ -115,6 +115,8 @@ export const ru: Messages = {
     separator: ', ',
     /** The labels over the columns of a listing's rows. */
     columns: { name: 'Название', language: 'Язык', stars: 'Звёзды', lists: 'Списки', updated: 'Обновлено', items: 'Элементы' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Страница {page} из {pages}',
   },
   facts: {
     stars: 'Звёзды',
@@ -236,6 +238,8 @@ export const ru: Messages = {
     theirProjects: 'Проекты, упомянутые в списках',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'Все {n} в элементах', few: 'Все {n} в элементах', many: 'Все {n} в элементах', other: 'Все {n} в элементах' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Ведёт: {lists} · В списках: {projects}',
   },
   search: {
     h1: 'Поиск',

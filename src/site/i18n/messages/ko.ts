@@ -116,6 +116,8 @@ export const ko: Messages = {
     separator: ', ',
     /** The labels over the columns of a listing's rows. */
     columns: { name: '이름', language: '언어', stars: '스타', lists: '목록', updated: '업데이트', items: '항목' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '{pages}페이지 중 {page}페이지',
   },
   facts: {
     stars: '스타',
@@ -232,6 +234,8 @@ export const ko: Messages = {
     theirProjects: '목록에 실린 프로젝트',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '항목에서 {n}개 모두 보기' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '관리하는 목록: {lists} · 목록에 실린 프로젝트: {projects}',
   },
   search: {
     h1: '검색',

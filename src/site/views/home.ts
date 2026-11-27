@@ -2,7 +2,7 @@
 import type { Db, ListRow } from '../db.js';
 import { html, join, type Html } from '../html.js';
 import { EMPTY_ITEMS, encodeParam, serialiseItems } from '../query.js';
-import { categoryName, itemRows, link, searchBox } from './components.js';
+import { categoryName, itemRows, link, searchBox, webSite } from './components.js';
 import type { Ctx } from './context.js';
 import { itemsNoindex } from './items.js';
 import { layout } from './layout.js';
@@ -28,15 +28,7 @@ function categoryLists(ctx: Ctx, lists: readonly ListRow[]): Html {
   return html`<ul class="grid">${out}</ul>`;
 }
 
-/** The WebSite of structured data, as the home page and the list pages name it. */
-export function webSite(ctx: Ctx): Record<string, unknown> {
-  return {
-    '@type': 'WebSite',
-    name: ctx.siteName,
-    url: ctx.origin + ctx.loc.href('/'),
-    inLanguage: ctx.loc.info.hreflang,
-  };
-}
+export { webSite } from './components.js';
 
 /** Lists shown as cards under "Start here". */
 const START_HERE = 12;

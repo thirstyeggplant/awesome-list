@@ -167,13 +167,37 @@ export function crumbs(loc: Loc, parts: readonly Part[]): Html {
   return html`<nav class="crumbs" aria-label="${loc.m.site.breadcrumb}">${join(parts, html`<span class="sep"> › </span>`)}</nav>`;
 }
 
-/** Previous and next. Both are inside the site; `rel` marks a target that is noindex. */
-export function pager(loc: Loc, prev: string | null, next: string | null, rel?: string): Html {
+/** Previous, where the reader is, and next. Both are inside the site; `rel` marks a target that is noindex. */
+export function pager(loc: Loc, prev: string | null, next: string | null, rel?: string, at?: { page: number; pages: number }): Html {
   if (prev === null && next === null) return html``;
   const a = (path: string, text: string): Html => link(loc, path, text, rel === undefined ? { cls: 'btn' } : { cls: 'btn', rel });
   return html`<nav class="pager">${prev === null ? html`<span></span>` : a(prev, loc.m.common.previous)}${
-    next === null ? html`<span></span>` : a(next, loc.m.common.next)
-  }</nav>`;
+    at === undefined ? '' : html`<span class="page-of">${loc.t(loc.m.common.pageOf, { page: loc.n(at.page), pages: loc.n(at.pages) })}</span>`
+  }${next === null ? html`<span></span>` : a(next, loc.m.common.next)}</nav>`;
+}
+
+/** The WebSite of structured data, as the pages that are part of it name it. */
+export function webSite(ctx: Ctx): Record<string, unknown> {
+  return { '@type': 'WebSite', name: ctx.siteName, url: absolute(ctx, '/'), inLanguage: ctx.loc.info.hreflang };
+}
+
+/** A CollectionPage whose main entity is the list of rows on the page, as /lists and /items describe themselves. */
+export function itemListLd(
+  ctx: Ctx, name: string, path: string, total: number, rows: readonly { path: string; name: string }[], firstPosition: number,
+): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    url: absolute(ctx, path),
+    inLanguage: ctx.loc.info.hreflang,
+    isPartOf: webSite(ctx),
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: total,
+      itemListElement: rows.map((r, i) => ({ '@type': 'ListItem', position: firstPosition + i, url: absolute(ctx, r.path), name: r.name })),
+    },
+  };
 }
 
 export function searchBox(loc: Loc, value: string | null, label = loc.m.common.searchListsAndItems): Html {

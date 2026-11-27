@@ -139,6 +139,16 @@ describe('routes', () => {
     expect(page).toContain('<span class="peek" translate="no">Gadgets, awesome-broken, ');
   });
 
+  it('says where a listing is: the one filter as its h1, the page of how many, jumps on search, an owner\'s line', async () => {
+    const go = await body('/items?lang=go');
+    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="h1-note">\d+ projects named by awesome lists<\/p>/);
+    expect(await body('/lists?license=mit')).toContain('<h1>MIT</h1>');
+    const search = await body('/search?q=project');
+    expect(search).toMatch(/<p class="jumps"><a href="#lists">Lists <span class="n">\d+<\/span><\/a>.*<a href="#items">Items <span class="n">\d+<\/span><\/a><\/p>/);
+    expect(search).toContain('<section id="items">');
+    expect(await body('/gh/own1')).toContain('<p class="owner-line">0 lists kept · 8 projects named by lists</p>');
+  });
+
   it('escapes hostile names and drops javascript: addresses', async () => {
     for (const p of ['/lists/delta/awesome-hostile', '/lists/alpha/awesome-widgets', `/item/${shortHash('https://example.com/hostile')}`, '/lists', '/']) {
       const page = await body(p);
@@ -287,7 +297,7 @@ describe('sitemaps', () => {
       expect(row.n).toBeLessThan(all.n);
       const files = Math.ceil(row.n / 10);
       const index = (await get('/sitemap.xml', {}, small)).body;
-      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(12 + files);
+      expect([...index.matchAll(/<sitemap>/g)]).toHaveLength(13 + files);
       expect(index).toContain('<loc>https://example.test/sitemaps/items-1.xml</loc>');
       let urls = 0;
       for (let n = 1; n <= files; n++) {

@@ -191,16 +191,17 @@ describe('sitemaps', () => {
     const keys = Array.from({ length: 85_000 }, (_, i) => `gh/o/r${i}`);
     const files = sitemaps({
       origin: 'https://example.test', dataDay: '2026-06-02', categories: ['tools'], lists: [{ slug: 'a/b', pushedDay: 20000 }],
-      owners: ['o'], itemKeys: keys,
+      owners: ['o'], itemKeys: keys, browse: ['/items?lang=go', '/items?topic=cli&x=1'],
     });
     expect([...files.keys()]).toEqual([
-      '/sitemap.xml', '/sitemaps/pages.xml', ...LOCALES.map((l) => `/sitemaps/lists-${l}.xml`), '/sitemaps/owners.xml',
+      '/sitemap.xml', '/sitemaps/pages.xml', ...LOCALES.map((l) => `/sitemaps/lists-${l}.xml`), '/sitemaps/browse.xml', '/sitemaps/owners.xml',
       '/sitemaps/items-1.xml', '/sitemaps/items-2.xml', '/sitemaps/items-3.xml',
     ]);
     const urls = (p: string): number => [...(files.get(p) ?? '').matchAll(/<url>/g)].length;
     expect([urls('/sitemaps/items-1.xml'), urls('/sitemaps/items-2.xml'), urls('/sitemaps/items-3.xml')]).toEqual([40_000, 40_000, 5_000]);
     expect(files.get('/sitemaps/items-3.xml')).toContain('<loc>https://example.test/gh/o/r84999</loc>');
-    expect([...(files.get('/sitemap.xml') ?? '').matchAll(/<sitemap>/g)]).toHaveLength(15);
+    expect([...(files.get('/sitemap.xml') ?? '').matchAll(/<sitemap>/g)]).toHaveLength(16);
+    expect(files.get('/sitemaps/browse.xml')).toContain('<url><loc>https://example.test/items?topic=cli&amp;x=1</loc></url>');
     expect(files.get('/sitemaps/items-1.xml')).not.toContain('<lastmod>');
     // A list's lastmod is its last push, and the index's is the latest in the file.
     expect(files.get('/sitemaps/lists-de.xml')).toContain('<loc>https://example.test/de/lists/a/b</loc><lastmod>2024-10-04</lastmod>');

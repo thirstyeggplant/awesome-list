@@ -116,6 +116,8 @@ export const es: Messages = {
     separator: ', ',
     /** The labels over the columns of a listing's rows. */
     columns: { name: 'Nombre', language: 'Lenguaje', stars: 'Estrellas', lists: 'Listas', updated: 'Actualizado', items: 'Elementos' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Página {page} de {pages}',
   },
   facts: {
     stars: 'Estrellas',
@@ -232,6 +234,8 @@ export const es: Messages = {
     theirProjects: 'Sus proyectos citados en listas',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'El único en Elementos', many: 'Los {n} en Elementos', other: 'Los {n} en Elementos' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Mantiene: {lists} · Citados por listas: {projects}',
   },
   search: {
     h1: 'Buscar',

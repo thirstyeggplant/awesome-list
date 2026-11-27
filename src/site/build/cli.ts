@@ -12,7 +12,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { categoryCoverage, readLanguage, summaryCoverage, TRANSLATIONS_DIR } from '../../translations.js';
-import { LOCAL_ORIGIN, OWNER_ITEMS, SITE_NAME } from '../config.js';
+import { LOCAL_ORIGIN, OWNER_ITEMS, SITE_NAME, TOPIC_STOP } from '../config.js';
+import { encodeParam } from '../query.js';
 import { OTHER_LOCALES } from '../i18n/locales.js';
 import { encodeFacets } from '../facets-file.js';
 import { alongside, type SectionEntries } from './alongside.js';
@@ -126,6 +127,24 @@ export function topOf(model: Pick<Model, 'terms'>): { langs: [string, string, nu
     .slice(0, TOP_LANGS)
     .map((t): [string, string, number] => [t.slug, t.label, t.itemCount]);
   return { langs };
+}
+
+/** At least this many items for a language, licence or kind page in browse.xml; a topic needs BROWSE_TOPIC. */
+export const BROWSE_MIN = 20;
+export const BROWSE_TOPIC = 50;
+
+/**
+ * The one-filter pages of /items offered in browse.xml: each well above the page's own thin threshold, so every
+ * address listed is indexed. English only, like every /items page with a filter.
+ */
+export function browseAddresses(model: Pick<Model, 'terms'>, kinds: Readonly<Record<string, number>>): string[] {
+  const out: string[] = [];
+  for (const t of model.terms) {
+    const enough = t.ns === 'topic' ? t.itemCount >= BROWSE_TOPIC && !TOPIC_STOP.has(t.slug) : t.itemCount >= BROWSE_MIN;
+    if (enough) out.push(`/items?${t.ns}=${encodeParam(t.slug)}`);
+  }
+  for (const [kind, n] of Object.entries(kinds)) if (n >= BROWSE_MIN) out.push(`/items?kind=${encodeParam(kind)}`);
+  return out;
 }
 
 /** Lists kept as related to a list, and the fewest projects two lists must share to be. */
@@ -417,6 +436,7 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
       categories: model.categories.map((c) => c.slug),
       lists: model.lists.map((l) => ({ slug: l.slug, pushedDay: l.pushedDay })),
       owners: owners.filter((o) => o.listCount > 0 || o.itemCount >= 2).map((o) => o.login),
+      browse: browseAddresses(model, coverage.itemsByKind),
       itemKeys: model.items.filter((i) => i.indexable).map((i) => i.key),
       ...(options.sitemapChunk === undefined ? {} : { chunk: options.sitemapChunk }),
     });

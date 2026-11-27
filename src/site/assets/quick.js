@@ -210,7 +210,7 @@
     });
     bar.appendChild(a);
     bar.appendChild(close);
-    var header = document.querySelector('header.top');
-    if (header && header.parentNode) header.parentNode.insertBefore(bar, header.nextSibling);
+    // Fixed at the foot of the window, so showing it moves nothing on the page.
+    document.body.appendChild(bar);
   }
 })();

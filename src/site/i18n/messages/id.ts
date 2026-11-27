@@ -116,6 +116,8 @@ export const id: Messages = {
     separator: ', ',
     /** The labels over the columns of a listing's rows. */
     columns: { name: 'Nama', language: 'Bahasa', stars: 'Bintang', lists: 'Daftar', updated: 'Diperbarui', items: 'Item' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Halaman {page} dari {pages}',
   },
   facts: {
     stars: 'Bintang',
@@ -232,6 +234,8 @@ export const id: Messages = {
     theirProjects: 'Proyek miliknya yang disebut daftar',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: 'Semua {n} di Item' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: 'Mengelola {lists} · {projects} disebut daftar',
   },
   search: {
     h1: 'Cari',

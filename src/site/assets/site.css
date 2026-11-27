@@ -80,7 +80,7 @@ body.narrow main{max-width:calc(52rem + 2 * var(--gutter))}
 .langs ul{columns:2;column-gap:var(--s6)}
 .langs li{break-inside:avoid}
 .langs a[aria-current]{color:var(--ink);font-weight:600}
-.lang-bar{margin:0;padding:var(--s2) max(var(--gutter),calc((100% - var(--wide)) / 2 + var(--gutter)));display:flex;gap:var(--s4);align-items:center;background:var(--accent-soft);font-size:var(--f-md)}
+.lang-bar{position:fixed;inset-inline:0;bottom:0;z-index:2;margin:0;padding:var(--s2) max(var(--gutter),calc((100% - var(--wide)) / 2 + var(--gutter)));padding-bottom:max(var(--s2),env(safe-area-inset-bottom));display:flex;gap:var(--s4);align-items:center;background:var(--accent-soft);border-top:1px solid var(--rule);font-size:var(--f-md)}
 .lang-bar a{font-weight:500;text-decoration:underline}
 .lang-bar button{margin-inline-start:auto;background:none;border:0;padding:0 var(--s2);color:var(--ink-2);font-size:1.25rem;line-height:1.5}
 
@@ -202,7 +202,15 @@ p.chips{margin:var(--s4) 0}
 .result-count .sorts a{color:var(--ink-2)}
 .result-count .sorts a:hover{color:var(--accent)}
 .result-count .sorts strong{font-weight:600;color:var(--ink);text-decoration:underline 2px var(--accent);text-underline-offset:.35em}
-.pager{display:flex;justify-content:space-between;margin-top:var(--s6)}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);margin-top:var(--s6)}
+.page-of{font-size:var(--f-md);color:var(--muted);text-align:center;font-variant-numeric:tabular-nums}
+.results .h1-note{margin:calc(-1 * var(--s3)) 0 var(--s4);font-size:var(--f-md);color:var(--muted)}
+.jumps{margin:0 0 var(--s4);font-size:var(--f-md);color:var(--muted)}
+.jumps a{color:var(--ink-2);white-space:nowrap}
+.jumps a:hover{color:var(--accent)}
+.jumps .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.owner-page .repo-link{margin-bottom:var(--s1)}
+.owner-line{margin:0;font-size:var(--f-md);color:var(--muted)}
 .narrow-down,.unparsed,.is-list{margin:var(--s4) 0;padding:var(--s3) var(--s4);background:var(--sunk);border-inline-start:3px solid var(--warn);border-radius:var(--radius-s)}
 .is-list{background:var(--accent-soft);border-color:var(--accent)}
 .unparsed{max-width:var(--measure);margin-top:var(--s5)}
@@ -432,7 +440,7 @@ input[type=search],input[type=text]{font-size:1rem}
 .top-search{order:2;flex:1 1 8rem;margin:0}
 .nav{order:3;flex:1 0 auto;width:100%;margin-top:var(--s1)}
 .nav a{flex:1;justify-content:center;min-height:2.75rem;padding:0 var(--s1);font-size:var(--f-base)}
-.lang-bar{min-height:2.25rem;padding-block:0;font-size:var(--f-sm)}
+.lang-bar{min-height:2.25rem;padding-top:0;padding-bottom:env(safe-area-inset-bottom);font-size:var(--f-sm)}
 .lang-bar a{padding-block:var(--s2)}
 .lang-bar button{position:relative;align-self:stretch;min-width:2.75rem;margin-inline-end:calc(-1 * var(--s3))}
 .lang-bar button::after{content:"";position:absolute;inset:-.25rem 0}
@@ -464,6 +472,9 @@ input[type=search],input[type=text]{font-size:1rem}
 .list-filter input:placeholder-shown + output{display:none}
 .sh .anchor{padding:.9375rem var(--s3);margin-block:-.9375rem}
 .pager{margin-top:var(--s5)}
+.result-count{white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.result-count::-webkit-scrollbar{display:none}
+.result-count .total{display:block}
 .listing .name{padding-block:var(--s2)}
 .listing .path a,.crumbs a{display:inline-block;padding-block:.75rem}
 .crumbs{margin-top:var(--s2)}

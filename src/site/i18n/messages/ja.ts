@@ -116,6 +116,8 @@ export const ja: Messages = {
     separator: '、',
     /** The labels over the columns of a listing's rows. */
     columns: { name: '名前', language: '言語', stars: 'スター', lists: 'リスト', updated: '更新', items: '項目' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '{page} / {pages} ページ',
   },
   facts: {
     stars: 'スター',
@@ -232,6 +234,8 @@ export const ja: Messages = {
     theirProjects: 'リストに掲載されたプロジェクト',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '項目ページで全{n}件を見る' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '管理するリスト: {lists} · リストに掲載: {projects}',
   },
   search: {
     h1: '検索',

@@ -24,6 +24,9 @@ export interface Page {
   scripts?: ('listfilter')[];
   /** The value of the header's search box. */
   q?: string | null;
+  /** The previous and next page of a listing (paths, unprefixed), for <link rel="prev"> and "next". */
+  prev?: string | null;
+  next?: string | null;
   /** Structured data, written only on a page that is its own canonical. */
   jsonLd?: readonly unknown[];
 }
@@ -108,7 +111,9 @@ ${page.description ? html`<meta name="description" content="${page.description}"
     canonical === null ? '' : html`<link rel="canonical" href="${canonical}">\n`
   }${indexing === 'none' ? html`<meta name="robots" content="noindex,follow">\n` : ''}${alts.map(
     (a) => html`<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">\n`,
-  )}${og}
+  )}${page.prev ? html`<link rel="prev" href="${ctx.origin}${loc.href(page.prev)}">\n` : ''}${
+    page.next ? html`<link rel="next" href="${ctx.origin}${loc.href(page.next)}">\n` : ''
+  }${og}
 <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141517" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.ico" sizes="32x32">

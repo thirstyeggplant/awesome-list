@@ -124,6 +124,8 @@ export const en = {
     separator: ', ',
     /** The labels over the columns of a listing's rows. */
     columns: { name: 'Name', language: 'Language', stars: 'Stars', lists: 'Lists', updated: 'Updated', items: 'Items' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: 'Page {page} of {pages}',
   },
   facts: {
     stars: 'Stars',
@@ -240,6 +242,8 @@ export const en = {
     theirProjects: 'Their projects named by lists',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'All {n} in Items', other: 'All {n} in Items' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '{lists} kept · {projects} named by lists',
   },
   search: {
     h1: 'Search',

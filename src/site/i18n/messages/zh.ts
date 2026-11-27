@@ -116,6 +116,8 @@ export const zh: Messages = {
     separator: '、',
     /** The labels over the columns of a listing's rows. */
     columns: { name: '名称', language: '语言', stars: '星标', lists: '清单', updated: '更新', items: '条目' },
+    /** Between the pager's two buttons: where the reader is. */
+    pageOf: '第 {page} 页，共 {pages} 页',
   },
   facts: {
     stars: '星标',
@@ -232,6 +234,8 @@ export const zh: Messages = {
     theirProjects: '被清单收录的项目',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '在条目页查看全部 {n} 个' }),
+    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
+    line: '维护的清单：{lists} · 被清单收录的项目：{projects}',
   },
   search: {
     h1: '搜索',
