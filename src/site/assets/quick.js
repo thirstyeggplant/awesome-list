@@ -1,4 +1,4 @@
-// Quick search: Ctrl/⌘-K or / opens a dialog with a combobox. Without script the header's form goes to /search.
+// Quick search: Ctrl/⌘-K or / (on a phone, a tap on the header's search field) opens a dialog with a combobox. Without script the header's form goes to /search.
 // The words come from data-* attributes the server wrote in the page's language; numbers follow <html lang>;
 // links keep the page's language prefix (data-prefix on <html>). Below: the suggestion of a better language.
 (function () {
@@ -58,6 +58,17 @@
       open();
     }
   });
+
+  // On a phone there is no key to press: the header's search field opens the dialog when it is tapped.
+  var field = document.querySelector('.top-search input');
+  if (field && window.matchMedia) {
+    field.addEventListener('focus', function () {
+      if (!window.matchMedia('(max-width: 40rem)').matches) return;
+      field.blur();
+      input.value = field.value;
+      open();
+    });
+  }
 
   function setActive(i) {
     active = i;
@@ -148,6 +159,12 @@
       e.preventDefault();
       location.href = options[active].dataset.href;
     }
+  });
+
+  // A tap beside the dialog closes it: on a phone there is no Esc. The form fills the dialog, so only its
+  // backdrop is the dialog itself.
+  dialog.addEventListener('click', function (e) {
+    if (e.target === dialog) dialog.close();
   });
 
   dialog.addEventListener('close', function () {
