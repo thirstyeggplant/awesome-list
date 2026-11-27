@@ -45,6 +45,19 @@ export const ja: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: '閉じる',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: '共有',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: '{service} で共有',
+    /** The email link's name. */
+    email: 'メールで共有',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'リンクをコピー',
+    copied: 'コピーしました',
+    /** A button that opens the phone's own share sheet. */
+    native: '共有…',
+  },
   count: {
     lists: p({ other: '{n}件のリスト' }),
     items: p({ other: '{n}件の項目' }),

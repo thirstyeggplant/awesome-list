@@ -7,6 +7,7 @@ import type { Ctx } from './context.js';
 import { webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { shareRow } from './share.js';
 
 /** Other projects of the same owner shown on an item's page. */
 const MORE_FROM_OWNER = 6;
@@ -121,6 +122,15 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
       ])
     : '';
 
+  const repo = `${display}/${item.repoName ?? ''}`;
+  let title: string;
+  if (listCount === 1 && firstList) {
+    title = isRepo ? loc.t(m.meta.item.repoTitleOne, { repo, list: firstList.name }) : loc.t(m.meta.item.titleOne, { name: item.name, list: firstList.name });
+  } else {
+    title = isRepo ? loc.plural(m.meta.item.repoTitle, listCount, { repo }) : loc.plural(m.meta.item.title, listCount, { name: item.name });
+  }
+  const head = { route: 'item' as const, title, canonical: `/${item.key}`, noindex: !item.indexable };
+
   const href = safeHref(item.url);
   const go = href === null
     ? ''
@@ -142,6 +152,7 @@ ${facts([
 ])}
 ${isRepo ? html`<p class="note">${loc.t(m.item.factsAsOf, { date: loc.dayIso(ctx.meta.dataFinished) })}</p>` : ''}
 ${topics.length > 0 ? html`<p class="side-label">${m.item.topics}</p><p class="chips">${join(topics, ' ')}</p>` : ''}
+${shareRow(ctx, head)}
 </aside>`;
   const ownerName = html`<span translate="no">${display}</span>`;
   const main = html`<article class="item-page">
@@ -165,14 +176,7 @@ ${fromOwner.length > 0 && ownerRow !== null ? html`<section><h2>${loc.h(m.item.m
 </article>`;
 
   const description = describe(ctx, item, isRepo, listIds, first, along);
-  const repo = `${display}/${item.repoName ?? ''}`;
   const licenseUrl = license ? spdx(license[1]) : null;
-  let title: string;
-  if (listCount === 1 && firstList) {
-    title = isRepo ? loc.t(m.meta.item.repoTitleOne, { repo, list: firstList.name }) : loc.t(m.meta.item.titleOne, { name: item.name, list: firstList.name });
-  } else {
-    title = isRepo ? loc.plural(m.meta.item.repoTitle, listCount, { repo }) : loc.plural(m.meta.item.title, listCount, { name: item.name });
-  }
   const url = absolute(ctx, `/${item.key}`);
   const ld: Record<string, unknown>[] = [];
   if (firstList) ld.push(breadcrumbLd(ctx, [[m.nav.lists, '/lists'], [firstList.name, `/lists/${firstList.slug}`], [isRepo ? (item.repoName ?? item.name) : item.name, `/${item.key}`]]));
@@ -198,11 +202,8 @@ ${fromOwner.length > 0 && ownerRow !== null ? html`<section><h2>${loc.h(m.item.m
 
   return page(
     layout(ctx, {
-      route: 'item',
-      title,
+      ...head,
       description,
-      canonical: `/${item.key}`,
-      noindex: !item.indexable,
       main,
       jsonLd: ld,
     }),

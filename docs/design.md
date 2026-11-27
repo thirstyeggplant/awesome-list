@@ -80,6 +80,7 @@ A 4px grid: `--s1` 0.25rem, `--s2` 0.5, `--s3` 0.75, `--s4` 1, `--s5` 1.5, `--s6
 - **Pager.** Two bordered buttons at the two ends, and between them "Page N of M" in muted text.
 - **Buttons.** `.btn` is bordered; `.btn.primary` is the accent. A page has at most one primary: on an item page it is the one outbound link ("Open on GitHub ↗", "Visit {host} ↗"), with the address under it in mono as text, not a second link.
 - **Quick search.** A dialog with the only shadow on the site; the option chosen takes `--accent-soft`.
+- **Share row** (`.share`, `src/site/views/share.ts`). One quiet line: the upper-case label "Share", then small icons (18px, drawn inline with `currentColor`, muted; pointed at, the accent on a sunk fill): X, Bluesky, LinkedIn, Reddit, Hacker News, email, then two buttons that only script shows, Copy link and Share… (where `navigator.share` exists). Each link and button is named in the page's language (`aria-label` and `title`). No brand colours, no image, font or script from anyone else, no tracking parameters. After a copy, "Copied" in the accent beside the icons for two seconds (`role="status"`). Only on the pages worth sharing: a list (under the facts, in the head's side column), an item (at the foot of the sticky side column, under the topics), an owner (under the line of counts), the home page (at the end of its head) and `/items` with exactly one language or one topic, no search and the default sort (under the `h1`'s note). Never on search, a combination of filters, a sort, a later page, or 404.
 
 ## Page by page
 
@@ -107,6 +108,7 @@ A phone is not the desktop page squeezed: what is beside the content on a wide s
 - **An item.** One column: breadcrumb, name, button, the state's sentence, facts, topics, In N lists, Listed alongside, More from the owner, attribution.
 - **Listings.** The sort line is one line that scrolls sideways.
 - **Header.** Two rows, 100px: the mark and name with the search field beside them; then Lists, Items and About as three equal tabs, which fit in every language at 320px. A tap on the field opens quick search (there is no key to press), and a tap beside the dialog closes it. The bar that offers another language is one line, 36px, fixed at the foot of the window (`position: fixed`, appended to `<body>`), so showing it moves nothing on the page.
+- **Share row.** The label is hidden (the group keeps its name for screen readers) and the icons are 44px tall and 42px wide, so the eight fit one line at 375px with the first glyph on the gutter: the row adds one line of 44px under what it follows.
 - **Touch.** A field, a button, a tab, a row's name, a value in a sheet, a link of the footer: 44px. Fields are 16px so iOS does not zoom. The chips inside a row are 26px, on purpose: they are a second way to the same filters, and three targets of 44px would crowd the name. Links inside a sentence are as tall as their line.
 - **Edges.** `viewport-fit=cover`, and the gutters are at least the safe-area insets (`--gl`, `--gr`); a sheet and the footer add the bottom inset.
 
@@ -124,4 +126,4 @@ No new words: every label is a message that already existed. One test changed wi
 
 ## Weight
 
-`site.css` is about 34 KB, about 8 KB compressed (over the 32 KB the design aimed at: the cards, the header row, the item page's grid and the phone row's flex form); no font, no image but the icons, no new script. The row's two-line form uses a container query, the palette `light-dark()`, the primary button's hover `color-mix()`: all in the browsers the site already needed for `light-dark()`.
+`site.css` is about 34 KB, about 8 KB compressed (over the 32 KB the design aimed at: the cards, the header row, the item page's grid and the phone row's flex form); no font, no image but the icons, no new script (the share row's two buttons are in `quick.js`, which every page already loads). The row's two-line form uses a container query, the palette `light-dark()`, the primary button's hover `color-mix()`: all in the browsers the site already needed for `light-dark()`.

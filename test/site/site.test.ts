@@ -314,6 +314,78 @@ describe('routes', () => {
   });
 });
 
+describe('sharing', () => {
+  const unescape = (t: string): string =>
+    t.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  const meta = (page: string, attr: string, name: string): string | null =>
+    new RegExp(`<meta ${attr}="${name}" content="([^"]*)">`).exec(page)?.[1] ?? null;
+  const shareRow = (page: string): string | null => /<div class="share"[\s\S]*?<\/ul>/.exec(page)?.[0] ?? null;
+  const hrefs = (row: string): string[] => [...row.matchAll(/<a href="([^"]*)"/g)].map((m) => unescape(m[1] ?? ''));
+
+  for (const path of ['/lists/alpha/awesome-widgets', '/gh/acme/rocket']) {
+    it(`links to the services with the canonical address, encoded, on ${path}`, async () => {
+      const page = await body(path);
+      const canonical = /<link rel="canonical" href="([^"]*)">/.exec(page)?.[1] ?? '';
+      expect(canonical).toBe(`${ORIGIN}${path}`);
+      const title = unescape(meta(page, 'property', 'og:title') ?? '');
+      expect(title).not.toBe('');
+      const row = shareRow(page) ?? '';
+      expect(row).not.toBe('');
+      const u = encodeURIComponent(canonical);
+      const t = encodeURIComponent(title);
+      expect(hrefs(row)).toEqual([
+        `https://x.com/intent/post?text=${t}&url=${u}`,
+        `https://bsky.app/intent/compose?text=${encodeURIComponent(`${title} ${canonical}`)}`,
+        `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+        `https://www.reddit.com/submit?url=${u}&title=${t}`,
+        `https://news.ycombinator.com/submitlink?u=${u}&t=${t}`,
+        `mailto:?subject=${t}&body=${u}`,
+      ]);
+      expect(u).toContain('https%3A%2F%2Fexample.test%2F');
+      // A new tab for each service, no referrer, a name in the page's language; the buttons wait for script.
+      expect(row.match(/target="_blank" rel="noopener noreferrer" aria-label="Share on [^"]+"/g)).toHaveLength(5);
+      expect(row).toContain('aria-label="Share by email"');
+      expect(row).toContain('<li hidden><button type="button" class="share-copy" aria-label="Copy link"');
+      expect(row).toContain('<li hidden><button type="button" class="share-native" aria-label="Share…"');
+      expect(page).toContain('aria-live="polite"');
+      expect(row).not.toMatch(/utm_|<img|<script|style=/);
+    });
+  }
+
+  it('is on the home page, an owner and one language or topic of /items, in the page’s language', async () => {
+    for (const path of ['/', '/gh/acme', '/items?lang=go', '/items?topic=cli']) expect(shareRow(await body(path)), path).not.toBeNull();
+    const es = await body('/es/lists/alpha/awesome-widgets');
+    expect(shareRow(es)).toContain(`url=${encodeURIComponent(`${ORIGIN}/es/lists/alpha/awesome-widgets`)}`);
+    expect(es).toContain('aria-label="Compartir en X"');
+  });
+
+  it('is not on search, a combination of filters, a sort or 404', async () => {
+    for (const path of ['/search?q=rocket', '/search', '/items?q=rocket', '/items?lang=go&stars=1000', '/items?lang=go&sort=name', '/items', '/nope']) {
+      expect(shareRow((await get(path)).body), path).toBeNull();
+    }
+  });
+
+  it('keeps the CSP as it was, with no inline script on a page that shares', async () => {
+    for (const path of ['/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/']) {
+      const r = await get(path);
+      expect(r.headers.get('Content-Security-Policy')).toBe("default-src 'self'");
+      expect(r.body.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')).not.toMatch(/<script(?![^>]*\ssrc=)/);
+      expect(r.body).not.toMatch(/\son[a-z]+="/);
+    }
+  });
+
+  it('gives every page that shares its image and the Twitter tags', async () => {
+    for (const path of ['/', '/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/gh/acme', '/items?lang=go']) {
+      const page = await body(path);
+      expect(meta(page, 'property', 'og:image'), path).toMatch(/^https:\/\/example\.test\/assets\/[0-9a-f]{10}\/og\.png$/);
+      expect(meta(page, 'property', 'og:image:alt'), path).toBe('Shelf');
+      expect(meta(page, 'name', 'twitter:card'), path).toBe('summary_large_image');
+      expect(meta(page, 'name', 'twitter:title'), path).toBe(meta(page, 'property', 'og:title'));
+      expect(meta(page, 'name', 'twitter:description'), path).toBe(meta(page, 'property', 'og:description'));
+    }
+  });
+});
+
 describe('sitemaps', () => {
   it('lists indexable items, split by the chunk size', async () => {
     const small = await makeFixture({ sitemapChunk: 10 });

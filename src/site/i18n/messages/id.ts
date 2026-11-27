@@ -45,6 +45,19 @@ export const id: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: 'Tutup',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: 'Bagikan',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: 'Bagikan ke {service}',
+    /** The email link's name. */
+    email: 'Bagikan lewat email',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'Salin tautan',
+    copied: 'Disalin',
+    /** A button that opens the phone's own share sheet. */
+    native: 'Bagikan…',
+  },
   count: {
     lists: p({ other: '{n} daftar' }),
     items: p({ other: '{n} item' }),

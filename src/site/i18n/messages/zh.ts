@@ -45,6 +45,19 @@ export const zh: Messages = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: '关闭',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: '分享',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: '分享到 {service}',
+    /** The email link's name. */
+    email: '通过电子邮件分享',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: '复制链接',
+    copied: '已复制',
+    /** A button that opens the phone's own share sheet. */
+    native: '分享…',
+  },
   count: {
     lists: p({ other: '{n} 个清单' }),
     items: p({ other: '{n} 个条目' }),

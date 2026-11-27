@@ -1,6 +1,7 @@
 // Quick search: Ctrl/⌘-K or / (on a phone, a tap on the header's search field) opens a dialog with a combobox. Without script the header's form goes to /search.
 // The words come from data-* attributes the server wrote in the page's language; numbers follow <html lang>;
-// links keep the page's language prefix (data-prefix on <html>). Below: the suggestion of a better language.
+// links keep the page's language prefix (data-prefix on <html>). Below: the suggestion of a better language, and the
+// share row's two buttons (Copy link, and Share… where the system has a share sheet), hidden until this shows them.
 (function () {
   'use strict';
   var root = document.documentElement;
@@ -25,6 +26,7 @@
   }
 
   suggest();
+  share();
 
   var dialog = document.getElementById('quick');
   var input = document.getElementById('quick-input');
@@ -212,5 +214,37 @@
     bar.appendChild(close);
     // Fixed at the foot of the window, so showing it moves nothing on the page.
     document.body.appendChild(bar);
+  }
+
+  /** The share row's buttons: shown only where they can work; the links beside them need no script. */
+  function share() {
+    var rows = document.querySelectorAll('.share');
+    for (var i = 0; i < rows.length; i++) wire(rows[i]);
+  }
+
+  function wire(row) {
+    var url = row.getAttribute('data-url') || location.href;
+    var title = row.getAttribute('data-title') || document.title;
+    var copy = row.querySelector('.share-copy');
+    var native = row.querySelector('.share-native');
+    var status = row.querySelector('.share-status');
+    var timer = 0;
+    if (copy && navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      copy.parentNode.hidden = false;
+      copy.addEventListener('click', function () {
+        navigator.clipboard.writeText(url).then(function () {
+          if (!status) return;
+          status.textContent = copy.getAttribute('data-copied') || '';
+          clearTimeout(timer);
+          timer = setTimeout(function () { status.textContent = ''; }, 2000);
+        }, function () { /* nothing was copied; nothing to say */ });
+      });
+    }
+    if (native && typeof navigator.share === 'function') {
+      native.parentNode.hidden = false;
+      native.addEventListener('click', function () {
+        navigator.share({ title: title, url: url }).catch(function () { /* closed without sharing */ });
+      });
+    }
   }
 })();

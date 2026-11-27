@@ -53,6 +53,19 @@ export const en = {
     /** The label of the bar's close button (for screen readers), also in this file's own language. */
     close: 'Close',
   },
+  share: {
+    /** The share row on a list, an item, an owner, the home page and a language or topic of /items: its label. */
+    label: 'Share',
+    /** A share link's name (for screen readers and as its tooltip). {service} is X, Bluesky, LinkedIn, Reddit or Hacker News. */
+    on: 'Share on {service}',
+    /** The email link's name. */
+    email: 'Share by email',
+    /** A button that copies the page's address; then, for a moment, what it says it did. */
+    copy: 'Copy link',
+    copied: 'Copied',
+    /** A button that opens the phone's own share sheet. */
+    native: 'Share…',
+  },
   count: {
     lists: p({ one: '{n} list', other: '{n} lists' }),
     items: p({ one: '{n} item', other: '{n} items' }),
