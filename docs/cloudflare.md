@@ -69,8 +69,10 @@ Nothing in the shared path uses Node: no gzip, `Buffer`, LRU, `node:fs` or `node
 - Workers Caching does the caching, with no Cache API code. `Cache-Control` is unchanged.
 - The ETag is the build id; the Worker answers 304 before any query.
 - Cloudflare compresses, so `Content-Encoding`, `Content-Length` and `Vary` are dropped.
-- CSP, `nosniff` and the referrer policy are on every Worker response. `_headers` covers assets: `/assets/*` immutable for a year; sitemaps and robots `max-age=3600, s-maxage=86400`; `nosniff` on everything.
+- CSP, `nosniff`, the referrer policy and HSTS are on every Worker response. `_headers` covers assets: `/assets/*` immutable for a year; sitemaps and robots `max-age=3600, s-maxage=86400`; `nosniff` on everything.
 - Redirects stay in the Worker.
+- **Plain http goes to https.** The Worker's first step, before the method or anything in the database: a request whose address is `http:` to any host but `localhost`, `127.0.0.1` or `[::1]` is answered 301 to the same address with `https:` (no port), `Cache-Control: public, max-age=3600` (`httpsAddress` in `src/site/http.ts`). Static files are served before the Worker, so a plain-http request for one of them never reaches it: Cloudflare's "Always Use HTTPS" setting for the zone covers those.
+- **`Strict-Transport-Security: max-age=31536000`** (no `includeSubDomains`, no `preload`) is on every Worker answer, the redirect included, and on every static file through `_headers` (`/*`). A browser ignores it on a plain-http answer (RFC 6797, 8.1), so `pnpm serve` on `http://localhost` is unchanged.
 - `/healthz` reads `meta.build_id` and answers 503 when it differs from `env.BUILD_ID`, `no-store`.
 
 ## The nightly job

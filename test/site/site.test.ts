@@ -247,6 +247,34 @@ describe('routes', () => {
     expect(s.headers.get('Cache-Control')).toBe('no-store');
   });
 
+  it('sends plain http to https before anything else, except on this computer', async () => {
+    for (const [from, to] of [
+      ['http://weeklymatcha.com/', 'https://weeklymatcha.com/'],
+      ['http://weeklymatcha.com/lists?category=tools&page=2', 'https://weeklymatcha.com/lists?category=tools&page=2'],
+      ['http://www.weeklymatcha.com:80/de/gh/acme/rocket', 'https://www.weeklymatcha.com/de/gh/acme/rocket'],
+    ]) {
+      const r = await fixture.app(new Request(from ?? ''));
+      expect(r.status, from).toBe(301);
+      expect(r.headers.get('Location'), from).toBe(to);
+      expect(r.headers.get('Cache-Control'), from).toBe('public, max-age=3600');
+    }
+    // Even a POST, which would otherwise be a 405: nothing is asked of the database first.
+    expect((await fixture.app(new Request('http://weeklymatcha.com/', { method: 'POST' }))).status).toBe(301);
+    for (const local of ['http://localhost:8080/lists', 'http://127.0.0.1:8080/lists', 'http://[::1]:8080/lists']) {
+      expect((await fixture.app(new Request(local))).status, local).toBe(200);
+    }
+  });
+
+  it('asks browsers to come back over https for a year, on every answer of the Worker and every static file', async () => {
+    for (const p of ['/', '/lists', '/nope', '/api/quick?q=ro', '/healthz']) {
+      expect((await get(p)).headers.get('Strict-Transport-Security'), p).toBe('max-age=31536000');
+    }
+    expect((await fixture.app(new Request('http://weeklymatcha.com/'))).headers.get('Strict-Transport-Security')).toBe('max-age=31536000');
+    for (const p of [await cssPath(), '/robots.txt', '/favicon.ico']) {
+      expect((await get(p)).headers.get('Strict-Transport-Security'), p).toBe('max-age=31536000');
+    }
+  });
+
   it('sends the static files with their own headers', async () => {
     const asset = await get(await cssPath());
     expect(asset.headers.get('Cache-Control')).toBe('public, max-age=31536000, immutable');

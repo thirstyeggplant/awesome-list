@@ -5,6 +5,7 @@ import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import { CACHE, SITEMAP_CHUNK } from '../config.js';
 import { escape } from '../html.js';
+import { SECURITY_HEADERS } from '../http.js';
 import { isoDay } from '../i18n/format.js';
 import { alternates } from '../i18n/indexing.js';
 import { LOCALES, localePath, type Locale } from '../i18n/locales.js';
@@ -162,6 +163,7 @@ export function headersFile(): string {
   return [
     '/*',
     '  X-Content-Type-Options: nosniff',
+    `  Strict-Transport-Security: ${SECURITY_HEADERS['Strict-Transport-Security'] ?? ''}`,
     '/assets/*',
     `  Cache-Control: ${CACHE.asset}`,
     '/sitemap.xml',

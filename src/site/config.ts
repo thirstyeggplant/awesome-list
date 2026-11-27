@@ -41,6 +41,8 @@ export const CACHE = {
   /** The icons and the manifest, at fixed addresses. */
   icon: 'public, max-age=86400',
   health: 'no-store',
+  /** The redirect from plain http to https. */
+  toHttps: 'public, max-age=3600',
 } as const;
 
 /**

@@ -213,10 +213,12 @@ describe('sitemaps', () => {
     const rules = parseHeaders(headersFile());
     const of = (path: string): Record<string, string> =>
       Object.fromEntries(rules.filter((r) => r.pattern.test(path)).flatMap((r) => r.headers));
-    expect(of('/assets/0123456789/site.css')).toEqual({ 'X-Content-Type-Options': 'nosniff', 'Cache-Control': 'public, max-age=31536000, immutable' });
+    expect(of('/assets/0123456789/site.css')).toEqual({
+      'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000', 'Cache-Control': 'public, max-age=31536000, immutable',
+    });
     expect(of('/sitemaps/items-1.xml')['Cache-Control']).toBe('public, max-age=3600, s-maxage=86400');
     expect(of('/robots.txt')['Cache-Control']).toBe('public, max-age=3600, s-maxage=86400');
-    expect(of('/_data/facets.bin')).toEqual({ 'X-Content-Type-Options': 'nosniff' });
+    expect(of('/_data/facets.bin')).toEqual({ 'X-Content-Type-Options': 'nosniff', 'Strict-Transport-Security': 'max-age=31536000' });
     expect(of('/favicon.ico')['Cache-Control']).toBe('public, max-age=86400');
     expect(of('/site.webmanifest')['Cache-Control']).toBe('public, max-age=86400');
   });
