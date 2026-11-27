@@ -136,6 +136,16 @@ export const ko: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · {date} 기준 데이터',
     mostNamed: '가장 많은 목록에 실린 항목',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '언어별로 보기',
+    allProjects: '모든 프로젝트',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: '여기서 시작하기',
+    allLists: p({ other: '목록 {n}개 모두' }),
+    /** A heading over every list, category by category. */
+    byCategory: '카테고리별 전체 목록',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '2개 이상의 목록에 실린 모든 프로젝트',
   },
   lists: {
     h1: '목록',

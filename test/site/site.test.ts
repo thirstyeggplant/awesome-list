@@ -126,6 +126,19 @@ describe('routes', () => {
     expect(await body('/lists?category=tools')).not.toContain('class="chip" href="/lists?category=tools"');
   });
 
+  it('makes a home page that starts somewhere: languages, the lists with the most stars, then every category', async () => {
+    const page = await body('/');
+    expect(ctx.meta.top.langs.map(([slug]) => slug)).toEqual(['go', 'cplusplus', 'rust']);
+    expect(page).toMatch(/<p class="by-lang">.*<a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a>/);
+    const h2 = [...page.matchAll(/<h2[^>]*>([^<]*)</g)].map((x) => x[1]);
+    expect(h2).toEqual(['Start here', 'Named by the most lists', 'All lists by category']);
+    expect([...page.matchAll(/<h3><a href="\/lists\?category=/g)]).toHaveLength(ctx.categories.length);
+    // Cards for the lists with the most stars, leaving out what could not be read.
+    expect(page).toContain('<li class="card"><a class="card-name serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a>');
+    expect(page).not.toContain('class="card-name serif" href="/lists/gamma/awesome-broken"');
+    expect(page).toContain('<span class="peek" translate="no">Gadgets, awesome-broken, ');
+  });
+
   it('escapes hostile names and drops javascript: addresses', async () => {
     for (const p of ['/lists/delta/awesome-hostile', '/lists/alpha/awesome-widgets', `/item/${shortHash('https://example.com/hostile')}`, '/lists', '/']) {
       const page = await body(p);

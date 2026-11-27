@@ -136,6 +136,16 @@ export const de: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · Datenstand {date}',
     mostNamed: 'Von den meisten Listen genannt',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Nach Sprache stöbern',
+    allProjects: 'Alle Projekte',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Hier anfangen',
+    allLists: p({ one: '{n} Liste', other: 'Alle {n} Listen' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Alle Listen nach Kategorie',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Alle Projekte, die von 2 oder mehr Listen genannt werden',
   },
   lists: {
     h1: 'Listen',

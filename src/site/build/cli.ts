@@ -115,6 +115,19 @@ function codeHash(): string {
   return h.digest('hex');
 }
 
+/** Languages on the home page's line of them. */
+export const TOP_LANGS = 12;
+
+/** meta.top: what the home page shows without reading terms.json, the languages with the most items. */
+export function topOf(model: Pick<Model, 'terms'>): { langs: [string, string, number][] } {
+  const langs = model.terms
+    .filter((t) => t.ns === 'lang')
+    .sort((a, b) => b.itemCount - a.itemCount || a.label.localeCompare(b.label))
+    .slice(0, TOP_LANGS)
+    .map((t): [string, string, number] => [t.slug, t.label, t.itemCount]);
+  return { langs };
+}
+
 interface LoadInput {
   model: Model;
   meta: [string, string][];
@@ -302,6 +315,7 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     ['counts', JSON.stringify(counts)],
     ['coverage', JSON.stringify(coverage)],
     ['assets', JSON.stringify(assetPaths)],
+    ['top', JSON.stringify(topOf(model))],
   ];
 
   const tag = `tmp-${process.pid}`;

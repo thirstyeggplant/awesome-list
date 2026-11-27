@@ -140,6 +140,16 @@ export const ru: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · данные на {date}',
     mostNamed: 'Чаще всего в списках',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'По языкам',
+    allProjects: 'Все проекты',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'С чего начать',
+    allLists: p({ one: '{n} список', few: 'Все {n} списка', many: 'Все {n} списков', other: 'Все {n} списка' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Все списки по категориям',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Все проекты, упомянутые в 2 списках и более',
   },
   lists: {
     h1: 'Списки',

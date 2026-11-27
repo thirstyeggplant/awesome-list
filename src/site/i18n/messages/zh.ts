@@ -136,6 +136,16 @@ export const zh: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · 数据日期 {date}',
     mostNamed: '被最多清单收录',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '按语言浏览',
+    allProjects: '全部项目',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: '从这里开始',
+    allLists: p({ other: '全部 {n} 个清单' }),
+    /** A heading over every list, category by category. */
+    byCategory: '按分类浏览全部清单',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '所有被 2 个及以上清单收录的项目',
   },
   lists: {
     h1: '清单',

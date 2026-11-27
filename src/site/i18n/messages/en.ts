@@ -144,6 +144,16 @@ export const en = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · data of {date}',
     mostNamed: 'Named by the most lists',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Browse by language',
+    allProjects: 'All projects',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Start here',
+    allLists: p({ one: '{n} list', other: 'All {n} lists' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'All lists by category',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'All projects named by 2 or more lists',
   },
   lists: {
     h1: 'Lists',

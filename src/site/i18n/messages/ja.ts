@@ -136,6 +136,16 @@ export const ja: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · {date}時点のデータ',
     mostNamed: '最も多くのリストに掲載',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: '言語で探す',
+    allProjects: 'すべてのプロジェクト',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'まずはここから',
+    allLists: p({ other: '全{n}件のリスト' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'カテゴリ別のすべてのリスト',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: '2件以上のリストに掲載されたすべてのプロジェクト',
   },
   lists: {
     h1: 'リスト',

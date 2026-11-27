@@ -136,6 +136,16 @@ export const id: Messages = {
     /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
     counts: '{lists} · {items} · {listings} · data per {date}',
     mostNamed: 'Paling banyak disebut daftar',
+    /** The line of the most common languages under the counts, and the link after them to every project. */
+    browseByLanguage: 'Jelajahi menurut bahasa',
+    allProjects: 'Semua proyek',
+    /** A heading over the lists with the most stars, as cards; then a link to every list. */
+    startHere: 'Mulai di sini',
+    allLists: p({ other: 'Semua {n} daftar' }),
+    /** A heading over every list, category by category. */
+    byCategory: 'Semua daftar menurut kategori',
+    /** Under the items named by the most lists: a link to all of those named by two or more. */
+    namedByTwo: 'Semua proyek yang disebut 2 daftar atau lebih',
   },
   lists: {
     h1: 'Daftar',
