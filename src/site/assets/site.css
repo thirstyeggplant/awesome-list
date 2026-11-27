@@ -167,7 +167,7 @@ p.chips{margin:var(--s4) 0}
 .section-row .name{white-space:normal}
 .section-row .in{padding-top:.8125rem}
 .rows-head{display:none}
-.row.item{display:flex;flex-wrap:wrap;align-items:baseline;min-height:var(--row-phone);padding-block:0 var(--s2)}
+.row.item{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:0;min-height:var(--row-phone);padding-block:0 var(--s2)}
 .row.item .who,.row.item .nums{display:contents}
 .row.item .name{order:1;flex:0 1 auto;min-width:0;padding-block:.5rem .25rem}
 .row.item .nums .stars{order:2;flex:none;margin-inline-start:auto;padding-inline-start:var(--s3);font-size:var(--f-md)}
@@ -178,7 +178,7 @@ p.chips{margin:var(--s4) 0}
 .row.item .year{order:7}
 .row.item .who .rot{order:8;margin-inline-start:var(--s2)}
 .row.item .chips{display:none}
-.row.item .extras{order:9;flex-basis:100%}
+.row.item .extras{order:9;flex-basis:100%;white-space:normal}
 .row.item .num{text-align:start;font-size:var(--f-sm);line-height:1.25rem}
 .row.item .num.lang{overflow:visible}
 .row.item :is(.lang,.in,.year):not(:empty)::before{content:"·";padding-inline:.375rem;color:var(--muted)}
@@ -474,7 +474,6 @@ input[type=search],input[type=text]{font-size:1rem}
 .pager{margin-top:var(--s5)}
 .result-count{white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .result-count::-webkit-scrollbar{display:none}
-.result-count .total{display:block}
 .listing .name{padding-block:var(--s2)}
 .listing .path a,.crumbs a{display:inline-block;padding-block:.75rem}
 .crumbs{margin-top:var(--s2)}
