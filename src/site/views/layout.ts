@@ -102,7 +102,7 @@ ${indexing === 'each' ? LOCALES.filter((l) => l !== loc.locale).map((l) => html`
 <html lang="${loc.info.htmlLang}" dir="${loc.info.dir}" data-prefix="${loc.prefix}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${title}</title>
 ${page.description ? html`<meta name="description" content="${page.description}">\n` : ''}${
     canonical === null ? '' : html`<link rel="canonical" href="${canonical}">\n`
@@ -125,7 +125,7 @@ ${(page.scripts ?? []).map((s) => html`<script src="${ctx.assets[s]}" defer></sc
 <header class="top"><div class="bar">
 <a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
 <nav class="nav">${navLink('/lists', m.nav.lists, 'lists', 'list')}${navLink('/items', m.nav.items, 'items', 'item')}${navLink('/about', m.nav.about, 'about')}</nav>
-${page.route === 'home' ? '' : html`<form class="top-search" action="${loc.href('/search')}" method="get" role="search"><input type="search" name="q" value="${
+${page.route === 'home' || page.route === 'search' ? '' : html`<form class="top-search" action="${loc.href('/search')}" method="get" role="search"><input type="search" name="q" value="${
     page.q ?? ''
   }" aria-label="${m.nav.search}" placeholder="${m.nav.searchHint}" autocomplete="off"></form>`}
 </div></header>

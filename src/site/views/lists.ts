@@ -6,7 +6,7 @@ import { slugify } from '../keys.js';
 import { LIST_STATUSES } from '../../enums.js';
 import { serialiseLists, type ListsQuery } from '../query.js';
 import { listIds } from '../search.js';
-import { absolute, breadcrumbLd, link, listRow, pager, sortLine } from './components.js';
+import { absolute, breadcrumbLd, link, listRow, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { webSite } from './home.js';
 import { layout } from './layout.js';
@@ -83,7 +83,8 @@ export async function listsPage(ctx: Ctx, db: Db, q: ListsQuery): Promise<ViewRe
     })}</ul></details>`;
   };
   const catPos = new Map(ctx.categories.map((c) => [c.slug, c.position]));
-  const rail = html`<aside class="rail" id="filters">
+  const rail = html`<aside class="rail sheet" id="_filters">
+${sheetHead(loc, m.common.filter, 'results')}
 ${facet('category', m.lists.category, (a, b) => (catPos.get(a[0]) ?? 0) - (catPos.get(b[0]) ?? 0))}
 ${facet('license', m.lists.licence, (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))}
 ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never) - LIST_STATUSES.indexOf(b[0] as never))}
@@ -123,11 +124,11 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
   const h1 = cat && onlyCategory ? loc.shown(loc.category(cat)) : html`${m.lists.h1}`;
   const canonical = `/lists${serialiseLists(q)}`;
 
-  const main = html`<div class="with-rail">${rail}<div class="results">
+  const main = html`<div class="with-rail">${rail}<div class="results" id="results">
 <h1>${h1}</h1>
-<form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit" class="btn">${m.common.filter}</button></form>
-${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll)}</p>` : ''}
-<p class="result-count"><a class="to-filters" href="#filters">${m.common.filter}</a>${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
+<form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit" class="btn">${m.common.filter}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
+${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
+<p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
 <ol class="rows lists">${shown.map((l) => listRow(ctx, l))}</ol>
 ${pager(loc, prev, next)}

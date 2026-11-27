@@ -2,7 +2,7 @@
 import type { Db, ListEntry, ListRow, SectionRow } from '../db.js';
 import { html, outbound, type Html } from '../html.js';
 import type { Loc } from '../i18n/loc.js';
-import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, link, listRot, rot } from './components.js';
+import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, link, listRot, rot, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { webSite } from './home.js';
 import { layout } from './layout.js';
@@ -137,10 +137,9 @@ ${facts([
   } else {
     const n = loc.n(entries.length);
     content = html`<div class="list-layout">
-<nav class="toc toc-rail" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${toc(loc, contents)}</nav>
+<nav class="toc toc-rail sheet" id="_contents" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${sheetHead(loc, m.list.contents, 'entries')}${toc(loc, contents)}</nav>
 <div class="list-body">
-<details class="toc toc-narrow"><summary>${m.list.contents}</summary>${toc(loc, contents)}</details>
-<div class="list-filter"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"> <output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
+<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button></div>
 <div id="entries">${body(loc, sections, entries)}</div>
 </div></div>`;
   }

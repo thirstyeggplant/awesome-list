@@ -67,10 +67,9 @@ ${searchBox(loc, null)}
 <div class="list-layout">
 <nav class="toc toc-rail" aria-label="${m.list.contents}"><p class="rail-title">${m.list.contents}</p>${contents}</nav>
 <div class="home-body">
-<details class="toc toc-narrow"><summary>${m.list.contents}</summary>${contents}</details>
 ${ctx.categories.map(
-  (cat) => html`<section class="category"><h2 id="${cat.slug}"><a href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a> <span class="count">${loc.n(cat.listCount)}</span></h2>
-${categoryLists(ctx, byCat.get(cat.id) ?? [])}</section>`,
+  (cat) => html`<details class="category" id="${cat.slug}"><summary><h2><a href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a> <span class="count">${loc.n(cat.listCount)}</span></h2></summary>
+${categoryLists(ctx, byCat.get(cat.id) ?? [])}</details>`,
 )}
 <section class="most"><h2>${m.home.mostNamed}</h2>${itemRows(loc, top)}</section>
 </div></div>

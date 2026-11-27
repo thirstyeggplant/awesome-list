@@ -67,13 +67,13 @@ A 4px grid: `--s1` 0.25rem, `--s2` 0.5, `--s3` 0.75, `--s4` 1, `--s5` 1.5, `--s6
 
 ## The pieces
 
-- **Header.** The mark (the favicon's four books, drawn inline in the theme's colours) and the name; Lists, Items, About, the one being read marked with `aria-current="page"` and a line of the accent under it; the search field at the right, on a sunk fill. On a phone the search field takes a second row. The home page leaves the header's field out: its own is right below.
+- **Header.** The mark (the favicon's four books, drawn inline in the theme's colours) and the name; Lists, Items, About, the one being read marked with `aria-current="page"` and a line of the accent under it; the search field at the right, on a sunk fill. On a phone the search field takes a second row. The home page leaves the header's field out: its own is right below. The phone's header is in "On a phone" below.
 - **Footer.** A sunk band: the name and the sentence about what is indexed at the left; the three sections and the ten languages at the right.
-- **Row** (`.row`). `who` (name, owner or host, state) then `chips`, then three right-aligned columns: stars, lists, year. The name is ink at weight 500 and is never cut before the owner beside it is; the rest is muted. Pointed at, the row takes `--hover`. Chips that do not fit are dropped whole, never cut. In a container narrower than 38rem (a phone, or a narrow column) the row becomes two lines: who and the count of lists, then chips, stars and year.
+- **Row** (`.row`). `who` (name, owner or host, state) then `chips`, then three right-aligned columns: stars, lists, year. The name is ink at weight 500 and is never cut before the owner beside it is; the rest is muted. Pointed at, the row takes `--hover`. Chips that do not fit are dropped whole, never cut. In a container narrower than 38rem (a phone, or a narrow column) the row becomes two lines: see "On a phone".
 - **List row** (`.list-row`). The list's name in the serif, its `owner/repo` in mono, its category; items, stars and year at the right; our summary on a second line in `--ink-2`.
 - **Chip** (`.chip`). A sunk fill, no border; the namespace (`lang:`) dimmer than the value. A filter that is on is `--accent-soft` with a ×.
 - **Facts** (`.facts`). A definition list between two hairlines: an upper-case label over each value.
-- **Rail** (`.rail`, `.toc-rail`). Upper-case group labels; values as ink links with their counts at the right; the chosen value in the accent with a mark before it. On `/lists` and `/items` at phone width the rail follows the results and a "Filter" link above them jumps to it.
+- **Rail** (`.rail`, `.toc-rail`). Upper-case group labels; values as ink links with their counts at the right; the chosen value in the accent with a mark before it. Under 56rem a rail is a sheet: see "On a phone".
 - **Sort line.** The count in ink at weight 600, then the sort words; the current one is underlined in the accent.
 - **Pager.** Two bordered buttons at the two ends.
 - **Buttons.** `.btn` is bordered; `.btn.primary` is the accent. A page has at most one primary.
@@ -81,7 +81,7 @@ A 4px grid: `--s1` 0.25rem, `--s2` 0.5, `--s3` 0.75, `--s4` 1, `--s5` 1.5, `--s6
 
 ## Page by page
 
-- **Home.** A head: the `h1`, the large search field, the line of counts. Then rail and content: the rail is the 26 categories with their counts (sticky; a `<details>` on a phone); the content is each category as an `h2` with its lists in columns of names. Last, the items named by the most lists, as rows.
+- **Home.** A head: the `h1`, the large search field, the line of counts. Then rail and content: the rail is the 26 categories with their counts (sticky); the content is each category as an `h2` with its lists in columns of names. Last, the items named by the most lists, as rows.
 - **`/lists`.** Rail of facets; `h1`, the filter field, chips of what is on, the sort line, list rows, the pager.
 - **A list.** The head: breadcrumb, the name, `owner/repo`, our summary at `--f-lg`, the facts, two buttons (read the original, primary; suggest a change). Then rail (contents, sticky) and entries: a sticky filter bar, sections with a serif heading, a count and a `#` that shows when pointed at or focused (always, on a touch screen). Three levels of heading: 22px over a hairline, 18px, 16px.
 - **`/items`.** As `/lists`, with item rows.
@@ -89,17 +89,31 @@ A 4px grid: `--s1` 0.25rem, `--s2` 0.5, `--s3` 0.75, `--s4` 1, `--s5` 1.5, `--s6
 - **An owner, search, 404.** Headings and rows; the 404 is a short column.
 - **About.** Prose at `--f-lg`, 1.7, at most 44rem.
 
+## On a phone
+
+A phone is not the desktop page squeezed: what is beside the content on a wide screen is behind one tap on a narrow one, and the content starts sooner. Two widths matter: under 56rem the rails go, under 40rem the header and the heads are the phone's. Rows fold by their container (38rem).
+
+- **Sheets, without script.** A rail (`.sheet`) is not shown under 56rem. A link to its id (`#_filters`, `#_contents`) shows it over the whole screen (`:target`), with a head that says what it is and a × that links away from it. Choosing a value or a section is following a link, so the sheet closes by itself; the browser's back closes it too. The page behind does not scroll (`html:has(.sheet:target)`). The ids begin with `_` so that no section of a list can have the same one.
+- **Filters** (`/lists`, `/items`). The Filter button stands beside the search field, where the field's own button is on a wide screen (the keyboard's key submits the field). The filters that are on are a row of chips under it, each removed with a tap, scrolled sideways when they are many. In the sheet every value is a row 44px tall with its count.
+- **A list.** The facts are a few lines of label and value, not a grid; the two actions are text links on one line; the bar that stays at the top is one row: the filter field, with "N of M" inside it once something is typed, and Contents, which opens the sheet of sections. Collapse all is left out: the sheet does its work. The first entries are on the first screen.
+- **Home.** The search field first. Each category is a `<details>`: 26 rows of name and count, opened in place to the names of its lists in two columns. On a wide screen the same `<details>` are all shown open by the stylesheet (`::details-content`), so the server sends one page; a wide browser without that pseudo-element shows the folded rows, which still work.
+- **Row.** Two lines, like a card: the name (16px, a 44px target) and its owner, with the stars at the right; under them the chips, with "N lists · year" at the right. The three numbers are in `.nums`, which is `display: contents` on a wide screen and a column here.
+- **List row.** The name, `owner/repo`, the category, our summary, then one line of items, stars and year.
+- **Header.** Two rows, 100px: the mark and name with the search field beside them; then Lists, Items and About as three equal tabs, which fit in every language at 320px. A tap on the field opens quick search (there is no key to press), and a tap beside the dialog closes it. The bar that offers another language is one line, 36px.
+- **Touch.** A field, a button, a tab, a row's name, a value in a sheet, a link of the footer: 44px. Fields are 16px so iOS does not zoom. The chips inside a row are 26px, on purpose: they are a second way to the same filters, and three targets of 44px would crowd the name. Links inside a sentence are as tall as their line.
+- **Edges.** `viewport-fit=cover`, and the gutters are at least the safe-area insets (`--gl`, `--gr`); a sheet and the footer add the bottom inset.
+
 ## What changed in the markup, and why
 
-- `layout.ts`: the header has the mark, marks the current section and puts the navigation before the search; the footer is two columns with the section links; `theme-color` follows the new dark paper.
-- `components.ts`: a row's name, owner and state are wrapped in `.who`, so the chips can move to a second line in a narrow container; a chip's namespace is a `.ns` span; the count and the sort words of the sort line are in `.total` and `.sorts`; the pager's links and the search button are buttons.
-- `home.ts`: the head is a `<header>`; the categories have a contents rail (the word is the list page's "Contents").
-- `list.ts`: the two actions are buttons; the facts follow the summary inside the head.
+- `layout.ts`: `viewport-fit=cover`; the header's search field is left out on the home and search pages, which have their own; the header has the mark, marks the current section and puts the navigation before the search; the footer is two columns with the section links; `theme-color` follows the new dark paper.
+- `components.ts`: a row's name, owner and state are wrapped in `.who`, so the chips can move to a second line in a narrow container; a chip's namespace is a `.ns` span; the count and the sort words of the sort line are in `.total` and `.sorts`; the pager's links and the search button are buttons. A row's three numbers are in `.nums`; `sheetHead` is the head of a rail when it is a sheet.
+- `home.ts`: the head is a `<header>`; the categories have a contents rail (the word is the list page's "Contents"); each category is a `<details>` with its `h2` in the `<summary>` and the category's id on it.
+- `list.ts`: the two actions are buttons; the facts follow the summary inside the head; the contents rail is the one copy of the contents (the `<details>` copy is gone) and is a sheet with a head; the filter field and its count are in `.filter-field`; a Contents link opens the sheet.
 - `item.ts`: a listing's section path is on its own line.
-- `lists.ts`, `items.ts`: the rail has an id and a "Filter" link (an existing word) jumps to it on a phone; the × of a removable chip is its own span.
+- `lists.ts`, `items.ts`: the × of a removable chip is its own span.
 - `search.ts`: a section found is a row of two columns (`.section-row`).
 
-No new words: every label is a message that already existed. One test changed with the markup: the pattern for a chip in `test/site/i18n.test.ts` allows the space that taking the tags out leaves after the namespace. The hooks of the scripts are as they were: `#list-filter`, `#list-count`, `#entries` with `li.row`, `section` and `data-depth`, `#collapse-all`, `body.collapsed`, `header.top`, `nav.langs a[hreflang]`, `dialog#quick` and its ids.
+No new words: every label is a message that already existed. One test changed with the markup: the pattern for a chip in `test/site/i18n.test.ts` allows the space that taking the tags out leaves after the namespace. The hooks of the scripts are as they were: `#list-filter`, `#list-count`, `#entries` with `li.row`, `section` and `data-depth`, `#collapse-all`, `body.collapsed`, `header.top`, `.top-search input`, `nav.langs a[hreflang]`, `dialog#quick` and its ids.
 
 ## Weight
 
