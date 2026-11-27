@@ -78,9 +78,9 @@ export function itemRow(loc: Loc, item: ItemRow, o: ItemRowOptions = {}): Html {
     item.status === 'gone' ? html`<s>${name}</s>` : name
   }</a> <span class="sub" translate="no">${item.owner ?? item.host}</span>${rot(loc, itemRot(item))}</span>${
     chips.length > 0 ? html` <span class="chips">${join(chips, ' ')}</span>` : ''
-  }${extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''}</span><span class="num stars">${
+  }${extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''}</span><span class="nums"><span class="num stars">${
     item.stars === null ? '' : html`${loc.n(item.stars)}<span class="unit"> ★</span>`
-  }</span><span class="num in">${loc.plural(loc.m.count.lists, item.listCount)}</span><span class="num year">${yearOf(item.pushedDay)}</span></li>`;
+  }</span><span class="num in">${loc.plural(loc.m.count.lists, item.listCount)}</span><span class="num year">${yearOf(item.pushedDay)}</span></span></li>`;
 }
 
 export function itemRows(loc: Loc, items: readonly ItemRow[], topics = false): Html {
@@ -96,9 +96,9 @@ export function listRow(ctx: Ctx, list: ListRow): Html {
     list.slug
   }</span>${rot(loc, listRot(list, ctx.dataDay))}</span>${
     cat ? html` <span class="chips"><a class="chip" href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a></span>` : ''
-  }</span><span class="num in">${loc.plural(loc.m.count.items, list.itemsMade)}</span><span class="num stars">${
+  }</span><span class="nums"><span class="num in">${loc.plural(loc.m.count.items, list.itemsMade)}</span><span class="num stars">${
     list.stars === null ? '' : html`${loc.n(list.stars)}<span class="unit"> ★</span>`
-  }</span><span class="num year">${yearOf(list.pushedDay)}</span>${
+  }</span><span class="num year">${yearOf(list.pushedDay)}</span></span>${
     summary ? html`<span class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</span>` : ''
   }</li>`;
 }
@@ -106,6 +106,14 @@ export function listRow(ctx: Ctx, list: ListRow): Html {
 export function facts(pairs: readonly (readonly [string, Part])[]): Html {
   const shown = pairs.filter(([, v]) => v !== null && v !== '' && v !== undefined && v !== false);
   return html`<dl class="facts">${shown.map(([k, v]) => html`<div><dt>${k}</dt><dd>${v}</dd></div>`)}</dl>`;
+}
+
+/**
+ * The head of a rail that opens as a sheet on a phone (the address's #id shows it): its title, and a link that
+ * closes it by going to `back`. Not shown on a wide screen.
+ */
+export function sheetHead(loc: Loc, title: string, back: string): Html {
+  return html`<p class="sheet-head"><span class="rail-title">${title}</span><a class="sheet-close" href="#${back}" aria-label="${loc.m.lang.close}">×</a></p>`;
 }
 
 export function crumbs(loc: Loc, parts: readonly Part[]): Html {

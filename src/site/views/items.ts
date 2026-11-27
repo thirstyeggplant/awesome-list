@@ -7,7 +7,7 @@ import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
 import type { Terms } from '../terms.js';
-import { itemRows, link, pager, sortLine } from './components.js';
+import { itemRows, link, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
@@ -160,7 +160,8 @@ export async function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, terms: Ter
   const inLists = IN_STEPS.map((s, i) =>
     value(loc.t(m.items.inAtLeast, { n: loc.n(s) }), c.in[i] ?? 0, q.in === s, { in: q.in === s ? null : s }));
 
-  const rail = html`<aside class="rail" id="filters">
+  const rail = html`<aside class="rail sheet" id="_filters">
+${sheetHead(loc, m.common.filter, 'results')}
 ${facetBlock(ctx, m.items.kind, kinds)}
 ${facetBlock(ctx, m.items.status, statuses)}
 ${facetBlock(ctx, m.items.language, top(c.lang, 'lang', 15, q.lang === null ? [] : [q.lang]))}
@@ -218,11 +219,11 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   }
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
 
-  const main = html`<div class="with-rail">${rail}<div class="results">
+  const main = html`<div class="with-rail">${rail}<div class="results" id="results">
 <h1>${m.items.h1}</h1>
-<form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button></form>
-${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll)}</p>` : ''}
-<p class="result-count"><a class="to-filters" href="#filters">${m.common.filter}</a>${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
+<form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
+${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
+<p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
 ${beyond ? '' : itemRows(loc, items, true)}
 ${pager(loc, prev, next, pagerRel)}
