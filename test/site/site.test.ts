@@ -92,6 +92,15 @@ describe('routes', () => {
     expect(page).toContain('href="/items?lang=go"><span translate="no">Go</span></a>');
     expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘<span translate="no">Hostile</span>’');
     expect(await body('/lists/alpha/awesome-widgets')).toContain('Named by');
+    // One outbound action, a breadcrumb from the list with the most stars, more from the owner, the lists' sizes.
+    expect(page).toContain('<a class="btn primary" href="https://github.com/acme/rocket" rel="nofollow noopener" title="https://github.com/acme/rocket">Open on GitHub ↗</a>');
+    expect(page).toMatch(/<nav class="crumbs"[^>]*><a href="\/lists">Lists<\/a>.*Widgets.*Launchers<\/a><\/nav>/);
+    expect(page).not.toMatch(/<a class="chip"[^>]*><span class="ns">(lang|license|status):/);
+    expect(page).toContain('<span class="size">');
+    const proj = await body('/gh/own1/proj1');
+    expect(proj).toContain('More from <span translate="no">own1</span>');
+    expect(proj).toContain('href="/gh/own1">All 8 projects by own1</a>');
+    expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('Visit example.com ↗');
     const owner = await body('/gh/own1');
     expect(owner).toContain('Their projects named by lists');
     expect(owner).toContain('href="/gh/own1/proj1"');

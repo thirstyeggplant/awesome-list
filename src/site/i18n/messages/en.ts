@@ -192,6 +192,15 @@ export const en = {
     listedAs: 'listed as ‘{name}’',
     alongside: 'Listed alongside',
     attribution: 'Named by the lists above. Follow a list to read what its curators say about it. To suggest a change, open an issue on one of those lists.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Open on GitHub ↗',
+    visit: 'Visit {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'More from {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: 'All {n} project by {owner}', other: 'All {n} projects by {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Topics',
   },
   items: {
     h1: 'Items',
@@ -291,6 +300,13 @@ export const en = {
       repoDescription: p({ one: '{name} is named by {n} awesome list: {lists}.', other: '{name} is named by {n} awesome lists: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ one: '{name} ({host}) is named by {n} awesome list: {lists}.', other: '{name} ({host}) is named by {n} awesome lists: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: in the {list} awesome list',
+      titleOne: '{name}: in the {list} awesome list',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} is in the {list} awesome list, under {section}.',
+      under: 'Listed under {section} in {list}.',
+      alongside: 'Alongside {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

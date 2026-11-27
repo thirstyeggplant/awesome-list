@@ -184,6 +184,15 @@ export const zh: Messages = {
     listedAs: '收录名称为“{name}”',
     alongside: '一同收录的条目',
     attribution: '由上方清单收录。点开清单可阅读维护者对它的介绍。如需建议修改，请在相应清单的仓库提交 issue。',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: '在 GitHub 上打开 ↗',
+    visit: '访问 {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner} 的更多项目',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner} 的全部 {n} 个项目' }),
+    /** The label over an item's topic chips. */
+    topics: '主题',
   },
   items: {
     h1: '条目',
@@ -282,6 +291,13 @@ export const zh: Messages = {
       repoDescription: p({ other: '{name} 被 {n} 个 awesome 清单收录：{lists}。' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}（{host}）被 {n} 个 awesome 清单收录：{lists}。' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}：收录于 {list} awesome 清单',
+      titleOne: '{name}：收录于 {list} awesome 清单',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} 收录于 {list} awesome 清单的「{section}」部分。',
+      under: '在 {list} 中列于「{section}」。',
+      alongside: '一同收录的有 {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */

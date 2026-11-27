@@ -184,6 +184,15 @@ export const de: Messages = {
     listedAs: 'geführt als ‚{name}‘',
     alongside: 'Zusammen genannt mit',
     attribution: 'Genannt von den Listen oben. Folge einer Liste, um zu lesen, was ihre Kuratoren darüber sagen. Für eine Änderung eröffne ein Issue bei einer dieser Listen.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Auf GitHub öffnen ↗',
+    visit: '{host} besuchen ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Mehr von {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} Projekt von {owner}', other: 'Alle {n} Projekte von {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Themen',
   },
   items: {
     h1: 'Einträge',
@@ -283,6 +292,13 @@ export const de: Messages = {
       repoDescription: p({ one: '{name} wird von {n} awesome Liste genannt: {lists}.', other: '{name} wird von {n} awesome Listen genannt: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ one: '{name} ({host}) wird von {n} awesome Liste genannt: {lists}.', other: '{name} ({host}) wird von {n} awesome Listen genannt: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: in der awesome Liste {list}',
+      titleOne: '{name}: in der awesome Liste {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} steht in der awesome Liste {list} unter {section}.',
+      under: 'In {list} unter {section}.',
+      alongside: 'Zusammen mit {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

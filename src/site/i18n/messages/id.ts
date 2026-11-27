@@ -184,6 +184,15 @@ export const id: Messages = {
     listedAs: 'tercantum sebagai ‘{name}’',
     alongside: 'Tercantum bersama',
     attribution: 'Disebut oleh daftar-daftar di atas. Buka sebuah daftar untuk membaca apa kata kuratornya. Untuk mengusulkan perubahan, buka issue di salah satu daftar tersebut.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Buka di GitHub ↗',
+    visit: 'Kunjungi {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Lainnya dari {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: 'Semua {n} proyek dari {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Topik',
   },
   items: {
     h1: 'Item',
@@ -282,6 +291,13 @@ export const id: Messages = {
       repoDescription: p({ other: '{name} disebut oleh {n} awesome list: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name} ({host}) disebut oleh {n} awesome list: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: ada di awesome list {list}',
+      titleOne: '{name}: ada di awesome list {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} ada di awesome list {list}, di bagian {section}.',
+      under: 'Di {list}, ada di bagian {section}.',
+      alongside: 'Bersama {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

@@ -184,6 +184,15 @@ export const ko: Messages = {
     listedAs: '‘{name}’ 이름으로 실림',
     alongside: '함께 실린 항목',
     attribution: '위 목록들에 실린 항목입니다. 큐레이터가 이 항목을 어떻게 소개하는지는 각 목록에서 읽어 보세요. 변경을 제안하려면 해당 목록에 이슈를 열어 주세요.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'GitHub에서 열기 ↗',
+    visit: '{host} 방문 ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner}의 다른 프로젝트',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner}의 프로젝트 {n}개 모두' }),
+    /** The label over an item's topic chips. */
+    topics: '토픽',
   },
   items: {
     h1: '항목',
@@ -282,6 +291,13 @@ export const ko: Messages = {
       repoDescription: p({ other: '{name}이(가) 실린 awesome list {n}개: {lists}.' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}({host})이(가) 실린 awesome list {n}개: {lists}.' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: awesome list {list}에 실림',
+      titleOne: '{name}: awesome list {list}에 실림',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name}은(는) awesome list {list}의 {section} 항목에 실려 있어요.',
+      under: '{list}에서는 {section} 항목에 실려 있어요.',
+      alongside: '함께 실린 항목: {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

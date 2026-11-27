@@ -128,16 +128,18 @@ describe('structured data (test 13)', () => {
     ListItem: ['position', 'name'],
     BreadcrumbList: ['itemListElement'],
     SoftwareSourceCode: ['name', 'codeRepository'],
+    WebPage: ['name', 'url', 'about'],
+    Thing: ['name'],
   };
 
   it('parses, has what each type needs, and points only at the site or GitHub', async () => {
-    const pages = ['/', '/lists', '/lists?category=tools', '/lists/alpha/awesome-widgets', '/lists/delta/awesome-hostile', '/gh/acme/rocket', '/gh/own0/proj0'];
+    const pages = ['/', '/lists', '/lists?category=tools', '/lists/alpha/awesome-widgets', '/lists/delta/awesome-hostile', '/gh/acme/rocket', '/gh/own0/proj0', `/item/${shortHash('https://example.com/hostile')}`];
     const seen = new Set<string>();
     for (const l of ['en', 'ja'] as const) {
       for (const p of pages) {
         const page = (await get(inLang(l, p))).body;
         const { ld } = headOf(page);
-        if (l === 'ja' && p.startsWith('/gh/')) {
+        if (l === 'ja' && /^\/(gh|item)\//.test(p)) {
           expect(ld, p).toEqual([]);
           continue;
         }
@@ -145,22 +147,24 @@ describe('structured data (test 13)', () => {
         for (const t of types(ld)) {
           const type = String(t['@type']);
           seen.add(type);
-          for (const k of REQUIRED[type] ?? []) expect(t[k], `${p} ${type}.${k}`).toBeDefined();
-          if (type === 'SoftwareSourceCode') {
+          // A CollectionPage named inside another block (isPartOf) needs only its name and address.
+          const required = type === 'CollectionPage' && !('@context' in t) ? ['name', 'url'] : (REQUIRED[type] ?? []);
+          for (const k of required) expect(t[k], `${p} ${type}.${k}`).toBeDefined();
+          if (type === 'SoftwareSourceCode' || type === 'WebPage') {
             for (const k of ['description', 'author', 'aggregateRating', 'review']) expect(t[k], `${p} ${k}`).toBeUndefined();
           }
         }
         absolute(ld, `${l} ${p}`, false);
       }
     }
-    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'SearchAction', 'SoftwareSourceCode', 'WebSite']);
+    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'SearchAction', 'SoftwareSourceCode', 'Thing', 'WebPage', 'WebSite']);
     // A hostile name stays inside its block.
     const hostile = (await get('/lists/delta/awesome-hostile')).body;
     const block = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(hostile)?.[1] ?? '';
     expect(block).not.toMatch(/<\//);
     expect(JSON.stringify(JSON.parse(block))).toContain('<script>alert(1)</script>');
     // Pages that are not their own canonical, or are noindex, carry none.
-    for (const p of [`/item/${shortHash('https://example.com/hostile')}`, '/gh/own1', '/items?lang=go', '/search?q=rocket', '/about']) {
+    for (const p of [`/item/${shortHash('https://example.com/cpp-tool')}`, '/gh/own1', '/items?lang=go', '/search?q=rocket', '/about']) {
       expect(headOf((await get(p)).body).ld, p).toEqual([]);
     }
   });
@@ -276,7 +280,11 @@ describe('the head (test 16)', () => {
     expect(await title('/items?lang=go')).toMatch(/^Go: \d+ projects in awesome lists · Shelf$/);
     expect(await title('/about')).toBe('About Shelf');
     const desc = /<meta name="description" content="([^"]*)">/.exec((await get('/gh/acme/rocket')).body)?.[1] ?? '';
-    expect(decode(desc)).toBe('Rocket is named by 2 awesome lists: Widgets, Gadgets. Go, MIT, 5,000 stars.');
+    expect(decode(desc)).toBe('Rocket is named by 2 awesome lists: Widgets, Gadgets. Listed under Launchers in Widgets. Go, MIT, 5,000 stars.');
+    // In one list: the list's name is in the title, and the description says where in it.
+    expect(await title('/gh/own1/proj1')).toBe('own1/proj1: in the Gadgets awesome list · Shelf');
+    const one = /<meta name="description" content="([^"]*)">/.exec((await get('/gh/own1/proj1')).body)?.[1] ?? '';
+    expect(decode(one)).toMatch(/^proj1 is in the Gadgets awesome list, under Group 1\. Alongside proj\d+, proj\d+, proj\d+\. .+, [\d,]+ stars\.$/);
     expect((await get('/')).body).toContain('<h1 class="home-title">5 awesome lists and everything in them</h1>');
     expect((await get('/lists/beta/awesome-gadgets')).body).toContain('More in Tools');
   });

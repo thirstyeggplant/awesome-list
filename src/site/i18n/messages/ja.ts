@@ -184,6 +184,15 @@ export const ja: Messages = {
     listedAs: '「{name}」として掲載',
     alongside: '一緒に掲載されているもの',
     attribution: '上のリストに掲載されています。キュレーターによる説明は各リストでお読みください。変更を提案するには、該当するリストでIssueを作成してください。',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'GitHubで開く ↗',
+    visit: '{host} を開く ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: '{owner} の他のプロジェクト',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ other: '{owner} のプロジェクト全{n}件' }),
+    /** The label over an item's topic chips. */
+    topics: 'トピック',
   },
   items: {
     h1: '項目',
@@ -282,6 +291,13 @@ export const ja: Messages = {
       repoDescription: p({ other: '{name}は{n}件のawesomeリストに掲載されています: {lists}。' }),
       /** {host} is a web site's host, e.g. example.com. */
       description: p({ other: '{name}（{host}）は{n}件のawesomeリストに掲載されています: {lists}。' }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: awesomeリスト「{list}」に掲載',
+      titleOne: '{name}: awesomeリスト「{list}」に掲載',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name}はawesomeリスト「{list}」の「{section}」に掲載されています。',
+      under: '{list}では「{section}」に掲載。',
+      alongside: '一緒に掲載: {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */

@@ -184,6 +184,15 @@ export const es: Messages = {
     listedAs: 'aparece como «{name}»',
     alongside: 'Aparece junto a',
     attribution: 'Citado por las listas de arriba. Abre una lista para leer lo que dicen sus curadores. Para sugerir un cambio, abre un issue en una de esas listas.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Abrir en GitHub ↗',
+    visit: 'Visitar {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Más de {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} proyecto de {owner}', many: 'Los {n} de proyectos de {owner}', other: 'Los {n} proyectos de {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Temas',
   },
   items: {
     h1: 'Elementos',
@@ -300,6 +309,13 @@ export const es: Messages = {
         many: '{name} ({host}) aparece en {n} de listas awesome: {lists}.',
         other: '{name} ({host}) aparece en {n} listas awesome: {lists}.',
       }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: en la lista awesome {list}',
+      titleOne: '{name}: en la lista awesome {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} aparece en la lista awesome {list}, en {section}.',
+      under: 'En {list}, aparece en {section}.',
+      alongside: 'Junto a {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

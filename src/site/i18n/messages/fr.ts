@@ -188,6 +188,15 @@ export const fr: Messages = {
     listedAs: 'référencé sous « {name} »',
     alongside: 'Référencé aux côtés de',
     attribution: 'Cité par les listes ci-dessus. Suivez une liste pour lire ce qu’en disent ses curateurs. Pour proposer une modification, ouvrez une issue sur l’une de ces listes.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Ouvrir sur GitHub ↗',
+    visit: 'Visiter {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Plus de {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} projet de {owner}', many: 'Les {n} de projets de {owner}', other: 'Les {n} projets de {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Sujets',
   },
   items: {
     h1: 'Éléments',
@@ -308,6 +317,13 @@ export const fr: Messages = {
         many: '{name} ({host}) est cité par {n} de listes awesome : {lists}.',
         other: '{name} ({host}) est cité par {n} listes awesome : {lists}.',
       }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo} : dans la liste awesome {list}',
+      titleOne: '{name} : dans la liste awesome {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} figure dans la liste awesome {list}, sous {section}.',
+      under: 'Dans {list}, sous {section}.',
+      alongside: 'Aux côtés de {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */

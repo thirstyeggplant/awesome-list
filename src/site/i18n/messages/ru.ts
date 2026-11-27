@@ -188,6 +188,15 @@ export const ru: Messages = {
     listedAs: 'указан как «{name}»',
     alongside: 'Встречается рядом',
     attribution: 'Упоминается в списках выше. Перейдите в список, чтобы прочитать, что о нём пишут кураторы. Чтобы предложить изменение, создайте issue в одном из этих списков.',
+    /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
+    openGitHub: 'Открыть на GitHub ↗',
+    visit: 'Перейти на {host} ↗',
+    /** A heading over other projects of the same GitHub owner; {owner} is a login. */
+    moreFrom: 'Ещё от {owner}',
+    /** Under them: a link to the owner's page. */
+    allFrom: p({ one: '{n} проект от {owner}', few: 'Все {n} проекта от {owner}', many: 'Все {n} проектов от {owner}', other: 'Все {n} проекта от {owner}' }),
+    /** The label over an item's topic chips. */
+    topics: 'Темы',
   },
   items: {
     h1: 'Элементы',
@@ -319,6 +328,13 @@ export const ru: Messages = {
         many: '{name} ({host}) упоминается в {n} awesome-списках: {lists}.',
         other: '{name} ({host}) упоминается в {n} awesome-списка: {lists}.',
       }),
+      /** In one list only: {list} is that list's name. */
+      repoTitleOne: '{repo}: в awesome-списке {list}',
+      titleOne: '{name}: в awesome-списке {list}',
+      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
+      inOne: '{name} есть в awesome-списке {list}, в разделе «{section}».',
+      under: 'В {list} — в разделе «{section}».',
+      alongside: 'Рядом с {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */
