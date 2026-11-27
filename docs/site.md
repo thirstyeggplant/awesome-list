@@ -46,7 +46,7 @@ Across routes:
 4. Facts: stars, last push, licence, N items in M sections, "named by K other lists" (to its own item page), rot mark.
 5. "Read the original on GitHub" and "Suggest a change" (both to the list's repository).
 6. A filter for the page.
-7. Sticky contents: a left rail on wide screens, a `<details>` on narrow ones.
+7. Sticky contents: a left rail on wide screens; on narrow ones the same rail opens over the page from a Contents link (`#_contents`).
 8. Sections in the list's order, each with an anchored heading and its item rows; entries with a `parentName` indented; `extraLinks` as small trailing links.
 9. Attribution.
 
@@ -140,7 +140,7 @@ What a person types is never passed as it is: it is split on whitespace, each to
 
 ## Quick search
 
-`GET /api/quick?q=` (2 to 64 characters) answers `{q, lists: [{name, slug, items}] (≤5), items: [{name, sub, key, kind, lists, stars, status}] (≤8), tags: [{label, href, count}] (≤3)}`. Ctrl/⌘-K or `/` opens a `<dialog>` with a combobox; Esc closes it. Typing waits 120 ms, cancels the last request and caches answers for the visit. ↑ and ↓ move through one list of options; Enter opens the one chosen, or `/search?q=` when none is. Without script, the form in the header goes to `/search`.
+`GET /api/quick?q=` (2 to 64 characters) answers `{q, lists: [{name, slug, items}] (≤5), items: [{name, sub, key, kind, lists, stars, status}] (≤8), tags: [{label, href, count}] (≤3)}`. Ctrl/⌘-K or `/` opens a `<dialog>` with a combobox, and so does a tap on the header's search field on a phone; Esc or a tap beside it closes it. Typing waits 120 ms, cancels the last request and caches answers for the visit. ↑ and ↓ move through one list of options; Enter opens the one chosen, or `/search?q=` when none is. Without script, the form in the header goes to `/search`.
 
 ## The look
 
