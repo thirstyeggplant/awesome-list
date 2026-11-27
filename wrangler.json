@@ -4,7 +4,10 @@
   "main": "src/site/worker.ts",
   "compatibility_date": "2026-11-20",
   "account_id": "<ACCOUNT_ID>",
-  "routes": [{ "pattern": "weeklymatcha.com", "custom_domain": true }],
+  "routes": [
+    { "pattern": "weeklymatcha.com", "custom_domain": true },
+    { "pattern": "www.weeklymatcha.com", "custom_domain": true }
+  ],
   "workers_dev": false,
   "assets": { "directory": "out/site-assets", "binding": "ASSETS" },
   "d1_databases": [{ "binding": "DB", "database_name": "<shelf-BUILD>", "database_id": "<DATABASE_ID>" }],

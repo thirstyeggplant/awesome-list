@@ -247,11 +247,15 @@ describe('routes', () => {
     expect(s.headers.get('Cache-Control')).toBe('no-store');
   });
 
-  it('sends plain http to https before anything else, except on this computer', async () => {
+  it('sends www to the site\'s host and plain http to https before anything else, except on this computer', async () => {
     for (const [from, to] of [
       ['http://weeklymatcha.com/', 'https://weeklymatcha.com/'],
       ['http://weeklymatcha.com/lists?category=tools&page=2', 'https://weeklymatcha.com/lists?category=tools&page=2'],
-      ['http://www.weeklymatcha.com:80/de/gh/acme/rocket', 'https://www.weeklymatcha.com/de/gh/acme/rocket'],
+      ['http://cdn.weeklymatcha.com:80/de/gh/acme/rocket', 'https://cdn.weeklymatcha.com/de/gh/acme/rocket'],
+      // www before the site's own host (ORIGIN) goes to that host, in one hop from http or https.
+      ['http://www.example.test:80/de/gh/acme/rocket', 'https://example.test/de/gh/acme/rocket'],
+      ['https://www.example.test/', 'https://example.test/'],
+      ['https://www.example.test/items?lang=go&page=2', 'https://example.test/items?lang=go&page=2'],
     ]) {
       const r = await fixture.app(new Request(from ?? ''));
       expect(r.status, from).toBe(301);

@@ -34,8 +34,13 @@ export const SECURITY_HEADERS: Readonly<Record<string, string>> = {
 /** Hosts answered over plain http: this computer, for `pnpm serve`. Every other host is sent to https first. */
 const PLAIN_HTTP_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]']);
 
-/** The https address of a plain-http request to another host than this computer, else null. */
-export function httpsAddress(url: URL): string | null {
+/**
+ * Where a request belongs when it is not already there, else null: `www.` before the site's host goes to the site's
+ * own origin, and plain http to any other host than this computer goes to https. Either is one hop.
+ */
+export function httpsAddress(url: URL, origin: string): string | null {
+  const site = new URL(origin);
+  if (url.hostname === `www.${site.hostname}`) return new URL(url.pathname + url.search, site).href;
   if (url.protocol !== 'http:' || PLAIN_HTTP_HOSTS.has(url.hostname)) return null;
   const to = new URL(url.href);
   to.protocol = 'https:';
