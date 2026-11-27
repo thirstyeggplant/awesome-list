@@ -136,7 +136,8 @@ p.chips{margin:var(--s4) 0}
 .who .name{padding-block:.6875rem;font-size:1rem;line-height:1.375rem}
 .row .chips{grid-area:chips;flex:none;height:1.625rem;gap:.375rem;align-self:start}
 .row .chip{height:1.625rem;line-height:1.625rem;padding:0 var(--s2)}
-.row .extras{grid-area:extras;margin-top:var(--s2)}
+.row .extras{grid-area:extras}
+.row .extra{display:inline-block;padding-block:.75rem}
 .nums{grid-area:nums;display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:start;gap:.3125rem var(--s1);max-width:11rem;padding-top:.8125rem}
 .nums .stars{flex:1 0 100%;font-size:var(--f-md);line-height:1.25rem}
 .nums .num:empty{display:none}
@@ -144,7 +145,7 @@ p.chips{margin:var(--s4) 0}
 .list-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "summary" "nums";padding-block:var(--s1) var(--s3)}
 .list-row .main{display:flex;flex-wrap:wrap;grid-area:main;align-items:center;gap:0 var(--s2)}
 .list-row .who{flex-wrap:wrap;gap:0 var(--s2)}
-.list-row .name{white-space:normal;padding-block:.5625rem;font-size:1.125rem}
+.list-row .name{white-space:normal;padding-block:.6875rem;font-size:1.125rem}
 .list-row .chips{margin:0}
 .list-row .summary{grid-area:summary;margin:0}
 .list-row .nums{justify-content:flex-start;max-width:none;padding-top:var(--s2);gap:0 var(--s3)}
@@ -319,14 +320,15 @@ html:has(.sheet:target){overflow:hidden}
 .sheet .toc-list li.d2{padding-inline-start:var(--s5)}
 .chips.filters{flex-wrap:nowrap;gap:var(--s2);margin:var(--s3) calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 0 var(--gl);overflow-x:auto;scrollbar-width:none}
 .chips.filters::-webkit-scrollbar{display:none}
-.chips.filters .chip{flex:none;height:2.5rem;line-height:2.5rem;padding:0 var(--s3);font-size:var(--f-base)}
+.chips.filters .chip{flex:none;height:2.75rem;line-height:2.75rem;padding:0 var(--s3);font-size:var(--f-base)}
 .results .search-box{max-width:none}
 .results .search-box button{display:none}
 .search-box .to-sheet{font-weight:600}
 .search-box .to-sheet::before{content:"";width:1rem;height:.75rem;margin-inline-end:var(--s2);background:linear-gradient(currentColor,currentColor) 0 0 / 100% 2px,linear-gradient(currentColor,currentColor) 50% 50% / 62% 2px,linear-gradient(currentColor,currentColor) 50% 100% / 26% 2px;background-repeat:no-repeat}
-.chips.filters .clear{padding:var(--s2) var(--s1)}
-.result-count{margin-top:var(--s3);line-height:2.3}
-.result-count .sorts > *{padding:var(--s2) .125rem}
+.chips.filters .clear{padding:.6875rem var(--s1)}
+.result-count{margin-top:var(--s2)}
+.result-count .sorts > *{display:inline-block;padding:.6875rem .125rem}
+.result-count .sorts strong{text-underline-offset:.3em}
 .category{border-bottom:1px solid var(--rule)}
 .category:first-child{border-top:1px solid var(--rule)}
 .category > summary{min-height:3.25rem}
@@ -334,7 +336,7 @@ html:has(.sheet:target){overflow:hidden}
 .category h2 a{pointer-events:none}
 .category .grid{columns:2;column-gap:var(--s4);padding-bottom:var(--s3)}
 .category .grid li{padding-block:0}
-.category .grid a,.category .parent-label{display:block;padding:.6875rem 0}
+.category .grid a,.category .parent-label{display:block;padding:.75rem 0}
 .category .grid .sub-list{margin-inline-start:0}
 .hero{margin-bottom:0;border-bottom:0}
 .list-page .list-layout{margin-top:var(--s4)}
@@ -351,14 +353,18 @@ input[type=search],input[type=text]{font-size:1rem}
 .nav{order:3;flex:1 0 auto;width:100%;margin-top:var(--s1)}
 .nav a{flex:1;justify-content:center;min-height:2.75rem;padding:0 var(--s1);font-size:var(--f-base)}
 .lang-bar{min-height:2.25rem;padding-block:0;font-size:var(--f-sm)}
-.lang-bar button{align-self:stretch;min-width:2.75rem;margin-inline-end:calc(-1 * var(--s3))}
+.lang-bar a{padding-block:var(--s2)}
+.lang-bar button{position:relative;align-self:stretch;min-width:2.75rem;margin-inline-end:calc(-1 * var(--s3))}
+.lang-bar button::after{content:"";position:absolute;inset:-.25rem 0}
 .hero{padding:var(--s5) 0 var(--s4)}
 .home-title{margin-bottom:var(--s4)}
 .hero .search-box input,.hero .search-box .btn{height:3rem}
-.crumbs{margin-top:var(--s4)}
 .list-head h1{margin-top:var(--s2)}
 .repo-link{margin-bottom:var(--s3)}
-.repo-link a,.address a{display:inline-block;padding-block:var(--s2)}
+.repo-link{margin-top:calc(-1 * var(--s2))}
+.repo-link a,.address a,.more a{display:inline-block;padding-block:.75rem}
+.item-page h1 .dim{display:inline-block;padding-block:var(--s1)}
+.facts dd a{display:inline-block;margin-block:-.75rem;padding-block:.75rem}
 .list-head .summary{font-size:1rem}
 .facts{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);margin:var(--s4) 0;padding:var(--s3) 0}
 .facts div{display:flex;align-items:baseline;gap:.375rem}
@@ -371,10 +377,11 @@ input[type=search],input[type=text]{font-size:1rem}
 .list-filter{padding-block:var(--s2)}
 .list-filter input:placeholder-shown{padding-inline-end:var(--s3)}
 .list-filter input:placeholder-shown + output{display:none}
-.sh .anchor{padding:var(--s2) var(--s3)}
+.sh .anchor{padding:.9375rem var(--s3);margin-block:-.9375rem}
 .pager{margin-top:var(--s5)}
 .listing .name{padding-block:var(--s2)}
-.listing .path a,.crumbs a{display:inline-block;padding-block:var(--s2)}
+.listing .path a,.crumbs a{display:inline-block;padding-block:.75rem}
+.crumbs{margin-top:var(--s2)}
 .more-in li,.notfound li{padding:0}
 .more-in a,.notfound li a{display:block;padding:.6875rem 0}
 .foot-in{grid-template-columns:minmax(0,1fr);padding-top:var(--s6)}
