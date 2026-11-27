@@ -265,8 +265,8 @@ export function createApp(options: AppOptions): Handler {
     } catch {
       return reply(req, text(400, 'Bad request\n', 'no-store'), null);
     }
-    // Before anything else: plain http to the site's host goes to https.
-    const secure = httpsAddress(url);
+    // Before anything else: www goes to the site's own host, and plain http goes to https.
+    const secure = httpsAddress(url, options.origin);
     if (secure !== null) return reply(req, { ...moved(secure), cache: CACHE.toHttps }, null);
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return reply(req, text(405, 'Method not allowed\n', 'no-store'), null);
