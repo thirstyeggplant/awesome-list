@@ -196,8 +196,10 @@ Titles aim at 60 characters or fewer (30 for Chinese, Japanese and Korean), desc
 | `/lists` | `All {lists} awesome lists · Shelf` | `{lists} awesome lists with their sizes, stars and our own one-line summaries.` |
 | `/lists?category=x` | `{Category}: {n} awesome lists · Shelf` | `{n} awesome lists on {Category}, with sizes, stars and summaries.` |
 | page N of either | the title, then `, page {N}` | the same |
-| List | `{name}: an awesome list of {n} items · Shelf` | Our summary, then ` {n} items in {m} sections.` when it still fits |
-| Item (repo) | `{owner}/{repo}: in {n} awesome lists · Shelf` | `{name} is named by {n} awesome lists: {A}, {B}, {C}. {Language}, {licence}, {stars} stars.` Each fact only when known |
+| List | `{name} ({repo}): awesome list of {n} items · Shelf`, `{repo}` the repository's name (`awesome-nodejs`), which is what people search for; cut at the colon, the name and the parenthesis stay | Our summary, then ` {n} items in {m} sections.` when it still fits |
+| Item (repo), in one list | `{owner}/{repo}: in the {list} awesome list · Shelf` (`meta.item.repoTitleOne`) | as below |
+| Item (repo) | `{owner}/{repo}: in {n} awesome lists · Shelf` | Sentences, each a message, added while the whole fits: `{name} is named by {n} awesome lists: {A}, {B}, {C}.` (in one list: `{name} is in the {list} awesome list, under {section}.`), `Listed under {section} in {list}.`, `Alongside {X}, {Y}, {Z}.`, `{Language}, {licence}, {stars} stars.` Each only when known |
+| Item (other), in one list | `{name}: in the {list} awesome list · Shelf` (`meta.item.titleOne`) | the same sentences, with the host in the first and no facts |
 | Item (other) | `{name}: in {n} awesome lists · Shelf` | `{name} ({host}) is named by {n} awesome lists: {A}, {B}, {C}.` |
 | Owner | `{display}: lists and projects · Shelf` | as now |
 | `/items` | `{items} projects named by awesome lists · Shelf` | `Browse {items} projects by language, licence, topic, stars and how many lists name them.` |
@@ -221,8 +223,12 @@ JSON-LD in one `<script type="application/ld+json">`. The CSP does not block it:
 | Home | `WebSite` (`name`, `url`, `inLanguage`, `potentialAction`: a `SearchAction` on `{origin}{prefix}/search?q={search_term_string}`). Google no longer draws a search box from this; it costs nothing |
 | `/lists`, category pages | `CollectionPage` with `mainEntity`: an `ItemList` of the rows on the page (`position`, `url`, `name`), and `BreadcrumbList` on a category page |
 | List | `BreadcrumbList` (Lists › Category › name, as the visible crumbs); `CollectionPage` with `name`, `description` (our summary), `url`, `inLanguage`, `isPartOf` (the `WebSite`), `isBasedOn` (the GitHub address), `mainEntity`: an `ItemList` with `numberOfItems` only. No 3,000 `ListItem`s: they would double the page |
-| Item (repo) | `SoftwareSourceCode`: `name`, `codeRepository`, `programmingLanguage` when known, `license` as `https://spdx.org/licenses/{id}` only for an SPDX id, `keywords` (the topics), `isAccessibleForFree` left out |
-| Item (other), owner, `/items`, About, search, 404 | none |
+| Item (repo) | `BreadcrumbList` (Lists › the list with the most stars › the item); `SoftwareSourceCode`: `name`, `codeRepository`, `programmingLanguage` when known, `license` as `https://spdx.org/licenses/{id}` only for an SPDX id, `keywords` (the topics), `isPartOf` (up to 5 lists as `CollectionPage`), `isAccessibleForFree` left out |
+| Item (other), indexable | `BreadcrumbList`; `WebPage` with `isPartOf` (the `WebSite`) and `about`: a `Thing` with its name only (its own address is a third party's) |
+| Owner (indexable) | `CollectionPage` with `about` a `Thing` (the login and its GitHub address; not `ProfilePage`, which needs a `Person` or `Organization` the data cannot tell) and an `ItemList` of the lists they keep, then their first 20 projects |
+| `/items`, bare and one filter, page 1 | `CollectionPage` with an `ItemList` of the 50 rows (`itemListElement` from `itemListLd` in `components.ts`, as `/lists`) |
+| List (also) | `hasPart`: up to 30 top-level sections as `WebPageElement` (name, the page's address with the anchor) |
+| About, search, 404 | none |
 
 Never: `description` on an item (we have none), `author` (we do not know whether an owner is a person), `aggregateRating` or any rating from stars, `dateModified` we cannot stand behind, `Organization` for the site.
 
@@ -360,7 +366,9 @@ Groups A, B and C (steps 1 to 16) and the smoke checks of step 22 are in the cod
 - **The product-name check is advice.** Acronyms (AI, GDPR, APIs) are left out, since many languages have their own, and a name not kept is listed "to check by eye" rather than failing the script.
 - **The wrapped test locale (test 5) is not registered.** `createApp` takes `messages` to use in place of a language's own, and the test renders English with every message wrapped.
 - **Not prefixed means not answered under a prefix.** `/es/api/quick`, `/es/item?url=` and `/es/healthz` are 404.
-- **`/lists` with a licence or status filter** (and no second filter) is `english`, like `/items` with one filter: only the bare address, a category and their pages are `each`.
+- **`/lists` with a licence or status filter** is `noindex,follow`: nobody searches for those slices. Only the bare address, a category and their pages are indexed, and in every language (`each`).
+- **Narrower `/items` indexing (design v3).** Every page past the first is `noindex`, bare included (every item is in a sitemap); so are `owner` and `list` (the owner and list pages are the canonical homes of those rows), `category`, `status`, `stars` and `in`, a topic in `TOPIC_STOP`, and a topic with fewer than 20 results (5 for `lang`, `license`, `kind`). The pages that stay are offered in `sitemaps/browse.xml`, English only. Paginated pages carry `<link rel="prev">` and `"next"`, absolute and in their own language.
+- **More titles and descriptions:** the list title carries the repository's name, an item in one list names that list, and an item's description is built of sentences (section 6, the table).
 - **A `noindex` page keeps its canonical to its own address in its own language** (as English pages already did), never to another language.
 - **A category page's `h1` is the category's name.** The JSON-LD of an item also has `url`. A list whose reason for being read in part is the pipeline's "N items from M links" says it in words (`count.itemsFromLinks`); any other reason is shown in English, marked `lang="en"`.
 - **The manifest is written by the build** from `SITE_NAME`, with two icons (`/favicon.svg` and the 180-pixel `/apple-touch-icon.png`). The other three root files and `og.png` are in `src/site/assets/`.

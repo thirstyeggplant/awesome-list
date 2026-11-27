@@ -17,13 +17,13 @@ An item's URL never goes in the path.
 
 | Route | Shows, top to bottom |
 | --- | --- |
-| `/` | The `h1`, the search box, one line of counts and the data date; a contents rail of the categories; categories in the index's order, each an `h2` with its lists as a dense multi-column grid of names (subcategory lists indented under their parent); a strip of the 12 items named by most lists; footer |
+| `/` | The `h1`, the search box, one line of counts and the data date, "Browse by language" (the 12 languages with the most items, from `meta.top`, and All projects); "Start here": the 12 lists with the most stars that could be read, as cards, and a link to all lists; "Named by the most lists": 8 item rows and a link to `/items?in=2`; "All lists by category": a contents rail of the categories and the categories in the index's order, each an `h3` with its lists as a dense multi-column grid of names (subcategory lists indented under their parent); footer |
 | `/lists` | Params `q, category, license, status, sort=stars\|items\|updated\|name, page`. Rows: name, `owner/repo`, our summary, category, item count, stars, last push, rot mark |
 | `/lists/{owner}/{repo}` | The list page, below |
-| `/items` | Params `q, kind, status, lang, license, topic` (repeatable, AND), `list, category, owner, stars=100\|1000\|10000, in=2\|5\|10, sort=lists\|stars\|updated\|name, page`. Removable filter chips; a facet rail (kind, status, language top 15, licence, topic top 20, category, list top 10, stars, "in N+ lists"); the result count; 50 rows; previous and next |
+| `/items` | Params `q, kind, status, lang, license, topic` (repeatable, AND), `list, category, owner, stars=100\|1000\|10000, in=2\|5\|10, sort=lists\|stars\|updated\|name, page`. Removable filter chips; a facet rail (kind, status, language top 15, licence, topic top 15 leaving out `TOPIC_STOP` unless chosen, category, list top 10, stars, "in N+ lists"); with one filter and no `q`, the `h1` is the filter; the result count; 50 rows; previous, "Page N of M" and next |
 | `/gh/{owner}/{repo}`, `/item/{h}` | The item page, below |
-| `/gh/{owner}` | Owner page: the login with a GitHub link; "Lists they keep"; "Their projects named by lists" (100 item rows in the default sort, then a link to `/items?owner=`) |
-| `/search?q=` | Lists (up to 8), sections (up to 10, each linking to its anchor in its list), items (the first 30, then "All N items" to `/items?q=`). `ns:value` tokens in `q` (lang, license, kind, status, topic) become filters, with a 302 to `/items?…` |
+| `/gh/{owner}` | Owner page: the login with a GitHub link and a line of how many lists they keep and how many of their projects lists name; "Lists they keep"; "Their projects named by lists" (100 item rows in the default sort, then a link to `/items?owner=`) |
+| `/search?q=` | A line of jumps with counts; lists (up to 8), sections (up to 10, each linking to its anchor in its list), items (the first 30, then "All N items" to `/items?q=`), each group a `<section>` with the id the jump names. `ns:value` tokens in `q` (lang, license, kind, status, topic) become filters, with a 302 to `/items?…` |
 | `/about` | What this is, the rule above, attribution, how a list is left out, coverage numbers, the data date |
 | `/api/quick?q=` | JSON for quick search |
 | `/sitemap.xml`, `/sitemaps/*.xml`, `/robots.txt`, `/healthz`, `/assets/{hash}/…` | Crawling, health, static files |
@@ -33,7 +33,7 @@ An item's URL never goes in the path.
 
 Across routes:
 
-- **Tags** are chips such as `lang:go`, `license:mit`, `kind:paper`, `status:archived`, `topic:cli`, linking to `/items?lang=go` and so on. There is no `/tags` route.
+- **Tags** are chips such as `lang:go`, `license:mit`, `kind:paper`, `status:archived`, `topic:cli`, linking to `/items?lang=go` and so on. There is no `/tags` route. A row shows only topic chips (at most two, none in `TOPIC_STOP` in `src/site/config.ts` or equal to its language) and its language as a column; the item page shows only its topics, its other tags being facts.
 - **Params** are written in a fixed order; unknown params are ignored; an invalid value is a 404.
 - **Paging** stops at page 200; beyond it the page says to narrow the filters.
 - **404** is the same shell: "Nothing at this address", a search box filled from the path's last segment, and up to 5 suggestions. Paths in upper case or with a trailing slash answer 301 to their canonical form.
@@ -43,14 +43,17 @@ Across routes:
 1. Breadcrumb (the category).
 2. `h1` the name, then `owner/repo` as the first link on the page, to GitHub.
 3. Our summary.
-4. Facts: stars, last push, licence, N items in M sections, "named by K other lists" (to its own item page), rot mark.
+4. "See also": the three lists most like it (`list.related`), when it has any.
 5. "Read the original on GitHub" and "Suggest a change" (both to the list's repository).
-6. A filter for the page.
-7. Sticky contents: a left rail on wide screens; on narrow ones the same rail opens over the page from a Contents link (`#_contents`).
-8. Sections in the list's order, each with an anchored heading and its item rows; entries with a `parentName` indented; `extraLinks` as small trailing links.
-9. Attribution.
+6. Facts, beside 2 to 5 on a wide screen: stars, last push, licence, N items in M sections, "named by K other lists" (to its own item page), rot mark.
+7. A filter for the page, with the column labels under it on a wide screen.
+8. Sticky contents: a left rail on wide screens; on narrow ones the same rail opens over the page from a Contents link (`#_contents`).
+9. Sections in the list's order, each with an anchored heading and its item rows (no chips); entries with a `parentName` indented; `extraLinks` as small trailing links.
+10. "Related lists": up to 6 cards, each with how many projects both name.
+11. "More in {category}": up to 8 other lists of the category by stars, as list rows, leaving out those shown as related.
+12. Attribution.
 
-An `unparsed` list replaces 6 to 8 with "We could not read this list's entries yet ({reason})."
+An `unparsed` list replaces 7 to 9 with "We could not read this list's entries yet ({reason})."
 
 A list of 3,000 entries is one server-rendered page, so find-in-page, anchors and crawlers all work. Each section is a `<section>` with `content-visibility: auto; contain-intrinsic-size: auto 20rem`. The contents shows the top two heading levels with counts. The filter (a few dozen lines of script) hides rows and empty sections that do not match, says "N of M", and writes `#q=`. Sections are not collapsed by default, because that breaks find-in-page; "Collapse all" toggles them.
 
@@ -58,13 +61,15 @@ A list of 3,000 entries is one server-rendered page, so find-in-page, anchors an
 
 There is no description, so the page is made of what the lists and GitHub say about it.
 
-1. `h1` the name (for a repository, `owner /` dimmed and linking to the owner page). Under it, the address as the main outbound link (`rel="nofollow noopener"`), and "Also listed as: …" from `aka`.
-2. When the item is itself a list here: "This is itself a list in the library: open it".
-3. The rot mark with a sentence: "Archived by its owner." / "No pushes since Mar 2023." / "GitHub no longer has this repository", the name struck through.
-4. Facts as a grid: stars, last push, language, licence, fork, kind, host, renamed from. Then the tag chips. "Facts from GitHub as of {data date}."
-5. **In N lists**: one row per listing, ordered by the list's stars: the list's name (a link, first), the section path as breadcrumbs linking to the anchor in the list, "listed as '{name}'" when that differs, and the extra links. The section paths are the description, in the curators' structure, without their prose.
-6. **Listed alongside**: up to 12 item rows. Not called alternatives, because that cannot be checked.
-7. Attribution and "Suggest a change", which points at the lists above.
+1. A breadcrumb from the list with the most stars that names it: Lists › that list › its section path, each section linking to its anchor.
+2. `h1` the name (for a repository, `owner /` dimmed and linking to the owner page). Under it one primary button, the only outbound link (`rel="nofollow noopener"`, the address in `title`): "Open on GitHub ↗" or "Visit {host} ↗"; the address under it as text; "Also listed as: …" from `aka`.
+3. When the item is itself a list here: "This is itself a list in the library: open it".
+4. The rot mark with a sentence: "Archived by its owner." / "No pushes since Mar 2023." / "GitHub no longer has this repository", the name struck through.
+5. A side column (at the right on a wide screen, sticky; before 6 on a phone): facts as lines (stars, last push, language, licence, kind, host, fork only when it is one, renamed from), "Facts from GitHub as of {data date}.", and the topics as chips.
+6. **In N lists**: one row per listing, ordered by the list's stars: the list's name (a link, first), "listed as '{name}'" when that differs, the extra links, the list's size at the right, and the section path under it as breadcrumbs linking to the anchor in the list. The section paths are the description, in the curators' structure, without their prose.
+7. **Listed alongside**: up to 12 item rows. Not called alternatives, because that cannot be checked.
+8. **More from {owner}** (repositories): up to 6 other items of the owner (`owner.item_ids`), then "All N projects by {owner}" to the owner page.
+9. Attribution and "Suggest a change", which points at the lists above.
 
 **Listed alongside.** Y is alongside X when they share a section of some list. The score is the sum over shared sections of `1 / log2(2 + sectionSize)`, so small, specific sections count most. In a section of more than 80 entries only the 5 on each side by position count. Ties go to Y's `list_count`, then stars, then distance in position. The top 12 are kept.
 
@@ -79,10 +84,13 @@ The site runs as a Cloudflare Worker that reads D1 (see `docs/cloudflare.md`); `
 The build id is a hash of the data date, the counts, the assets and the site's code, so a change of code is a new build too.
 
 ```
-meta(key PK, value)                     -- build_id, data_finished, counts, coverage, assets (their hashed paths)
+meta(key PK, value)                     -- build_id, data_finished, counts, coverage, assets (their hashed paths),
+                                        --   top: {"langs": [[slug, label, items]…]} the 12 languages with the most items
 category(id PK, name, slug UNIQUE, position, list_count)
 list(id PK, slug UNIQUE, owner, repo, name, category_id, subcategory, summary, stars, pushed_day,
-     archived, license, status, reason, readme_path, readme_oid, items_made, section_count, item_id, position)
+     archived, license, status, reason, readme_path, readme_oid, items_made, section_count, item_id, position,
+     related JSON)    -- up to 6 [listId, shared]: the lists naming the most of the same items, scored
+                      --   shared / sqrt(itemsA × itemsB), at least 3 shared, ties to the other list's stars
 section(id PK, list_id, path JSON, title, depth, anchor, anchors JSON, position, item_count)   INDEX(list_id, position)
 item(id PK,  -- given in the default order, so ORDER BY id is the default ranking
      key UNIQUE, url, kind, host, name, aka JSON, owner, repo_name, stars, pushed_day, archived, fork,
@@ -167,10 +175,10 @@ Components: the header (the mark and name, Lists, Items, About, search); `row` (
 - Redirects (renames, case, a trailing slash, `/item?url=`) are the Worker's.
 - The Worker adds `Content-Language` to HTML answers (informative only). The language is in the URL, so caching and the ETag are unchanged.
 - Which pages are indexed in which languages is one function, `indexedIn` in `src/site/i18n/indexing.ts`: the home, `/lists` (bare, a category, and their pages), list pages, `/items` (bare) and `/about` are indexed in every language, self-canonical with eleven `hreflang` alternates; item, owner and filtered pages are canonical to the English address in every language, with no alternates; `noindex` pages are `noindex` in every language.
-- Every page has a canonical link, params in the fixed order. A listing page with `q`, two or more filters, or a sort other than the default is `noindex,follow`; so is `/items` with one filter past page 1 or with fewer than 5 results. Facet and sort links to a `noindex` page carry `rel="nofollow"`. A page past the last is a 404.
+- Every page has a canonical link, params in the fixed order. A listing page with `q`, two or more filters, or a sort other than the default is `noindex,follow`. On `/items` so is every page past the first, a filter on `owner` or `list` (their own pages are the home of those rows), on `category`, `status`, `stars` or `in`, a `topic` in `TOPIC_STOP` or with fewer than 20 results, and a `lang`, `license` or `kind` with fewer than 5 (`itemsNoindex`). On `/lists` a licence or a status is `noindex` too (`listsNoindex`). Facet, sort and pager links to a `noindex` page carry `rel="nofollow"`; a row's language link stays followed. Paginated pages have `<link rel="prev">` and `"next"`. A page past the last is a 404.
 - An item page is indexable only when it has repository facts or is in two lists or more. The rest are `noindex,follow` and are not in the sitemaps.
-- Every page has Open Graph and Twitter tags (one static image), `theme-color`, the icons and the manifest. Self-canonical pages carry JSON-LD: `WebSite` on the home page, `CollectionPage` with an `ItemList` on `/lists` and list pages, `BreadcrumbList` on category and list pages, `SoftwareSourceCode` on a repository's page.
-- `/sitemap.xml` is an index of `pages.xml` (the home, `/lists`, `/items`, `/about` and the category pages, in ten languages), `lists-{lang}.xml` (ten files), `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. Pages and lists carry their `xhtml:link` alternates; owners and items are English only. `lastmod`: a list's last push (never after the data date), the data date for `pages.xml`, none for owners and items. They are static files, written by the build.
+- Every page has Open Graph and Twitter tags (one static image), `theme-color`, the icons and the manifest. Self-canonical pages carry JSON-LD: `WebSite` on the home page; `CollectionPage` with an `ItemList` of the rows on `/lists`, `/items` (bare and one filter, page 1) and owner pages (the lists they keep, then 20 projects; `about` a `Thing` with the GitHub address, not a `ProfilePage`); on list pages a `CollectionPage` with `hasPart` (up to 30 top-level sections as `WebPageElement`); `BreadcrumbList` on category, list and item pages; `SoftwareSourceCode` with `isPartOf` (up to 5 lists) on a repository's page, and `WebPage` with `about` a `Thing` (its name only) on any other indexable item.
+- `/sitemap.xml` is an index of `pages.xml` (the home, `/lists`, `/items`, `/about` and the category pages, in ten languages), `lists-{lang}.xml` (ten files), `browse.xml` (English only, no `lastmod`: `/items?lang=` and `?license=` and `?kind=` with at least 20 items, `?topic=` with at least 50 and not in `TOPIC_STOP`; each above the page's own thin threshold, so each is indexed), `owners.xml` (owners with a list or at least 2 items) and `items-{n}.xml` of 40,000 each. Pages and lists carry their `xhtml:link` alternates; owners and items are English only. `lastmod`: a list's last push (never after the data date), the data date for `pages.xml`, none for owners and items. They are static files, written by the build.
 - `robots.txt`: `Allow: /`, `Disallow: /api/`, `Disallow: /_data/`, `Disallow: /search` in every language, and the sitemap.
 
 ## Attribution
