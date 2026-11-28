@@ -9,6 +9,7 @@ import { listIds } from '../search.js';
 import { breadcrumbLd, itemListLd, link, listEntries, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
+import { categorySummary, fitDescription } from './sentences.js';
 import { page, type ViewResult } from './result.js';
 
 type Dim = 'category' | 'license' | 'status';
@@ -134,9 +135,16 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
         ? label('status', q.status)
         : html`${m.lists.h1}`;
   const canonical = `/lists${serialiseLists(q)}`;
+  // A category by itself: how many lists, and the ones with the most stars (ctx.lists is in that order).
+  const catSummary = cat && onlyCategory
+    ? categorySummary(ctx, { html: loc.shown(loc.category(cat)), text: catName }, ctx.lists.filter((l) => l.categoryId === cat.id))
+    : null;
+  if (catSummary !== null) description = fitDescription(loc, catSummary.parts ?? [catSummary.text]);
+  const bare = q.q === null && q.category === null && q.license === null && q.status === null;
 
   const main = html`<div class="results" id="results">
 <h1>${h1}</h1>
+${catSummary !== null ? html`<p class="lede">${catSummary.html}</p>` : bare ? html`<p class="lede">${loc.plural(m.meta.lists.description, total)}</p>` : ''}
 <form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit" class="btn">${m.common.filter}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
@@ -147,7 +155,7 @@ ${pager(loc, prev, next, undefined, { page: q.page, pages: Math.min(pages, MAX_P
 ${rail}`;
 
   const ld: unknown[] = [
-    itemListLd(ctx, title, canonical, total, shown.map((l) => ({ path: `/lists/${l.slug}`, name: l.name })), (q.page - 1) * PAGE_SIZE + 1),
+    itemListLd(ctx, title, canonical, total, shown.map((l) => ({ path: `/lists/${l.slug}`, name: l.name })), (q.page - 1) * PAGE_SIZE + 1, catSummary?.text),
   ];
   if (cat && onlyCategory) ld.push(breadcrumbLd(ctx, [[m.nav.lists, '/lists'], [catName, `/lists?category=${cat.slug}`]]));
 

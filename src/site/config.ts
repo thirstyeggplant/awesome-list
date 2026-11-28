@@ -29,6 +29,12 @@ export const ALONGSIDE_BIG_SECTION = 80;
 /** How many on each side count in a big section. */
 export const ALONGSIDE_WINDOW = 5;
 
+/**
+ * An item page is indexed when two lists or more name it, or when it is a repository with at least this many
+ * stars; a repository GitHub no longer has never is. The rest are noindex,follow and in no sitemap.
+ */
+export const INDEXABLE_STARS = 100;
+
 /** A repository with no push in this many days is quiet (as in the data). */
 export const QUIET_DAYS = 730;
 

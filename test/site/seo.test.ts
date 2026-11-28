@@ -291,6 +291,25 @@ describe('for answer engines', () => {
   });
 });
 
+describe('crawl budget', () => {
+  it('keeps a repository in one list with under 100 stars, or one GitHub no longer has, out of the index and the sitemaps', async () => {
+    const thin = await fixture.sql.all("SELECT key, list_count, stars, status, indexable FROM item WHERE owner IS NOT NULL", []);
+    const sitemapText = (await Promise.all(['/sitemaps/items-1.xml'].map(async (p) => (await get(p)).body))).join('');
+    let checked = 0;
+    for (const r of thin) {
+      const want = r.status !== 'gone' && (Number(r.list_count) >= 2 || Number(r.stars ?? 0) >= 100);
+      expect(Boolean(r.indexable), String(r.key)).toBe(want);
+      if (!want && checked < 3) {
+        checked++;
+        expect(headOf((await get(`/${String(r.key)}`)).body).noindex, String(r.key)).toBe(true);
+        expect(sitemapText).not.toContain(`/${String(r.key)}<`);
+      }
+    }
+    expect(checked).toBeGreaterThan(0);
+  });
+
+});
+
 describe('robots.txt (test 15)', () => {
   it('keeps crawlers off search in every language, the API and the data files, and names the sitemap', async () => {
     const robots = (await get('/robots.txt')).body;

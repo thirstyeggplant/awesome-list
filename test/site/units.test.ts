@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { fitTitle } from '../../src/site/views/layout.js';
-import { relatedLists, topOf } from '../../src/site/build/cli.js';
+import { langListsOf, relatedLists, topOf } from '../../src/site/build/cli.js';
+import { indexableItem } from '../../src/site/build/load.js';
 import { alongside } from '../../src/site/build/alongside.js';
 import { itemKey, itemKeys, shortHash } from '../../src/site/build/item-keys.js';
 import { headersFile, sitemaps } from '../../src/site/build/static.js';
@@ -305,5 +306,38 @@ describe('an entry', () => {
 describe('the stylesheet', () => {
   it('stays within its budget', () => {
     expect(readFileSync(new URL('../../src/site/assets/site.css', import.meta.url)).length).toBeLessThan(26_000);
+  });
+});
+
+describe('the crawl budget and the language hubs', () => {
+  it('indexes an item named by two lists, or a repository with 100 stars, never one GitHub no longer has', () => {
+    expect(indexableItem({ isRepo: true, status: 'active', listCount: 1, stars: 99 })).toBe(false);
+    expect(indexableItem({ isRepo: true, status: 'active', listCount: 1, stars: 100 })).toBe(true);
+    expect(indexableItem({ isRepo: false, status: null, listCount: 1, stars: null })).toBe(false);
+    expect(indexableItem({ isRepo: false, status: null, listCount: 2, stars: null })).toBe(true);
+    expect(indexableItem({ isRepo: true, status: 'gone', listCount: 5, stars: 9000 })).toBe(false);
+  });
+
+  it('finds the lists mostly in a language: half of their repositories with one, and at least ten', () => {
+    const terms = [
+      { id: 1, ns: 'lang' as const, slug: 'go', label: 'Go', itemCount: 30 },
+      { id: 2, ns: 'lang' as const, slug: 'rust', label: 'Rust', itemCount: 30 },
+      { id: 3, ns: 'lang' as const, slug: 'c', label: 'C', itemCount: 5 },
+    ];
+    const items: { id: number; langId: number | null }[] = [];
+    const listings: { listId: number; itemId: number }[] = [];
+    const fill = (listId: number, langs: (number | null)[]): void => {
+      for (const l of langs) {
+        items.push({ id: items.length + 1, langId: l });
+        listings.push({ listId, itemId: items.length });
+      }
+    };
+    fill(1, [...Array<number>(6).fill(1), ...Array<number>(6).fill(2), null, null]); // half Go, half Rust
+    fill(2, [...Array<number>(10).fill(1), 2]); // mostly Go
+    fill(3, Array<number>(9).fill(1)); // too few
+    fill(4, Array<number>(12).fill(3)); // C has too few items overall
+    const lists = [1, 2, 3, 4].map((id) => ({ id, stars: 100 - id }));
+    const out = langListsOf({ terms, items, listings, lists } as unknown as Parameters<typeof langListsOf>[0]);
+    expect(out).toEqual({ go: [1, 2], rust: [1] });
   });
 });

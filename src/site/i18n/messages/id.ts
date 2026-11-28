@@ -259,6 +259,8 @@ export const id: Messages = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '{n}+ bintang',
     inAtLeast: 'di {n}+ daftar',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: 'Daftar yang sebagian besar {label}',
   },
   owner: {
     listsTheyKeep: 'Daftar yang dikelola',

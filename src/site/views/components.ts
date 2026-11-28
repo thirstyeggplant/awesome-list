@@ -180,12 +180,13 @@ export function webSite(ctx: Ctx): Record<string, unknown> {
 
 /** A CollectionPage whose main entity is the list of rows on the page, as /lists and /items describe themselves. */
 export function itemListLd(
-  ctx: Ctx, name: string, path: string, total: number, rows: readonly { path: string; name: string }[], firstPosition: number,
+  ctx: Ctx, name: string, path: string, total: number, rows: readonly { path: string; name: string }[], firstPosition: number, description?: string,
 ): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name,
+    ...(description === undefined ? {} : { description }),
     url: absolute(ctx, path),
     inLanguage: ctx.loc.info.hreflang,
     isPartOf: webSite(ctx),

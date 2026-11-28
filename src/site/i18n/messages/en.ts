@@ -267,6 +267,8 @@ export const en = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '{n}+ stars',
     inAtLeast: 'in {n}+ lists',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: 'Lists mostly in {label}',
   },
   owner: {
     listsTheyKeep: 'Lists they keep',

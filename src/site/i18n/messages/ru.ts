@@ -263,6 +263,8 @@ export const ru: Messages = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '{n}+ звёзд',
     inAtLeast: 'в {n}+ списках',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: 'Списки в основном на {label}',
   },
   owner: {
     listsTheyKeep: 'Списки, которые ведёт',

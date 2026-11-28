@@ -131,6 +131,47 @@ export function topOf(model: Pick<Model, 'terms'>): { langs: [string, string, nu
   return { langs };
 }
 
+/** "Lists mostly in {language}": languages with at least this many items, lists with this many repositories with a language. */
+export const LANG_LISTS_MIN_ITEMS = 20;
+export const LANG_LISTS_MIN_REPOS = 10;
+export const LANG_LISTS_KEEP = 6;
+
+/**
+ * meta.top.langLists: for each language with at least LANG_LISTS_MIN_ITEMS items, up to LANG_LISTS_KEEP list ids, by
+ * stars, of the lists where it is the language of at least half of the repositories that have one (and of at least
+ * LANG_LISTS_MIN_REPOS).
+ */
+export function langListsOf(model: Pick<Model, 'terms' | 'lists' | 'items' | 'listings'>): Record<string, number[]> {
+  const langOf = new Map(model.items.map((i) => [i.id, i.langId]));
+  const perList = new Map<number, Map<number, number>>();
+  const seen = new Set<string>();
+  for (const g of model.listings) {
+    const lang = langOf.get(g.itemId);
+    if (lang === null || lang === undefined || seen.has(`${g.listId} ${g.itemId}`)) continue;
+    seen.add(`${g.listId} ${g.itemId}`);
+    let m = perList.get(g.listId);
+    if (!m) perList.set(g.listId, (m = new Map<number, number>()));
+    m.set(lang, (m.get(lang) ?? 0) + 1);
+  }
+  const terms = new Map(model.terms.filter((t) => t.ns === 'lang' && t.itemCount >= LANG_LISTS_MIN_ITEMS).map((t) => [t.id, t.slug]));
+  const out: Record<string, number[]> = {};
+  const byStars = [...model.lists].sort((a, b) => (b.stars ?? -1) - (a.stars ?? -1) || a.id - b.id);
+  for (const l of byStars) {
+    const m = perList.get(l.id);
+    if (!m) continue;
+    let total = 0;
+    for (const n of m.values()) total += n;
+    if (total < LANG_LISTS_MIN_REPOS) continue;
+    for (const [lang, n] of m) {
+      const slug = terms.get(lang);
+      if (slug === undefined || n * 2 < total) continue;
+      const a = (out[slug] ??= []);
+      if (a.length < LANG_LISTS_KEEP) a.push(l.id);
+    }
+  }
+  return out;
+}
+
 /** At least this many items for a language, licence or kind page in browse.xml; a topic needs BROWSE_TOPIC. */
 export const BROWSE_MIN = 20;
 export const BROWSE_TOPIC = 50;
@@ -423,7 +464,7 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     ['counts', JSON.stringify(counts)],
     ['coverage', JSON.stringify(coverage)],
     ['assets', JSON.stringify(assetPaths)],
-    ['top', JSON.stringify(topOf(model))],
+    ['top', JSON.stringify({ ...topOf(model), langLists: langListsOf(model) })],
   ];
 
   const tag = `tmp-${process.pid}`;

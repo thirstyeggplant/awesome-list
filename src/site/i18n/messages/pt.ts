@@ -259,6 +259,8 @@ export const pt: Messages = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '{n}+ estrelas',
     inAtLeast: 'em {n}+ listas',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: 'Listas principalmente em {label}',
   },
   owner: {
     listsTheyKeep: 'Listas que mantém',

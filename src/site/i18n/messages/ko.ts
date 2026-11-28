@@ -259,6 +259,8 @@ export const ko: Messages = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '스타 {n}개 이상',
     inAtLeast: '목록 {n}개 이상',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: '주로 {label}인 목록',
   },
   owner: {
     listsTheyKeep: '관리하는 목록',

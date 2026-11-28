@@ -2,7 +2,7 @@
 import { MAX_MATCHES, MAX_PAGE, PAGE_SIZE, TOPIC_STOP } from '../config.js';
 import type { Db } from '../db.js';
 import { NO_FILTERS, type FacetIndex, type Filters } from '../facets.js';
-import { html, type Html, type Part } from '../html.js';
+import { html, join, type Html, type Part } from '../html.js';
 import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
@@ -11,6 +11,7 @@ import { entries, itemListLd, link, pager, sortLine, sheetHead } from './compone
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { fitDescription, itemsSummary } from './sentences.js';
 import { shareRow } from './share.js';
 
 /** Below this many results a page of /items with one filter is thin, and noindex. */
@@ -234,13 +235,23 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   }
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
 
+  // One language, topic, licence or kind, on its first page: sentences of what it is, which lists are mostly in
+  // it (a language), and the plain text of the sentences as the description.
+  const which = q.lang !== null ? 'lang' : q.topic.length === 1 ? 'topic' : q.license !== null ? 'license' : q.kind !== null ? 'kind' : null;
+  const hub = q.q === null && filters === 1 && which !== null && label !== null && q.sort === null && q.page === 1 && !beyond;
+  const summary = hub ? itemsSummary(ctx, which, label, result.total, items) : null;
+  if (summary !== null) description = fitDescription(loc, summary.parts ?? [summary.text]);
+  const mostly = q.lang !== null && hub
+    ? (ctx.meta.top.langLists[q.lang] ?? []).map((id) => ctx.listById.get(id)).filter((l): l is NonNullable<typeof l> => l !== undefined)
+    : [];
   const noindex = itemsNoindex(q, result.total);
   // A language or a topic by itself is a page worth sharing; a search, a combination or a sort is not.
   const shareable = q.q === null && filters === 1 && (q.lang !== null || q.topic.length === 1) && q.sort === null && q.page === 1 && !beyond;
   const head = { route: 'items' as const, title, canonical: `/items${serialiseItems(q)}`, noindex };
   const main = html`<div class="results" id="results">
 <h1>${q.q === null && label !== null ? label : m.items.h1}</h1>
-${q.q === null && label !== null ? html`<p class="lede">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
+${summary !== null ? html`<p class="lede">${summary.html}</p>` : q.q === null && label !== null ? html`<p class="lede">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
+${mostly.length > 0 && label !== null ? html`<p class="see-also"><span class="label">${loc.t(m.items.mostlyIn, { label })}</span> ${join(mostly.map((l) => link(loc, `/lists/${l.slug}`, html`<span translate="no">${l.name}</span>`)), m.common.separator)}</p>` : ''}
 <form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
@@ -258,7 +269,7 @@ ${rail}`;
       q: q.q,
       prev,
       next,
-      jsonLd: noindex ? [] : [itemListLd(ctx, title, `/items${serialiseItems(q)}`, result.total, items.map((it) => ({ path: `/${it.key}`, name: it.name })), 1)],
+      jsonLd: noindex ? [] : [itemListLd(ctx, title, `/items${serialiseItems(q)}`, result.total, items.map((it) => ({ path: `/${it.key}`, name: it.name })), 1, summary?.text)],
     }),
   );
 }

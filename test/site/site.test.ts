@@ -160,7 +160,10 @@ describe('routes', () => {
 
   it('says where a listing is: the one filter as its h1, the page of how many, jumps on search, an owner\'s line', async () => {
     const go = await body('/items?lang=go');
-    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="lede">\d+ projects named by awesome lists<\/p>/);
+    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="lede">\d+ projects named by awesome lists are written in <span translate="no">Go<\/span>\. The ones named by the most lists are <a href="\/gh\/[^"]+" translate="no">/);
+    expect(go).toMatch(/Data as of <time datetime="\d{4}-\d\d-\d\d">/);
+    // A category of /lists says how many lists it has and names those with the most stars.
+    expect(await body('/lists?category=tools')).toMatch(/<p class="lede">3 awesome lists are in the category Tools\. The ones with the most stars are <a href="\/lists\//);
     // A filter that is on says what it is in words.
     expect(go).toContain('<a class="chip on" href="/items">Language: <span translate="no">Go</span><span class="x"> ×</span></a>');
     expect(await body('/lists?license=mit')).toContain('<h1>MIT</h1>');

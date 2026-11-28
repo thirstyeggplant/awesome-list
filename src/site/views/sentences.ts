@@ -10,8 +10,8 @@ import { encodeParam } from '../query.js';
 import { itemPath } from './components.js';
 import type { Ctx } from './context.js';
 
-/** Something said, as HTML and as plain text. */
-export interface Said { html: Html; text: string }
+/** Something said, as HTML and as plain text; `parts` the text of each sentence, when it is several. */
+export interface Said { html: Html; text: string; parts?: readonly string[] }
 
 type Value = string | Said;
 
@@ -40,7 +40,7 @@ export function sayList(loc: Loc, parts: readonly Said[]): Said {
 export function sentences(loc: Loc, parts: readonly (Said | null)[]): Said {
   const kept = parts.filter((p): p is Said => p !== null);
   const sep = loc.info.cjk ? '' : ' ';
-  return { html: join(kept.map((p) => p.html), sep), text: kept.map((p) => p.text).join(sep) };
+  return { html: join(kept.map((p) => p.html), sep), text: kept.map((p) => p.text).join(sep), parts: kept.map((p) => p.text) };
 }
 
 /** A name, as a link inside the site; a browser's own translation leaves it alone. */
