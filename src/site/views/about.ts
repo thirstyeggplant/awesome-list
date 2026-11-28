@@ -16,7 +16,7 @@ export function aboutPage(ctx: Ctx): ViewResult {
   const ls = cov.listsByStatus;
   const kinds = cov.itemsByKind;
   const repos = cov.reposByStatus;
-  const main = html`<article class="about">
+  const main = html`<article class="about-page">
 <h1>${loc.t(a.h1, { site })}</h1>
 <p>${loc.h(a.intro, {
     site,
@@ -50,7 +50,6 @@ export function aboutPage(ctx: Ctx): ViewResult {
       description: loc.t(loc.m.meta.about.description, { site }),
       canonical: '/about',
       main,
-      shape: 'narrow',
     }),
   );
 }

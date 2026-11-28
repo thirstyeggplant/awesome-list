@@ -92,9 +92,6 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
   const ownerDisplay = isRepo ? item.key.split('/')[1] ?? '' : '';
   const display = ownerRow?.display ?? ownerDisplay;
 
-  const h1 = isRepo
-    ? html`<h1 translate="no">${link(loc, `/gh/${item.owner ?? ''}`, `${display} /`, { cls: 'dim' })} ${nameHtml}</h1>`
-    : html`<h1 translate="no">${nameHtml}</h1>`;
   const listIds = [...new Set(listings.map((l) => l.listId))];
   const listCount = listIds.length;
 
@@ -103,11 +100,11 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
     if (!list) return html``;
     const path = l.path.map((t, i) => link(loc, `/lists/${list.slug}#${l.anchors[i] ?? ''}`, t));
     const extras = l.extraLinks.map((e) => outbound(e.url, e.text, { rel: 'nofollow noopener', cls: 'extra' }));
-    return html`<li class="listing">${link(loc, `/lists/${list.slug}`, html`<span translate="no">${list.name}</span>`, { cls: 'name serif' })}${
-      l.name !== null ? html` <span class="as">${loc.h(m.item.listedAs, { name: html`<span translate="no">${l.name}</span>` })}</span>` : ''
-    }${extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''}${
-      list.status === 'unparsed' ? '' : html` <span class="size">${loc.plural(m.count.items, list.itemsMade)}</span>`
-    }${path.length > 0 ? html` <span class="path">${join(path, html`<span class="sep"> › </span>`)}</span>` : ''}</li>`;
+    return html`<li>${link(loc, `/lists/${list.slug}`, html`<span translate="no">${list.name}</span>`, { cls: 'serif' })}${
+      l.name !== null ? html` <span class="listed-as">${loc.h(m.item.listedAs, { name: html`<span translate="no">${l.name}</span>` })}</span>` : ''
+    }${path.length > 0 ? html`<p class="path">${join(path, html`<span class="sep"> › </span>`)}</p>` : ''}${
+      list.status === 'unparsed' && extras.length === 0 ? '' : html`<p class="m">${list.status === 'unparsed' ? '' : loc.plural(m.count.items, list.itemsMade)}${join(extras.map((e) => html` ${e}`))}</p>`
+    }</li>`;
   });
 
   // Where it sits in the curators' structure: the list with the most stars that names it, and its section.
@@ -135,43 +132,48 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
     ? ''
     : html`<p class="go"><a class="btn primary" href="${href}" rel="nofollow noopener" title="${href}">${
         isRepo ? m.item.openGitHub : loc.t(m.item.visit, { host: item.host })
-      }</a></p><p class="address mono">${item.url}</p>`;
-  const topics = item.tags.topics.map(([slug]) => tag(loc, 'topic', slug));
+      }</a> <span class="address mono">${item.url}</span></p>`;
+  const topics = item.tags.topics.map(([slug, label]) => tag(loc, 'topic', slug, label));
   const kindWord = (m.kind as Record<string, string>)[item.kind] ?? item.kind;
-  const side = html`<aside class="item-side">
-${facts([
-  [m.facts.stars, loc.n(item.stars)],
-  [m.facts.lastPush, loc.day(item.pushedDay)],
-  [m.facts.language, lang ? link(loc, `/items?lang=${lang[0]}`, html`<span translate="no">${lang[1]}</span>`) : ''],
-  [m.facts.licence, license ? link(loc, `/items?license=${license[0]}`, html`<span translate="no">${license[1]}</span>`) : ''],
-  [m.facts.kind, link(loc, `/items?kind=${item.kind}`, kindWord)],
-  [m.facts.host, html`<span translate="no">${item.host}</span>`],
-  [m.facts.fork, item.fork === true ? m.yes : ''],
-  [m.facts.renamedFrom, item.renamedFrom === null ? '' : html`<span translate="no">${item.renamedFrom}</span>`],
-])}
-${isRepo ? html`<p class="note">${loc.t(m.item.factsAsOf, { date: loc.dayIso(ctx.meta.dataFinished) })}</p>` : ''}
-${topics.length > 0 ? html`<p class="side-label">${m.item.topics}</p><p class="chips">${join(topics, ' ')}</p>` : ''}
-${shareRow(ctx, head)}
-</aside>`;
+  const namedBy = loc.plural(m.count.lists, listCount);
+  // For a repository, what GitHub says; for anything else, what it is and where.
+  const factList = facts(isRepo
+    ? [
+        [m.facts.stars, loc.n(item.stars)],
+        [m.facts.lastPush, loc.time(item.pushedDay)],
+        [m.facts.language, lang ? link(loc, `/items?lang=${lang[0]}`, html`<span translate="no">${lang[1]}</span>`) : ''],
+        [m.facts.licence, license ? link(loc, `/items?license=${license[0]}`, html`<span translate="no">${license[1]}</span>`) : ''],
+        [m.facts.owner, link(loc, `/gh/${item.owner ?? ''}`, html`<span translate="no">${display}</span>`)],
+        [m.facts.namedBy, namedBy],
+        [m.facts.fork, item.fork === true ? m.yes : ''],
+        [m.facts.renamedFrom, item.renamedFrom === null ? '' : html`<span translate="no">${item.renamedFrom}</span>`],
+      ]
+    : [
+        [m.facts.kind, link(loc, `/items?kind=${item.kind}`, kindWord)],
+        [m.facts.host, html`<span translate="no">${item.host}</span>`],
+        [m.facts.namedBy, namedBy],
+      ]);
   const ownerName = html`<span translate="no">${display}</span>`;
+  const word = itemRot(item);
   const main = html`<article class="item-page">
 ${trail}
-${h1}
+${isRepo
+    ? html`<h1 translate="no">${link(loc, `/gh/${item.owner ?? ''}`, `${display} /`, { cls: 'dim' })} ${nameHtml}${word === null ? '' : html` <b class="rot rot-${word}" translate="yes">${m.status[word]}</b>`}</h1>`
+    : html`<h1 translate="no">${nameHtml}</h1>`}
+${rotSentence(loc, item)}
 ${go}
 ${item.aka.length > 0 ? html`<p class="aka">${loc.h(m.item.alsoListedAs, { names: join(item.aka.map((a) => html`<span translate="no">${a}</span>`), ', ') })}</p>` : ''}
 ${ownList ? html`<p class="is-list">${loc.h(m.item.isList, {}, { 1: (t) => link(loc, `/lists/${ownList.slug}`, t) })}</p>` : ''}
-${rotSentence(loc, item)}
-<div class="item-layout">
-${side}
-<div class="item-main">
-<section><h2>${loc.plural(m.item.inLists, listCount)}</h2><ol class="listings">${rows}</ol></section>
-${along.length > 0 ? html`<section><h2>${m.item.alongside}</h2>${entries(ctx, along, { topics: true })}</section>` : ''}
-${fromOwner.length > 0 && ownerRow !== null ? html`<section><h2>${loc.h(m.item.moreFrom, { owner: ownerName })}</h2>${entries(ctx, fromOwner, { topics: true })}<p class="more">${link(
+${factList}
+${isRepo ? html`<p class="note">${loc.h(m.item.factsAsOf, { date: loc.timeIso(ctx.meta.dataFinished) })}</p>` : ''}
+${topics.length > 0 ? html`<p class="topics-label">${m.item.topics}</p><p class="chips">${join(topics, ' ')}</p>` : ''}
+<h2>${loc.plural(m.item.inLists, listCount)}</h2><ol class="entries lists">${rows}</ol>
+${along.length > 0 ? html`<h2>${m.item.alongside}</h2>${entries(ctx, along, { topics: true })}` : ''}
+${fromOwner.length > 0 && ownerRow !== null ? html`<h2>${loc.h(m.item.moreFrom, { owner: ownerName })}</h2>${entries(ctx, fromOwner, { topics: true })}<p class="more">${link(
     loc, `/gh/${ownerRow.login}`, loc.plural(m.item.allFrom, ownerRow.itemCount, { owner: display }),
-  )}</p></section>` : ''}
+  )}</p>` : ''}
 <p class="attribution">${m.item.attribution}</p>
-</div>
-</div>
+${shareRow(ctx, head)}
 </article>`;
 
   const description = describe(ctx, item, isRepo, listIds, first, along);

@@ -2,7 +2,7 @@
 // translated summaries and category names. One per request (cheap: the parts are shared).
 import { html, type Html } from '../html.js';
 import {
-  dayOfIso, dayToDate, fmt, fmtHtml, formatters, isPlural, pluralForm, type HtmlVars, type Plural, type Tags, type Vars,
+  dayOfIso, dayToDate, fmt, fmtHtml, formatters, isoDay, isPlural, pluralForm, type HtmlVars, type Plural, type Tags, type Vars,
 } from './format.js';
 import { LOCALE_INFO, localePath, type Locale, type LocaleInfo } from './locales.js';
 import { en, type Messages } from './messages/en.js';
@@ -78,6 +78,17 @@ export class Loc {
   /** A day number as a date; '' for null. */
   day(day: number | null): string {
     return day === null ? '' : formatters(this.info.intl).day.format(dayToDate(day));
+  }
+
+  /** A day number as a <time> with its ISO date; nothing for null. */
+  time(day: number | null): Html {
+    return day === null ? html`` : html`<time datetime="${isoDay(day)}">${this.day(day)}</time>`;
+  }
+
+  /** An ISO time as a <time>; the text itself when it is not a time. */
+  timeIso(iso: string): Html {
+    const d = dayOfIso(iso);
+    return d === null ? html`${iso}` : this.time(d);
   }
 
   /** An ISO time as a date; the text itself when it is not a time. */

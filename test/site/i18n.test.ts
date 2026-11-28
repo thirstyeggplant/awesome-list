@@ -107,7 +107,7 @@ describe('messages', () => {
 
   it('are not left in English in a translated language (test 4)', () => {
     // Keys whose value may be the same in a language: nothing but placeholders and signs.
-    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator', 'common.dot', 'entry.stars']);
+    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator', 'common.dot', 'common.filterChip', 'entry.stars']);
     // Words that are the same in the language (loanwords such as Fork, Status, Tags; French "page", German "in"),
     // checked by eye. A key added here must be one whose translation really is the English.
     const sameInLanguage: Partial<Record<Locale, string[]>> = {
@@ -180,7 +180,7 @@ describe('no English in the chrome (test 5)', () => {
     add(loc.dayIso('2026-06-02T12:00:00Z'));
     add('rocket');
     const strings = [...data].sort((a, b) => b.length - a.length);
-    const SIGNS = /^[\s\d.,:;·×›‹←→↑↓★#/()+\-–—“”‘’'"|!?%&*@_=[\]<>]*$/u;
+    const SIGNS = /^[\s\d.,:;·×›‹←→↑↓↗★#/()+\-–—“”‘’'"|!?%&*@_=[\]<>]*$/u;
     // A chip's namespace is in a span of its own, so with the tags taken out a space follows its colon.
     const TAGS = /\b(kind|status|lang|license|topic|list|category|owner|stars|in):\s?\S+/g;
 
@@ -272,7 +272,7 @@ describe('every language', () => {
     expect(lists).toContain('Werkzeuge');
     expect(lists).toContain('<span lang="en">Languages</span>');
     const list = (await get('/de/lists/gamma/awesome-broken')).body;
-    expect(list).toContain('<p class="summary" lang="en">Things about gamma/awesome-broken.</p>');
+    expect(list).toContain('<p class="lede" lang="en">Things about gamma/awesome-broken.</p>');
     // The suggestion bar's words are on each language's link, in that language.
     const home = (await get('/de')).body;
     expect(home).toContain('hreflang="en" data-suggest="Read this page in English" data-close="Close"');

@@ -36,9 +36,9 @@ export function link(loc: Loc, path: string, text: Part, attrs: { cls?: string; 
   }>${text}</a>`;
 }
 
-/** A tag chip such as lang:go, linking to /items?lang=go. Query syntax, the same in every language. */
-export function tag(loc: Loc, ns: string, slug: string): Html {
-  return html`<a class="chip" translate="no" href="${loc.href(`/items?${ns}=${encodeParam(slug)}`)}"><span class="ns">${ns}:</span>${slug}</a>`;
+/** A chip for a term, such as a topic: its label, linking to /items?topic=cli. */
+export function tag(loc: Loc, ns: string, slug: string, label = slug): Html {
+  return html`<a class="chip" translate="no" href="${loc.href(`/items?${ns}=${encodeParam(slug)}`)}">${label}</a>`;
 }
 
 export function itemPath(item: Pick<ItemRow, 'key'>): string {

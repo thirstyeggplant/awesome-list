@@ -131,6 +131,8 @@ export const ko: Messages = {
     pageOf: '{pages}페이지 중 {page}페이지',
     /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
     dot: ' · ',
+    /** A filter that is on, as a removable chip: {facet} is the facet's title ("Language"), {value} what is chosen ("Go"). */
+    filterChip: '{facet}: {value}',
   },
   /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
   entry: {
@@ -149,6 +151,8 @@ export const ko: Messages = {
     kind: '종류',
     host: '호스트',
     renamedFrom: '이전 이름',
+    /** An item's GitHub owner, a link to their page. */
+    owner: '소유자',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -200,6 +204,8 @@ export const ko: Messages = {
     /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
     related: '관련 목록',
     inCommon: p({ other: '공통 프로젝트 {n}개' }),
+    /** A heading at the foot of a list page, over its facts, where it comes from and the share row. */
+    aboutTitle: '이 목록에 대하여',
   },
   item: {
     /** Under an item's name: the other names lists give it. */

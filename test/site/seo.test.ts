@@ -301,7 +301,7 @@ describe('the head (test 16)', () => {
     expect(await title('/gh/own1/proj1')).toBe('own1/proj1: in the Gadgets awesome list · Shelf');
     const one = /<meta name="description" content="([^"]*)">/.exec((await get('/gh/own1/proj1')).body)?.[1] ?? '';
     expect(decode(one)).toMatch(/^proj1 is in the Gadgets awesome list, under Group 1\. Alongside proj\d+, proj\d+, proj\d+\. .+, [\d,]+ stars\.$/);
-    expect((await get('/')).body).toContain('<h1 class="home-title">5 awesome lists and everything in them</h1>');
+    expect((await get('/')).body).toContain('<h1>5 awesome lists and everything in them</h1>');
     expect((await get('/lists/beta/awesome-gadgets')).body).toContain('More in Tools');
     // The lists most like a list: in its head, and as cards after its entries.
     const widgets = (await get('/lists/alpha/awesome-widgets')).body;

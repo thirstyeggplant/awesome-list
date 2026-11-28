@@ -131,6 +131,8 @@ export const fr: Messages = {
     pageOf: 'Page {page} sur {pages}',
     /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
     dot: ' · ',
+    /** A filter that is on, as a removable chip: {facet} is the facet's title ("Language"), {value} what is chosen ("Go"). */
+    filterChip: '{facet} : {value}',
   },
   /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
   entry: {
@@ -149,6 +151,8 @@ export const fr: Messages = {
     kind: 'Type',
     host: 'Hôte',
     renamedFrom: 'Ancien nom',
+    /** An item's GitHub owner, a link to their page. */
+    owner: 'Propriétaire',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -204,6 +208,8 @@ export const fr: Messages = {
     /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
     related: 'Listes apparentées',
     inCommon: p({ one: '{n} projet en commun', many: '{n} de projets en commun', other: '{n} projets en commun' }),
+    /** A heading at the foot of a list page, over its facts, where it comes from and the share row. */
+    aboutTitle: 'À propos de cette liste',
   },
   item: {
     /** Under an item's name: the other names lists give it. */

@@ -96,7 +96,15 @@ describe('routes', () => {
     expect(page).toContain('<a class="btn primary" href="https://github.com/acme/rocket" rel="nofollow noopener" title="https://github.com/acme/rocket">Open on GitHub ↗</a>');
     expect(page).toMatch(/<nav class="crumbs"[^>]*><a href="\/lists">Lists<\/a>.*Widgets.*Launchers<\/a><\/nav>/);
     expect(page).not.toMatch(/<a class="chip"[^>]*><span class="ns">(lang|license|status):/);
-    expect(page).toContain('<span class="size">');
+    // Each list that names it: its name, its section path as links, then its size, all in the column.
+    expect(page).toMatch(/<ol class="entries lists"><li><a href="\/lists\/[^"]+" class="serif">.*<p class="path">.*<p class="m">\d+ items/);
+    // The facts of a repository: no kind or host, the owner as a link; a date is a <time>.
+    expect(page).toContain('<dt>Owner</dt><dd><a href="/gh/acme"><span translate="no">Acme</span></a></dd>');
+    expect(page).not.toContain('<dt>Kind</dt>');
+    expect(page).not.toContain('<dt>Host</dt>');
+    expect(page).toMatch(/<dt>Last push<\/dt><dd><time datetime="\d{4}-\d\d-\d\d">/);
+    // A topic chip shows its label, not query syntax.
+    expect(page).toContain('<a class="chip" translate="no" href="/items?topic=cli">cli</a>');
     const proj = await body('/gh/own1/proj1');
     expect(proj).toContain('More from <span translate="no">own1</span>');
     expect(proj).toContain('href="/gh/own1">All 8 projects by own1</a>');
@@ -109,7 +117,7 @@ describe('routes', () => {
   it('makes entries: a name, then owner, language, stars, lists from two and an old year as text', async () => {
     const page = await body('/items');
     expect(page).not.toContain('rows-head');
-    const rows = page.slice(page.indexOf('<ol class="entries">'));
+    const rows = page.slice(page.indexOf('<ol class="entries">'), page.indexOf('</ol>'));
     // The facts are plain text after the name, which is the only link; no chip, no link to the language.
     expect(rows).not.toContain('class="chip"');
     expect(rows).not.toContain('href="/items?lang=');
@@ -131,9 +139,13 @@ describe('routes', () => {
   it('makes a home page that starts somewhere: languages, the lists with the most stars, then every category', async () => {
     const page = await body('/');
     expect(ctx.meta.top.langs.map(([slug]) => slug)).toEqual(['go', 'cplusplus', 'rust']);
-    expect(page).toMatch(/<p class="by-lang">.*<a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a>/);
+    expect(page).toMatch(/<ul class="run langs-run"><li><a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a><\/li>/);
     const h2 = [...page.matchAll(/<h2[^>]*>([^<]*)</g)].map((x) => x[1]);
-    expect(h2).toEqual(['Start here', 'Named by the most lists', 'All lists by category']);
+    expect(h2).toEqual(['Browse by language', 'Start here', 'Named by the most lists', 'All lists by category']);
+    // Every category is folded, at every width, and its lists are one run of names.
+    expect([...page.matchAll(/<details class="category" id="/g)]).toHaveLength(ctx.categories.length);
+    expect(page).not.toContain('<details class="category" id="tools" open');
+    expect(page).toContain('<ul class="run"><li><a href="/lists/');
     expect([...page.matchAll(/<h3><a href="\/lists\?category=/g)]).toHaveLength(ctx.categories.length);
     // The lists with the most stars, leaving out what could not be read.
     expect(page).toContain('<li><a class="serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a> <span class="m mono" translate="no">alpha/awesome-widgets</span>');
@@ -143,7 +155,9 @@ describe('routes', () => {
 
   it('says where a listing is: the one filter as its h1, the page of how many, jumps on search, an owner\'s line', async () => {
     const go = await body('/items?lang=go');
-    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="h1-note">\d+ projects named by awesome lists<\/p>/);
+    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="lede">\d+ projects named by awesome lists<\/p>/);
+    // A filter that is on says what it is in words.
+    expect(go).toContain('<a class="chip on" href="/items">Language: <span translate="no">Go</span><span class="x"> ×</span></a>');
     expect(await body('/lists?license=mit')).toContain('<h1>MIT</h1>');
     const search = await body('/search?q=project');
     expect(search).toMatch(/<p class="jumps"><a href="#lists">Lists <span class="n">\d+<\/span><\/a>.*<a href="#items">Items <span class="n">\d+<\/span><\/a><\/p>/);

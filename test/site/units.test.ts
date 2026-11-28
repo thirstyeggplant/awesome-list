@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { fitTitle } from '../../src/site/views/layout.js';
 import { relatedLists, topOf } from '../../src/site/build/cli.js';
@@ -298,5 +299,11 @@ describe('an entry', () => {
     expect(mainLang([e(['go', 'Go']), e(['rust', 'Rust']), e(['c', 'C'])])).toBeNull();
     expect(mainLang([e(['go', 'Go']), e(['rust', 'Rust'])])).toEqual(['go', 'Go']);
     expect(mainLang([e(null)])).toBeNull();
+  });
+});
+
+describe('the stylesheet', () => {
+  it('stays within its budget', () => {
+    expect(readFileSync(new URL('../../src/site/assets/site.css', import.meta.url)).length).toBeLessThan(26_000);
   });
 });

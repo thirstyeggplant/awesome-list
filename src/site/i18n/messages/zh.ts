@@ -131,6 +131,8 @@ export const zh: Messages = {
     pageOf: '第 {page} 页，共 {pages} 页',
     /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
     dot: ' · ',
+    /** A filter that is on, as a removable chip: {facet} is the facet's title ("Language"), {value} what is chosen ("Go"). */
+    filterChip: '{facet}：{value}',
   },
   /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
   entry: {
@@ -149,6 +151,8 @@ export const zh: Messages = {
     kind: '类型',
     host: '主机',
     renamedFrom: '原名',
+    /** An item's GitHub owner, a link to their page. */
+    owner: '所有者',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -200,6 +204,8 @@ export const zh: Messages = {
     /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
     related: '相关清单',
     inCommon: p({ other: '{n} 个共同项目' }),
+    /** A heading at the foot of a list page, over its facts, where it comes from and the share row. */
+    aboutTitle: '关于这个列表',
   },
   item: {
     /** Under an item's name: the other names lists give it. */

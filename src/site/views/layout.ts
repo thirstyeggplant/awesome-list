@@ -18,9 +18,8 @@ export interface Page {
   canonical: string | null;
   /** What the page says about itself in English; it holds in every language. */
   noindex?: boolean;
+  /** The column; a rail in it (`.rail`) hangs in the margin on a wide window. */
   main: Html;
-  /** A class on <body> for the page's layout: wide (rail and rows), narrow (a measure). */
-  shape?: 'wide' | 'narrow' | 'list';
   scripts?: ('listfilter')[];
   /** The value of the header's search box. */
   q?: string | null;
@@ -130,7 +129,7 @@ ${page.description ? html`<meta name="description" content="${page.description}"
 ${(page.scripts ?? []).map((s) => html`<script src="${ctx.assets[s]}" defer></script>\n`)}${
     selfCanonical && page.jsonLd && page.jsonLd.length > 0 ? html`${jsonLd(page.jsonLd.length === 1 ? page.jsonLd[0] : page.jsonLd)}\n` : ''
   }</head>
-<body class="${page.shape ?? 'wide'}">
+<body>
 <a class="skip" href="#main">${m.site.skip}</a>
 <header class="top"><div class="bar">
 <a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
@@ -139,7 +138,7 @@ ${page.route === 'home' || page.route === 'search' ? '' : html`<form class="top-
     page.q ?? ''
   }" aria-label="${m.nav.search}" placeholder="${m.nav.searchHint}" autocomplete="off"></form>`}
 </div></header>
-<main id="main">${page.main}</main>
+<main id="main"><div class="page">${page.main}</div></main>
 <footer class="foot"><div class="foot-in">
 <div class="foot-about"><a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
 <p>${loc.h(m.site.footer, { site: ctx.siteName }, { 1: (t) => html`<a href="${loc.href('/about')}#leave-out">${t}</a>` })}</p></div>

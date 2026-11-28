@@ -38,5 +38,5 @@ export async function notFoundPage(ctx: Ctx, db: Db, path: string): Promise<stri
 ${searchBox(loc, words)}
 ${suggestions.length > 0 ? html`<h2>${loc.m.notFound.perhaps}</h2><ul>${suggestions.slice(0, 5).map((s) => html`<li>${link(loc, s.href, html`<span translate="no">${s.name}</span>`)}</li>`)}</ul>` : ''}
 </div>`;
-  return layout(ctx, { route: 'notfound', title: loc.m.notFound.h1, canonical: null, noindex: true, main, shape: 'narrow' });
+  return layout(ctx, { route: 'notfound', title: loc.m.notFound.h1, canonical: null, noindex: true, main });
 }

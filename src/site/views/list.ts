@@ -12,8 +12,8 @@ import { shareRow } from './share.js';
 
 /** Other lists of a list's category shown after its entries, by stars. */
 const MORE_IN_CATEGORY = 8;
-/** Related lists shown as cards after the entries. */
-const RELATED_CARDS = 6;
+/** Related lists shown after the entries. */
+const RELATED_LISTS = 6;
 /** Top-level sections named in the structured data. */
 const MAX_PARTS = 30;
 
@@ -104,7 +104,7 @@ export function attributionOfList(loc: Loc, list: ListRow, dataFinished: string)
     1: (t) => html`<strong translate="no">${t}</strong>`,
     2: (t) => outbound(`https://github.com/${list.slug}`, t),
   });
-  return html`<p class="attribution">${main}${oid ? html` ${loc.t(m.readAt, { oid, date: loc.dayIso(dataFinished) })}` : ''}${
+  return html`<p class="attribution">${main}${oid ? html` ${loc.h(m.readAt, { oid, date: loc.timeIso(dataFinished) })}` : ''}${
     list.license ? html` ${loc.t(m.licence, { license: list.license })}` : ''
   }</p>`;
 }
@@ -146,51 +146,47 @@ export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewRes
     .filter((r): r is { l: ListRow; n: number } => r.l !== undefined);
   const seeAlso = related.slice(0, 3).map((r) => link(loc, `/lists/${r.l.slug}`, html`<span translate="no">${r.l.name}</span>`));
   const head = { route: 'list' as const, title: loc.plural(m.meta.list.title, itemCount, { name: list.name, repo: list.repo }), canonical: `/lists/${list.slug}` };
-  const top = html`<header class="list-head">
-${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
-<div class="head-main">
+  const top = html`${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
 <h1 class="serif" translate="no">${list.name}</h1>
-<p class="repo-link">${outbound(gh, list.slug, { cls: 'mono' })}</p>
-${summary ? html`<p class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''}
-${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.seeAlso}</span> ${join(seeAlso, loc.m.common.separator)}</p>` : ''}
-<p class="actions">${outbound(gh, m.list.readOriginal, { cls: 'btn primary' })} ${outbound(`${gh}/issues`, m.list.suggestChange, { cls: 'btn' })}</p>
-</div>
-<div class="head-side">
+<p class="repo-link">${outbound(gh, html`${list.slug} ↗`, { cls: 'mono' })}</p>
+${summary ? html`<p class="lede"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''}
+<p class="about-list">${outbound(gh, html`${m.list.readOriginal} ↗`)} · ${outbound(`${gh}/issues`, m.list.suggestChange)}</p>
+${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.seeAlso}</span> ${join(seeAlso, loc.m.common.separator)}</p>` : ''}`;
+
+  let content: Html;
+  let rail: Html | string = '';
+  if (list.status === 'unparsed') {
+    content = html`<p class="unparsed">${loc.h(m.list.unparsed, { reason: reasonOf(loc, list.reason) })}</p>`;
+  } else {
+    const n = loc.n(entries.length);
+    rail = html`<nav class="rail sheet" id="_contents" aria-label="${m.list.contents}"><div class="rail-in">${sheetHead(loc, m.list.contents, 'entries')}<p class="rail-title">${m.list.contents}</p>${toc(loc, contents)}</div></nav>`;
+    content = html`<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a></div>
+<div id="entries">${body(loc, sections, entries, dataYearOf(ctx), mainLang(entries)?.[0] ?? null)}</div>`;
+  }
+
+  // The lists most like it; then more of its category by stars (ctx.lists is in that order).
+  const shown = related.slice(0, RELATED_LISTS);
+  const relatedHtml = shown.length === 0 ? '' : html`<h2>${m.list.related}</h2><ol class="entries lists">${shown.map(
+    (r) => listEntry(ctx, r.l, { extra: loc.plural(m.list.inCommon, r.n) }),
+  )}</ol>`;
+  const taken = new Set([list.id, ...shown.map((r) => r.l.id)]);
+  const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && !taken.has(l.id)).slice(0, MORE_IN_CATEGORY);
+  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listEntries(ctx, more, { noCategory: true })}`;
+
+  // At the foot: the facts, where the list comes from, and the share row.
+  const about = html`<h2>${m.list.aboutTitle}</h2>
 ${facts([
   [m.facts.stars, loc.n(list.stars)],
-  [m.facts.lastPush, loc.day(list.pushedDay)],
+  [m.facts.lastPush, loc.time(list.pushedDay)],
   [m.facts.licence, list.license ?? ''],
   [m.facts.entries, size],
   [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
   [m.facts.state, word === null ? '' : rot(loc, word)],
 ])}
-${shareRow(ctx, head)}
-</div>
-</header>`;
+${attributionOfList(loc, list, ctx.meta.dataFinished)}
+${shareRow(ctx, head)}`;
 
-  let content: Html;
-  if (list.status === 'unparsed') {
-    content = html`<p class="unparsed">${loc.h(m.list.unparsed, { reason: reasonOf(loc, list.reason) })}</p>`;
-  } else {
-    const n = loc.n(entries.length);
-    content = html`<div class="list-layout">
-<nav class="toc toc-rail sheet" id="_contents" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${sheetHead(loc, m.list.contents, 'entries')}${toc(loc, contents)}</nav>
-<div class="list-body">
-<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a></div>
-<div id="entries">${body(loc, sections, entries, dataYearOf(ctx), mainLang(entries)?.[0] ?? null)}</div>
-</div></div>`;
-  }
-
-  // The lists most like it; then more of its category by stars (ctx.lists is in that order).
-  const shown = related.slice(0, RELATED_CARDS);
-  const relatedHtml = shown.length === 0 ? '' : html`<section class="related"><h2>${m.list.related}</h2><ol class="entries lists">${shown.map(
-    (r) => listEntry(ctx, r.l, { extra: loc.plural(m.list.inCommon, r.n) }),
-  )}</ol></section>`;
-  const taken = new Set([list.id, ...shown.map((r) => r.l.id)]);
-  const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && !taken.has(l.id)).slice(0, MORE_IN_CATEGORY);
-  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listEntries(ctx, more, { noCategory: true })}</section>`;
-
-  const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${attributionOfList(loc, list, ctx.meta.dataFinished)}</article>`;
+  const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${about}</article>${rail}`;
 
   const fallback = loc.t(m.meta.list.description, { name: list.name, repo: `github.com/${list.slug}` });
   let description = summary?.text ?? fallback;
@@ -212,7 +208,6 @@ ${shareRow(ctx, head)}
       ...head,
       description,
       main,
-      shape: 'list',
       scripts: ['listfilter'],
       jsonLd: [
         breadcrumbLd(ctx, trail),

@@ -31,9 +31,9 @@ export async function ownerPage(ctx: Ctx, db: Db, owner: OwnerRow): Promise<View
 <h1 translate="no">${owner.display}</h1>
 <p class="repo-link">${outbound(`https://github.com/${owner.display}`, `github.com/${owner.display}`, { cls: 'mono' })}</p>
 <p class="owner-line">${loc.t(m.owner.line, { lists: loc.plural(m.count.lists, owner.listCount), projects: loc.plural(m.count.projects, owner.itemCount) })}</p>
-${shareRow(ctx, head)}
 ${lists.length > 0 ? html`<section><h2>${m.owner.listsTheyKeep}</h2>${listEntries(ctx, lists)}</section>` : ''}
 ${items.length > 0 ? html`<section><h2>${m.owner.theirProjects}</h2>${entries(ctx, items, { topics: true })}<p class="more">${link(loc, `/items?owner=${encodeParam(owner.login)}`, loc.plural(m.owner.allInItems, owner.itemCount))}</p></section>` : ''}
+${shareRow(ctx, head)}
 </div>`;
   return page(
     layout(ctx, {
