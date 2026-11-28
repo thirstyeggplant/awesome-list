@@ -29,6 +29,12 @@ export const ALONGSIDE_BIG_SECTION = 80;
 /** How many on each side count in a big section. */
 export const ALONGSIDE_WINDOW = 5;
 
+/**
+ * An item page is indexed when two lists or more name it, or when it is a repository with at least this many
+ * stars; a repository GitHub no longer has never is. The rest are noindex,follow and in no sitemap.
+ */
+export const INDEXABLE_STARS = 100;
+
 /** A repository with no push in this many days is quiet (as in the data). */
 export const QUIET_DAYS = 730;
 
@@ -50,3 +56,13 @@ export const CACHE = {
  * facet and the browse sitemap. They stay in the data, on the item page and in search.
  */
 export const TOPIC_STOP: ReadonlySet<string> = new Set(['hacktoberfest', 'awesome', 'awesome-list', 'awesome-lists', 'list', 'lists', 'golang']);
+
+/**
+ * Answer engines and AI crawlers named in robots.txt, in the same group as every other crawler, so they get the
+ * same rules (a crawler that finds its own name ignores the * group). Checked against each operator's own page
+ * on 2026-11-27 (docs/i18n-seo.md, robots.txt).
+ */
+export const AI_CRAWLERS = [
+  'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User',
+  'Google-Extended', 'Applebot-Extended', 'CCBot', 'Amazonbot', 'meta-externalagent',
+] as const;

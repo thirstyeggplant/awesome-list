@@ -3,7 +3,7 @@
 import { createHash } from 'node:crypto';
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
-import { CACHE, SITEMAP_CHUNK } from '../config.js';
+import { AI_CRAWLERS, CACHE, SITEMAP_CHUNK, SITE_NAME } from '../config.js';
 import { escape } from '../html.js';
 import { SECURITY_HEADERS } from '../http.js';
 import { isoDay } from '../i18n/format.js';
@@ -152,10 +152,151 @@ export function sitemaps(s: SitemapSource): Map<string, string> {
   return out;
 }
 
-/** robots.txt: everything but the quick-search API, the data files and search, in every language. */
+/**
+ * robots.txt: everything but the quick-search API, the data files and search, in every language. One group, so the
+ * answer engines and AI crawlers it names get the same rules as everyone, and a line that says they are welcome.
+ */
 export function robots(origin: string): string {
   const search = LOCALES.map((l) => `Disallow: ${localePath(l, '/search')}`);
-  return ['User-agent: *', 'Allow: /', 'Disallow: /api/', 'Disallow: /_data/', ...search, '', `Sitemap: ${origin}/sitemap.xml`, ''].join('\n');
+  return [
+    `# ${SITE_NAME} welcomes search engines, answer engines and AI crawlers. See /llms.txt.`,
+    'User-agent: *',
+    ...AI_CRAWLERS.map((c) => `User-agent: ${c}`),
+    'Allow: /', 'Disallow: /api/', 'Disallow: /_data/', ...search, '', `Sitemap: ${origin}/sitemap.xml`, '',
+  ].join('\n');
+}
+
+/** What llms.txt and a list's Markdown copy are written from: English only, our words and the facts. */
+export interface PlainList {
+  slug: string;
+  name: string;
+  summary: string | null;
+  category: string | null;
+  stars: number | null;
+  pushedDay: number | null;
+  license: string | null;
+  status: string;
+  readmeOid: string | null;
+  itemsMade: number;
+  sectionCount: number;
+}
+
+export interface PlainEntry {
+  name: string;
+  url: string;
+  key: string;
+  lang: string | null;
+  stars: number | null;
+  pushedDay: number | null;
+  license: string | null;
+  listCount: number;
+  status: string | null;
+  /** The section's path, outermost first; empty for entries before the first heading. */
+  path: readonly string[];
+}
+
+const num = (n: number): string => n.toLocaleString('en-US');
+
+/** A name as Markdown link text: brackets and backslashes escaped, one line. */
+export function mdText(text: string): string {
+  return text.replace(/[\r\n]+/g, ' ').replace(/[\\[\]]/g, (c) => `\\${c}`).trim();
+}
+
+/** An address as a Markdown link target: http(s) only, with what would end the target written as escapes. */
+function mdUrl(url: string): string | null {
+  let u: URL;
+  try {
+    u = new URL(url);
+  } catch {
+    return null;
+  }
+  if (u.protocol !== 'http:' && u.protocol !== 'https:') return null;
+  return u.href.replace(/[ ()<>]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
+}
+
+/**
+ * /lists/{owner}/{repo}.md: the whole list as Markdown, by section, with the facts we hold for each entry. English
+ * only; never a curator's description. Heading levels follow the section's depth.
+ */
+export function listMarkdown(origin: string, dataDay: string, list: PlainList, entries: readonly PlainEntry[]): string {
+  const out: string[] = [`# ${mdText(list.name)} (${list.slug})`, ''];
+  if (list.summary !== null) out.push(`> ${mdText(list.summary)}`, '');
+  const oid = list.readmeOid?.slice(0, 7);
+  out.push(`- Source: https://github.com/${list.slug}${oid ? ` (read at commit ${oid} on ${dataDay})` : ''}. The selection and order are its curators'.`);
+  out.push(`- This index: ${origin}/lists/${list.slug}`);
+  const facts = [`${num(entries.length || list.itemsMade)} entries in ${num(list.sectionCount)} sections.`];
+  if (list.stars !== null) facts.push(`${num(list.stars)} stars.`);
+  if (list.pushedDay !== null) facts.push(`Last push ${isoDay(list.pushedDay) < dataDay ? isoDay(list.pushedDay) : dataDay}.`);
+  if (list.license !== null) facts.push(`Licence ${list.license}.`);
+  out.push(`- ${facts.join(' ')}`);
+  out.push(`- Facts are from GitHub as of ${dataDay}. No descriptions are copied from the list.`);
+  if (list.status === 'unparsed') {
+    out.push('', 'The entries of this list could not be read yet.', '');
+    return out.join('\n');
+  }
+  let shown: readonly string[] = [];
+  for (const e of entries) {
+    // Headings for the parts of the path not shown yet.
+    let same = 0;
+    while (same < e.path.length && same < shown.length && e.path[same] === shown[same]) same++;
+    if (same < e.path.length || e.path.length !== shown.length) {
+      for (let d = same; d < e.path.length; d++) out.push('', `${'#'.repeat(Math.min(6, d + 2))} ${mdText(e.path[d] ?? '')}`);
+      out.push('');
+      shown = e.path;
+    }
+    const url = mdUrl(e.url);
+    const parts = [url === null ? mdText(e.name) : `[${mdText(e.name)}](${url})`];
+    if (e.lang !== null) parts.push(e.lang);
+    if (e.stars !== null) parts.push(`${num(e.stars)} stars`);
+    if (e.pushedDay !== null) parts.push(`pushed ${isoDay(e.pushedDay)}`);
+    if (e.license !== null) parts.push(e.license);
+    if (e.listCount >= 2) parts.push(`in ${num(e.listCount)} lists`);
+    if (e.status === 'archived' || e.status === 'quiet' || e.status === 'gone') parts.push(e.status);
+    parts.push(`${origin}/${e.key}`);
+    out.push(`- ${parts.join(' · ')}`);
+  }
+  out.push('');
+  return out.join('\n');
+}
+
+/** /llms.txt: what the site is, how to read its addresses, and every list by category, in the llms.txt form. */
+export function llmsTxt(
+  origin: string, dataDay: string, counts: { lists: number; items: number }, categories: readonly string[], lists: readonly PlainList[],
+): string {
+  const out = [
+    `# ${SITE_NAME}`,
+    '',
+    `> An index of ${num(counts.lists)} awesome lists from GitHub and the ${num(counts.items)} projects they name: names, sections, links and`,
+    '> facts from GitHub (stars, last push, language, licence). It copies no descriptions from the lists.',
+    `> Data as of ${dataDay}; rebuilt every night.`,
+    '',
+    'How to read this site:',
+    '',
+    `- A list: ${origin}/lists/{owner}/{repo}. The same address with \`.md\` is the whole list as Markdown, by section.`,
+    `- A GitHub repository: ${origin}/gh/{owner}/{repo}. Anything else a list names: ${origin}/item/{id};`,
+    `  ${origin}/item?url={address} redirects to it.`,
+    `- Projects by language, topic or licence: ${origin}/items?lang=go, ?topic=cli, ?license=mit.`,
+    "- A list's selection and order are its curators'. Cite the list on GitHub for those; cite",
+    `  ${SITE_NAME} for counts, for which lists name a project, and for the date of the facts.`,
+    '',
+    '## Start',
+    '',
+    `- [About](${origin}/about): what is shown, where it comes from, coverage`,
+    `- [All lists](${origin}/lists)`,
+    `- [All projects](${origin}/items)`,
+  ];
+  const line = (l: PlainList): string => {
+    const facts = [l.status === 'unparsed' ? 'entries not read yet' : `${num(l.itemsMade)} items`];
+    if (l.stars !== null) facts.push(`${num(l.stars)} stars`);
+    return `- [${mdText(l.name)}](${origin}/lists/${l.slug}.md): ${l.summary === null ? '' : `${mdText(l.summary)} `}${facts.join(', ')}. Source: github.com/${l.slug}`;
+  };
+  for (const c of [...categories, null]) {
+    const of = lists.filter((l) => l.category === c);
+    if (of.length === 0) continue;
+    out.push('', `## ${c === null ? 'Other lists' : mdText(c)}`, '', ...of.map(line));
+  }
+  out.push('', '## Optional', '', `- [Sitemap](${origin}/sitemap.xml)`, '');
+  return out.join('\n');
 }
 
 /** Headers for the static files, in Cloudflare's _headers format. The Worker sets its own. */
@@ -172,6 +313,14 @@ export function headersFile(): string {
     `  Cache-Control: ${CACHE.crawl}`,
     '/robots.txt',
     `  Cache-Control: ${CACHE.crawl}`,
+    '/llms.txt',
+    `  Cache-Control: ${CACHE.crawl}`,
+    '  Content-Type: text/markdown; charset=utf-8',
+    // Only static files: the Markdown copies of the lists. The Worker's list pages are not static, so untouched.
+    '/lists/*',
+    `  Cache-Control: ${CACHE.crawl}`,
+    '  Content-Type: text/markdown; charset=utf-8',
+    '  X-Robots-Tag: noindex',
     ...ROOT_FILES.flatMap((name) => [`/${name}`, `  Cache-Control: ${CACHE.icon}`]),
     '',
   ].join('\n');

@@ -127,10 +127,17 @@ export const ko: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: '이름', language: '언어', stars: '스타', lists: '목록', updated: '업데이트', items: '항목' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: '{pages}페이지 중 {page}페이지',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+    /** A filter that is on, as a removable chip: {facet} is the facet's title ("Language"), {value} what is chosen ("Go"). */
+    filterChip: '{facet}: {value}',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: '{year}년 업데이트',
   },
   facts: {
     stars: '스타',
@@ -144,12 +151,14 @@ export const ko: Messages = {
     kind: '종류',
     host: '호스트',
     renamedFrom: '이전 이름',
+    /** An item's GitHub owner, a link to their page. */
+    owner: '소유자',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
     h1: p({ other: 'awesome list {n}개와 그 안의 모든 것' }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · {date} 기준 데이터',
     mostNamed: '가장 많은 목록에 실린 항목',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: '언어별로 보기',
@@ -172,8 +181,6 @@ export const ko: Messages = {
   list: {
     contents: '목차',
     filterThisList: '이 목록 필터',
-    collapseAll: '모두 접기',
-    expandAll: '모두 펼치기',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: '이 섹션 링크',
     readOriginal: 'GitHub에서 원본 읽기',
@@ -197,22 +204,18 @@ export const ko: Messages = {
     /** A heading after a list's entries over the lists most like it, each with how many projects both name. */
     related: '관련 목록',
     inCommon: p({ other: '공통 프로젝트 {n}개' }),
+    /** A heading at the foot of a list page, over its facts, where it comes from and the share row. */
+    aboutTitle: '이 목록에 대하여',
   },
   item: {
     /** Under an item's name: the other names lists give it. */
     alsoListedAs: '다른 이름: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: '이 항목은 라이브러리에 있는 목록이기도 해요. <1>목록 열기</1>',
-    archived: '소유자가 보관 처리했어요.',
     gone: 'GitHub에서 더 이상 이 저장소를 찾을 수 없어요.',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: '{month} 이후 푸시 없음.',
-    quiet: '2년 동안 푸시 없음.',
     factsAsOf: '{date} 기준 GitHub 정보.',
-    inLists: p({ other: '목록 {n}개에 실림' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: '‘{name}’ 이름으로 실림',
-    alongside: '함께 실린 항목',
     attribution: '위 목록들에 실린 항목입니다. 큐레이터가 이 항목을 어떻게 소개하는지는 각 목록에서 읽어 보세요. 변경을 제안하려면 해당 목록에 이슈를 열어 주세요.',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: 'GitHub에서 열기 ↗',
@@ -223,6 +226,21 @@ export const ko: Messages = {
     allFrom: p({ other: '{owner}의 프로젝트 {n}개 모두' }),
     /** The label over an item's topic chips. */
     topics: '토픽',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: '어떤 목록에서 같은 섹션에 실린 프로젝트예요. 목록이 이들을 대안이라고 말하는 것은 아니에요.',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: '{name}은(는) 어떤 awesome list에 실려 있나요?',
+      maintained: '{name}은(는) 아직 관리되고 있나요?',
+      alongside: '{name}과(와) 함께 실린 것은?',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: '{asOf} 기준으로 마지막 푸시는 {date}이고, 보관(archive)되지 않았어요.',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: '{date} 이후로 푸시가 없어요. {asOf}보다 2년 넘게 전이에요. 보관(archive)되지는 않았어요.',
+      archived: '아니요. 소유자가 보관(archive)했어요. 마지막 푸시는 {date}이에요.',
+    },
   },
   items: {
     h1: '항목',
@@ -241,14 +259,14 @@ export const ko: Messages = {
     /** Facet values: "1,000+ stars", "in 5+ lists". */
     starsAtLeast: '스타 {n}개 이상',
     inAtLeast: '목록 {n}개 이상',
+    /** On /items with one language, before up to six lists most of whose repositories are in it: {label} is the language. */
+    mostlyIn: '주로 {label}인 목록',
   },
   owner: {
     listsTheyKeep: '관리하는 목록',
     theirProjects: '목록에 실린 프로젝트',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '항목에서 {n}개 모두 보기' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: '관리하는 목록: {lists} · 목록에 실린 프로젝트: {projects}',
   },
   search: {
     h1: '검색',
@@ -269,14 +287,15 @@ export const ko: Messages = {
     h1: '{site} 소개',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site}는 <1>awesome list 색인</1>에 있는 모든 awesome list와 그 안의 모든 것을 모은 무료 라이브러리입니다. {lists}, 그 목록들에 실린 {items}, 그리고 각 항목이 어느 목록의 어디에 실렸는지 담고 있습니다.',
-    shownTitle: '보여 주는 것과 보여 주지 않는 것',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: '{site}은(는) 무엇을 보여 주나요?',
     shown: '이 사이트는 이름, 섹션, 링크, 사실 정보와 저희가 직접 쓴 글만 보여 줍니다. 큐레이터나 저장소 소유자의 설명은 절대 보여 주지 않습니다. 목록 요약은 저희가 쓴 것이고, 목록이 각 항목에 대해 쓴 내용은 링크 하나 너머 원래 목록에 있습니다.',
-    attributionTitle: '출처',
+    attributionTitle: '데이터는 어디서 오며, 누구의 것인가요?',
     attribution: '각 목록의 선정과 순서는 그 목록을 관리하는 사람들의 것입니다. 목록 페이지마다 목록이 있는 곳과 읽은 커밋을 밝힙니다. 저장소 정보(스타, 마지막 푸시, 언어, 라이선스, 토픽)는 GitHub에서 가져옵니다.',
-    leaveOutTitle: '목록을 제외하는 방법',
+    leaveOutTitle: '목록은 어떻게 제외되나요?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: '목록을 관리하는데 제외되길 원하시나요? 목록 이름을 적어 <1>이 프로젝트 저장소에 이슈를 열어 주세요</1>. 다음 빌드부터 제외되어 항목을 읽지 않고 페이지도 삭제됩니다.',
-    coverageTitle: '수집 범위',
+    coverageTitle: '얼마나 다루고 있나요?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '목록 {ok}개는 전부, {partial}개는 일부 읽었고, {unparsed}개는 아직 읽지 않았습니다.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -285,7 +304,82 @@ export const ko: Messages = {
     coverageItems: '{items}: 저장소 {repo}개, 사이트 {site}개, 영상 {video}개, 글 {article}개, 패키지 {package}개, 논문 {paper}개.',
     coverageTwoOrMore: '항목 {n}개가 두 개 이상의 목록에 실려 있습니다.',
     coverageRepos: '저장소: 활발함 {active}개, 잠잠함 {quiet}개(2년간 푸시 없음), 보관됨 {archived}개, 사라짐 {gone}개.',
-    dataOf: '데이터 기준일: {date}.',
+    freshTitle: '데이터는 얼마나 최신인가요?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: '목록과 GitHub의 정보는 매일 밤 다시 읽어요. 이 사본은 {date}에 완성되었어요.',
+    aiTitle: 'AI 어시스턴트와 크롤러가 사용할 수 있나요?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: '네. robots.txt에서 허용하고 있고, <1>/llms.txt</1>에서 사이트를 설명해요. 모든 목록은 주소 끝에 .md를 붙이면 Markdown 사본을 받을 수 있어요. 목록의 선택과 순서는 큐레이터의 것이므로 그 부분은 GitHub의 목록을, 개수와 어떤 목록이 프로젝트를 싣는지는 {site}을(를) 인용해 주세요.',
+  },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site}은(는) GitHub에 있는 {lists}과(와) 거기에 실린 {items}의 색인이에요. 이름, 섹션, 링크, GitHub의 정보를 보여 주며, 목록 자체의 설명은 보여 주지 않아요. 데이터는 {date} 기준이며 매일 밤 다시 읽어요.',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ other: '{category} 분류에는 awesome list {n}개가 있어요. 스타가 가장 많은 목록은 {names}예요.' }),
+    /** After a summary: {date} is a date. */
+    asOf: '데이터는 {date} 기준이에요.',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name}은(는) {owner}이(가) GitHub에서 관리하는 awesome list {repo}예요. {sections}에 {items}이(가) 실려 있어요.',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name}은(는) {owner}이(가) GitHub에서 관리하는 awesome list {repo}예요.',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: 'GitHub에서 {stars}를 받았고, 마지막 푸시는 {date}이에요.',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: '가장 큰 섹션은 {sections}예요.',
+      /** {names} are five project names. */
+      top: '스타가 가장 많은 프로젝트는 {names}예요.',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: '저장소 대부분은 {language}(으)로 작성되어 있어요.',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ other: 'awesome list에 실린 프로젝트 중 {n}개가 {label}(으)로 작성되어 있어요.' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ other: 'awesome list에 실린 프로젝트 중 {n}개에 GitHub 토픽 {label}이(가) 붙어 있어요.' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ other: 'awesome list에 실린 프로젝트 중 {n}개가 {label} 라이선스를 따라요.' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ other: 'awesome list에 실린 것 중 {n}개가 {label} 종류예요.' }),
+      /** After one of the four: {names} are five names. */
+      top: '가장 많은 목록에 실린 것은 {names}예요.',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name}은(는) GitHub에 있는 {owner}의 {language} 저장소이며 {stars}를 받았어요.',
+      /** The same, with no language known. */
+      repo: '{name}은(는) GitHub에 있는 {owner}의 저장소이며 {stars}를 받았어요.',
+      /** The same, with no stars known. */
+      repoPlain: '{name}은(는) GitHub에 있는 {owner}의 저장소예요.',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name}은(는) {host}에 있는 저장소예요.',
+        site: '{name}은(는) {host}에 있는 웹사이트예요.',
+        video: '{name}은(는) {host}에 있는 동영상이에요.',
+        article: '{name}은(는) {host}에 있는 글이에요.',
+        package: '{name}은(는) {host}에 있는 패키지예요.',
+        paper: '{name}은(는) {host}에 있는 논문이에요.',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ other: 'awesome list {n}개에 실려 있어요: {lists}.' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list}({section} 섹션)',
+      /** After three lists: how many more name it. */
+      more: p({ other: '외 {n}개' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: '마지막 푸시는 {date}이에요.',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display}은(는) 여기 색인된 {lists}을(를) 관리하며, awesome list에 {projects}이(가) 실려 있어요.',
+      /** The same, with no projects named. */
+      lists: '{display}은(는) 여기 색인된 {lists}을(를) 관리해요.',
+      /** The same, with no lists kept. */
+      projects: 'awesome list에 {display}의 {projects}이(가) 실려 있어요.',
+    },
   },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
@@ -319,23 +413,14 @@ export const ko: Messages = {
       repoTitle: p({ other: '{repo}: awesome list {n}개에 실림' }),
       /** Anything else: {name} is its name. */
       title: p({ other: '{name}: awesome list {n}개에 실림' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({ other: '{name}이(가) 실린 awesome list {n}개: {lists}.' }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({ other: '{name}({host})이(가) 실린 awesome list {n}개: {lists}.' }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}: awesome list {list}에 실림',
       titleOne: '{name}: awesome list {list}에 실림',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name}은(는) awesome list {list}의 {section} 항목에 실려 있어요.',
-      under: '{list}에서는 {section} 항목에 실려 있어요.',
       alongside: '함께 실린 항목: {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}: 목록과 프로젝트',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: 'GitHub의 {display}: 관리하는 {lists}, 목록에 실린 {projects}.',
     },
     items: {
       title: p({ other: 'awesome list에 실린 프로젝트 {n}개' }),

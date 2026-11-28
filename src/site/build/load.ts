@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { createInterface } from 'node:readline';
 import type { z } from 'zod';
 import { PublicItemRow, PublicListingRow, PublicListRow } from '../../model.js';
+import { INDEXABLE_STARS } from '../config.js';
 import { anchorsByPath, sectionOutline, slugify } from '../keys.js';
 import { itemKeys, shortHash } from './item-keys.js';
 
@@ -160,6 +161,11 @@ export function compareItems(
   const nb = b.name.toLowerCase();
   if (na !== nb) return na < nb ? -1 : 1;
   return a.url < b.url ? -1 : a.url > b.url ? 1 : 0;
+}
+
+/** Whether an item's page is offered to search engines (docs/site.md, "Caching and crawling"). */
+export function indexableItem(i: { isRepo: boolean; status: string | null; listCount: number; stars: number | null }): boolean {
+  return i.status !== 'gone' && (i.listCount >= 2 || (i.isRepo && (i.stars ?? 0) >= INDEXABLE_STARS));
 }
 
 export function popOf(listCount: number, stars: number | null): number {
@@ -413,7 +419,7 @@ export function buildModel(raw: Raw, hash: (id: string) => string = shortHash): 
       listCount: d.listCount,
       pop: popOf(d.listCount, d.stars),
       listId: listOfItem.get(id) ?? null,
-      indexable: r !== null || d.listCount >= 2,
+      indexable: indexableItem({ isRepo: r !== null, status: r?.status ?? null, listCount: d.listCount, stars: d.stars }),
       topicIds: r ? [...new Set(r.topics)].map((t) => termId.get(`topic\0${t}`) ?? 0).filter((t) => t > 0) : [],
     };
   });

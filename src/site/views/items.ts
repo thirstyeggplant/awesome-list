@@ -2,15 +2,16 @@
 import { MAX_MATCHES, MAX_PAGE, PAGE_SIZE, TOPIC_STOP } from '../config.js';
 import type { Db } from '../db.js';
 import { NO_FILTERS, type FacetIndex, type Filters } from '../facets.js';
-import { html, type Html } from '../html.js';
+import { html, join, type Html, type Part } from '../html.js';
 import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
 import type { Terms } from '../terms.js';
-import { itemListLd, itemRows, link, pager, sortLine, sheetHead } from './components.js';
+import { entries, itemListLd, link, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { fitDescription, itemsSummary } from './sentences.js';
 import { shareRow } from './share.js';
 
 /** Below this many results a page of /items with one filter is thin, and noindex. */
@@ -170,8 +171,8 @@ export async function itemsPage(ctx: Ctx, db: Db, facets: FacetIndex, terms: Ter
   const inLists = IN_STEPS.map((s, i) =>
     value(loc.t(m.items.inAtLeast, { n: loc.n(s) }), c.in[i] ?? 0, q.in === s, { in: q.in === s ? null : s }));
 
-  const rail = html`<aside class="rail sheet" id="_filters">
-${sheetHead(loc, m.common.filter, 'results')}
+  const rail = html`<aside class="rail sheet" id="_filters"><div class="rail-in">
+${sheetHead(loc, m.common.filter, 'results')}<p class="rail-title">${m.common.filter}</p>
 ${facetBlock(ctx, m.items.kind, kinds)}
 ${facetBlock(ctx, m.items.status, statuses)}
 ${facetBlock(ctx, m.items.language, top(c.lang, 'lang', 15, q.lang === null ? [] : [q.lang]))}
@@ -181,23 +182,28 @@ ${facetBlock(ctx, m.items.category, categories, false)}
 ${facetBlock(ctx, m.items.list, lists, false)}
 ${facetBlock(ctx, m.items.stars, stars)}
 ${facetBlock(ctx, m.items.namedBy, inLists)}
-</aside>`;
+</div></aside>`;
 
   const chips: Html[] = [];
-  const remove = (label: string, change: Partial<ItemsQuery>): void => {
-    chips.push(html`<a class="chip on" translate="no" href="${loc.href(href(target(change)))}">${label}<span class="x"> ×</span></a>`);
+  /** A filter that is on, said with its facet's title ("Language: Go"), and the address without it. */
+  const remove = (facet: string, label: Part, change: Partial<ItemsQuery>): void => {
+    chips.push(html`<a class="chip on" href="${loc.href(href(target(change)))}">${loc.h(m.common.filterChip, { facet, value: html`<span translate="no">${label}</span>` })}<span class="x"> ×</span></a>`);
   };
-  if (q.q !== null) remove(loc.t(m.common.searchChip, { q: q.q }), { q: null });
-  if (q.kind !== null) remove(`kind:${q.kind}`, { kind: null });
-  if (q.status !== null) remove(`status:${q.status}`, { status: null });
-  if (q.lang !== null) remove(`lang:${q.lang}`, { lang: null });
-  if (q.license !== null) remove(`license:${q.license}`, { license: null });
-  for (const t of q.topic) remove(`topic:${t}`, { topic: q.topic.filter((x) => x !== t) });
-  if (q.list !== null) remove(`list:${q.list}`, { list: null });
-  if (q.category !== null) remove(`category:${q.category}`, { category: null });
-  if (q.owner !== null) remove(`owner:${q.owner}`, { owner: null });
-  if (q.stars !== null) remove(`stars:${q.stars}+`, { stars: null });
-  if (q.in !== null) remove(`in:${q.in}+`, { in: null });
+  const term = (ns: string, slug: string): string => terms.bySlug.get(`${ns}:${slug}`)?.label ?? slug;
+  if (q.q !== null) chips.push(html`<a class="chip on" href="${loc.href(href(target({ q: null })))}">${loc.t(m.common.searchChip, { q: q.q })}<span class="x"> ×</span></a>`);
+  if (q.kind !== null) remove(m.items.kind, (m.kind as Record<string, string>)[q.kind] ?? q.kind, { kind: null });
+  if (q.status !== null) remove(m.items.status, (m.status as Record<string, string>)[q.status] ?? q.status, { status: null });
+  if (q.lang !== null) remove(m.items.language, term('lang', q.lang), { lang: null });
+  if (q.license !== null) remove(m.items.licence, term('license', q.license), { license: null });
+  for (const t of q.topic) remove(m.items.topic, term('topic', t), { topic: q.topic.filter((x) => x !== t) });
+  if (q.list !== null) remove(m.items.list, ctx.listBySlug.get(q.list)?.name ?? q.list, { list: null });
+  if (q.category !== null) {
+    const cat = ctx.categoryBySlug.get(q.category);
+    remove(m.items.category, cat ? loc.category(cat).text : q.category, { category: null });
+  }
+  if (q.owner !== null) remove(m.facts.owner, q.owner, { owner: null });
+  if (q.stars !== null) remove(m.items.stars, loc.t(m.items.starsAtLeast, { n: loc.n(q.stars) }), { stars: null });
+  if (q.in !== null) remove(m.items.namedBy, loc.t(m.items.inAtLeast, { n: loc.n(q.in) }), { in: null });
 
   const sorts = [...(q.q !== null ? ['relevance' as const] : []), ...ITEM_SORTS].map((s) => {
     const word = m.sort[s];
@@ -229,21 +235,32 @@ ${facetBlock(ctx, m.items.namedBy, inLists)}
   }
   if (q.page > 1) title = loc.t(m.meta.page, { title, page: loc.n(q.page) });
 
+  // One language, topic, licence or kind, on its first page: sentences of what it is, which lists are mostly in
+  // it (a language), and the plain text of the sentences as the description.
+  const which = q.lang !== null ? 'lang' : q.topic.length === 1 ? 'topic' : q.license !== null ? 'license' : q.kind !== null ? 'kind' : null;
+  const hub = q.q === null && filters === 1 && which !== null && label !== null && q.sort === null && q.page === 1 && !beyond;
+  const summary = hub ? itemsSummary(ctx, which, label, result.total, items) : null;
+  if (summary !== null) description = fitDescription(loc, summary.parts ?? [summary.text]);
+  const mostly = q.lang !== null && hub
+    ? (ctx.meta.top.langLists[q.lang] ?? []).map((id) => ctx.listById.get(id)).filter((l): l is NonNullable<typeof l> => l !== undefined)
+    : [];
   const noindex = itemsNoindex(q, result.total);
   // A language or a topic by itself is a page worth sharing; a search, a combination or a sort is not.
   const shareable = q.q === null && filters === 1 && (q.lang !== null || q.topic.length === 1) && q.sort === null && q.page === 1 && !beyond;
   const head = { route: 'items' as const, title, canonical: `/items${serialiseItems(q)}`, noindex };
-  const main = html`<div class="with-rail">${rail}<div class="results" id="results">
+  const main = html`<div class="results" id="results">
 <h1>${q.q === null && label !== null ? label : m.items.h1}</h1>
-${q.q === null && label !== null ? html`<p class="h1-note">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
-${shareable ? shareRow(ctx, head) : ''}
+${summary !== null ? html`<p class="lede">${summary.html}</p>` : q.q === null && label !== null ? html`<p class="lede">${loc.plural(m.meta.items.title, result.total)}</p>` : ''}
+${mostly.length > 0 && label !== null ? html`<p class="see-also"><span class="label">${loc.t(m.items.mostlyIn, { label })}</span> ${join(mostly.map((l) => link(loc, `/lists/${l.slug}`, html`<span translate="no">${l.name}</span>`)), m.common.separator)}</p>` : ''}
 <form class="search-box" action="${loc.href('/items')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.items.searchItems}" placeholder="${m.items.searchItems}">${hidden(q)}<button type="submit" class="btn">${m.common.search}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
-${beyond ? '' : itemRows(loc, items, true)}
+${beyond ? '' : entries(ctx, items, { topics: true })}
 ${pager(loc, prev, next, pagerRel, { page: q.page, pages: Math.min(pages, MAX_PAGE) })}
-</div></div>`;
+${shareable ? shareRow(ctx, head) : ''}
+</div>
+${rail}`;
   return page(
     layout(ctx, {
       ...head,
@@ -252,7 +269,7 @@ ${pager(loc, prev, next, pagerRel, { page: q.page, pages: Math.min(pages, MAX_PA
       q: q.q,
       prev,
       next,
-      jsonLd: noindex ? [] : [itemListLd(ctx, title, `/items${serialiseItems(q)}`, result.total, items.map((it) => ({ path: `/${it.key}`, name: it.name })), 1)],
+      jsonLd: noindex ? [] : [itemListLd(ctx, title, `/items${serialiseItems(q)}`, result.total, items.map((it) => ({ path: `/${it.key}`, name: it.name })), 1, summary?.text)],
     }),
   );
 }

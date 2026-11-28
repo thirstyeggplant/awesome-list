@@ -1,14 +1,15 @@
 // /lists: every list, filtered and sorted in memory.
 import { MAX_PAGE, PAGE_SIZE } from '../config.js';
 import type { Db, ListRow } from '../db.js';
-import { html, type Html } from '../html.js';
+import { html, type Html, type Part } from '../html.js';
 import { slugify } from '../keys.js';
 import { LIST_STATUSES } from '../../enums.js';
 import { serialiseLists, type ListsQuery } from '../query.js';
 import { listIds } from '../search.js';
-import { breadcrumbLd, itemListLd, link, listRows, pager, sortLine, sheetHead } from './components.js';
+import { breadcrumbLd, itemListLd, link, listEntries, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
+import { categorySummary, fitDescription } from './sentences.js';
 import { page, type ViewResult } from './result.js';
 
 type Dim = 'category' | 'license' | 'status';
@@ -85,24 +86,25 @@ export async function listsPage(ctx: Ctx, db: Db, q: ListsQuery): Promise<ViewRe
     })}</ul></details>`;
   };
   const catPos = new Map(ctx.categories.map((c) => [c.slug, c.position]));
-  const rail = html`<aside class="rail sheet" id="_filters">
-${sheetHead(loc, m.common.filter, 'results')}
+  const rail = html`<aside class="rail sheet" id="_filters"><div class="rail-in">
+${sheetHead(loc, m.common.filter, 'results')}<p class="rail-title">${m.common.filter}</p>
 ${facet('category', m.lists.category, (a, b) => (catPos.get(a[0]) ?? 0) - (catPos.get(b[0]) ?? 0))}
 ${facet('license', m.lists.licence, (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))}
 ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never) - LIST_STATUSES.indexOf(b[0] as never))}
-</aside>`;
+</div></aside>`;
 
   const beyond = q.page > MAX_PAGE;
   const shown = beyond ? [] : rows.slice((q.page - 1) * PAGE_SIZE, q.page * PAGE_SIZE);
   const prev = q.page > 1 && !beyond ? `/lists${serialiseLists({ ...q, page: q.page - 1 })}` : null;
   const next = q.page < pages && q.page < MAX_PAGE ? `/lists${serialiseLists({ ...q, page: q.page + 1 })}` : null;
-  const chip = (text: string, target: ListsQuery): Html =>
+  const chip = (text: Part, target: ListsQuery): Html =>
     html`<a class="chip on" href="${loc.href(`/lists${serialiseLists(target)}`)}">${text}<span class="x"> ×</span></a>`;
+  const titles: Record<Dim, string> = { category: m.lists.category, license: m.lists.licence, status: m.lists.status };
   const chips = [
     q.q !== null ? chip(loc.t(m.common.searchChip, { q: q.q }), to({ q: null })) : null,
     ...dims.map((d) => {
       const v = chosen[d];
-      return v === null ? null : chip(`${d}:${v}`, to({ [d]: null }));
+      return v === null ? null : chip(loc.h(m.common.filterChip, { facet: titles[d], value: label(d, v) }), to({ [d]: null }));
     }),
   ].filter((c): c is Html => c !== null);
   const sorts = (['stars', 'items', 'updated', 'name'] as const).map((s) => {
@@ -133,19 +135,27 @@ ${facet('status', m.lists.status, (a, b) => LIST_STATUSES.indexOf(a[0] as never)
         ? label('status', q.status)
         : html`${m.lists.h1}`;
   const canonical = `/lists${serialiseLists(q)}`;
+  // A category by itself: how many lists, and the ones with the most stars (ctx.lists is in that order).
+  const catSummary = cat && onlyCategory
+    ? categorySummary(ctx, { html: loc.shown(loc.category(cat)), text: catName }, ctx.lists.filter((l) => l.categoryId === cat.id))
+    : null;
+  if (catSummary !== null) description = fitDescription(loc, catSummary.parts ?? [catSummary.text]);
+  const bare = q.q === null && q.category === null && q.license === null && q.status === null;
 
-  const main = html`<div class="with-rail">${rail}<div class="results" id="results">
+  const main = html`<div class="results" id="results">
 <h1>${h1}</h1>
+${catSummary !== null ? html`<p class="lede">${catSummary.html}</p>` : bare ? html`<p class="lede">${loc.plural(m.meta.lists.description, total)}</p>` : ''}
 <form class="search-box" action="${loc.href('/lists')}" method="get"><input type="search" name="q" value="${q.q ?? ''}" aria-label="${m.lists.filterLists}" placeholder="${m.lists.filterLists}"><button type="submit" class="btn">${m.common.filter}</button><a class="btn to-sheet" href="#_filters">${m.common.filter}</a></form>
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/lists', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, loc.plural(m.count.lists, total), sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
-${listRows(ctx, shown, { noCategory: q.category !== null })}
+${listEntries(ctx, shown, { noCategory: q.category !== null })}
 ${pager(loc, prev, next, undefined, { page: q.page, pages: Math.min(pages, MAX_PAGE) })}
-</div></div>`;
+</div>
+${rail}`;
 
   const ld: unknown[] = [
-    itemListLd(ctx, title, canonical, total, shown.map((l) => ({ path: `/lists/${l.slug}`, name: l.name })), (q.page - 1) * PAGE_SIZE + 1),
+    itemListLd(ctx, title, canonical, total, shown.map((l) => ({ path: `/lists/${l.slug}`, name: l.name })), (q.page - 1) * PAGE_SIZE + 1, catSummary?.text),
   ];
   if (cat && onlyCategory) ld.push(breadcrumbLd(ctx, [[m.nav.lists, '/lists'], [catName, `/lists?category=${cat.slug}`]]));
 

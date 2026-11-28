@@ -81,13 +81,18 @@ describe('routes', () => {
 
   it('makes the item and owner pages from the stored listings, alongside and tags', async () => {
     const page = await body('/gh/acme/rocket');
-    expect(page).toContain('In 2 lists');
+    expect(page).toContain('Which awesome lists name <span translate="no">Rocket</span>?');
+    // The lede says what it is and which lists name it, from facts; the answer under the question says what GitHub says.
+    expect(page).toMatch(/<p class="lede"><span translate="no">Rocket<\/span> is a <a href="\/items\?lang=go" translate="no">Go<\/a> repository by <a href="\/gh\/acme" translate="no">Acme<\/a> on GitHub with 5,000 stars\./);
+    expect(page).toContain('Is <span translate="no">Rocket</span> still maintained?');
+    expect(page).toMatch(/<p class="answer">Its last push was on <time datetime="2026-06-01">Jun 1, 2026<\/time> and it is not archived, as of <time/);
     expect(page).toContain('href="/lists/alpha/awesome-widgets#launchers"');
     expect(page).not.toContain('listed as ‘rocket’'); // the same name in another case
-    expect(page).not.toContain('Listed alongside');
+    expect(page).not.toContain('What is listed alongside');
     expect(page).toContain('href="/items?topic=cli"');
     const along = await body('/gh/own0/proj0');
-    expect(along).toContain('Listed alongside');
+    expect(along).toContain('What is listed alongside <span translate="no">proj0</span>?');
+    expect(along).toContain('The lists do not say they are alternatives.');
     expect(along).toContain('href="/gh/own4/proj4"');
     expect(page).toContain('href="/items?lang=go"><span translate="no">Go</span></a>');
     expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘<span translate="no">Hostile</span>’');
@@ -96,7 +101,15 @@ describe('routes', () => {
     expect(page).toContain('<a class="btn primary" href="https://github.com/acme/rocket" rel="nofollow noopener" title="https://github.com/acme/rocket">Open on GitHub ↗</a>');
     expect(page).toMatch(/<nav class="crumbs"[^>]*><a href="\/lists">Lists<\/a>.*Widgets.*Launchers<\/a><\/nav>/);
     expect(page).not.toMatch(/<a class="chip"[^>]*><span class="ns">(lang|license|status):/);
-    expect(page).toContain('<span class="size">');
+    // Each list that names it: its name, its section path as links, then its size, all in the column.
+    expect(page).toMatch(/<ol class="entries lists"><li><a href="\/lists\/[^"]+" class="serif">.*<p class="path">.*<p class="m">\d+ items/);
+    // The facts of a repository: no kind or host, the owner as a link; a date is a <time>.
+    expect(page).toContain('<dt>Owner</dt><dd><a href="/gh/acme"><span translate="no">Acme</span></a></dd>');
+    expect(page).not.toContain('<dt>Kind</dt>');
+    expect(page).not.toContain('<dt>Host</dt>');
+    expect(page).toMatch(/<dt>Last push<\/dt><dd><time datetime="\d{4}-\d\d-\d\d">/);
+    // A topic chip shows its label, not query syntax.
+    expect(page).toContain('<a class="chip" translate="no" href="/items?topic=cli">cli</a>');
     const proj = await body('/gh/own1/proj1');
     expect(proj).toContain('More from <span translate="no">own1</span>');
     expect(proj).toContain('href="/gh/own1">All 8 projects by own1</a>');
@@ -106,47 +119,58 @@ describe('routes', () => {
     expect(owner).toContain('href="/gh/own1/proj1"');
   });
 
-  it('makes rows of names and columns: language, stars, lists only from two, the year', async () => {
+  it('makes entries: a name, then owner, language, stars, lists from two and an old year as text', async () => {
     const page = await body('/items');
-    expect(page).toContain('<div class="rows-head" aria-hidden="true"><span>Name</span><span>Language</span>');
-    // The licence and the language are columns or facts, never chips in a row; a row's chips are topics.
-    const rows = page.slice(page.indexOf('<ol class="rows">'));
-    expect(rows).not.toMatch(/class="chip"[^>]*><span class="ns">(lang|license):/);
-    expect(rows).toContain('<span class="num lang"><a href="/items?lang=go" translate="no">Go</a></span>');
-    expect(rows).toContain('<span class="long">in 2 lists</span>');
+    expect(page).not.toContain('rows-head');
+    const rows = page.slice(page.indexOf('<ol class="entries">'), page.indexOf('</ol>'));
+    // The facts are plain text after the name, which is the only link; no chip, no link to the language.
+    expect(rows).not.toContain('class="chip"');
+    expect(rows).not.toContain('href="/items?lang=');
+    expect(rows).toMatch(/<li><a href="\/gh\/[^"]+" translate="no">[^<]+<\/a> <span class="m">[^<]+ · Go · ★ [\d,]+/);
+    expect(rows).toContain(' · in 2 lists');
     expect(rows).not.toContain('1 list<');
-    // A list page has one header, in its filter bar, and no chips in its rows.
+    // A list page has no header row and no chips; its main language is said once, not on every entry.
     const list = await body('/lists/alpha/awesome-widgets');
-    expect([...list.matchAll(/class="rows-head"/g)]).toHaveLength(1);
+    expect(list).not.toContain('rows-head');
+    expect(list).not.toContain('collapse-all');
     expect(list.slice(list.indexOf('id="entries"'))).not.toContain('class="chip"');
-    // A list we could not read says so, not "0 items"; a category page leaves out the category chip.
+    // A list we could not read says so, not "0 items"; a category page leaves out the category.
     const lists = await body('/lists');
-    expect(lists).toContain('<span class="rot rot-quiet">not read yet</span>');
+    expect(lists).toContain('<b class="rot rot-quiet">not read yet</b>');
     expect(lists).not.toContain('>0 items<');
-    expect(await body('/lists?category=tools')).not.toContain('class="chip" href="/lists?category=tools"');
+    expect(lists).toContain('<ol class="entries lists"><li><a class="serif" href="/lists/');
   });
 
   it('makes a home page that starts somewhere: languages, the lists with the most stars, then every category', async () => {
     const page = await body('/');
     expect(ctx.meta.top.langs.map(([slug]) => slug)).toEqual(['go', 'cplusplus', 'rust']);
-    expect(page).toMatch(/<p class="by-lang">.*<a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a>/);
+    expect(page).toMatch(/<ul class="run langs-run"><li><a href="\/items\?lang=go"><span translate="no">Go<\/span> <span class="n">\d+<\/span><\/a><\/li>/);
     const h2 = [...page.matchAll(/<h2[^>]*>([^<]*)</g)].map((x) => x[1]);
-    expect(h2).toEqual(['Start here', 'Named by the most lists', 'All lists by category']);
+    expect(h2).toEqual(['Browse by language', 'Start here', 'Named by the most lists', 'All lists by category']);
+    // Every category is folded, at every width, and its lists are one run of names.
+    expect([...page.matchAll(/<details class="category" id="/g)]).toHaveLength(ctx.categories.length);
+    expect(page).not.toContain('<details class="category" id="tools" open');
+    expect(page).toContain('<ul class="run"><li><a href="/lists/');
     expect([...page.matchAll(/<h3><a href="\/lists\?category=/g)]).toHaveLength(ctx.categories.length);
-    // Cards for the lists with the most stars, leaving out what could not be read.
-    expect(page).toContain('<li class="card"><a class="card-name serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a>');
-    expect(page).not.toContain('class="card-name serif" href="/lists/gamma/awesome-broken"');
+    // The lists with the most stars, leaving out what could not be read.
+    expect(page).toContain('<li><a class="serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a> <span class="m mono" translate="no">alpha/awesome-widgets</span>');
+    expect(page).not.toContain('class="serif" href="/lists/gamma/awesome-broken"');
     expect(page).toContain('<span class="peek" translate="no">Gadgets, awesome-broken, ');
   });
 
   it('says where a listing is: the one filter as its h1, the page of how many, jumps on search, an owner\'s line', async () => {
     const go = await body('/items?lang=go');
-    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="h1-note">\d+ projects named by awesome lists<\/p>/);
+    expect(go).toMatch(/<h1>Go<\/h1>\n<p class="lede">\d+ projects named by awesome lists are written in <span translate="no">Go<\/span>\. The ones named by the most lists are <a href="\/gh\/[^"]+" translate="no">/);
+    expect(go).toMatch(/Data as of <time datetime="\d{4}-\d\d-\d\d">/);
+    // A category of /lists says how many lists it has and names those with the most stars.
+    expect(await body('/lists?category=tools')).toMatch(/<p class="lede">3 awesome lists are in the category Tools\. The ones with the most stars are <a href="\/lists\//);
+    // A filter that is on says what it is in words.
+    expect(go).toContain('<a class="chip on" href="/items">Language: <span translate="no">Go</span><span class="x"> ×</span></a>');
     expect(await body('/lists?license=mit')).toContain('<h1>MIT</h1>');
     const search = await body('/search?q=project');
     expect(search).toMatch(/<p class="jumps"><a href="#lists">Lists <span class="n">\d+<\/span><\/a>.*<a href="#items">Items <span class="n">\d+<\/span><\/a><\/p>/);
     expect(search).toContain('<section id="items">');
-    expect(await body('/gh/own1')).toContain('<p class="owner-line">0 lists kept · 8 projects named by lists</p>');
+    expect(await body('/gh/own1')).toContain('<p class="lede">Awesome lists name 8 projects by <span translate="no">own1</span>.</p>');
   });
 
   it('escapes hostile names and drops javascript: addresses', async () => {
@@ -602,7 +626,10 @@ describe('the build', () => {
     for (const f of [fixture.build.paths.loadSql, fixture.build.paths.db, ...filesIn(fixture.build.paths.assets)]) {
       expect(readFileSync(f, 'latin1'), f).not.toContain('DESCRIPTION-MARKER');
     }
-    for (const p of ['/', '/lists', '/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/items', '/search?q=rocket', '/api/quick?q=ro']) {
+    const files = filesIn(fixture.build.paths.assets).map((f) => f.slice(fixture.build.paths.assets.length));
+    for (const f of ['/llms.txt', '/lists/alpha/awesome-widgets.md', '/lists/beta/awesome-gadgets.md']) expect(files).toContain(f);
+    for (const p of ['/', '/lists', '/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/items', '/search?q=rocket', '/api/quick?q=ro', '/about',
+      '/llms.txt', '/lists/alpha/awesome-widgets.md', '/lists/beta/awesome-gadgets.md']) {
       expect(await body(p), p).not.toContain('DESCRIPTION-MARKER');
     }
   });

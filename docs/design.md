@@ -4,13 +4,14 @@ The design of the site's pages: what it is for, the tokens, and how each page ty
 
 ## What it is for
 
-A catalogue that is read and scanned: 671 lists, 116,497 names, almost every word a link. So:
+A catalogue that is read: 671 lists, 116,162 names, almost every word a link. So:
 
-- **Quiet links.** When everything is a link, colour on every link is noise. Names in rows, grids and rails are ink; the accent is kept for prose links, the current thing, hover and focus. A name underlines when pointed at.
-- **Hierarchy from type, not boxes.** A serif for what is a title (the site's name, headings, the names of lists), the system sans for everything that is scanned, mono only for addresses and `owner/repo`. Small upper-case labels name groups of facts and filters.
-- **One layout for browsing.** A rail at the left (what to jump to or filter by), the content at the right. The home page, `/lists`, `/items` and a list page all use it, so the eye learns it once.
-- **Dense where the data is, roomy around it.** Rows stay one line, 2.25rem tall. Space goes between groups: above a heading, around the page's head, in the footer.
-- **Calm.** Paper and ink, one green, hairlines. No shadows but the dialog's, no gradients, no motion but a colour fading in 120 ms.
+- **One reading column.** Every page is one column of 44rem (`--page`), centred. The header's bar and the footer's inner box are the same width, so the brand, the `h1` and the first letter of every entry share one left edge on every page. Nothing sits beside the text: no sidebar, no facts column, no grid of cards, no column of numbers.
+- **A project is a line of text, not a row of cells.** Its name, then what is known, in reading order, joined by middle dots. It wraps like text; nothing is right-aligned, and every value says what it is ("★ 4,795", "in 2 lists", "updated 2022"), so there are no column headers.
+- **Facts are a sentence, then a definition list.** Every page opens under its `h1` with sentences made of its own data (`docs/site.md`, "Summary sentences"); the facts follow as label-beside-value lines in the column.
+- **A rail is marginalia.** Filters and contents hang in the left margin, outside the column, only when the window has room (76rem and wider); below that they are a drawer opened by a button. The column is the same width either way.
+- **Quiet links.** Names in entries and runs are ink; the accent is for the current thing, hover and focus. Links inside a sentence are underlined in a faint rule.
+- **Calm.** Paper and ink, one green, hairlines. No shadows but the dialog's and the drawer's dim, no gradients, no motion but a colour fading in 120 ms.
 
 ## Palette
 
@@ -21,7 +22,7 @@ Light and dark follow the system (`color-scheme: light dark`, `light-dark()`); t
 | `--paper` | `#faf8f3` | `#141517` | The page |
 | `--surface` | `#ffffff` | `#1c1e21` | Fields, the dialog |
 | `--sunk` | `#f1eee6` | `#202226` | Chips, the header's search field, the footer |
-| `--hover` | `#f5f2eb` | `#1a1b1e` | A row pointed at |
+| `--hover` | `#f5f2eb` | `#1a1b1e` | An option pointed at in quick search |
 | `--ink` | `#1c1b19` | `#eceae4` | Text, names |
 | `--ink-2` | `#4a4741` | `#c2bfb7` | Summaries, secondary text |
 | `--muted` | `#69655d` | `#9a968d` | Counts, owners, labels |
@@ -44,86 +45,85 @@ System fonts only. No font file is shipped: it costs no bytes and no request, no
 - `--serif`: Iowan Old Style, Palatino, Charter, Georgia. The site's name, `h1` to `h3`, a list's name.
 - `--sans`: `system-ui`. Everything else.
 - `--mono`: `ui-monospace`. Addresses, `owner/repo`, commit hashes.
-- Under `:lang(zh|ja|ko)` the sans becomes that language's system face; the serif keeps the Latin faces first, so names in Latin letters look as they do in English, and falls to that language's serif (Songti, Hiragino Mincho, Nanum Myeongjo) for its own script. Headings lose their negative tracking, lines are a little taller, and Japanese headings break between phrases where the browser can (`word-break: auto-phrase`).
+- Under `:lang(zh|ja|ko)` the sans becomes that language's system face; the serif keeps the Latin faces first and falls to that language's serif for its own script. Headings lose their negative tracking, lines are a little taller (1.7), and Japanese headings break between phrases (`word-break: auto-phrase`).
 
-The scale, in rem so the reader's own size and 200% zoom hold:
+Five sizes and two heading sizes, in rem so the reader's own size and 200% zoom hold. The body went from 15 to 16px and secondary text from 13 to 14px, because the page is read, not scanned across; the column is narrower than the old one, so a line stays near 75 characters.
 
 | Token | Size | For |
 | --- | --- | --- |
-| `--f-xs` | 0.75 (12px) | Upper-case labels, chips |
-| `--f-sm` | 0.8125 (13px) | Counts, owners, rails |
-| `--f-md` | 0.875 (14px) | Navigation, notes, the footer |
-| `--f-base` | 0.9375 (15px) | Rows, the body |
-| `--f-lg` | 1.0625 (17px) | A list's summary, prose on About |
-| `--f-xl` | 1.25 (20px) | `h3`, a category on the home page |
+| `--f-xs` | 0.75 (12px) | Upper-case labels, chips, the state box |
+| `--f-sm` | 0.875 (14px) | An entry's facts, the rail, the footer, notes, the sort line |
+| `--f-base` | 1 (16px) | The body, an entry's name, summaries in list entries |
+| `--f-lg` | 1.125 (18px) | The lede (a page's summary sentences), About's prose |
+| `--f-xl` | 1.25 (20px) | `h3`, a list's name in a list entry |
 | `--f-2xl` | 1.5 (24px) | `h2` |
-| `--f-3xl` | 1.75 to 2.5, fluid | `h1` |
+| `--f-3xl` | 1.75 to 2.25, fluid | `h1` |
 
-Body line height 1.55; headings 1.2 with `text-wrap: balance`. Numbers in columns are tabular and right-aligned.
+Body line height 1.6; headings 1.2 with `text-wrap: balance`; paragraphs `text-wrap: pretty`.
 
 ## Space and shape
 
-A 4px grid: `--s1` 0.25rem, `--s2` 0.5, `--s3` 0.75, `--s4` 1, `--s5` 1.5, `--s6` 2, `--s7` 3, `--s8` 4. A row is `--row` (2.25rem); a field or button `--control` (2.25rem), the home page's search 2.75rem. Corners: 6px on fields, buttons and cards, 4px on chips, 10px on the dialog. The page is at most 76rem wide with a gutter of 1.5rem (1rem on a phone); prose is at most 44rem; a rail is 15rem. Three layout tokens: `--side` (18rem, the facts column of an item page and of a list's head), `--card` (17rem, the narrowest a card in a grid may be) and `--row-phone` (3.5rem, the least height of an item row in a narrow container).
+A 4px grid: `--s1` 0.25rem … `--s8` 4rem. `--s7` above an `h2` and `--s3` under it; `--s5` between the lede and what follows; an entry has `--s2` above and below (about 40px a line), `--s3` on a phone (about 62px for two lines). A field or button is `--control` (2.25rem; 2.75rem on a phone). Corners: 6px on fields and buttons, 4px on chips, 10px on the dialog. The gutter is 1.5rem (1rem on a phone), never less than the safe-area insets (`--gl`, `--gr`). A rail is `--rail` (13rem). Two breakpoints and no container query: 40rem (phone) and 76rem (rail in the margin): 44 + 2 × (13 + 1.5) + 2 × 1.5 = 76.
+
+## The shell
+
+```html
+<header class="top"><div class="bar">…</div></header>
+<main id="main"><div class="page">
+  …the column…
+  <aside|nav class="rail sheet" id="_filters|_contents"><div class="rail-in">…</div></aside>   <!-- /lists, /items, a list -->
+</div></main>
+<footer class="foot"><div class="foot-in">…</div></footer>
+```
+
+`.bar`, `.page` and `.foot-in` are `max-width: var(--page)` with the gutter as padding. From 76rem a rail is absolutely placed in the left margin of `.page` (`inset-inline-end: 100%`), its inner box sticky. Below 76rem it is a drawer: hidden, and shown by its id (`:target`) fixed at the left, 22rem wide (the whole screen under 40rem), with the page dimmed by a `box-shadow` spread; its head says what it is and its × links away. A tap on the dim does not close it without script; the browser's back does. `Page.shape` is gone and `<body>` has no class.
 
 ## The pieces
 
-- **Header.** The mark (the favicon's four books, drawn inline in the theme's colours) and the name; Lists, Items, About, the one being read marked with `aria-current="page"` and a line of the accent under it; the search field at the right, on a sunk fill. On a phone the search field takes a second row. The home page leaves the header's field out: its own is right below. The phone's header is in "On a phone" below.
-- **Footer.** A sunk band: the name and the sentence about what is indexed at the left; the three sections and the ten languages at the right.
-- **Row** (`.row.item`). `who` (name, owner or host, state), then at most two topic chips, then four columns: **Language** (plain text in `--ink-2`, a link to `/items?lang=`; for a thing that is not a repository or a site, its kind, linking to `/items?kind=`), **Stars**, **Lists** (the number only, and only when two or more: 93% of items are in one list, so the cell is empty for them) and **Updated** (the year of the last push, with an `aria-label` that says so). The licence is not on a row. Chips are topics only, and only where the page asks for them (`/items`, search, an owner, an item's "Listed alongside" and "More from"): never one in `TOPIC_STOP` (`hacktoberfest`, `awesome`…) or the item's own language. A list page's rows have no chips. The name is ink at weight 500 and is never cut before the owner beside it is; the rest is muted. Pointed at, the row takes `--hover`. In a container narrower than 38rem the row becomes two lines: see "On a phone".
-- **Header row** (`.rows-head`). The column labels over a group of rows (Name, Language, Stars, Lists, Updated; for lists Name, Items, Stars, Updated), on the rows' own grid, in the upper-case label style, `aria-hidden` (each cell says what it is). `itemRows` and `listRows` write one before their `<ol>`, inside a `.rowset` container; a list page has one, in its sticky filter bar, wide screens only. Not shown in a narrow container.
-- **List row** (`.list-row`). The list's name in the serif, its `owner/repo` in mono, its category (left out on a page of one category); items, stars and year at the right; our summary on a second line in `--ink-2`. A list we could not read says "not read yet" in the state's box where the count of items would be.
-- **Card** (`.card`, in a `.cards` grid of `minmax(var(--card), 1fr)`). A list: its name in the serif at `--f-lg` (the link, which covers the card), our summary in `--ink-2` at `--f-md` clamped to three lines, then one muted line: items · category (· projects in common, for a related list). `--surface` on the paper, a `--rule` border, `--radius`, no shadow; pointed at, the border is `--rule-strong`. Used for "Start here" on the home page and "Related lists" on a list page.
-- **Chip** (`.chip`). A sunk fill, no border; the namespace (`lang:`) dimmer than the value. A filter that is on is `--accent-soft` with a ×.
-- **Facts** (`.facts`). A definition list between two hairlines: an upper-case label over each value. In the side column of an item page and of a list's head (wide screens), each fact is one line, label at the left and value at the right.
-- **Rail** (`.rail`, `.toc-rail`). Upper-case group labels; values as ink links with their counts at the right; the chosen value in the accent with a mark before it. Under 56rem a rail is a sheet: see "On a phone".
-- **Sort line.** The count in ink at weight 600, then the sort words; the current one is underlined in the accent.
-- **Pager.** Two bordered buttons at the two ends, and between them "Page N of M" in muted text.
-- **Buttons.** `.btn` is bordered; `.btn.primary` is the accent. A page has at most one primary: on an item page it is the one outbound link ("Open on GitHub ↗", "Visit {host} ↗"), with the address under it in mono as text, not a second link.
-- **Quick search.** A dialog with the only shadow on the site; the option chosen takes `--accent-soft`.
-- **Share row** (`.share`, `src/site/views/share.ts`). One quiet line: the upper-case label "Share", then small icons (18px, drawn inline with `currentColor`, muted; pointed at, the accent on a sunk fill): X, Bluesky, LinkedIn, Reddit, Hacker News, email, then two buttons that only script shows, Copy link and Share… (where `navigator.share` exists). Each link and button is named in the page's language (`aria-label` and `title`). No brand colours, no image, font or script from anyone else, no tracking parameters. After a copy, "Copied" in the accent beside the icons for two seconds (`role="status"`). Only on the pages worth sharing: a list (under the facts, in the head's side column), an item (at the foot of the sticky side column, under the topics), an owner (under the line of counts), the home page (at the end of its head) and `/items` with exactly one language or one topic, no search and the default sort (under the `h1`'s note). Never on search, a combination of filters, a sort, a later page, or 404.
+- **Header.** The mark (the favicon's four books, drawn inline in the theme's colours) and the name; Lists, Items, About, the one being read marked with `aria-current="page"` and a line of the accent under it; the search field at the right, on a sunk fill. The home and search pages leave the header's field out: their own is right below.
+- **Footer.** A sunk band: the name and the sentence about what is indexed; the three sections and the ten languages.
+- **Entry** (`entry`, `entries` in `components.ts`; `ol.entries`). `<li><a>name</a> <span class="m">facts</span></li>`: three elements, four with a state. The facts, joined with `m.common.dot`: who (owner, else host); the language (or, for a thing that is not a repository or a site, its kind), left out on a list page when it is the list's main language (`mainLang`); `★ {n}`; "in N lists" from two; "updated {year}" unless the year is the data's own; up to three topics as `#slug` where the page asks (`/items`, search, an owner, an item's "alongside" and "more from"); then the state's box. The facts are plain text: the name is the only link, besides a list's own extra links after it. On a phone the name is a 44px line of its own and the facts go under it.
+- **List entry** (`listEntry`; `ol.entries.lists`). The name in the serif at `--f-xl`, `owner/repo` in mono, our summary on its own line in `--ink-2`, then one muted line: items (or "not read yet" in the state's box), stars, updated year, the category (left out on a page of one category), how many projects a related list shares, the state.
+- **Lede** (`.lede`). The page's summary sentences at `--f-lg`, names in them as links underlined in a faint rule.
+- **Facts** (`.facts`). A definition list in the column, the label (`--f-sm`, muted, sentence case) beside its value, the same at every width, between two hairlines. Dates are `<time datetime>`.
+- **Chip** (`.chip`). A sunk fill; a topic shows its label only. A filter that is on is `--accent-soft` and says what it is: "Language: Go ×" (`m.common.filterChip`).
+- **Run** (`ul.run`). Names as one wrapping run of links with a middle dot after each (drawn by the stylesheet, so a line never starts with one); a subcategory's label is muted text ending in a colon on its own line. On a phone a run's lines are 44px.
+- **Rail** (`.rail`). An upper-case title; facets as `<details>` with values as ink links and counts at the right; the chosen value in the accent with a mark before it; a list's contents as two levels with counts.
+- **Sort line, pager, crumbs, buttons, the state box, quick search, the language bar.** As before, at the new sizes. A page has at most one primary button: on an item page the one outbound link, with the address beside it in mono (hidden on a phone).
+- **Share row** (`.share`, `src/site/views/share.ts`). At the foot of the column on every page that has one, after the attribution, over a hairline: the label "Share", then small icons (18px, `currentColor`, muted; the accent when pointed at), then Copy link and Share… where script can do them. On a phone the label is hidden and the icons are 44 × 42px.
 
 ## Page by page
 
-- **Home.** A head: the `h1`, the large search field, the line of counts, and "Browse by language": the twelve languages with the most items (from `meta.top`) and "All projects". Then "Start here": the twelve lists with the most stars that could be read, as cards, four across at 1280px, and "All 671 lists". Then "Named by the most lists": eight rows with topics and a link to those named by two or more. Last, "All lists by category": rail and content, the rail the 26 categories with their counts (sticky), the content each category as an `h3` with its lists in columns of names.
-- **`/lists`.** Rail of facets; `h1`, the filter field, chips of what is on, the sort line, list rows, the pager.
-- **A list.** The head, in two columns at 56rem and wider: at the left the breadcrumb, the name, `owner/repo`, our summary at `--f-lg`, "See also" and the three lists most like it, two buttons (read the original, primary; suggest a change); at the right (`--side`) the facts as lines. Then rail (contents, sticky) and entries: a sticky filter bar with the one header row under its field, sections with a serif heading, a count and a `#` that shows when pointed at or focused (always, on a touch screen). Three levels of heading: 22px over a hairline, 18px, 16px. After the entries, "Related lists" (up to six cards with the projects both name) and "More in {category}" (up to eight list rows, none already shown as related).
-- **`/items`.** As `/lists`, with item rows. With exactly one filter and no search, the `h1` is the filter ("Go", "archived") with the count under it in muted text; the same on `/lists` for a licence or a status.
-- **An item.** The wide shell. A breadcrumb (Lists › the list with the most stars that names it › its section path), the name with its owner dimmed, the primary button and the address, then two columns at 56rem and wider: at the left "In N lists" (each list's name, its size at the right, its section path under it), "Listed alongside" and "More from {owner}" (up to six of the owner's other projects, then a link to the owner); at the right (`--side`, sticky) the facts as lines, "Facts from GitHub as of…", and the topics as chips under an upper-case label. No `lang:`, `license:` or `status:` chips: the facts say and link the same.
-- **An owner.** The login, the GitHub address, a muted line of how many lists they keep and how many of their projects lists name; then headings and rows.
-- **Search.** Under the field, a line of jumps with counts (Lists 8 · Sections 10 · Items 1,234) to the three groups.
-- **404.** A short column.
-- **About.** Prose at `--f-lg`, 1.7, at most 44rem.
+- **Home.** `h1`; the lede (what the site is and the data date); the search box; "Browse by language" (an `h2` drawn as a label) as a run of the 12 languages and All projects; "Start here": 8 list entries and "All 671 lists"; "Named by the most lists": 8 entries with topics; "All lists by category": the 26 categories as `<details>`, folded at every width, each summary the category's name (`h3`, a link), its count and a muted line naming its three lists with the most stars, opened to a run of its lists; the share row. Every list link stays in the HTML.
+- **`/lists`.** `h1`; a lede (a category's sentences, or the bare page's one line); the filter field and, below 76rem, the Filter button; chips; the sort line; list entries; the pager; the rail.
+- **A list.** Crumbs; the name; `owner/repo ↗` (the page's first outbound link); our summary as the lede; `p.about-list`, the list's sentences ending in "Read the original on GitHub ↗ · Suggest a change"; See also; the sticky bar (the filter with "N of M" inside it, and Contents below 76rem); the sections with their entries; Related lists; More in {category}; About this list: the facts (with the Markdown copy), the attribution, the share row; the contents rail.
+- **`/items`.** `h1`; the lede (one language, topic, licence or kind: its sentences; otherwise the count); with a language, "Lists mostly in {language}"; the search field and Filter; chips; the sort line; entries with topics; the pager; the share row where there is one; the rail of nine facets.
+- **An item.** Crumbs; `owner /` dimmed and the name, the state's box after it; the lede; the primary button and the address; Also listed as; the facts (a repository: stars, last push, language, licence, owner, named by, fork, renamed from; anything else: kind, host, named by) and "Facts from GitHub as of"; the topics; then the questions as `h2`: "Which awesome lists name {name}?" (one list entry per listing: the list, "listed as", the section path, its size), "Is {name} still maintained?" (one sentence), "What is listed alongside {name}?" (a note that the lists do not call them alternatives, 12 entries); More from {owner}; the attribution; the share row.
+- **An owner.** `h1`; the lede; the GitHub address; Lists they keep; Their projects named by lists; the share row.
+- **Search.** `h1`, the field, a line of jumps, then list entries, sections (as entries: the path, then the list and its size), entries with topics.
+- **About.** The column, prose at `--f-lg`; its `h2`s are the visitor's questions.
+- **404.** The column, a search box and a few links.
 
 ## On a phone
 
-A phone is not the desktop page squeezed: what is beside the content on a wide screen is behind one tap on a narrow one, and the content starts sooner. Two widths matter: under 56rem the rails go, under 40rem the header and the heads are the phone's. Rows fold by their container (38rem).
+Under 40rem, the same markup in the same order; only this differs:
 
-- **Sheets, without script.** A rail (`.sheet`) is not shown under 56rem. A link to its id (`#_filters`, `#_contents`) shows it over the whole screen (`:target`), with a head that says what it is and a × that links away from it. Choosing a value or a section is following a link, so the sheet closes by itself; the browser's back closes it too. The page behind does not scroll (`html:has(.sheet:target)`). The ids begin with `_` so that no section of a list can have the same one.
-- **Filters** (`/lists`, `/items`). The Filter button stands beside the search field, where the field's own button is on a wide screen (the keyboard's key submits the field). The filters that are on are a row of chips under it, each removed with a tap, scrolled sideways when they are many. In the sheet every value is a row 44px tall with its count.
-- **A list.** The facts are a few lines of label and value, not a grid; the two actions are text links on one line; the bar that stays at the top is one row: the filter field, with "N of M" inside it once something is typed, and Contents, which opens the sheet of sections. Collapse all is left out: the sheet does its work. The first entries are on the first screen.
-- **Home.** The search field first; the line of languages scrolls sideways on one line. Six cards, one across, then "All 671 lists". Each category is a `<details>`: 26 rows of name and count, each with a muted second line naming its three lists with the most stars (`.peek`), opened in place to the names of its lists in two columns. On a wide screen the same `<details>` are all shown open by the stylesheet (`::details-content`), so the server sends one page; a wide browser without that pseudo-element shows the folded rows, which still work.
-- **Row.** Two lines, about 62px: the name (16px) with the stars at the right; under it, in `--f-sm`, the owner · language · "in N lists" · year, then the state's box. The row is a wrapping flex box; `.main`, `.who` and `.nums` are `display: contents` and the cells are ordered, a zero-height `::after` breaking the line; an empty cell is not shown and every other cell after the first has a `·` before it. The Lists cell holds both forms (`.short`, the number, on a wide screen; `.long`, "in 2 lists", here). No chips: the item page has them. Eleven or twelve rows a screen instead of seven.
-- **List row.** The name, `owner/repo`, the category, our summary, then one line of items, stars and year.
-- **A list's head.** One column: the facts as a few lines of label and value after the two actions.
-- **An item.** One column: breadcrumb, name, button, the state's sentence, facts, topics, In N lists, Listed alongside, More from the owner, attribution.
-- **Listings.** The sort line is one line that scrolls sideways.
-- **Header.** Two rows, 100px: the mark and name with the search field beside them; then Lists, Items and About as three equal tabs, which fit in every language at 320px. A tap on the field opens quick search (there is no key to press), and a tap beside the dialog closes it. The bar that offers another language is one line, 36px, fixed at the foot of the window (`position: fixed`, appended to `<body>`), so showing it moves nothing on the page.
-- **Share row.** The label is hidden (the group keeps its name for screen readers) and the icons are 44px tall and 42px wide, so the eight fit one line at 375px with the first glyph on the gutter: the row adds one line of 44px under what it follows.
-- **Touch.** A field, a button, a tab, a row's name, a value in a sheet, a link of the footer: 44px. Fields are 16px so iOS does not zoom. The chips inside a row are 26px, on purpose: they are a second way to the same filters, and three targets of 44px would crowd the name. Links inside a sentence are as tall as their line.
-- **Edges.** `viewport-fit=cover`, and the gutters are at least the safe-area insets (`--gl`, `--gr`); a sheet and the footer add the bottom inset.
-
-## What changed in the markup, and why
-
-- `layout.ts`: `viewport-fit=cover`; the header's search field is left out on the home and search pages, which have their own; the header has the mark, marks the current section and puts the navigation before the search; the footer is two columns with the section links; `theme-color` follows the new dark paper.
-- `components.ts`: a row's name, owner and state are wrapped in `.who`, so the chips can move to a second line in a narrow container; a chip's namespace is a `.ns` span; the count and the sort words of the sort line are in `.total` and `.sorts`; the pager's links and the search button are buttons. A row's three numbers are in `.nums`; `sheetHead` is the head of a rail when it is a sheet.
-- `home.ts`: the head is a `<header>`; the categories have a contents rail (the word is the list page's "Contents"); each category is a `<details>` with its `h2` in the `<summary>` and the category's id on it.
-- `list.ts`: the two actions are buttons; the facts follow the summary inside the head; the contents rail is the one copy of the contents (the `<details>` copy is gone) and is a sheet with a head; the filter field and its count are in `.filter-field`; a Contents link opens the sheet.
-- `item.ts`: a listing's section path is on its own line.
-- `lists.ts`, `items.ts`: the × of a removable chip is its own span.
-- `search.ts`: a section found is a row of two columns (`.section-row`).
-
-No new words: every label is a message that already existed. One test changed with the markup: the pattern for a chip in `test/site/i18n.test.ts` allows the space that taking the tags out leaves after the namespace. The hooks of the scripts are as they were: `#list-filter`, `#list-count`, `#entries` with `li.row`, `section` and `data-depth`, `#collapse-all`, `body.collapsed`, `header.top`, `.top-search input`, `nav.langs a[hreflang]`, `dialog#quick` and its ids.
+- An entry is two lines: the name (44px to tap), then its facts. A list entry: the name, the summary, the facts.
+- Fields and buttons are 44px; fields are 16px so iOS does not zoom. Crumbs, a section path, a run's links, `owner/repo` and "more" links are 44px tall to tap; a link inside a sentence is as tall as its line.
+- The header is two rows: the mark and name with the search field; then Lists, Items and About as three equal tabs. A tap on the field opens quick search.
+- The filters that are on are a row of chips that scrolls sideways; the sort line scrolls sideways; the drawer is the whole screen.
+- The language bar is one line fixed at the foot of the window, so showing it moves nothing.
+- `viewport-fit=cover`, and the gutters are at least the safe-area insets.
 
 ## Weight
 
-`site.css` is about 34 KB, about 8 KB compressed (over the 32 KB the design aimed at: the cards, the header row, the item page's grid and the phone row's flex form); no font, no image but the icons, no new script (the share row's two buttons are in `quick.js`, which every page already loads). The row's two-line form uses a container query, the palette `light-dark()`, the primary button's hover `color-mix()`: all in the browsers the site already needed for `light-dark()`.
+Measured on 2026-11-27 with `pnpm serve` on the same data, before (main at `c889645`) and after; Brotli at quality 11:
+
+| | Before | After |
+| --- | --- | --- |
+| `/lists/avelino/awesome-go` | 1,575,604 bytes, 41,102 elements, 81.9 KB Brotli | 499,235 bytes, 12,194 elements, 74.6 KB Brotli |
+| `/items` | 59,061 bytes, 1,403 elements | 36,545 bytes, 799 elements |
+| `/gh/gin-gonic/gin` | 21,868 bytes | 16,428 bytes |
+| `site.css` | 35,510 bytes, 7.5 KB Brotli | 24,439 bytes, 5.6 KB Brotli |
+
+(Elements counted as start tags in the HTML.) The list page meets its byte and element targets; its Brotli size falls less than its raw size, since the cells it lost were repetitive. The stylesheet is just over the 24 KB aimed at and under the test's cap of 26,000 bytes. No font, no image but the icons, no new script or request.

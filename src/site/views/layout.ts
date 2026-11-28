@@ -18,15 +18,16 @@ export interface Page {
   canonical: string | null;
   /** What the page says about itself in English; it holds in every language. */
   noindex?: boolean;
+  /** The column; a rail in it (`.rail`) hangs in the margin on a wide window. */
   main: Html;
-  /** A class on <body> for the page's layout: wide (rail and rows), narrow (a measure). */
-  shape?: 'wide' | 'narrow' | 'list';
   scripts?: ('listfilter')[];
   /** The value of the header's search box. */
   q?: string | null;
   /** The previous and next page of a listing (paths, unprefixed), for <link rel="prev"> and "next". */
   prev?: string | null;
   next?: string | null;
+  /** A plain Markdown copy of the page (a list's .md), named in the head. */
+  markdown?: string;
   /** Structured data, written only on a page that is its own canonical. */
   jsonLd?: readonly unknown[];
 }
@@ -116,7 +117,7 @@ ${page.description ? html`<meta name="description" content="${page.description}"
     canonical === null ? '' : html`<link rel="canonical" href="${canonical}">\n`
   }${indexing === 'none' ? html`<meta name="robots" content="noindex,follow">\n` : ''}${alts.map(
     (a) => html`<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">\n`,
-  )}${page.prev ? html`<link rel="prev" href="${ctx.origin}${loc.href(page.prev)}">\n` : ''}${
+  )}${page.markdown ? html`<link rel="alternate" type="text/markdown" href="${ctx.origin}${page.markdown}">\n` : ''}${page.prev ? html`<link rel="prev" href="${ctx.origin}${loc.href(page.prev)}">\n` : ''}${
     page.next ? html`<link rel="next" href="${ctx.origin}${loc.href(page.next)}">\n` : ''
   }${og}
 <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">
@@ -130,7 +131,7 @@ ${page.description ? html`<meta name="description" content="${page.description}"
 ${(page.scripts ?? []).map((s) => html`<script src="${ctx.assets[s]}" defer></script>\n`)}${
     selfCanonical && page.jsonLd && page.jsonLd.length > 0 ? html`${jsonLd(page.jsonLd.length === 1 ? page.jsonLd[0] : page.jsonLd)}\n` : ''
   }</head>
-<body class="${page.shape ?? 'wide'}">
+<body>
 <a class="skip" href="#main">${m.site.skip}</a>
 <header class="top"><div class="bar">
 <a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
@@ -139,7 +140,7 @@ ${page.route === 'home' || page.route === 'search' ? '' : html`<form class="top-
     page.q ?? ''
   }" aria-label="${m.nav.search}" placeholder="${m.nav.searchHint}" autocomplete="off"></form>`}
 </div></header>
-<main id="main">${page.main}</main>
+<main id="main"><div class="page">${page.main}</div></main>
 <footer class="foot"><div class="foot-in">
 <div class="foot-about"><a class="brand" href="${loc.href('/')}" translate="no">${MARK}${ctx.siteName}</a>
 <p>${loc.h(m.site.footer, { site: ctx.siteName }, { 1: (t) => html`<a href="${loc.href('/about')}#leave-out">${t}</a>` })}</p></div>

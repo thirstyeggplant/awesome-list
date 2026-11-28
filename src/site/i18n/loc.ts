@@ -2,7 +2,7 @@
 // translated summaries and category names. One per request (cheap: the parts are shared).
 import { html, type Html } from '../html.js';
 import {
-  dayOfIso, dayToDate, fmt, fmtHtml, formatters, isPlural, pluralForm, type HtmlVars, type Plural, type Tags, type Vars,
+  dayOfIso, dayToDate, fmt, fmtHtml, formatters, isoDay, isPlural, pluralForm, type HtmlVars, type Plural, type Tags, type Vars,
 } from './format.js';
 import { LOCALE_INFO, localePath, type Locale, type LocaleInfo } from './locales.js';
 import { en, type Messages } from './messages/en.js';
@@ -71,13 +71,29 @@ export class Loc {
 
   /** A plural for a count, with `{n}` the formatted count and any other values. */
   plural(forms: Plural, count: number, vars: Vars = {}): string {
+    return fmt(this.form(forms, count), { ...vars, n: this.n(count) });
+  }
+
+  /** The form of a plural this language chooses for a count, its placeholders not filled. */
+  form(forms: Plural, count: number): string {
     const rules = this.locale !== 'en' && isEnglishPlural(forms) ? LOCALE_INFO.en.intl : this.info.intl;
-    return fmt(pluralForm(rules, forms, count), { ...vars, n: this.n(count) });
+    return pluralForm(rules, forms, count);
   }
 
   /** A day number as a date; '' for null. */
   day(day: number | null): string {
     return day === null ? '' : formatters(this.info.intl).day.format(dayToDate(day));
+  }
+
+  /** A day number as a <time> with its ISO date; nothing for null. */
+  time(day: number | null): Html {
+    return day === null ? html`` : html`<time datetime="${isoDay(day)}">${this.day(day)}</time>`;
+  }
+
+  /** An ISO time as a <time>; the text itself when it is not a time. */
+  timeIso(iso: string): Html {
+    const d = dayOfIso(iso);
+    return d === null ? html`${iso}` : this.time(d);
   }
 
   /** An ISO time as a date; the text itself when it is not a time. */

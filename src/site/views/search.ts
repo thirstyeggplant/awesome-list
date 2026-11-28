@@ -4,7 +4,7 @@ import { html, join } from '../html.js';
 import { slugify } from '../keys.js';
 import { EMPTY_ITEMS, liftNamespaces, serialiseItems, withLifted } from '../query.js';
 import * as search from '../search.js';
-import { itemRows, link, listRows, searchBox } from './components.js';
+import { entries, link, listEntries, searchBox } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, redirect, type ViewResult } from './result.js';
@@ -35,13 +35,16 @@ export async function searchPage(ctx: Ctx, db: Db, q: string | null): Promise<Vi
 <h1>${m.search.h1}</h1>
 ${searchBox(loc, q)}
 ${jumps.length > 1 ? html`<p class="jumps">${join(jumps, html`<span class="sep"> · </span>`)}</p>` : ''}
-${lists.length > 0 ? html`<section id="lists"><h2>${m.search.lists}</h2>${listRows(ctx, lists)}</section>` : ''}
-${sections.length > 0 ? html`<section id="sections"><h2>${m.search.sections}</h2><ol class="rows">${sections.map((s) => {
+${lists.length > 0 ? html`<section id="lists"><h2>${m.search.lists}</h2>${listEntries(ctx, lists)}</section>` : ''}
+${sections.length > 0 ? html`<section id="sections"><h2>${m.search.sections}</h2><ol class="entries">${sections.map((s) => {
   const list = ctx.listById.get(s.listId);
   if (!list) return '';
-  return html`<li class="row section-row"><span class="main"><span class="who">${link(loc, `/lists/${list.slug}#${s.anchor}`, s.path.join(' › '), { cls: 'name' })} <span class="sub">${loc.h(m.search.inList, { list: html`<span translate="no">${list.name}</span>` })}</span></span></span><span class="num in">${loc.plural(m.count.items, s.itemCount)}</span></li>`;
+  return html`<li>${link(loc, `/lists/${list.slug}#${s.anchor}`, s.path.join(' › '))} <span class="m">${join([
+    loc.h(m.search.inList, { list: html`<span translate="no">${list.name}</span>` }),
+    loc.plural(m.count.items, s.itemCount),
+  ], m.common.dot)}</span></li>`;
 })}</ol></section>` : ''}
-<section id="items"><h2>${m.search.items}</h2>${items.length > 0 ? itemRows(loc, items, true) : html`<p class="empty">${m.search.noItems}</p>`}
+<section id="items"><h2>${m.search.items}</h2>${items.length > 0 ? entries(ctx, items, { topics: true }) : html`<p class="empty">${m.search.noItems}</p>`}
 ${total > items.length ? html`<p class="more">${link(loc, `/items${serialiseItems({ ...EMPTY_ITEMS, q })}`, loc.plural(m.search.allItems, total))}</p>` : ''}</section>
 </div>`;
   return page(layout(ctx, { route: 'search', title: loc.t(m.common.searchChip, { q }), canonical: `/search?q=${encodeURIComponent(q)}`, noindex: true, main, q }));
