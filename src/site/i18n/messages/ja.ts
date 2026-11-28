@@ -157,8 +157,6 @@ export const ja: Messages = {
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
     h1: p({ other: '{n}件のawesomeリストとその中身すべて' }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · {date}時点のデータ',
     mostNamed: '最も多くのリストに掲載',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: '言語で探す',
@@ -212,16 +210,10 @@ export const ja: Messages = {
     alsoListedAs: '別名: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: 'これ自体がライブラリ内のリストです: <1>開く</1>。',
-    archived: 'オーナーによってアーカイブされています。',
     gone: 'このリポジトリはGitHubに存在しなくなりました。',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: '{month}以降プッシュがありません。',
-    quiet: '2年間プッシュがありません。',
     factsAsOf: '{date}時点のGitHubの情報です。',
-    inLists: p({ other: '{n}件のリストに掲載' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: '「{name}」として掲載',
-    alongside: '一緒に掲載されているもの',
     attribution: '上のリストに掲載されています。キュレーターによる説明は各リストでお読みください。変更を提案するには、該当するリストでIssueを作成してください。',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: 'GitHubで開く ↗',
@@ -232,6 +224,21 @@ export const ja: Messages = {
     allFrom: p({ other: '{owner} のプロジェクト全{n}件' }),
     /** The label over an item's topic chips. */
     topics: 'トピック',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: 'いずれかのリストで同じセクションに掲載されているプロジェクトです。リストは、これらが代替品だとは言っていません。',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: '{name}はどのawesomeリストに掲載されていますか？',
+      maintained: '{name}は今もメンテナンスされていますか？',
+      alongside: '{name}と一緒に掲載されているものは？',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: '{asOf}時点で、最終プッシュは{date}で、アーカイブされていません。',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: '{date}以降プッシュがなく、{asOf}の2年以上前です。アーカイブはされていません。',
+      archived: 'いいえ。オーナーがアーカイブしました。最終プッシュは{date}です。',
+    },
   },
   items: {
     h1: '項目',
@@ -256,8 +263,6 @@ export const ja: Messages = {
     theirProjects: 'リストに掲載されたプロジェクト',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '項目ページで全{n}件を見る' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: '管理するリスト: {lists} · リストに掲載: {projects}',
   },
   search: {
     h1: '検索',
@@ -296,6 +301,76 @@ export const ja: Messages = {
     coverageRepos: 'リポジトリ: 活発{active}件、停滞{quiet}件（2年間プッシュなし）、アーカイブ済み{archived}件、削除済み{gone}件。',
     dataOf: 'データは{date}時点のものです。',
   },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site}は、GitHubにある{lists}と、そこに掲載された{items}の索引です。名前、セクション、リンク、GitHubの情報を表示し、リスト自身の説明文は表示しません。データは{date}時点のもので、毎晩読み直しています。',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ other: 'カテゴリ「{category}」には{n}件のawesomeリストがあります。スターが最も多いのは{names}です。' }),
+    /** After a summary: {date} is a date. */
+    asOf: 'データは{date}時点のものです。',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name}は、{owner}がGitHubで管理しているawesomeリスト{repo}です。{sections}に{items}が掲載されています。',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name}は、{owner}がGitHubで管理しているawesomeリスト{repo}です。',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: 'GitHubで{stars}を獲得しており、最終プッシュは{date}です。',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: '大きなセクションは{sections}です。',
+      /** {names} are five project names. */
+      top: 'スターが最も多いプロジェクトは{names}です。',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: 'リポジトリの多くは{language}で書かれています。',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ other: 'awesomeリストに掲載されたプロジェクトのうち{n}件が{label}で書かれています。' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ other: 'awesomeリストに掲載されたプロジェクトのうち{n}件にGitHubトピック{label}が付いています。' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ other: 'awesomeリストに掲載されたプロジェクトのうち{n}件が{label}ライセンスです。' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ other: 'awesomeリストに掲載されたもののうち{n}件が種類「{label}」です。' }),
+      /** After one of the four: {names} are five names. */
+      top: '最も多くのリストに掲載されているのは{names}です。',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name}は、{owner}がGitHubで公開している{language}のリポジトリで、{stars}です。',
+      /** The same, with no language known. */
+      repo: '{name}は、{owner}がGitHubで公開しているリポジトリで、{stars}です。',
+      /** The same, with no stars known. */
+      repoPlain: '{name}は、{owner}がGitHubで公開しているリポジトリです。',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name}は{host}にあるリポジトリです。',
+        site: '{name}は{host}にあるウェブサイトです。',
+        video: '{name}は{host}にある動画です。',
+        article: '{name}は{host}にある記事です。',
+        package: '{name}は{host}にあるパッケージです。',
+        paper: '{name}は{host}にある論文です。',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ other: '{n}件のawesomeリストに掲載されています：{lists}。' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list}（「{section}」）',
+      /** After three lists: how many more name it. */
+      more: p({ other: '他{n}件' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: '最終プッシュは{date}です。',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display}はここに索引のある{lists}を管理しています。また、awesomeリストには{projects}が掲載されています。',
+      /** The same, with no projects named. */
+      lists: '{display}はここに索引のある{lists}を管理しています。',
+      /** The same, with no lists kept. */
+      projects: 'awesomeリストには{display}の{projects}が掲載されています。',
+    },
+  },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
@@ -328,23 +403,14 @@ export const ja: Messages = {
       repoTitle: p({ other: '{repo}: {n}件のawesomeリストに掲載' }),
       /** Anything else: {name} is its name. */
       title: p({ other: '{name}: {n}件のawesomeリストに掲載' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({ other: '{name}は{n}件のawesomeリストに掲載されています: {lists}。' }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({ other: '{name}（{host}）は{n}件のawesomeリストに掲載されています: {lists}。' }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}: awesomeリスト「{list}」に掲載',
       titleOne: '{name}: awesomeリスト「{list}」に掲載',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name}はawesomeリスト「{list}」の「{section}」に掲載されています。',
-      under: '{list}では「{section}」に掲載。',
       alongside: '一緒に掲載: {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}: リストとプロジェクト',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: 'GitHubの{display}が管理する{lists}と、リストに掲載された{projects}。',
     },
     items: {
       title: p({ other: 'awesomeリストに掲載された{n}件のプロジェクト' }),

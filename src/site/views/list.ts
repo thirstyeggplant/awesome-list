@@ -8,7 +8,9 @@ import {
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { listSummary } from './sentences.js';
 import { shareRow } from './share.js';
+import { isoDay } from '../i18n/format.js';
 
 /** Other lists of a list's category shown after its entries, by stars. */
 const MORE_IN_CATEGORY = 8;
@@ -146,11 +148,13 @@ export async function listPage(ctx: Ctx, db: Db, list: ListRow): Promise<ViewRes
     .filter((r): r is { l: ListRow; n: number } => r.l !== undefined);
   const seeAlso = related.slice(0, 3).map((r) => link(loc, `/lists/${r.l.slug}`, html`<span translate="no">${r.l.name}</span>`));
   const head = { route: 'list' as const, title: loc.plural(m.meta.list.title, itemCount, { name: list.name, repo: list.repo }), canonical: `/lists/${list.slug}` };
+  const lang = mainLang(entries);
+  const about = listSummary(ctx, list, entries, contents, lang);
   const top = html`${crumbs(loc, [link(loc, '/lists', m.nav.lists), cat ? link(loc, `/lists?category=${cat.slug}`, categoryName(loc, cat)) : null, list.subcategory === null ? null : html`<span translate="no">${list.subcategory}</span>`].filter((p) => p !== null))}
 <h1 class="serif" translate="no">${list.name}</h1>
 <p class="repo-link">${outbound(gh, html`${list.slug} ↗`, { cls: 'mono' })}</p>
 ${summary ? html`<p class="lede"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''}
-<p class="about-list">${outbound(gh, html`${m.list.readOriginal} ↗`)} · ${outbound(`${gh}/issues`, m.list.suggestChange)}</p>
+<p class="about-list">${about.html} ${outbound(gh, html`${m.list.readOriginal} ↗`)} · ${outbound(`${gh}/issues`, m.list.suggestChange)}</p>
 ${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.seeAlso}</span> ${join(seeAlso, loc.m.common.separator)}</p>` : ''}`;
 
   let content: Html;
@@ -161,7 +165,7 @@ ${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.see
     const n = loc.n(entries.length);
     rail = html`<nav class="rail sheet" id="_contents" aria-label="${m.list.contents}"><div class="rail-in">${sheetHead(loc, m.list.contents, 'entries')}<p class="rail-title">${m.list.contents}</p>${toc(loc, contents)}</div></nav>`;
     content = html`<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a></div>
-<div id="entries">${body(loc, sections, entries, dataYearOf(ctx), mainLang(entries)?.[0] ?? null)}</div>`;
+<div id="entries">${body(loc, sections, entries, dataYearOf(ctx), lang?.[0] ?? null)}</div>`;
   }
 
   // The lists most like it; then more of its category by stars (ctx.lists is in that order).
@@ -174,7 +178,7 @@ ${seeAlso.length > 0 ? html`<p class="see-also"><span class="label">${m.list.see
   const moreHtml = cat === undefined || more.length === 0 ? '' : html`<h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listEntries(ctx, more, { noCategory: true })}`;
 
   // At the foot: the facts, where the list comes from, and the share row.
-  const about = html`<h2>${m.list.aboutTitle}</h2>
+  const foot = html`<h2>${m.list.aboutTitle}</h2>
 ${facts([
   [m.facts.stars, loc.n(list.stars)],
   [m.facts.lastPush, loc.time(list.pushedDay)],
@@ -186,7 +190,7 @@ ${facts([
 ${attributionOfList(loc, list, ctx.meta.dataFinished)}
 ${shareRow(ctx, head)}`;
 
-  const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${about}</article>${rail}`;
+  const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${foot}</article>${rail}`;
 
   const fallback = loc.t(m.meta.list.description, { name: list.name, repo: `github.com/${list.slug}` });
   let description = summary?.text ?? fallback;
@@ -220,6 +224,7 @@ ${shareRow(ctx, head)}`;
           inLanguage: loc.info.hreflang,
           isPartOf: webSite(ctx),
           isBasedOn: gh,
+          ...(list.pushedDay !== null ? { dateModified: isoDay(Math.min(list.pushedDay, ctx.dataDay)) } : {}),
           mainEntity: { '@type': 'ItemList', numberOfItems: itemCount },
           ...(parts.length > 0 ? { hasPart: parts } : {}),
         },

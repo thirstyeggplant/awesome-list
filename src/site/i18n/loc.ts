@@ -71,8 +71,13 @@ export class Loc {
 
   /** A plural for a count, with `{n}` the formatted count and any other values. */
   plural(forms: Plural, count: number, vars: Vars = {}): string {
+    return fmt(this.form(forms, count), { ...vars, n: this.n(count) });
+  }
+
+  /** The form of a plural this language chooses for a count, its placeholders not filled. */
+  form(forms: Plural, count: number): string {
     const rules = this.locale !== 'en' && isEnglishPlural(forms) ? LOCALE_INFO.en.intl : this.info.intl;
-    return fmt(pluralForm(rules, forms, count), { ...vars, n: this.n(count) });
+    return pluralForm(rules, forms, count);
   }
 
   /** A day number as a date; '' for null. */

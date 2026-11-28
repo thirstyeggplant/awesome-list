@@ -161,8 +161,6 @@ export const ru: Messages = {
       many: '{n} awesome-списков и всё, что в них',
       other: '{n} awesome-списка и всё, что в них',
     }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · данные на {date}',
     mostNamed: 'Чаще всего в списках',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: 'По языкам',
@@ -216,16 +214,10 @@ export const ru: Messages = {
     alsoListedAs: 'Также встречается как: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: 'Это тоже список из нашей библиотеки: <1>открыть его</1>.',
-    archived: 'Владелец перенёс репозиторий в архив.',
     gone: 'Этого репозитория больше нет на GitHub.',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: 'Нет пушей с {month}.',
-    quiet: 'Нет пушей два года.',
     factsAsOf: 'Данные GitHub на {date}.',
-    inLists: p({ one: 'В {n} списке', few: 'В {n} списках', many: 'В {n} списках', other: 'В {n} списка' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: 'указан как «{name}»',
-    alongside: 'Встречается рядом',
     attribution: 'Упоминается в списках выше. Перейдите в список, чтобы прочитать, что о нём пишут кураторы. Чтобы предложить изменение, создайте issue в одном из этих списков.',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: 'Открыть на GitHub ↗',
@@ -236,6 +228,21 @@ export const ru: Messages = {
     allFrom: p({ one: '{n} проект от {owner}', few: 'Все {n} проекта от {owner}', many: 'Все {n} проектов от {owner}', other: 'Все {n} проекта от {owner}' }),
     /** The label over an item's topic chips. */
     topics: 'Темы',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: 'Проекты, которые стоят с ним в одном разделе какого-нибудь списка. Списки не говорят, что это альтернативы.',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: 'Какие awesome-списки называют {name}?',
+      maintained: 'Поддерживается ли {name}?',
+      alongside: 'Что указано рядом с {name}?',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: 'Последний push был {date}, и он не в архиве (данные на {asOf}).',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: 'С {date} не было ни одного push — это больше двух лет до {asOf}. Он не в архиве.',
+      archived: 'Нет. Владелец отправил его в архив; последний push был {date}.',
+    },
   },
   items: {
     h1: 'Элементы',
@@ -260,8 +267,6 @@ export const ru: Messages = {
     theirProjects: 'Проекты, упомянутые в списках',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'Все {n} в элементах', few: 'Все {n} в элементах', many: 'Все {n} в элементах', other: 'Все {n} в элементах' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: 'Ведёт: {lists} · В списках: {projects}',
   },
   search: {
     h1: 'Поиск',
@@ -299,6 +304,76 @@ export const ru: Messages = {
     coverageTwoOrMore: 'Элементов, упомянутых в двух списках и более: {n}.',
     coverageRepos: 'Репозитории: активных — {active}, затихших (без пушей два года) — {quiet}, в архиве — {archived}, удалённых — {gone}.',
     dataOf: 'Данные на {date}.',
+  },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site} — это индекс: {lists} с GitHub и {items}, которые в них названы. Здесь показаны названия, разделы, ссылки и данные GitHub, но никогда не собственные описания списков. Данные на {date}; они перечитываются каждую ночь.',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ one: 'В категории {category} {n} awesome-список: {names}.', few: 'В категории {category} {n} awesome-списка. Больше всего звёзд у {names}.', many: 'В категории {category} {n} awesome-списков. Больше всего звёзд у {names}.', other: 'В категории {category} {n} awesome-списка. Больше всего звёзд у {names}.' }),
+    /** After a summary: {date} is a date. */
+    asOf: 'Данные на {date}.',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name} — это awesome-список {repo}, который ведёт {owner} на GitHub. Он называет {items} ({sections}).',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name} — это awesome-список {repo}, который ведёт {owner} на GitHub.',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: 'У него {stars} на GitHub, последний push был {date}.',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: 'Самые большие разделы: {sections}.',
+      /** {names} are five project names. */
+      top: 'Больше всего звёзд у проектов {names}.',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: 'Большинство репозиториев в нём написаны на {language}.',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ one: '{n} проект из awesome-списков написан на {label}.', few: '{n} проекта из awesome-списков написаны на {label}.', many: '{n} проектов из awesome-списков написаны на {label}.', other: '{n} проекта из awesome-списков написаны на {label}.' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ one: '{n} проект из awesome-списков отмечен темой GitHub {label}.', few: '{n} проекта из awesome-списков отмечены темой GitHub {label}.', many: '{n} проектов из awesome-списков отмечены темой GitHub {label}.', other: '{n} проекта из awesome-списков отмечены темой GitHub {label}.' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ one: '{n} проект из awesome-списков распространяется под лицензией {label}.', few: '{n} проекта из awesome-списков распространяются под лицензией {label}.', many: '{n} проектов из awesome-списков распространяются под лицензией {label}.', other: '{n} проекта из awesome-списков распространяются под лицензией {label}.' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ one: '{n} элемент из awesome-списков относится к типу «{label}».', few: '{n} элемента из awesome-списков относятся к типу «{label}».', many: '{n} элементов из awesome-списков относятся к типу «{label}».', other: '{n} элемента из awesome-списков относятся к типу «{label}».' }),
+      /** After one of the four: {names} are five names. */
+      top: 'Больше всего списков называют {names}.',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name} — репозиторий на {language} от {owner} на GitHub; у него {stars}.',
+      /** The same, with no language known. */
+      repo: '{name} — репозиторий от {owner} на GitHub; у него {stars}.',
+      /** The same, with no stars known. */
+      repoPlain: '{name} — репозиторий от {owner} на GitHub.',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name} — репозиторий на {host}.',
+        site: '{name} — сайт на {host}.',
+        video: '{name} — видео на {host}.',
+        article: '{name} — статья на {host}.',
+        package: '{name} — пакет на {host}.',
+        paper: '{name} — научная статья на {host}.',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ one: '{n} awesome-список называет его: {lists}.', few: '{n} awesome-списка называют его: {lists}.', many: '{n} awesome-списков называют его: {lists}.', other: '{n} awesome-списка называют его: {lists}.' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list} (в разделе «{section}»)',
+      /** After three lists: how many more name it. */
+      more: p({ one: 'ещё {n}', few: 'ещё {n}', many: 'ещё {n}', other: 'ещё {n}' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: 'Последний push был {date}.',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display} ведёт {lists}, которые есть здесь, а awesome-списки называют {projects} этого автора.',
+      /** The same, with no projects named. */
+      lists: '{display} ведёт {lists}, которые есть здесь.',
+      /** The same, with no lists kept. */
+      projects: 'Awesome-списки называют {projects} от {display}.',
+    },
   },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
@@ -355,33 +430,14 @@ export const ru: Messages = {
       repoTitle: p({ one: '{repo}: в {n} awesome-списке', few: '{repo}: в {n} awesome-списках', many: '{repo}: в {n} awesome-списках', other: '{repo}: в {n} awesome-списка' }),
       /** Anything else: {name} is its name. */
       title: p({ one: '{name}: в {n} awesome-списке', few: '{name}: в {n} awesome-списках', many: '{name}: в {n} awesome-списках', other: '{name}: в {n} awesome-списка' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({
-        one: '{name} упоминается в {n} awesome-списке: {lists}.',
-        few: '{name} упоминается в {n} awesome-списках: {lists}.',
-        many: '{name} упоминается в {n} awesome-списках: {lists}.',
-        other: '{name} упоминается в {n} awesome-списка: {lists}.',
-      }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({
-        one: '{name} ({host}) упоминается в {n} awesome-списке: {lists}.',
-        few: '{name} ({host}) упоминается в {n} awesome-списках: {lists}.',
-        many: '{name} ({host}) упоминается в {n} awesome-списках: {lists}.',
-        other: '{name} ({host}) упоминается в {n} awesome-списка: {lists}.',
-      }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}: в awesome-списке {list}',
       titleOne: '{name}: в awesome-списке {list}',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name} есть в awesome-списке {list}, в разделе «{section}».',
-      under: 'В {list} — в разделе «{section}».',
       alongside: 'Рядом с {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}: списки и проекты',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: '{display} на GitHub: ведёт {lists}, в списках упомянуто {projects}.',
     },
     items: {
       title: p({

@@ -81,13 +81,18 @@ describe('routes', () => {
 
   it('makes the item and owner pages from the stored listings, alongside and tags', async () => {
     const page = await body('/gh/acme/rocket');
-    expect(page).toContain('In 2 lists');
+    expect(page).toContain('Which awesome lists name <span translate="no">Rocket</span>?');
+    // The lede says what it is and which lists name it, from facts; the answer under the question says what GitHub says.
+    expect(page).toMatch(/<p class="lede"><span translate="no">Rocket<\/span> is a <a href="\/items\?lang=go" translate="no">Go<\/a> repository by <a href="\/gh\/acme" translate="no">Acme<\/a> on GitHub with 5,000 stars\./);
+    expect(page).toContain('Is <span translate="no">Rocket</span> still maintained?');
+    expect(page).toMatch(/<p class="answer">Its last push was on <time datetime="2026-06-01">Jun 1, 2026<\/time> and it is not archived, as of <time/);
     expect(page).toContain('href="/lists/alpha/awesome-widgets#launchers"');
     expect(page).not.toContain('listed as ‘rocket’'); // the same name in another case
-    expect(page).not.toContain('Listed alongside');
+    expect(page).not.toContain('What is listed alongside');
     expect(page).toContain('href="/items?topic=cli"');
     const along = await body('/gh/own0/proj0');
-    expect(along).toContain('Listed alongside');
+    expect(along).toContain('What is listed alongside <span translate="no">proj0</span>?');
+    expect(along).toContain('The lists do not say they are alternatives.');
     expect(along).toContain('href="/gh/own4/proj4"');
     expect(page).toContain('href="/items?lang=go"><span translate="no">Go</span></a>');
     expect(await body(`/item/${shortHash('https://example.com/hostile')}`)).toContain('listed as ‘<span translate="no">Hostile</span>’');
@@ -162,7 +167,7 @@ describe('routes', () => {
     const search = await body('/search?q=project');
     expect(search).toMatch(/<p class="jumps"><a href="#lists">Lists <span class="n">\d+<\/span><\/a>.*<a href="#items">Items <span class="n">\d+<\/span><\/a><\/p>/);
     expect(search).toContain('<section id="items">');
-    expect(await body('/gh/own1')).toContain('<p class="owner-line">0 lists kept · 8 projects named by lists</p>');
+    expect(await body('/gh/own1')).toContain('<p class="lede">Awesome lists name 8 projects by <span translate="no">own1</span>.</p>');
   });
 
   it('escapes hostile names and drops javascript: addresses', async () => {

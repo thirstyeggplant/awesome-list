@@ -7,7 +7,9 @@ import type { Ctx } from './context.js';
 import { itemsNoindex } from './items.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { homeSummary } from './sentences.js';
 import { shareRow } from './share.js';
+import { isoDay } from '../i18n/format.js';
 
 /** A category's lists in the index's order, as one run of names; a subcategory's label before its lists. */
 function categoryLists(ctx: Ctx, lists: readonly ListRow[]): Html {
@@ -59,16 +61,12 @@ export async function homePage(ctx: Ctx, db: Db): Promise<ViewResult> {
     ([slug, label, n]) => html`<li><a href="${loc.href(`/items?lang=${encodeParam(slug)}`)}"><span translate="no">${label}</span> <span class="n">${loc.n(n)}</span></a></li>`,
   );
   const twoOrMore = { ...EMPTY_ITEMS, in: 2 };
+  const summary = homeSummary(ctx);
   const head = { route: 'home' as const, title: h1, headTitle: loc.plural(m.meta.home.title, lists, { site: ctx.siteName }), canonical: '/' };
   const main = html`<div class="home">
 <header class="hero">
 <h1>${h1}</h1>
-<p class="lede">${loc.t(m.home.counts, {
-    lists: loc.plural(m.count.lists, lists),
-    items: loc.plural(m.count.items, c.items ?? 0),
-    listings: loc.plural(m.count.listings, c.listings ?? 0),
-    date: loc.dayIso(ctx.meta.dataFinished),
-  })}</p>
+<p class="lede">${summary.html}</p>
 ${searchBox(loc, null)}
 </header>
 ${langs.length > 0 ? html`<h2 class="label">${m.home.browseByLanguage}</h2>
@@ -97,6 +95,8 @@ ${shareRow(ctx, head)}
         {
           '@context': 'https://schema.org',
           ...webSite(ctx),
+          description: summary.text,
+          dateModified: isoDay(ctx.dataDay),
           potentialAction: {
             '@type': 'SearchAction',
             target: { '@type': 'EntryPoint', urlTemplate: `${ctx.origin}${loc.prefix}/search?q={search_term_string}` },

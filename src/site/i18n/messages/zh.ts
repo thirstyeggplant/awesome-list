@@ -157,8 +157,6 @@ export const zh: Messages = {
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
     h1: p({ other: '{n} 个 awesome 清单及其全部内容' }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · 数据日期 {date}',
     mostNamed: '被最多清单收录',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: '按语言浏览',
@@ -212,16 +210,10 @@ export const zh: Messages = {
     alsoListedAs: '其他收录名称：{names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: '它本身也是本站收录的清单：<1>打开</1>。',
-    archived: '已被所有者归档。',
     gone: 'GitHub 上已不存在该仓库。',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: '自 {month} 起无推送。',
-    quiet: '两年内无推送。',
     factsAsOf: '数据来自 GitHub，截至 {date}。',
-    inLists: p({ other: '收录于 {n} 个清单' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: '收录名称为“{name}”',
-    alongside: '一同收录的条目',
     attribution: '由上方清单收录。点开清单可阅读维护者对它的介绍。如需建议修改，请在相应清单的仓库提交 issue。',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: '在 GitHub 上打开 ↗',
@@ -232,6 +224,21 @@ export const zh: Messages = {
     allFrom: p({ other: '{owner} 的全部 {n} 个项目' }),
     /** The label over an item's topic chips. */
     topics: '主题',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: '在某个清单中与它同属一个章节的项目。清单并没有说它们可以互相替代。',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: '哪些 awesome 清单收录了 {name}？',
+      maintained: '{name} 还在维护吗？',
+      alongside: '哪些条目与 {name} 一同收录？',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: '截至 {asOf}，它最近一次推送是在 {date}，并且没有被归档。',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: '自 {date} 以来没有推送，比 {asOf} 早两年多。它没有被归档。',
+      archived: '没有。它的所有者已将其归档；最近一次推送是在 {date}。',
+    },
   },
   items: {
     h1: '条目',
@@ -256,8 +263,6 @@ export const zh: Messages = {
     theirProjects: '被清单收录的项目',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: '在条目页查看全部 {n} 个' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: '维护的清单：{lists} · 被清单收录的项目：{projects}',
   },
   search: {
     h1: '搜索',
@@ -296,6 +301,76 @@ export const zh: Messages = {
     coverageRepos: '仓库：{active} 个活跃，{quiet} 个沉寂（两年内无推送），{archived} 个已归档，{gone} 个已消失。',
     dataOf: '数据日期为 {date}。',
   },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site} 是一个索引，收录 GitHub 上的 {lists}，以及其中收录的 {items}。它展示名称、章节、链接和来自 GitHub 的客观数据，从不展示清单自己的描述。数据截至 {date}，每晚重新读取。',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ other: '分类「{category}」中有 {n} 个 awesome 清单。星标最多的是 {names}。' }),
+    /** After a summary: {date} is a date. */
+    asOf: '数据截至 {date}。',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name} 是 awesome 清单 {repo}，由 {owner} 在 GitHub 上维护。它在 {sections}里收录了 {items}。',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name} 是 awesome 清单 {repo}，由 {owner} 在 GitHub 上维护。',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: '它在 GitHub 上有 {stars}，最近一次推送是在 {date}。',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: '它最大的几个章节是 {sections}。',
+      /** {names} are five project names. */
+      top: '其中星标最多的项目是 {names}。',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: '其中大多数仓库用 {language} 编写。',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ other: '有 {n} 个被 awesome 清单收录的项目用 {label} 编写。' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ other: '有 {n} 个被 awesome 清单收录的项目带有 GitHub 主题 {label}。' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ other: '有 {n} 个被 awesome 清单收录的项目采用 {label} 许可证。' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ other: '被 awesome 清单收录的条目中有 {n} 个属于「{label}」类型。' }),
+      /** After one of the four: {names} are five names. */
+      top: '被最多清单收录的是 {names}。',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name} 是 {owner} 在 GitHub 上的 {language} 仓库，有 {stars}。',
+      /** The same, with no language known. */
+      repo: '{name} 是 {owner} 在 GitHub 上的仓库，有 {stars}。',
+      /** The same, with no stars known. */
+      repoPlain: '{name} 是 {owner} 在 GitHub 上的仓库。',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name} 是 {host} 上的仓库。',
+        site: '{name} 是位于 {host} 的网站。',
+        video: '{name} 是 {host} 上的视频。',
+        article: '{name} 是 {host} 上的文章。',
+        package: '{name} 是 {host} 上的软件包。',
+        paper: '{name} 是 {host} 上的论文。',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ other: '{n} 个 awesome 清单收录了它：{lists}。' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list}（「{section}」部分）',
+      /** After three lists: how many more name it. */
+      more: p({ other: '另外 {n} 个' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: '最近一次推送是在 {date}。',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display} 维护着本站收录的 {lists}，awesome 清单还收录了 Ta 的 {projects}。',
+      /** The same, with no projects named. */
+      lists: '{display} 维护着本站收录的 {lists}。',
+      /** The same, with no lists kept. */
+      projects: 'awesome 清单收录了 {display} 的 {projects}。',
+    },
+  },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
@@ -328,23 +403,14 @@ export const zh: Messages = {
       repoTitle: p({ other: '{repo}：收录于 {n} 个 awesome 清单' }),
       /** Anything else: {name} is its name. */
       title: p({ other: '{name}：收录于 {n} 个 awesome 清单' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({ other: '{name} 被 {n} 个 awesome 清单收录：{lists}。' }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({ other: '{name}（{host}）被 {n} 个 awesome 清单收录：{lists}。' }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}：收录于 {list} awesome 清单',
       titleOne: '{name}：收录于 {list} awesome 清单',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name} 收录于 {list} awesome 清单的「{section}」部分。',
-      under: '在 {list} 中列于「{section}」。',
       alongside: '一同收录的有 {names}。',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}：清单和项目',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: 'GitHub 用户 {display}：维护 {lists}，{projects}被清单收录。',
     },
     items: {
       title: p({ other: 'awesome 清单收录的 {n} 个项目' }),

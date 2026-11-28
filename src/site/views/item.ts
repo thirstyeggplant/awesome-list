@@ -1,30 +1,17 @@
-// /gh/{owner}/{repo} and /item/{h}: what the lists and GitHub say about one thing. No description.
-import type { Db, ItemDetail, ItemListing, ItemRow, ListRow } from '../db.js';
-import { html, join, outbound, safeHref, type Html } from '../html.js';
-import type { Loc } from '../i18n/loc.js';
-import { absolute, breadcrumbLd, webSite, crumbs, facts, entries, itemRot, link, rot, tag } from './components.js';
+// /gh/{owner}/{repo} and /item/{h}: what the lists and GitHub say about one thing, in the order of a visitor's
+// questions. No description of anyone else's: the sentences are ours, made of facts.
+import type { Db, ItemDetail, ItemListing, ListRow } from '../db.js';
+import { html, join, outbound, safeHref } from '../html.js';
+import { isoDay } from '../i18n/format.js';
+import { absolute, breadcrumbLd, crumbs, entries, facts, itemRot, link, tag, webSite } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
+import { fitDescription, itemSummary, maintainedAnswer, sentences } from './sentences.js';
 import { shareRow } from './share.js';
 
 /** Other projects of the same owner shown on an item's page. */
 const MORE_FROM_OWNER = 6;
-
-function rotSentence(loc: Loc, item: ItemRow): Html {
-  const word = itemRot(item);
-  if (word === null) return html``;
-  const m = loc.m.item;
-  const sentence =
-    word === 'archived'
-      ? m.archived
-      : word === 'gone'
-        ? m.gone
-        : item.pushedDay !== null
-          ? loc.t(m.quietSince, { month: loc.monthYear(item.pushedDay) })
-          : m.quiet;
-  return html`<p class="rot-line">${rot(loc, word)} ${sentence}</p>`;
-}
 
 /** Where an item is listed, with each section's path and anchors, in the order of its `listed`. */
 async function listingsOf(db: Db, item: ItemDetail): Promise<ItemListing[]> {
@@ -40,38 +27,6 @@ function spdx(label: string): string | null {
   return /^[A-Za-z0-9][A-Za-z0-9.+-]*$/.test(label) && !/^(other|noassertion)$/i.test(label)
     ? `https://spdx.org/licenses/${label}`
     : null;
-}
-
-/** The description: sentences, each a message, added while the whole still fits. */
-function describe(ctx: Ctx, item: ItemDetail, isRepo: boolean, listIds: readonly number[], first: ItemListing | undefined, along: readonly ItemRow[]): string {
-  const { loc } = ctx;
-  const m = loc.m;
-  const limit = loc.info.cjk ? 80 : 160;
-  const listCount = listIds.length;
-  const firstList = first ? ctx.listById.get(first.listId) : undefined;
-  const section = first?.path[first.path.length - 1] ?? '';
-  const sentences: string[] = [];
-  if (listCount === 1 && firstList && section !== '') {
-    sentences.push(loc.t(m.meta.item.inOne, { name: item.name, list: firstList.name, section }));
-  } else {
-    const named = loc.list(listIds.slice(0, 3).map((id) => ctx.listById.get(id)?.name).filter((n): n is string => n !== undefined));
-    sentences.push(
-      isRepo
-        ? loc.plural(m.meta.item.repoDescription, listCount, { name: item.name, lists: named })
-        : loc.plural(m.meta.item.description, listCount, { name: item.name, host: item.host, lists: named }),
-    );
-    if (firstList && section !== '') sentences.push(loc.t(m.meta.item.under, { section, list: firstList.name }));
-  }
-  if (along.length > 0) sentences.push(loc.t(m.meta.item.alongside, { names: loc.list(along.slice(0, 3).map((a) => a.name)) }));
-  if (isRepo) {
-    const known = [item.tags.lang?.[1], item.tags.license?.[1], item.stars === null ? undefined : loc.plural(m.count.stars, item.stars)].filter(
-      (f): f is string => f !== undefined,
-    );
-    if (known.length > 0) sentences.push(`${loc.list(known)}.`);
-  }
-  let out = sentences[0] ?? '';
-  for (const s of sentences.slice(1)) if (out.length + 1 + s.length <= limit) out += ` ${s}`;
-  return out;
 }
 
 export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<ViewResult> {
@@ -154,21 +109,26 @@ export async function itemPage(ctx: Ctx, db: Db, item: ItemDetail): Promise<View
         [m.facts.namedBy, namedBy],
       ]);
   const ownerName = html`<span translate="no">${display}</span>`;
+  const itemName = html`<span translate="no">${isRepo ? item.repoName : item.name}</span>`;
   const word = itemRot(item);
+  const said = itemSummary(ctx, item, listings, display);
+  const summary = sentences(loc, [said.first, said.second, said.third]);
+  const answer = isRepo ? maintainedAnswer(ctx, item) : null;
   const main = html`<article class="item-page">
 ${trail}
 ${isRepo
     ? html`<h1 translate="no">${link(loc, `/gh/${item.owner ?? ''}`, `${display} /`, { cls: 'dim' })} ${nameHtml}${word === null ? '' : html` <b class="rot rot-${word}" translate="yes">${m.status[word]}</b>`}</h1>`
     : html`<h1 translate="no">${nameHtml}</h1>`}
-${rotSentence(loc, item)}
+<p class="lede">${summary.html}</p>
 ${go}
 ${item.aka.length > 0 ? html`<p class="aka">${loc.h(m.item.alsoListedAs, { names: join(item.aka.map((a) => html`<span translate="no">${a}</span>`), ', ') })}</p>` : ''}
 ${ownList ? html`<p class="is-list">${loc.h(m.item.isList, {}, { 1: (t) => link(loc, `/lists/${ownList.slug}`, t) })}</p>` : ''}
 ${factList}
 ${isRepo ? html`<p class="note">${loc.h(m.item.factsAsOf, { date: loc.timeIso(ctx.meta.dataFinished) })}</p>` : ''}
 ${topics.length > 0 ? html`<p class="topics-label">${m.item.topics}</p><p class="chips">${join(topics, ' ')}</p>` : ''}
-<h2>${loc.plural(m.item.inLists, listCount)}</h2><ol class="entries lists">${rows}</ol>
-${along.length > 0 ? html`<h2>${m.item.alongside}</h2>${entries(ctx, along, { topics: true })}` : ''}
+<h2>${loc.h(m.item.q.lists, { name: itemName })}</h2><ol class="entries lists">${rows}</ol>
+${answer === null ? '' : html`<h2>${loc.h(m.item.q.maintained, { name: itemName })}</h2><p class="answer">${answer.html}</p>`}
+${along.length > 0 ? html`<h2>${loc.h(m.item.q.alongside, { name: itemName })}</h2><p class="note">${m.item.alongsideNote}</p>${entries(ctx, along, { topics: true })}` : ''}
 ${fromOwner.length > 0 && ownerRow !== null ? html`<h2>${loc.h(m.item.moreFrom, { owner: ownerName })}</h2>${entries(ctx, fromOwner, { topics: true })}<p class="more">${link(
     loc, `/gh/${ownerRow.login}`, loc.plural(m.item.allFrom, ownerRow.itemCount, { owner: display }),
   )}</p>` : ''}
@@ -176,7 +136,13 @@ ${fromOwner.length > 0 && ownerRow !== null ? html`<h2>${loc.h(m.item.moreFrom, 
 ${shareRow(ctx, head)}
 </article>`;
 
-  const description = describe(ctx, item, isRepo, listIds, first, along);
+  // Sentences one and two, then the alongside sentence while it fits.
+  const description = fitDescription(loc, [
+    said.first.text,
+    ...(said.second ? [said.second.text] : []),
+    ...(along.length > 0 ? [loc.t(m.meta.item.alongside, { names: loc.list(along.slice(0, 3).map((a) => a.name)) })] : []),
+  ]);
+  const ldDescription = said.second ? `${said.first.text}${loc.info.cjk ? '' : ' '}${said.second.text}` : said.first.text;
   const licenseUrl = license ? spdx(license[1]) : null;
   const url = absolute(ctx, `/${item.key}`);
   const ld: Record<string, unknown>[] = [];
@@ -187,8 +153,11 @@ ${shareRow(ctx, head)}
       '@context': 'https://schema.org',
       '@type': 'SoftwareSourceCode',
       name: item.repoName,
+      // Our sentences, made of facts: never a curator's or an owner's description.
+      description: ldDescription,
       url,
       codeRepository: item.url,
+      ...(item.pushedDay !== null ? { dateModified: isoDay(item.pushedDay) } : {}),
       ...(lang ? { programmingLanguage: lang[1] } : {}),
       ...(licenseUrl ? { license: licenseUrl } : {}),
       ...(item.tags.topics.length > 0 ? { keywords: item.tags.topics.map(([, label]) => label) } : {}),
@@ -198,7 +167,7 @@ ${shareRow(ctx, head)}
     });
   } else {
     // A thing that is not a repository: the page about it. Its own address is a third party's, so not given.
-    ld.push({ '@context': 'https://schema.org', '@type': 'WebPage', name: item.name, url, isPartOf: webSite(ctx), about: { '@type': 'Thing', name: item.name } });
+    ld.push({ '@context': 'https://schema.org', '@type': 'WebPage', name: item.name, description: ldDescription, url, isPartOf: webSite(ctx), about: { '@type': 'Thing', name: item.name } });
   }
 
   return page(

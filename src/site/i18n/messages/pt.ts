@@ -157,8 +157,6 @@ export const pt: Messages = {
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
     h1: p({ one: '{n} awesome list e tudo o que há nela', many: '{n} de awesome lists e tudo o que há nelas', other: '{n} awesome lists e tudo o que há nelas' }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · dados de {date}',
     mostNamed: 'Citados por mais listas',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: 'Explorar por linguagem',
@@ -212,16 +210,10 @@ export const pt: Messages = {
     alsoListedAs: 'Também listado como: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: 'Este item também é uma lista da biblioteca: <1>abrir</1>.',
-    archived: 'Arquivado pelo dono.',
     gone: 'Este repositório não existe mais no GitHub.',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: 'Sem pushes desde {month}.',
-    quiet: 'Sem pushes há dois anos.',
     factsAsOf: 'Dados do GitHub de {date}.',
-    inLists: p({ one: 'Em {n} lista', many: 'Em {n} de listas', other: 'Em {n} listas' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: 'listado como “{name}”',
-    alongside: 'Listado junto com',
     attribution: 'Citado pelas listas acima. Abra uma lista para ler o que os curadores dizem sobre ele. Para sugerir uma alteração, abra uma issue em uma dessas listas.',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: 'Abrir no GitHub ↗',
@@ -232,6 +224,21 @@ export const pt: Messages = {
     allFrom: p({ one: '{n} projeto de {owner}', many: 'Os {n} de projetos de {owner}', other: 'Os {n} projetos de {owner}' }),
     /** The label over an item's topic chips. */
     topics: 'Tópicos',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: 'Projetos que dividem uma seção com ele em alguma lista. As listas não dizem que são alternativas.',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: 'Quais awesome lists citam {name}?',
+      maintained: '{name} ainda é mantido?',
+      alongside: 'O que aparece junto com {name}?',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: 'Seu último push foi em {date} e ele não está arquivado, segundo dados de {asOf}.',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: 'Não teve push desde {date}, mais de dois anos antes de {asOf}. Não está arquivado.',
+      archived: 'Não. O dono o arquivou; o último push foi em {date}.',
+    },
   },
   items: {
     h1: 'Itens',
@@ -256,8 +263,6 @@ export const pt: Messages = {
     theirProjects: 'Projetos citados por listas',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ one: 'Ver {n} em Itens', many: 'Todos os {n} em Itens', other: 'Todos os {n} em Itens' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: 'Mantém: {lists} · Citados por listas: {projects}',
   },
   search: {
     h1: 'Busca',
@@ -296,6 +301,76 @@ export const pt: Messages = {
     coverageRepos: 'Repositórios: {active} ativos, {quiet} parados (sem push há dois anos), {archived} arquivados, {gone} removidos.',
     dataOf: 'Dados de {date}.',
   },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site} é um índice de {lists} do GitHub e dos {items} que elas citam. Mostra nomes, seções, links e dados do GitHub, nunca as descrições das próprias listas. Dados de {date}; lidos de novo toda noite.',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ one: 'A categoria {category} tem {n} awesome list: {names}.', many: 'A categoria {category} tem {n} de awesome lists. As com mais estrelas são {names}.', other: 'A categoria {category} tem {n} awesome lists. As com mais estrelas são {names}.' }),
+    /** After a summary: {date} is a date. */
+    asOf: 'Dados de {date}.',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name} é a awesome list {repo}, mantida por {owner} no GitHub. Ela cita {items} em {sections}.',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name} é a awesome list {repo}, mantida por {owner} no GitHub.',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: 'Tem {stars} no GitHub e seu último push foi em {date}.',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: 'Suas maiores seções são {sections}.',
+      /** {names} are five project names. */
+      top: 'Os projetos com mais estrelas são {names}.',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: 'A maioria dos seus repositórios é escrita em {language}.',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ one: '{n} projeto citado por awesome lists é escrito em {label}.', many: '{n} de projetos citados por awesome lists são escritos em {label}.', other: '{n} projetos citados por awesome lists são escritos em {label}.' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ one: '{n} projeto citado por awesome lists tem o tópico do GitHub {label}.', many: '{n} de projetos citados por awesome lists têm o tópico do GitHub {label}.', other: '{n} projetos citados por awesome lists têm o tópico do GitHub {label}.' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ one: '{n} projeto citado por awesome lists usa a licença {label}.', many: '{n} de projetos citados por awesome lists usam a licença {label}.', other: '{n} projetos citados por awesome lists usam a licença {label}.' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ one: '{n} item citado por awesome lists é do tipo {label}.', many: '{n} de itens citados por awesome lists são do tipo {label}.', other: '{n} itens citados por awesome lists são do tipo {label}.' }),
+      /** After one of the four: {names} are five names. */
+      top: 'Os citados por mais listas são {names}.',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name} é um repositório em {language} de {owner} no GitHub com {stars}.',
+      /** The same, with no language known. */
+      repo: '{name} é um repositório de {owner} no GitHub com {stars}.',
+      /** The same, with no stars known. */
+      repoPlain: '{name} é um repositório de {owner} no GitHub.',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name} é um repositório em {host}.',
+        site: '{name} é um site em {host}.',
+        video: '{name} é um vídeo em {host}.',
+        article: '{name} é um artigo em {host}.',
+        package: '{name} é um pacote em {host}.',
+        paper: '{name} é um artigo científico em {host}.',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ one: 'Uma awesome list o cita: {lists}.', many: '{n} de awesome lists o citam: {lists}.', other: '{n} awesome lists o citam: {lists}.' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list} (em {section})',
+      /** After three lists: how many more name it. */
+      more: p({ one: '{n} outra', many: '{n} de outras', other: '{n} outras' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: 'Seu último push foi em {date}.',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display} mantém {lists} indexadas aqui, e awesome lists citam {projects} dele.',
+      /** The same, with no projects named. */
+      lists: '{display} mantém {lists} indexadas aqui.',
+      /** The same, with no lists kept. */
+      projects: 'Awesome lists citam {projects} de {display}.',
+    },
+  },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
@@ -330,23 +405,14 @@ export const pt: Messages = {
       repoTitle: p({ one: '{repo}: em {n} awesome list', many: '{repo}: em {n} de awesome lists', other: '{repo}: em {n} awesome lists' }),
       /** Anything else: {name} is its name. */
       title: p({ one: '{name}: em {n} awesome list', many: '{name}: em {n} de awesome lists', other: '{name}: em {n} awesome lists' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({ one: '{name} é citado por {n} awesome list: {lists}.', many: '{name} é citado por {n} de awesome lists: {lists}.', other: '{name} é citado por {n} awesome lists: {lists}.' }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({ one: '{name} ({host}) é citado por {n} awesome list: {lists}.', many: '{name} ({host}) é citado por {n} de awesome lists: {lists}.', other: '{name} ({host}) é citado por {n} awesome lists: {lists}.' }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}: na awesome list {list}',
       titleOne: '{name}: na awesome list {list}',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name} está na awesome list {list}, em {section}.',
-      under: 'Em {list}, está em {section}.',
       alongside: 'Junto com {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}: listas e projetos',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: '{display} no GitHub: mantém {lists}, tem {projects} citados por listas.',
     },
     items: {
       title: p({ one: '{n} projeto citado por awesome lists', many: '{n} de projetos citados por awesome lists', other: '{n} projetos citados por awesome lists' }),

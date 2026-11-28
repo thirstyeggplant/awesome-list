@@ -157,8 +157,6 @@ export const id: Messages = {
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
     h1: p({ other: '{n} awesome list beserta seluruh isinya' }),
-    /** The line of counts under the search box; {lists}, {items} and {listings} are the count plurals. */
-    counts: '{lists} · {items} · {listings} · data per {date}',
     mostNamed: 'Paling banyak disebut daftar',
     /** The line of the most common languages under the counts, and the link after them to every project. */
     browseByLanguage: 'Jelajahi menurut bahasa',
@@ -212,16 +210,10 @@ export const id: Messages = {
     alsoListedAs: 'Juga tercantum sebagai: {names}',
     /** When an item is itself one of the lists; <1> links to its list page. */
     isList: 'Item ini sendiri adalah sebuah daftar di koleksi ini: <1>buka</1>.',
-    archived: 'Diarsipkan oleh pemiliknya.',
     gone: 'Repositori ini sudah tidak ada di GitHub.',
-    /** {month} is a month and year, e.g. "Mar 2023". */
-    quietSince: 'Tidak ada push sejak {month}.',
-    quiet: 'Tidak ada push dalam dua tahun.',
     factsAsOf: 'Data dari GitHub per {date}.',
-    inLists: p({ other: 'Ada di {n} daftar' }),
     /** Beside one of the lists an item is in, when that list calls it by another name. */
     listedAs: 'tercantum sebagai ‘{name}’',
-    alongside: 'Tercantum bersama',
     attribution: 'Disebut oleh daftar-daftar di atas. Buka sebuah daftar untuk membaca apa kata kuratornya. Untuk mengusulkan perubahan, buka issue di salah satu daftar tersebut.',
     /** The item's one outbound link, as a button: to its repository, or to its site ({host}, e.g. example.com). */
     openGitHub: 'Buka di GitHub ↗',
@@ -232,6 +224,21 @@ export const id: Messages = {
     allFrom: p({ other: 'Semua {n} proyek dari {owner}' }),
     /** The label over an item's topic chips. */
     topics: 'Topik',
+    /** Under "What is listed alongside {name}?". */
+    alongsideNote: 'Proyek yang berbagi bagian dengannya di suatu daftar. Daftar itu tidak menyebutnya sebagai alternatif.',
+    q: {
+      /** Headings of an item page, as the questions a visitor asks; {name} is the item. */
+      lists: 'Awesome list mana yang menyebut {name}?',
+      maintained: 'Apakah {name} masih dikelola?',
+      alongside: 'Apa yang dicantumkan bersama {name}?',
+    },
+    a: {
+      /** The answer under "Is {name} still maintained?", by the repository's state. {date} is its last push, {asOf} the data's date. The site says what GitHub says, and when. */
+      active: 'Per {asOf}, push terakhirnya pada {date} dan tidak diarsipkan.',
+      /** "Two years" is the site's rule for quiet (730 days). */
+      quiet: 'Tidak ada push sejak {date}, lebih dari dua tahun sebelum {asOf}. Repositori ini tidak diarsipkan.',
+      archived: 'Tidak. Pemiliknya mengarsipkannya; push terakhirnya pada {date}.',
+    },
   },
   items: {
     h1: 'Item',
@@ -256,8 +263,6 @@ export const id: Messages = {
     theirProjects: 'Proyek miliknya yang disebut daftar',
     /** A link under an owner's projects to all of them on the Items page. */
     allInItems: p({ other: 'Semua {n} di Item' }),
-    /** Under an owner's GitHub link; {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-    line: 'Mengelola {lists} · {projects} disebut daftar',
   },
   search: {
     h1: 'Cari',
@@ -296,6 +301,76 @@ export const id: Messages = {
     coverageRepos: 'Repositori: {active} aktif, {quiet} sepi (tanpa push dalam dua tahun), {archived} diarsipkan, {gone} hilang.',
     dataOf: 'Data per {date}.',
   },
+  /**
+   * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
+   */
+  sum: {
+    /** The home page. {lists} and {items} are count plurals ("671 lists"), {date} a date. */
+    home: '{site} adalah indeks {lists} dari GitHub dan {items} yang mereka sebut. Situs ini menampilkan nama, bagian, tautan, dan fakta dari GitHub, tidak pernah deskripsi milik daftar itu sendiri. Data per {date}; dibaca ulang setiap malam.',
+    /** A category of /lists: {category} is its name, {names} three list names. */
+    category: p({ other: 'Ada {n} awesome list dalam kategori {category}. Yang bintangnya terbanyak adalah {names}.' }),
+    /** After a summary: {date} is a date. */
+    asOf: 'Data per {date}.',
+    list: {
+      /** A list page, after our summary. {name} is the list, {repo} owner/repo, {owner} a login, {items} and {sections} count plurals. */
+      what: '{name} adalah awesome list {repo}, dikelola oleh {owner} di GitHub. Daftar ini menyebut {items} dalam {sections}.',
+      /** The same, for a list whose entries could not be read. */
+      whatUnread: '{name} adalah awesome list {repo}, dikelola oleh {owner} di GitHub.',
+      /** {stars} is a count plural ("196,233 stars"), {date} a date. */
+      github: 'Daftar ini punya {stars} di GitHub dan push terakhirnya pada {date}.',
+      /** {sections} are three section titles, each with its count: "Command Line (105), …". */
+      sections: 'Bagian terbesarnya adalah {sections}.',
+      /** {names} are five project names. */
+      top: 'Proyek dengan bintang terbanyak di dalamnya adalah {names}.',
+      /** {language} is a programming language, e.g. "Go". */
+      lang: 'Sebagian besar repositorinya ditulis dalam {language}.',
+    },
+    items: {
+      /** /items with one language: {label} is the language. */
+      lang: p({ other: '{n} proyek yang disebut awesome list ditulis dalam {label}.' }),
+      /** /items with one topic: {label} is a GitHub topic. */
+      topic: p({ other: '{n} proyek yang disebut awesome list memiliki topik GitHub {label}.' }),
+      /** /items with one licence: {label} is the licence, e.g. "MIT". */
+      license: p({ other: '{n} proyek yang disebut awesome list memakai lisensi {label}.' }),
+      /** /items with one kind: {label} is the kind's word, e.g. "video". */
+      kind: p({ other: '{n} hal yang disebut awesome list berjenis {label}.' }),
+      /** After one of the four: {names} are five names. */
+      top: 'Yang disebut paling banyak daftar adalah {names}.',
+    },
+    item: {
+      /** An item page's first sentence. {name} is the repository, {language} e.g. "Go", {owner} a login, {stars} a count plural. */
+      repoLang: '{name} adalah repositori {language} milik {owner} di GitHub dengan {stars}.',
+      /** The same, with no language known. */
+      repo: '{name} adalah repositori milik {owner} di GitHub dengan {stars}.',
+      /** The same, with no stars known. */
+      repoPlain: '{name} adalah repositori milik {owner} di GitHub.',
+      /** Anything else, one sentence a kind: {name} is its name, {host} where it is (example.com). */
+      kind: {
+        repo: '{name} adalah repositori di {host}.',
+        site: '{name} adalah situs web di {host}.',
+        video: '{name} adalah video di {host}.',
+        article: '{name} adalah artikel di {host}.',
+        package: '{name} adalah paket di {host}.',
+        paper: '{name} adalah makalah di {host}.',
+      },
+      /** The second sentence: {lists} are up to three lists, each "Go (under Web Frameworks)", and perhaps "2 more". */
+      lists: p({ other: '{n} awesome list menyebutnya: {lists}.' }),
+      /** One of those lists: {list} is its name, {section} the title of the section that holds the item. */
+      listUnder: '{list} (di bagian {section})',
+      /** After three lists: how many more name it. */
+      more: p({ other: '{n} lainnya' }),
+      /** The third sentence, for a repository: {date} is a date. */
+      pushed: 'Push terakhirnya pada {date}.',
+    },
+    owner: {
+      /** An owner page: {display} is a login, {lists} and {projects} count plurals. */
+      both: '{display} mengelola {lists} yang diindeks di sini, dan awesome list menyebut {projects} miliknya.',
+      /** The same, with no projects named. */
+      lists: '{display} mengelola {lists} yang diindeks di sini.',
+      /** The same, with no lists kept. */
+      projects: 'Awesome list menyebut {projects} milik {display}.',
+    },
+  },
   /** Titles (in the browser's tab and in search results) and descriptions (under the title in search results). */
   meta: {
     /** Aim at 60 characters or fewer (30 for Chinese, Japanese, Korean). Descriptions: 70 to 160 (80). */
@@ -328,23 +403,14 @@ export const id: Messages = {
       repoTitle: p({ other: '{repo}: ada di {n} awesome list' }),
       /** Anything else: {name} is its name. */
       title: p({ other: '{name}: ada di {n} awesome list' }),
-      /** {lists} are up to three list names. */
-      repoDescription: p({ other: '{name} disebut oleh {n} awesome list: {lists}.' }),
-      /** {host} is a web site's host, e.g. example.com. */
-      description: p({ other: '{name} ({host}) disebut oleh {n} awesome list: {lists}.' }),
       /** In one list only: {list} is that list's name. */
       repoTitleOne: '{repo}: ada di awesome list {list}',
       titleOne: '{name}: ada di awesome list {list}',
-      /** Sentences of an item's description: {section} is a section's title in the list, {names} up to three names. */
-      inOne: '{name} ada di awesome list {list}, di bagian {section}.',
-      under: 'Di {list}, ada di bagian {section}.',
       alongside: 'Bersama {names}.',
     },
     owner: {
       /** {display} is a GitHub login. */
       title: '{display}: daftar dan proyek',
-      /** {lists} and {projects} are count plurals ("3 lists", "12 projects"). */
-      description: '{display} di GitHub: mengelola {lists}, {projects} disebut oleh daftar.',
     },
     items: {
       title: p({ other: '{n} proyek yang disebut awesome list' }),

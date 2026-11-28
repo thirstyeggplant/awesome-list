@@ -167,8 +167,14 @@ describe('structured data (test 13)', () => {
           const required = type === 'CollectionPage' && !('@context' in t) ? ['name', 'url'] : (REQUIRED[type] ?? []);
           for (const k of required) expect(t[k], `${p} ${type}.${k}`).toBeDefined();
           if (type === 'SoftwareSourceCode' || type === 'WebPage') {
-            for (const k of ['description', 'author', 'aggregateRating', 'review']) expect(t[k], `${p} ${k}`).toBeUndefined();
+            for (const k of ['author', 'aggregateRating', 'review']) expect(t[k], `${p} ${k}`).toBeUndefined();
+            // A description is our own sentence made of facts: it begins with the name and says which lists name it.
+            if (typeof t.description === 'string') {
+              expect(t.description.startsWith(t.name as string), `${p} description`).toBe(true);
+              expect(t.description, `${p} description`).toMatch(/awesome lists? names? it/);
+            }
           }
+          if (type === 'SoftwareSourceCode' && t.dateModified !== undefined) expect(t.dateModified).toMatch(/^\d{4}-\d\d-\d\d$/);
         }
         absolute(ld, `${l} ${p}`, false);
       }
@@ -296,11 +302,11 @@ describe('the head (test 16)', () => {
     expect(await title('/items?lang=go')).toMatch(/^Go: \d+ projects in awesome lists · Shelf$/);
     expect(await title('/about')).toBe('About Shelf');
     const desc = /<meta name="description" content="([^"]*)">/.exec((await get('/gh/acme/rocket')).body)?.[1] ?? '';
-    expect(decode(desc)).toBe('Rocket is named by 2 awesome lists: Widgets, Gadgets. Listed under Launchers in Widgets. Go, MIT, 5,000 stars.');
+    expect(decode(desc)).toBe('Rocket is a Go repository by Acme on GitHub with 5,000 stars. 2 awesome lists name it: Widgets (under Launchers), Gadgets (under Rocketry).');
     // In one list: the list's name is in the title, and the description says where in it.
     expect(await title('/gh/own1/proj1')).toBe('own1/proj1: in the Gadgets awesome list · Shelf');
     const one = /<meta name="description" content="([^"]*)">/.exec((await get('/gh/own1/proj1')).body)?.[1] ?? '';
-    expect(decode(one)).toMatch(/^proj1 is in the Gadgets awesome list, under Group 1\. Alongside proj\d+, proj\d+, proj\d+\. .+, [\d,]+ stars\.$/);
+    expect(decode(one)).toMatch(/^proj1 is a .*repository by own1 on GitHub.*\. One awesome list names it: Gadgets \(under Group 1\)\.( Alongside proj\d+, proj\d+, proj\d+\.)?$/);
     expect((await get('/')).body).toContain('<h1>5 awesome lists and everything in them</h1>');
     expect((await get('/lists/beta/awesome-gadgets')).body).toContain('More in Tools');
     // The lists most like a list: in its head, and as cards after its entries.
