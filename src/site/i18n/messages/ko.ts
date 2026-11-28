@@ -153,6 +153,8 @@ export const ko: Messages = {
     renamedFrom: '이전 이름',
     /** An item's GitHub owner, a link to their page. */
     owner: '소유자',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -283,14 +285,15 @@ export const ko: Messages = {
     h1: '{site} 소개',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site}는 <1>awesome list 색인</1>에 있는 모든 awesome list와 그 안의 모든 것을 모은 무료 라이브러리입니다. {lists}, 그 목록들에 실린 {items}, 그리고 각 항목이 어느 목록의 어디에 실렸는지 담고 있습니다.',
-    shownTitle: '보여 주는 것과 보여 주지 않는 것',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: '{site}은(는) 무엇을 보여 주나요?',
     shown: '이 사이트는 이름, 섹션, 링크, 사실 정보와 저희가 직접 쓴 글만 보여 줍니다. 큐레이터나 저장소 소유자의 설명은 절대 보여 주지 않습니다. 목록 요약은 저희가 쓴 것이고, 목록이 각 항목에 대해 쓴 내용은 링크 하나 너머 원래 목록에 있습니다.',
-    attributionTitle: '출처',
+    attributionTitle: '데이터는 어디서 오며, 누구의 것인가요?',
     attribution: '각 목록의 선정과 순서는 그 목록을 관리하는 사람들의 것입니다. 목록 페이지마다 목록이 있는 곳과 읽은 커밋을 밝힙니다. 저장소 정보(스타, 마지막 푸시, 언어, 라이선스, 토픽)는 GitHub에서 가져옵니다.',
-    leaveOutTitle: '목록을 제외하는 방법',
+    leaveOutTitle: '목록은 어떻게 제외되나요?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: '목록을 관리하는데 제외되길 원하시나요? 목록 이름을 적어 <1>이 프로젝트 저장소에 이슈를 열어 주세요</1>. 다음 빌드부터 제외되어 항목을 읽지 않고 페이지도 삭제됩니다.',
-    coverageTitle: '수집 범위',
+    coverageTitle: '얼마나 다루고 있나요?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '목록 {ok}개는 전부, {partial}개는 일부 읽었고, {unparsed}개는 아직 읽지 않았습니다.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -299,7 +302,12 @@ export const ko: Messages = {
     coverageItems: '{items}: 저장소 {repo}개, 사이트 {site}개, 영상 {video}개, 글 {article}개, 패키지 {package}개, 논문 {paper}개.',
     coverageTwoOrMore: '항목 {n}개가 두 개 이상의 목록에 실려 있습니다.',
     coverageRepos: '저장소: 활발함 {active}개, 잠잠함 {quiet}개(2년간 푸시 없음), 보관됨 {archived}개, 사라짐 {gone}개.',
-    dataOf: '데이터 기준일: {date}.',
+    freshTitle: '데이터는 얼마나 최신인가요?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: '목록과 GitHub의 정보는 매일 밤 다시 읽어요. 이 사본은 {date}에 완성되었어요.',
+    aiTitle: 'AI 어시스턴트와 크롤러가 사용할 수 있나요?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: '네. robots.txt에서 허용하고 있고, <1>/llms.txt</1>에서 사이트를 설명해요. 모든 목록은 주소 끝에 .md를 붙이면 Markdown 사본을 받을 수 있어요. 목록의 선택과 순서는 큐레이터의 것이므로 그 부분은 GitHub의 목록을, 개수와 어떤 목록이 프로젝트를 싣는지는 {site}을(를) 인용해 주세요.',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

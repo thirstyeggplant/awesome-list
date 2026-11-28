@@ -107,7 +107,7 @@ describe('messages', () => {
 
   it('are not left in English in a translated language (test 4)', () => {
     // Keys whose value may be the same in a language: nothing but placeholders and signs.
-    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator', 'common.dot', 'common.filterChip', 'entry.stars']);
+    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator', 'common.dot', 'common.filterChip', 'entry.stars', 'facts.markdown']);
     // Words that are the same in the language (loanwords such as Fork, Status, Tags; French "page", German "in"),
     // checked by eye. A key added here must be one whose translation really is the English.
     const sameInLanguage: Partial<Record<Locale, string[]>> = {
@@ -148,6 +148,7 @@ describe('no English in the chrome (test 5)', () => {
     for (const r of await fixture.sql.all('SELECT name, slug, owner, subcategory, license, reason, readme_oid, summary FROM list', [])) {
       for (const v of Object.values(r)) add(v);
       add(`github.com/${String(r.slug)}`);
+      add(`${String(r.slug)}.md`);
       add(String(r.readme_oid).slice(0, 7));
     }
     for (const r of await fixture.sql.all('SELECT name, aka, host, url, owner, repo_name, key, renamed_from, tags FROM item', [])) {
@@ -255,7 +256,8 @@ describe('every language', () => {
       const main = page.replace(/<nav class="langs"[\s\S]*?<\/nav>/, '');
       for (const m of main.matchAll(/\s(href|action)="(\/[^"]*)"/g)) {
         const href = m[2] ?? '';
-        if (href.startsWith('/assets/') || /^\/(favicon\.(ico|svg)|apple-touch-icon\.png|site\.webmanifest)$/.test(href)) continue;
+        // Static files: the assets, the icons, llms.txt and a list's Markdown copy, which are English only.
+        if (href.startsWith('/assets/') || /^\/(favicon\.(ico|svg)|apple-touch-icon\.png|site\.webmanifest|llms\.txt)$/.test(href) || /^\/lists\/[^/]+\/[^/]+\.md$/.test(href)) continue;
         expect(href === '/es' || href.startsWith('/es/') || href.startsWith('/es?') || href.startsWith('/es#'), `${path}: ${href}`).toBe(true);
       }
     }

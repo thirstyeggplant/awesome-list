@@ -50,3 +50,13 @@ export const CACHE = {
  * facet and the browse sitemap. They stay in the data, on the item page and in search.
  */
 export const TOPIC_STOP: ReadonlySet<string> = new Set(['hacktoberfest', 'awesome', 'awesome-list', 'awesome-lists', 'list', 'lists', 'golang']);
+
+/**
+ * Answer engines and AI crawlers named in robots.txt, in the same group as every other crawler, so they get the
+ * same rules (a crawler that finds its own name ignores the * group). Checked against each operator's own page
+ * on 2026-11-27 (docs/i18n-seo.md, robots.txt).
+ */
+export const AI_CRAWLERS = [
+  'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User',
+  'Google-Extended', 'Applebot-Extended', 'CCBot', 'Amazonbot', 'meta-externalagent',
+] as const;

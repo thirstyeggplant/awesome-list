@@ -153,6 +153,8 @@ export const id: Messages = {
     renamedFrom: 'Sebelumnya bernama',
     /** An item's GitHub owner, a link to their page. */
     owner: 'Pemilik',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -283,14 +285,15 @@ export const id: Messages = {
     h1: 'Tentang {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site} adalah koleksi gratis berisi setiap awesome list di <1>indeks awesome list</1> beserta seluruh isinya: {lists}, {items} yang mereka sebut, dan di mana setiap daftar menyebut masing-masing item.',
-    shownTitle: 'Apa yang ditampilkan, dan apa yang tidak',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: 'Apa yang ditampilkan {site}?',
     shown: 'Situs ini menampilkan nama, bagian, tautan, dan data, serta tulisan kami sendiri. Deskripsi dari kurator atau pemilik repositori tidak pernah ditampilkan. Ringkasan sebuah daftar adalah buatan kami; apa kata daftar tentang sebuah entri tetap ada di daftar itu, cukup satu klik.',
-    attributionTitle: 'Atribusi',
+    attributionTitle: 'Dari mana asalnya, dan siapa yang diberi kredit?',
     attribution: 'Pilihan dan urutan setiap daftar adalah milik orang yang mengelolanya. Setiap halaman daftar menyebutkan lokasi daftar itu dan commit saat dibaca. Data tentang repositori (bintang, push terakhir, bahasa, lisensi, topik) berasal dari GitHub.',
-    leaveOutTitle: 'Cara agar sebuah daftar tidak dimuat',
+    leaveOutTitle: 'Bagaimana sebuah daftar dikecualikan?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: 'Kamu mengelola sebuah daftar dan ingin daftar itu tidak dimuat? <1>Buka issue di repositori proyek ini</1> dengan menyebut nama daftarnya. Daftar itu dikeluarkan pada build berikutnya: entrinya tidak dibaca dan halamannya dihapus.',
-    coverageTitle: 'Cakupan',
+    coverageTitle: 'Seberapa banyak cakupannya?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '{ok} daftar terbaca penuh, {partial} sebagian, {unparsed} belum terbaca.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -299,7 +302,12 @@ export const id: Messages = {
     coverageItems: '{items}: {repo} repositori, {site} situs, {video} video, {article} artikel, {package} paket, {paper} paper.',
     coverageTwoOrMore: '{n} item disebut oleh dua daftar atau lebih.',
     coverageRepos: 'Repositori: {active} aktif, {quiet} sepi (tanpa push dalam dua tahun), {archived} diarsipkan, {gone} hilang.',
-    dataOf: 'Data per {date}.',
+    freshTitle: 'Seberapa baru datanya?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: 'Daftar dan fakta dari GitHub dibaca ulang setiap malam. Salinan ini selesai pada {date}.',
+    aiTitle: 'Bolehkah asisten AI dan crawler memakainya?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: 'Ya. robots.txt mengizinkannya, <1>/llms.txt</1> menjelaskan situs ini, dan setiap daftar punya salinan Markdown di alamatnya dengan tambahan .md. Pilihan dan urutan sebuah daftar milik kuratornya: kutip daftar di GitHub untuk itu, dan {site} untuk jumlah serta daftar mana yang menyebut sebuah proyek.',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

@@ -152,6 +152,8 @@ export const ru: Messages = {
     renamedFrom: 'Прежнее название',
     /** An item's GitHub owner, a link to their page. */
     owner: 'Владелец',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -287,14 +289,15 @@ export const ru: Messages = {
     h1: 'О сайте {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site} — бесплатная библиотека всех awesome-списков из <1>индекса awesome-списков</1> и всего, что в них есть: {lists}, {items}, которые они упоминают, и где какой список упоминает каждый из них.',
-    shownTitle: 'Что показывается, а что нет',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: 'Что показывает {site}?',
     shown: 'Сайт показывает названия, разделы, ссылки, факты и наши собственные тексты. Он никогда не показывает описания кураторов или владельцев репозиториев. Краткое описание списка — наше; то, что список пишет о записи, остаётся в списке, в одном клике отсюда.',
-    attributionTitle: 'Авторство',
+    attributionTitle: 'Откуда данные и кому они принадлежат?',
     attribution: 'Подбор и порядок в каждом списке принадлежат тем, кто его ведёт. На странице каждого списка указано, где он находится и на каком коммите прочитан. Данные о репозиториях (звёзды, последний пуш, язык, лицензия, темы) берутся с GitHub.',
-    leaveOutTitle: 'Как убрать список',
+    leaveOutTitle: 'Как исключить список?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: 'Ведёте список и хотите убрать его отсюда? <1>Создайте issue в репозитории этого проекта</1> с названием списка. Он будет исключён при следующей сборке: его записи не читаются, а страница удаляется.',
-    coverageTitle: 'Охват',
+    coverageTitle: 'Насколько полон охват?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: 'Списков прочитано полностью: {ok}, частично: {partial}, ещё не прочитано: {unparsed}.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -303,7 +306,12 @@ export const ru: Messages = {
     coverageItems: '{items}: репозиториев — {repo}, сайтов — {site}, видео — {video}, статей — {article}, пакетов — {package}, научных статей — {paper}.',
     coverageTwoOrMore: 'Элементов, упомянутых в двух списках и более: {n}.',
     coverageRepos: 'Репозитории: активных — {active}, затихших (без пушей два года) — {quiet}, в архиве — {archived}, удалённых — {gone}.',
-    dataOf: 'Данные на {date}.',
+    freshTitle: 'Насколько свежие данные?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: 'Списки и данные GitHub перечитываются каждую ночь. Эта копия готова {date}.',
+    aiTitle: 'Могут ли им пользоваться ИИ-ассистенты и краулеры?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: 'Да. robots.txt разрешает им доступ, <1>/llms.txt</1> описывает сайт, а у каждого списка есть простая копия в Markdown по его адресу с добавленным .md. Подбор и порядок списка принадлежат его кураторам: ссылайтесь на список на GitHub ради них, а на {site} — ради чисел и того, какие списки называют проект.',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

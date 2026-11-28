@@ -26,6 +26,8 @@ export interface Page {
   /** The previous and next page of a listing (paths, unprefixed), for <link rel="prev"> and "next". */
   prev?: string | null;
   next?: string | null;
+  /** A plain Markdown copy of the page (a list's .md), named in the head. */
+  markdown?: string;
   /** Structured data, written only on a page that is its own canonical. */
   jsonLd?: readonly unknown[];
 }
@@ -115,7 +117,7 @@ ${page.description ? html`<meta name="description" content="${page.description}"
     canonical === null ? '' : html`<link rel="canonical" href="${canonical}">\n`
   }${indexing === 'none' ? html`<meta name="robots" content="noindex,follow">\n` : ''}${alts.map(
     (a) => html`<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}">\n`,
-  )}${page.prev ? html`<link rel="prev" href="${ctx.origin}${loc.href(page.prev)}">\n` : ''}${
+  )}${page.markdown ? html`<link rel="alternate" type="text/markdown" href="${ctx.origin}${page.markdown}">\n` : ''}${page.prev ? html`<link rel="prev" href="${ctx.origin}${loc.href(page.prev)}">\n` : ''}${
     page.next ? html`<link rel="next" href="${ctx.origin}${loc.href(page.next)}">\n` : ''
   }${og}
 <meta name="theme-color" content="#faf8f3" media="(prefers-color-scheme: light)">

@@ -186,6 +186,7 @@ ${facts([
   [m.facts.entries, size],
   [m.facts.namedBy, ownItem !== null && namedBy > 0 ? link(loc, `/${ownItem.key}`, loc.plural(m.count.otherLists, namedBy)) : ''],
   [m.facts.state, word === null ? '' : rot(loc, word)],
+  [m.facts.markdown, html`<a class="mono" href="/lists/${list.slug}.md" type="text/markdown">${list.slug}.md</a>`],
 ])}
 ${attributionOfList(loc, list, ctx.meta.dataFinished)}
 ${shareRow(ctx, head)}`;
@@ -213,6 +214,7 @@ ${shareRow(ctx, head)}`;
       description,
       main,
       scripts: ['listfilter'],
+      markdown: `/lists/${list.slug}.md`,
       jsonLd: [
         breadcrumbLd(ctx, trail),
         {
@@ -226,6 +228,7 @@ ${shareRow(ctx, head)}`;
           isBasedOn: gh,
           ...(list.pushedDay !== null ? { dateModified: isoDay(Math.min(list.pushedDay, ctx.dataDay)) } : {}),
           mainEntity: { '@type': 'ItemList', numberOfItems: itemCount },
+          encoding: { '@type': 'MediaObject', encodingFormat: 'text/markdown', contentUrl: `${ctx.origin}/lists/${list.slug}.md` },
           ...(parts.length > 0 ? { hasPart: parts } : {}),
         },
       ],

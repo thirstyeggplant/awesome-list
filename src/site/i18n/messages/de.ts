@@ -153,6 +153,8 @@ export const de: Messages = {
     renamedFrom: 'Umbenannt von',
     /** An item's GitHub owner, a link to their page. */
     owner: 'Inhaber',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -283,14 +285,15 @@ export const de: Messages = {
     h1: 'Über {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site} ist eine freie Bibliothek aller awesome Listen im <1>Verzeichnis der awesome Listen</1> und allem, was darin steht: {lists}, die {items}, die sie nennen, und wo jede Liste welchen Eintrag nennt.',
-    shownTitle: 'Was gezeigt wird und was nicht',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: 'Was zeigt {site}?',
     shown: 'Die Site zeigt Namen, Abschnitte, Links und Fakten sowie unsere eigenen Worte. Sie zeigt nie die Beschreibung eines Kurators oder Repository-Owners. Die Zusammenfassung einer Liste stammt von uns; was eine Liste über einen Eintrag sagt, bleibt auf der Liste, einen Link entfernt.',
-    attributionTitle: 'Urheberschaft',
+    attributionTitle: 'Woher kommen die Daten, und wem gebühren sie?',
     attribution: 'Auswahl und Reihenfolge jeder Liste gehören den Menschen, die sie pflegen. Jede Listenseite nennt, wo die Liste liegt und bei welchem Commit sie gelesen wurde. Fakten zu Repositorys (Sterne, letzter Push, Sprache, Lizenz, Topics) stammen von GitHub.',
-    leaveOutTitle: 'Wie eine Liste herausgenommen wird',
+    leaveOutTitle: 'Wie wird eine Liste ausgelassen?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: 'Du pflegst eine Liste und möchtest sie hier nicht sehen? <1>Eröffne ein Issue im Repository dieses Projekts</1> und nenne die Liste. Beim nächsten Build wird sie herausgenommen: Ihre Einträge werden nicht gelesen und ihre Seite wird entfernt.',
-    coverageTitle: 'Abdeckung',
+    coverageTitle: 'Wie viel umfasst es?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '{ok} Listen vollständig gelesen, {partial} teilweise, {unparsed} noch nicht.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -299,7 +302,12 @@ export const de: Messages = {
     coverageItems: '{items}: {repo} Repositorys, {site} Websites, {video} Videos, {article} Artikel, {package} Pakete, {paper} Paper.',
     coverageTwoOrMore: '{n} Einträge werden von zwei oder mehr Listen genannt.',
     coverageRepos: 'Repositorys: {active} aktiv, {quiet} ruhig (seit zwei Jahren kein Push), {archived} archiviert, {gone} verschwunden.',
-    dataOf: 'Datenstand: {date}.',
+    freshTitle: 'Wie aktuell sind die Daten?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: 'Die Listen und die Fakten von GitHub werden jede Nacht neu gelesen. Diese Fassung wurde am {date} fertig.',
+    aiTitle: 'Dürfen KI-Assistenten und Crawler es nutzen?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: 'Ja. robots.txt erlaubt es, <1>/llms.txt</1> beschreibt die Website, und jede Liste hat unter ihrer Adresse mit angehängtem .md eine schlichte Markdown-Kopie. Auswahl und Reihenfolge einer Liste gehören ihren Kuratoren: Zitiere dafür die Liste auf GitHub, und {site} für Zahlen und dafür, welche Listen ein Projekt nennen.',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

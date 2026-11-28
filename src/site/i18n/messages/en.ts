@@ -161,6 +161,8 @@ export const en = {
     renamedFrom: 'Renamed from',
     /** An item's GitHub owner, a link to their page. */
     owner: 'Owner',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -291,14 +293,15 @@ export const en = {
     h1: 'About {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site} is a free library of every awesome list in the <1>index of awesome lists</1> and everything in them: {lists}, the {items} they name, and where each list names each one.',
-    shownTitle: 'What is shown, and what is not',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: 'What does {site} show?',
     shown: "The site shows names, sections, links and facts, and our own words. It never shows a curator's or a repository owner's description. A list's summary is ours; what a list says about an entry stays on the list, one link away.",
-    attributionTitle: 'Attribution',
+    attributionTitle: 'Where does it come from, and who is credited?',
     attribution: 'The selection and order of every list belong to the people who keep it. Each list page says where the list lives and the commit it was read at. Facts about repositories (stars, last push, language, licence, topics) come from GitHub.',
-    leaveOutTitle: 'How a list is left out',
+    leaveOutTitle: 'How is a list left out?',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: "Keep a list and want it left out? <1>Open an issue on this project's repository</1> naming the list. It is left out on the next build: its entries are not read and its page is removed.",
-    coverageTitle: 'Coverage',
+    coverageTitle: 'How much does it cover?',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '{ok} lists read in full, {partial} in part, {unparsed} not read yet.',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -307,7 +310,12 @@ export const en = {
     coverageItems: '{items}: {repo} repositories, {site} sites, {video} videos, {article} articles, {package} packages, {paper} papers.',
     coverageTwoOrMore: '{n} items are named by two lists or more.',
     coverageRepos: 'Repositories: {active} active, {quiet} quiet (no push in two years), {archived} archived, {gone} gone.',
-    dataOf: 'The data is of {date}.',
+    freshTitle: 'How fresh is the data?',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: 'The lists and the facts from GitHub are read again every night. This copy was finished on {date}.',
+    aiTitle: 'Can AI assistants and crawlers use it?',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: 'Yes. robots.txt allows them, <1>/llms.txt</1> describes the site, and every list has a plain Markdown copy at its address with .md added. A list’s selection and order are its curators’: cite the list on GitHub for those, and {site} for counts and for which lists name a project.',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

@@ -4,6 +4,7 @@ import { shortHash } from '../../src/site/build/item-keys.js';
 import { EMPTY_ITEMS, type ItemsQuery } from '../../src/site/query.js';
 import { itemsNoindex } from '../../src/site/views/items.js';
 import { LOCALES, LOCALE_INFO, localePath } from '../../src/site/i18n/locales.js';
+import { AI_CRAWLERS } from '../../src/site/config.js';
 import { makeFixture, ORIGIN, restore, type Fixture } from './fixture.js';
 
 let fixture: Fixture;
@@ -179,14 +180,14 @@ describe('structured data (test 13)', () => {
         absolute(ld, `${l} ${p}`, false);
       }
     }
-    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'SearchAction', 'SoftwareSourceCode', 'Thing', 'WebPage', 'WebPageElement', 'WebSite']);
+    expect([...seen].sort()).toEqual(['BreadcrumbList', 'CollectionPage', 'EntryPoint', 'ItemList', 'ListItem', 'MediaObject', 'SearchAction', 'SoftwareSourceCode', 'Thing', 'WebPage', 'WebPageElement', 'WebSite']);
     // A hostile name stays inside its block.
     const hostile = (await get('/lists/delta/awesome-hostile')).body;
     const block = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(hostile)?.[1] ?? '';
     expect(block).not.toMatch(/<\//);
     expect(JSON.stringify(JSON.parse(block))).toContain('<script>alert(1)</script>');
-    // Pages that are not their own canonical, or are noindex, carry none.
-    for (const p of [`/item/${shortHash('https://example.com/cpp-tool')}`, '/gh/acme', '/items?kind=paper', '/items?owner=own1', '/search?q=rocket', '/about']) {
+    // Pages that are not their own canonical, or are noindex, carry none. (About carries its FAQPage.)
+    for (const p of [`/item/${shortHash('https://example.com/cpp-tool')}`, '/gh/acme', '/items?kind=paper', '/items?owner=own1', '/search?q=rocket']) {
       expect(headOf((await get(p)).body).ld, p).toEqual([]);
     }
   });
@@ -240,6 +241,53 @@ describe('sitemaps (test 14)', () => {
     expect((await get('/sitemaps/lists-de.xml')).body).toContain(`<loc>${ORIGIN}/de/lists/alpha/awesome-widgets</loc><lastmod>2026-06-01</lastmod>`);
     expect((await get('/sitemaps/pages.xml')).body).toContain(`<loc>${ORIGIN}/fr/lists?category=tools</loc><lastmod>2026-06-02</lastmod>`);
     expect(index).toContain(`<loc>${ORIGIN}/sitemaps/owners.xml</loc></sitemap>`);
+  });
+});
+
+describe('for answer engines', () => {
+  it('has a FAQPage on About only, with the page\'s own questions and answers', async () => {
+    const about = headOf((await get('/about')).body).ld as Record<string, unknown>[];
+    const faq = about.find((b) => b['@type'] === 'FAQPage') as { mainEntity: { name: string; acceptedAnswer: { text: string } }[] } | undefined;
+    expect(faq?.mainEntity.map((q) => q.name)).toEqual([
+      'What does Shelf show?', 'Where does it come from, and who is credited?', 'How fresh is the data?', 'How is a list left out?', 'Can AI assistants and crawlers use it?',
+    ]);
+    for (const q of faq?.mainEntity ?? []) expect(q.acceptedAnswer.text).not.toMatch(/<|&#/);
+    for (const p of ['/', '/gh/acme/rocket', '/lists/alpha/awesome-widgets']) expect((await get(p)).body, p).not.toContain('FAQPage');
+  });
+
+  it('describes the site in /llms.txt: every list once, every address the site\'s or GitHub\'s', async () => {
+    const r = await get('/llms.txt');
+    expect(r.status).toBe(200);
+    expect(r.headers.get('Content-Type')).toBe('text/markdown; charset=utf-8');
+    expect(r.headers.get('Cache-Control')).toBe('public, max-age=3600, s-maxage=86400');
+    expect(r.body.startsWith('# Shelf\n\n> An index of 5 awesome lists')).toBe(true);
+    const lists = [...r.body.matchAll(/\]\(https:\/\/example\.test\/lists\/([^)]+)\.md\)/g)].map((m) => m[1]);
+    const slugs = (await fixture.sql.all('SELECT slug FROM list', [])).map((x) => String(x.slug));
+    expect(lists.sort()).toEqual(slugs.sort());
+    for (const m of r.body.matchAll(/https?:\/\/[^\s)]+/g)) expect(m[0], m[0]).toMatch(/^https:\/\/example\.test\//);
+    for (const m of r.body.matchAll(/github\.com\/[^\s)]+/g)) expect(m[0]).toMatch(/^github\.com\/[\w.-]+\/[\w.-]+$/);
+  });
+
+  it('gives every list a Markdown copy with one line per entry, named in the list page\'s head, kept out of the index', async () => {
+    const r = await get('/lists/alpha/awesome-widgets.md');
+    expect(r.status).toBe(200);
+    expect(r.headers.get('Content-Type')).toBe('text/markdown; charset=utf-8');
+    expect(r.headers.get('X-Robots-Tag')).toBe('noindex');
+    const entries = (await fixture.sql.all("SELECT COUNT(*) AS n FROM listing WHERE list_id = (SELECT id FROM list WHERE slug = 'alpha/awesome-widgets')", []))[0]?.n;
+    expect(r.body.split('\n').filter((l) => / · https:\/\/example\.test\/(gh|item)\/[^ ]+$/.test(l))).toHaveLength(Number(entries));
+    expect(r.body).toMatch(/^# Widgets \(alpha\/awesome-widgets\)\n/);
+    const page = await get('/lists/alpha/awesome-widgets');
+    expect(page.headers.get('X-Robots-Tag')).toBeNull();
+    expect(page.body).toContain('<link rel="alternate" type="text/markdown" href="https://example.test/lists/alpha/awesome-widgets.md">');
+    expect(page.body).toContain('href="/lists/alpha/awesome-widgets.md"');
+  });
+
+  it('names the answer engines in robots.txt in the one group, beside everyone', async () => {
+    const robots = (await get('/robots.txt')).body;
+    expect([...robots.matchAll(/^User-agent: (.+)$/gm)].map((m) => m[1])).toEqual(['*', ...AI_CRAWLERS]);
+    // One group: the user agents, then the rules, with nothing between them.
+    expect(robots).toMatch(new RegExp(`User-agent: ${AI_CRAWLERS[AI_CRAWLERS.length - 1] ?? ''}\nAllow: /\n`));
+    expect(robots.match(/^Allow: \/$/gm)).toHaveLength(1);
   });
 });
 

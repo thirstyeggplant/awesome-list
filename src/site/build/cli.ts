@@ -23,7 +23,9 @@ import { buildModel, readInput, type Model } from './load.js';
 import { ownersOf } from './owners.js';
 import { DDL, INDEX_ROWS } from './schema.js';
 import { LoadWriter, type LoadStats, type SqlValue } from './sql.js';
-import { headersFile, readAssets, readRootFiles, robots, sitemaps, writeFile, type AssetFile } from './static.js';
+import {
+  headersFile, listMarkdown, llmsTxt, readAssets, readRootFiles, robots, sitemaps, writeFile, type AssetFile, type PlainEntry, type PlainList,
+} from './static.js';
 
 export interface BuildOptions {
   inDir: string;
@@ -318,6 +320,48 @@ function writeLoad(w: LoadWriter, { model, meta, owners }: LoadInput): void {
   for (const t of ['item_fts', 'list_fts', 'section_fts']) w.statement(`INSERT INTO ${t}(${t}) VALUES('optimize')`);
 }
 
+/**
+ * /llms.txt and /lists/{owner}/{repo}.md, from the model the build holds: English only, our summaries and the
+ * facts. Fails when a list's repository name ends in .md, so a copy's address can never be a list's own.
+ */
+export function plainFiles(model: Model, origin: string): Map<string, string> {
+  const dataDay = model.dataDate.slice(0, 10);
+  const label = new Map(model.terms.map((t) => [t.id, t.label]));
+  const catName = new Map(model.categories.map((c) => [c.id, c.name]));
+  const plain = (l: Model['lists'][number]): PlainList => ({
+    slug: l.slug, name: l.name, summary: l.summary, category: l.categoryId === null ? null : (catName.get(l.categoryId) ?? null),
+    stars: l.stars, pushedDay: l.pushedDay, license: l.license, status: l.status, readmeOid: l.readmeOid, itemsMade: l.itemsMade, sectionCount: l.sectionCount,
+  });
+  const files = new Map<string, string>();
+  const byPos = [...model.lists].sort((a, b) => a.position - b.position);
+  const cats = [...model.categories].sort((a, b) => a.position - b.position).map((c) => c.name);
+  files.set('llms.txt', llmsTxt(origin, dataDay, { lists: model.lists.length, items: model.items.length }, cats, byPos.map(plain)));
+  const sections = new Map(model.sections.map((x) => [x.id, x]));
+  const items = new Map(model.items.map((i) => [i.id, i]));
+  const byList = new Map<number, Model['listings']>();
+  for (const g of model.listings) {
+    let a = byList.get(g.listId);
+    if (!a) byList.set(g.listId, (a = []));
+    a.push(g);
+  }
+  for (const l of model.lists) {
+    if (l.repo.toLowerCase().endsWith('.md')) throw new Error(`${l.slug}: a repository name ending in .md would collide with a list's Markdown copy`);
+    const entries: PlainEntry[] = (byList.get(l.id) ?? [])
+      .sort((a, b) => a.position - b.position)
+      .flatMap((g) => {
+        const it = items.get(g.itemId);
+        if (!it) return [];
+        return [{
+          name: g.name, url: it.url, key: it.key, lang: it.langId === null ? null : (label.get(it.langId) ?? null), stars: it.stars,
+          pushedDay: it.pushedDay, license: it.licenseId === null ? null : (label.get(it.licenseId) ?? null), listCount: it.listCount,
+          status: it.status, path: sections.get(g.sectionId)?.path ?? [],
+        }];
+      });
+    files.set(`lists/${l.slug}.md`, listMarkdown(origin, dataDay, plain(l), l.status === 'unparsed' ? [] : entries));
+  }
+  return files;
+}
+
 /** An estimate of the rows a load writes: each row, each index entry it adds, and each full-text document. */
 export function rowsWritten(stats: LoadStats): number {
   let n = 0;
@@ -442,6 +486,7 @@ export async function buildSite(options: BuildOptions): Promise<BuildResult> {
     });
     for (const [path, body] of files) writeFile(assetsTmp, path, body);
     writeFile(assetsTmp, 'robots.txt', robots(origin));
+    for (const [path, body] of plainFiles(model, origin)) writeFile(assetsTmp, path, body);
     writeFile(assetsTmp, '_headers', headersFile());
 
     swap(d1Tmp, d1Dir);

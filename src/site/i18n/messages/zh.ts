@@ -153,6 +153,8 @@ export const zh: Messages = {
     renamedFrom: '原名',
     /** An item's GitHub owner, a link to their page. */
     owner: '所有者',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -283,14 +285,15 @@ export const zh: Messages = {
     h1: '关于 {site}',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site} 是一个免费的资料库，收录 <1>awesome 清单索引</1>中的每一个 awesome 清单及其全部内容：{lists}、它们收录的 {items}，以及每个条目出现在哪些清单的哪个位置。',
-    shownTitle: '显示什么，不显示什么',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: '{site} 展示什么？',
     shown: '本站显示名称、章节、链接和客观数据，以及本站自己撰写的文字，从不显示清单维护者或仓库所有者的描述。清单简介由本站撰写；清单对条目的介绍留在清单原处，点一下链接即可查看。',
-    attributionTitle: '署名',
+    attributionTitle: '数据来自哪里，归功于谁？',
     attribution: '每个清单条目的选择和顺序归其维护者所有。每个清单页面都注明了清单所在位置及读取时的提交。仓库的客观数据（星标、最近推送、语言、许可证、主题）来自 GitHub。',
-    leaveOutTitle: '如何不被收录',
+    leaveOutTitle: '如何让清单不被收录？',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: '你维护的清单希望不被收录？请<1>在本项目的仓库提交 issue</1>并写明清单名称。下次构建时即会排除：不再读取其条目，并删除其页面。',
-    coverageTitle: '覆盖情况',
+    coverageTitle: '覆盖范围有多大？',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: '{ok} 个清单已完整读取，{partial} 个部分读取，{unparsed} 个尚未读取。',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -299,7 +302,12 @@ export const zh: Messages = {
     coverageItems: '{items}：{repo} 个仓库、{site} 个网站、{video} 个视频、{article} 篇文章、{package} 个包、{paper} 篇论文。',
     coverageTwoOrMore: '{n} 个条目被两个或更多清单收录。',
     coverageRepos: '仓库：{active} 个活跃，{quiet} 个沉寂（两年内无推送），{archived} 个已归档，{gone} 个已消失。',
-    dataOf: '数据日期为 {date}。',
+    freshTitle: '数据有多新？',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: '清单和来自 GitHub 的数据每晚重新读取。当前这份数据完成于 {date}。',
+    aiTitle: 'AI 助手和爬虫可以使用它吗？',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: '可以。robots.txt 允许它们抓取，<1>/llms.txt</1> 介绍了本站，每个清单在其地址后加上 .md 即可得到纯 Markdown 副本。清单条目的选择和顺序归其维护者所有：引用这些时请引用 GitHub 上的清单；引用数量以及哪些清单收录了某个项目时，请引用 {site}。',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.

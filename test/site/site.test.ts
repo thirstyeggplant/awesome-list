@@ -623,7 +623,10 @@ describe('the build', () => {
     for (const f of [fixture.build.paths.loadSql, fixture.build.paths.db, ...filesIn(fixture.build.paths.assets)]) {
       expect(readFileSync(f, 'latin1'), f).not.toContain('DESCRIPTION-MARKER');
     }
-    for (const p of ['/', '/lists', '/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/items', '/search?q=rocket', '/api/quick?q=ro']) {
+    const files = filesIn(fixture.build.paths.assets).map((f) => f.slice(fixture.build.paths.assets.length));
+    for (const f of ['/llms.txt', '/lists/alpha/awesome-widgets.md', '/lists/beta/awesome-gadgets.md']) expect(files).toContain(f);
+    for (const p of ['/', '/lists', '/lists/alpha/awesome-widgets', '/gh/acme/rocket', '/items', '/search?q=rocket', '/api/quick?q=ro', '/about',
+      '/llms.txt', '/lists/alpha/awesome-widgets.md', '/lists/beta/awesome-gadgets.md']) {
       expect(await body(p), p).not.toContain('DESCRIPTION-MARKER');
     }
   });

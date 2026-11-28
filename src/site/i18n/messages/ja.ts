@@ -153,6 +153,8 @@ export const ja: Messages = {
     renamedFrom: '旧名',
     /** An item's GitHub owner, a link to their page. */
     owner: 'オーナー',
+    /** A list's plain Markdown copy, a link to /lists/{owner}/{repo}.md. The format's name. */
+    markdown: 'Markdown',
   },
   home: {
     /** The page's heading: the same words as its title, without the site's name. */
@@ -283,14 +285,15 @@ export const ja: Messages = {
     h1: '{site}について',
     /** <1> links to the index of awesome lists. {lists}, {items} are count plurals ("671 lists"). */
     intro: '{site}は、<1>awesomeリストの索引</1>にあるすべてのawesomeリストとその中身をまとめた無料のライブラリです。{lists}、そこに掲載された{items}、そして各リストがどこに何を掲載しているかを収録しています。',
-    shownTitle: '表示するもの、しないもの',
+    /** The About page's headings are the questions a visitor asks; {site} is the site's name. */
+    shownTitle: '{site}は何を表示していますか？',
     shown: '当サイトが表示するのは名前、セクション、リンク、事実情報と、当サイト独自の文章です。キュレーターやリポジトリオーナーによる説明文は表示しません。リストの要約は当サイトが書いたもので、リストがエントリについて書いた内容はリンク先のリストでお読みください。',
-    attributionTitle: 'クレジット',
+    attributionTitle: '情報はどこから来て、誰のものですか？',
     attribution: '各リストの選定と順序は、そのリストを管理する人々のものです。各リストのページには、リストの場所と読み込んだコミットを記載しています。リポジトリの情報（スター、最終プッシュ、言語、ライセンス、トピック）はGitHubから取得しています。',
-    leaveOutTitle: 'リストの掲載を外すには',
+    leaveOutTitle: 'リストを除外するには？',
     /** <1> links to this project's issues on GitHub. */
     leaveOut: 'リストを管理していて掲載を外したい場合は、リスト名を書いて<1>このプロジェクトのリポジトリでIssueを作成</1>してください。次回のビルドで除外され、エントリは読み込まれず、ページも削除されます。',
-    coverageTitle: '収録状況',
+    coverageTitle: 'どのくらいを網羅していますか？',
     /** {ok}, {partial}, {unparsed} are plain numbers. */
     coverageLists: 'すべて読み込み済みのリストが{ok}件、一部のみが{partial}件、未読み込みが{unparsed}件です。',
     /** As above, when some lists are gone from GitHub; {gone} is a plain number. */
@@ -299,7 +302,12 @@ export const ja: Messages = {
     coverageItems: '{items}: リポジトリ{repo}件、サイト{site}件、動画{video}件、記事{article}件、パッケージ{package}件、論文{paper}件。',
     coverageTwoOrMore: '{n}件の項目が2つ以上のリストに掲載されています。',
     coverageRepos: 'リポジトリ: 活発{active}件、停滞{quiet}件（2年間プッシュなし）、アーカイブ済み{archived}件、削除済み{gone}件。',
-    dataOf: 'データは{date}時点のものです。',
+    freshTitle: 'データはどのくらい新しいですか？',
+    /** {date} is the day this copy of the data was finished. */
+    fresh: 'リストとGitHubの情報は毎晩読み直しています。このデータは{date}に完成したものです。',
+    aiTitle: 'AIアシスタントやクローラーは利用できますか？',
+    /** <1> links to /llms.txt; robots.txt, /llms.txt and .md are names of files and stay as they are. */
+    ai: 'はい。robots.txtで許可しており、<1>/llms.txt</1>でサイトを説明しています。各リストは、アドレスに.mdを付けるとMarkdownのコピーを取得できます。リストの選定と順序はキュレーターのものです。それらについてはGitHub上のリストを、件数やどのリストがプロジェクトを掲載しているかについては{site}を引用してください。',
   },
   /**
    * Sentences that open a page, made of its own data. Names in them are links; never a curator's or an owner's words.
