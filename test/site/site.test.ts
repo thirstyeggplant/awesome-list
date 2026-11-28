@@ -106,24 +106,26 @@ describe('routes', () => {
     expect(owner).toContain('href="/gh/own1/proj1"');
   });
 
-  it('makes rows of names and columns: language, stars, lists only from two, the year', async () => {
+  it('makes entries: a name, then owner, language, stars, lists from two and an old year as text', async () => {
     const page = await body('/items');
-    expect(page).toContain('<div class="rows-head" aria-hidden="true"><span>Name</span><span>Language</span>');
-    // The licence and the language are columns or facts, never chips in a row; a row's chips are topics.
-    const rows = page.slice(page.indexOf('<ol class="rows">'));
-    expect(rows).not.toMatch(/class="chip"[^>]*><span class="ns">(lang|license):/);
-    expect(rows).toContain('<span class="num lang"><a href="/items?lang=go" translate="no">Go</a></span>');
-    expect(rows).toContain('<span class="long">in 2 lists</span>');
+    expect(page).not.toContain('rows-head');
+    const rows = page.slice(page.indexOf('<ol class="entries">'));
+    // The facts are plain text after the name, which is the only link; no chip, no link to the language.
+    expect(rows).not.toContain('class="chip"');
+    expect(rows).not.toContain('href="/items?lang=');
+    expect(rows).toMatch(/<li><a href="\/gh\/[^"]+" translate="no">[^<]+<\/a> <span class="m">[^<]+ · Go · ★ [\d,]+/);
+    expect(rows).toContain(' · in 2 lists');
     expect(rows).not.toContain('1 list<');
-    // A list page has one header, in its filter bar, and no chips in its rows.
+    // A list page has no header row and no chips; its main language is said once, not on every entry.
     const list = await body('/lists/alpha/awesome-widgets');
-    expect([...list.matchAll(/class="rows-head"/g)]).toHaveLength(1);
+    expect(list).not.toContain('rows-head');
+    expect(list).not.toContain('collapse-all');
     expect(list.slice(list.indexOf('id="entries"'))).not.toContain('class="chip"');
-    // A list we could not read says so, not "0 items"; a category page leaves out the category chip.
+    // A list we could not read says so, not "0 items"; a category page leaves out the category.
     const lists = await body('/lists');
-    expect(lists).toContain('<span class="rot rot-quiet">not read yet</span>');
+    expect(lists).toContain('<b class="rot rot-quiet">not read yet</b>');
     expect(lists).not.toContain('>0 items<');
-    expect(await body('/lists?category=tools')).not.toContain('class="chip" href="/lists?category=tools"');
+    expect(lists).toContain('<ol class="entries lists"><li><a class="serif" href="/lists/');
   });
 
   it('makes a home page that starts somewhere: languages, the lists with the most stars, then every category', async () => {
@@ -133,9 +135,9 @@ describe('routes', () => {
     const h2 = [...page.matchAll(/<h2[^>]*>([^<]*)</g)].map((x) => x[1]);
     expect(h2).toEqual(['Start here', 'Named by the most lists', 'All lists by category']);
     expect([...page.matchAll(/<h3><a href="\/lists\?category=/g)]).toHaveLength(ctx.categories.length);
-    // Cards for the lists with the most stars, leaving out what could not be read.
-    expect(page).toContain('<li class="card"><a class="card-name serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a>');
-    expect(page).not.toContain('class="card-name serif" href="/lists/gamma/awesome-broken"');
+    // The lists with the most stars, leaving out what could not be read.
+    expect(page).toContain('<li><a class="serif" href="/lists/alpha/awesome-widgets" translate="no">Widgets</a> <span class="m mono" translate="no">alpha/awesome-widgets</span>');
+    expect(page).not.toContain('class="serif" href="/lists/gamma/awesome-broken"');
     expect(page).toContain('<span class="peek" translate="no">Gadgets, awesome-broken, ');
   });
 

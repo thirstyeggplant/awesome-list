@@ -107,14 +107,14 @@ describe('messages', () => {
 
   it('are not left in English in a translated language (test 4)', () => {
     // Keys whose value may be the same in a language: nothing but placeholders and signs.
-    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator']);
+    const allowed = new Set(['site.title', 'common.searchChip', 'common.separator', 'common.dot', 'entry.stars']);
     // Words that are the same in the language (loanwords such as Fork, Status, Tags; French "page", German "in"),
     // checked by eye. A key added here must be one whose translation really is the English.
     const sameInLanguage: Partial<Record<Locale, string[]>> = {
       zh: ['facts.fork'],
       es: ['kind.video', 'no', 'facts.fork'],
       pt: ['quick.tags', 'kind.paper', 'kind.site', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
-      de: ['quick.tags', 'count.itemsInSections', 'common.columns.name', 'facts.fork', 'facts.host', 'lists.status', 'items.status', 'search.inList'],
+      de: ['quick.tags', 'count.itemsInSections', 'facts.fork', 'facts.host', 'lists.status', 'items.status', 'search.inList'],
       fr: ['quick.tags', 'kind.article', 'kind.site', 'facts.licence', 'facts.fork', 'lists.licence', 'items.licence', 'search.sections', 'about.attributionTitle', 'meta.page'],
       id: ['site.breadcrumb', 'kind.video', 'kind.paper', 'common.filter', 'facts.fork', 'facts.host', 'lists.status', 'items.status'],
     };
@@ -266,9 +266,9 @@ describe('every language', () => {
     expect(lists).toContain('<a href="/de/lists">Listen</a>');
     expect(lists).toContain('5 Listen');
     // A current translation, a stale one (still shown), and a missing one (the English, marked).
-    expect(lists).toContain(`<span class="summary">${WIDGETS_DE}</span>`);
-    expect(lists).toContain(`<span class="summary">${GADGETS_DE}</span>`);
-    expect(lists).toContain('<span class="summary" lang="en">Things about sindresorhus/awesome.</span>');
+    expect(lists).toContain(`<p class="s">${WIDGETS_DE}</p>`);
+    expect(lists).toContain(`<p class="s">${GADGETS_DE}</p>`);
+    expect(lists).toContain('<p class="s" lang="en">Things about sindresorhus/awesome.</p>');
     expect(lists).toContain('Werkzeuge');
     expect(lists).toContain('<span lang="en">Languages</span>');
     const list = (await get('/de/lists/gamma/awesome-broken')).body;

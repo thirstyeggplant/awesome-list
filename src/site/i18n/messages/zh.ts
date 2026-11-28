@@ -127,10 +127,15 @@ export const zh: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: '、',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: '名称', language: '语言', stars: '星标', lists: '清单', updated: '更新', items: '条目' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: '第 {page} 页，共 {pages} 页',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: '{year} 年更新',
   },
   facts: {
     stars: '星标',
@@ -172,8 +177,6 @@ export const zh: Messages = {
   list: {
     contents: '目录',
     filterThisList: '筛选本清单',
-    collapseAll: '全部折叠',
-    expandAll: '全部展开',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: '本章节的链接',
     readOriginal: '在 GitHub 上阅读原文',

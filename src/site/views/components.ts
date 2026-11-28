@@ -41,17 +41,6 @@ export function tag(loc: Loc, ns: string, slug: string): Html {
   return html`<a class="chip" translate="no" href="${loc.href(`/items?${ns}=${encodeParam(slug)}`)}"><span class="ns">${ns}:</span>${slug}</a>`;
 }
 
-/** The tags of an item: language, licence, kind (when it says something), status, then topics. */
-export function tagsOf(loc: Loc, item: ItemRow, withTopics = false, withStatus = false): Html[] {
-  const out: Html[] = [];
-  if (item.tags.lang) out.push(tag(loc, 'lang', item.tags.lang[0]));
-  if (item.tags.license) out.push(tag(loc, 'license', item.tags.license[0]));
-  if (item.kind !== 'repo' && item.kind !== 'site') out.push(tag(loc, 'kind', item.kind));
-  if (withStatus && item.status !== null) out.push(tag(loc, 'status', item.status));
-  if (withTopics) for (const [slug] of item.tags.topics) out.push(tag(loc, 'topic', slug));
-  return out;
-}
-
 export function itemPath(item: Pick<ItemRow, 'key'>): string {
   return `/${item.key}`;
 }
@@ -61,93 +50,101 @@ export function categoryName(loc: Loc, cat: CategoryRow): Html {
   return loc.shown(loc.category(cat));
 }
 
-export interface ItemRowOptions {
+export interface EntryOptions {
   /** The name to show, when the list names it otherwise. */
   name?: string;
-  /** Show up to two of its topics as chips. */
+  /** Up to three of its topics, as #slug. */
   topics?: boolean;
   child?: boolean;
   extras?: readonly { text: string; url: string }[];
+  /** A language left out because the page already says it (a list's main language). */
+  hideLang?: string | null;
+  /** The year of the data: a push in that year is the unmarked case. */
+  dataYear: number;
 }
 
-/** The topics a row shows: at most two, none that says nothing or repeats the language. */
+/** The topics an entry shows: at most three, none that says nothing or repeats the language. */
 export function rowTopics(item: ItemRow): string[] {
   const lang = item.tags.lang?.[0];
-  return item.tags.topics.map(([slug]) => slug).filter((s) => !TOPIC_STOP.has(s) && s !== lang).slice(0, 2);
+  return item.tags.topics.map(([slug]) => slug).filter((s) => !TOPIC_STOP.has(s) && s !== lang).slice(0, 3);
 }
 
-/** The language column: the language of a repository, else the kind of a thing that is not a site. */
-function langCell(loc: Loc, item: ItemRow): Html {
+/** The parts of an entry's line of facts, in reading order, each left out when it has nothing to say. */
+export function entryParts(loc: Loc, item: ItemRow, o: EntryOptions): Part[] {
+  const parts: Part[] = [item.owner ?? item.host];
   if (item.tags.lang) {
-    return html`<a href="${loc.href(`/items?lang=${encodeParam(item.tags.lang[0])}`)}" translate="no">${item.tags.lang[1]}</a>`;
+    if (item.tags.lang[0] !== o.hideLang) parts.push(item.tags.lang[1]);
+  } else if (item.kind !== 'repo' && item.kind !== 'site') {
+    parts.push((loc.m.kind as Record<string, string>)[item.kind] ?? item.kind);
   }
-  if (item.kind === 'repo' || item.kind === 'site') return html``;
-  const word = (loc.m.kind as Record<string, string>)[item.kind] ?? item.kind;
-  return html`<a href="${loc.href(`/items?kind=${encodeParam(item.kind)}`)}">${word}</a>`;
+  if (item.stars !== null) parts.push(loc.t(loc.m.entry.stars, { n: loc.n(item.stars) }));
+  if (item.listCount >= 2) parts.push(loc.plural(loc.m.count.inLists, item.listCount));
+  const year = yearOf(item.pushedDay);
+  if (year !== '' && year !== String(o.dataYear)) parts.push(loc.t(loc.m.entry.updated, { year }));
+  if (o.topics) {
+    const t = rowTopics(item);
+    if (t.length > 0) parts.push(html`<span translate="no">${t.map((s) => `#${s}`).join(' ')}</span>`);
+  }
+  return parts;
 }
 
 /**
- * One item: name, owner or host, state, topics; then language, stars, lists (only when two or more) and the
- * year of the last push. In a narrow container the row is two lines: see docs/design.md.
+ * One item as a line of text: its name (the only link), then what is known, joined by dots; the state's box last.
+ * On a phone the facts go under the name. See docs/design.md.
  */
-export function itemRow(loc: Loc, item: ItemRow, o: ItemRowOptions = {}): Html {
+export function entry(loc: Loc, item: ItemRow, o: EntryOptions): Html {
   const name = o.name ?? item.name;
-  const chips = o.topics ? rowTopics(item).map((t) => tag(loc, 'topic', t)) : [];
+  const word = itemRot(item);
   const extras = (o.extras ?? []).map((e) => outbound(e.url, e.text, { rel: 'nofollow noopener', cls: 'extra' }));
-  const lists = item.listCount >= 2 ? loc.plural(loc.m.count.inLists, item.listCount) : '';
-  const year = yearOf(item.pushedDay);
-  return html`<li class="row item${o.child ? ' child' : ''}"><span class="main"><span class="who"><a class="name" translate="no" href="${loc.href(itemPath(item))}">${
+  return html`<li${o.child ? html` class="child"` : ''}><a href="${loc.href(itemPath(item))}" translate="no">${
     item.status === 'gone' ? html`<s>${name}</s>` : name
-  }</a> <span class="sub" translate="no">${item.owner ?? item.host}</span>${rot(loc, itemRot(item))}</span>${
-    chips.length > 0 ? html` <span class="chips">${join(chips, ' ')}</span>` : ''
-  }${extras.length > 0 ? html` <span class="extras">${join(extras, ' ')}</span>` : ''}</span><span class="nums"><span class="num lang">${langCell(loc, item)}</span><span class="num stars">${
-    item.stars === null ? '' : html`${loc.n(item.stars)}<span class="unit"> ★</span>`
-  }</span><span class="num in">${
-    lists === '' ? '' : html`<span class="short" title="${lists}">${loc.n(item.listCount)}</span><span class="long">${lists}</span>`
-  }</span><span class="num year"${year === '' ? '' : html` aria-label="${loc.m.facts.lastPush} ${year}"`}>${year}</span></span></li>`;
+  }</a> <span class="m">${join(entryParts(loc, item, o), loc.m.common.dot)}${
+    word === null ? '' : html` <b class="rot rot-${word}">${loc.m.status[word]}</b>`
+  }</span>${extras.length > 0 ? html` ${join(extras, ' ')}` : ''}</li>`;
 }
 
-/** The labels over a group of item rows, on the rows' own grid. Not read out: each cell says what it is. */
-export function itemRowsHead(loc: Loc): Html {
-  const c = loc.m.common.columns;
-  return html`<div class="rows-head" aria-hidden="true"><span>${c.name}</span><span>${c.language}</span><span class="r">${c.stars}</span><span class="r">${c.lists}</span><span class="r">${c.updated}</span></div>`;
+/** The year of the data, from the data date. */
+export function dataYearOf(ctx: Pick<Ctx, 'dataDay'>): number {
+  return new Date(ctx.dataDay * 86_400_000).getUTCFullYear();
 }
 
-export function itemRows(loc: Loc, items: readonly ItemRow[], topics = false): Html {
+export function entries(ctx: Ctx, items: readonly ItemRow[], o: { topics?: boolean } = {}): Html {
+  const { loc } = ctx;
   if (items.length === 0) return html`<p class="empty">${loc.m.common.nothingHere}</p>`;
-  return html`<div class="rowset">${itemRowsHead(loc)}<ol class="rows">${items.map((it) => itemRow(loc, it, { topics }))}</ol></div>`;
+  const dataYear = dataYearOf(ctx);
+  return html`<ol class="entries">${items.map((it) => entry(loc, it, { topics: o.topics === true, dataYear }))}</ol>`;
 }
 
-export interface ListRowOptions {
-  /** Leave out the category chip (the page is already one category). */
+export interface ListEntryOptions {
+  /** Leave out the category (the page is already one category). */
   noCategory?: boolean;
+  /** One more fact at the end of the line, such as how many projects a related list names too. */
+  extra?: string;
 }
 
-export function listRow(ctx: Ctx, list: ListRow, o: ListRowOptions = {}): Html {
+/** A list: its name in the serif, owner/repo, our summary, then one line of facts. */
+export function listEntry(ctx: Ctx, list: ListRow, o: ListEntryOptions = {}): Html {
   const { loc } = ctx;
   const cat = list.categoryId === null || o.noCategory ? undefined : ctx.categoryById.get(list.categoryId);
   const summary = loc.summary(list);
+  const parts: Part[] = [];
   // A list we could not read has no count to give: its state says so.
-  const items = list.status === 'unparsed'
-    ? html`<span class="rot rot-quiet">${(loc.m.listStatus as Record<string, string>)[list.status] ?? list.status}</span>`
-    : loc.plural(loc.m.count.items, list.itemsMade);
-  return html`<li class="row list-row"><span class="main"><span class="who"><a class="name serif" translate="no" href="${loc.href(`/lists/${list.slug}`)}">${list.name}</a> <span class="sub mono" translate="no">${
-    list.slug
-  }</span>${rot(loc, listRot(list, ctx.dataDay))}</span>${
-    cat ? html` <span class="chips"><a class="chip" href="${loc.href(`/lists?category=${cat.slug}`)}">${categoryName(loc, cat)}</a></span>` : ''
-  }</span><span class="nums"><span class="num in">${items}</span><span class="num stars">${
-    list.stars === null ? '' : html`${loc.n(list.stars)}<span class="unit"> ★</span>`
-  }</span><span class="num year">${yearOf(list.pushedDay)}</span></span>${
-    summary ? html`<span class="summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</span>` : ''
-  }</li>`;
+  if (list.status === 'unparsed') parts.push(html`<b class="rot rot-quiet">${(loc.m.listStatus as Record<string, string>)[list.status] ?? list.status}</b>`);
+  else parts.push(loc.plural(loc.m.count.items, list.itemsMade));
+  if (list.stars !== null) parts.push(loc.t(loc.m.entry.stars, { n: loc.n(list.stars) }));
+  const year = yearOf(list.pushedDay);
+  if (year !== '' && year !== String(dataYearOf(ctx))) parts.push(loc.t(loc.m.entry.updated, { year }));
+  if (cat) parts.push(categoryName(loc, cat));
+  if (o.extra !== undefined) parts.push(o.extra);
+  const word = listRot(list, ctx.dataDay);
+  return html`<li><a class="serif" href="${loc.href(`/lists/${list.slug}`)}" translate="no">${list.name}</a> <span class="m mono" translate="no">${list.slug}</span>${
+    summary ? html`<p class="s"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''
+  }<p class="m">${join(parts, loc.m.common.dot)}${word === null ? '' : html` <b class="rot rot-${word}">${loc.m.status[word]}</b>`}</p></li>`;
 }
 
-/** List rows under their labels: name, items, stars, updated. */
-export function listRows(ctx: Ctx, lists: readonly ListRow[], o: ListRowOptions = {}): Html {
-  const c = ctx.loc.m.common.columns;
-  return html`<div class="rowset"><div class="rows-head lists" aria-hidden="true"><span>${c.name}</span><span class="r">${c.items}</span><span class="r">${c.stars}</span><span class="r">${c.updated}</span></div><ol class="rows lists">${lists.map(
-    (l) => listRow(ctx, l, o),
-  )}</ol></div>`;
+export function listEntries(ctx: Ctx, lists: readonly ListRow[], o: ListEntryOptions = {}): Html {
+  if (lists.length === 0) return html`<p class="empty">${ctx.loc.m.common.nothingHere}</p>`;
+  return html`<ol class="entries lists">${lists.map((l) => listEntry(ctx, l, o))}</ol>`;
 }
 
 export function facts(pairs: readonly (readonly [string, Part])[]): Html {

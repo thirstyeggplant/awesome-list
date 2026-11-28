@@ -127,10 +127,15 @@ export const id: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: 'Nama', language: 'Bahasa', stars: 'Bintang', lists: 'Daftar', updated: 'Diperbarui', items: 'Item' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: 'Halaman {page} dari {pages}',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: 'diperbarui {year}',
   },
   facts: {
     stars: 'Bintang',
@@ -172,8 +177,6 @@ export const id: Messages = {
   list: {
     contents: 'Isi',
     filterThisList: 'Filter daftar ini',
-    collapseAll: 'Tutup semua',
-    expandAll: 'Buka semua',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: 'Tautan ke bagian ini',
     readOriginal: 'Baca versi aslinya di GitHub',

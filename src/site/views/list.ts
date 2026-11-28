@@ -2,9 +2,10 @@
 import type { Db, ListEntry, ListRow, SectionRow } from '../db.js';
 import { html, join, outbound, type Html } from '../html.js';
 import type { Loc } from '../i18n/loc.js';
-import { absolute, breadcrumbLd, categoryName, crumbs, facts, itemRow, itemRowsHead, link, listRot, listRows, rot, sheetHead } from './components.js';
+import {
+  absolute, breadcrumbLd, categoryName, crumbs, dataYearOf, entry, facts, link, listEntries, listEntry, listRot, rot, sheetHead, webSite,
+} from './components.js';
 import type { Ctx } from './context.js';
-import { listCard, webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 import { shareRow } from './share.js';
@@ -47,7 +48,27 @@ function heading(loc: Loc, depth: number, anchor: string, title: string, count: 
   return html`<h${n} class="sh">${title}${count === null ? '' : html` <span class="count">${loc.n(count)}</span>`} <a class="anchor" href="#${anchor}" aria-label="${loc.m.list.sectionLink}">#</a></h${n}>`;
 }
 
-function body(loc: Loc, sections: readonly SectionRow[], entries: readonly ListEntry[]): Html {
+/**
+ * The language most of a list's entries are in: of the entries that have a language, the one most have, when that
+ * is at least half of them. Its entries then leave it out, and the list's summary says it once. [slug, label].
+ */
+export function mainLang(entries: readonly { item: { tags: { lang: readonly [string, string] | null } } }[]): readonly [string, string] | null {
+  const counts = new Map<string, { pair: readonly [string, string]; n: number }>();
+  let withLang = 0;
+  for (const e of entries) {
+    const l = e.item.tags.lang;
+    if (l === null) continue;
+    withLang++;
+    const c = counts.get(l[0]);
+    if (c) c.n++;
+    else counts.set(l[0], { pair: l, n: 1 });
+  }
+  let best: { pair: readonly [string, string]; n: number } | null = null;
+  for (const c of counts.values()) if (best === null || c.n > best.n) best = c;
+  return best !== null && best.n * 2 >= withLang ? best.pair : null;
+}
+
+function body(loc: Loc, sections: readonly SectionRow[], entries: readonly ListEntry[], dataYear: number, hideLang: string | null): Html {
   const bySection = new Map<number, ListEntry[]>();
   for (const e of entries) {
     let a = bySection.get(e.sectionId);
@@ -66,11 +87,11 @@ function body(loc: Loc, sections: readonly SectionRow[], entries: readonly ListE
     }
     emitted.add(s.anchor);
     const rows = (bySection.get(s.id) ?? []).map((e) =>
-      itemRow(loc, e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks }),
+      entry(loc, e.item, { name: e.name, child: e.parentName !== null, extras: e.extraLinks, dataYear, hideLang }),
     );
     out.push(html`<section id="${s.anchor}" data-depth="${s.depth}">${
       s.depth > 0 ? heading(loc, s.depth, s.anchor, s.title, s.itemCount) : ''
-    }<ol class="rows">${rows}</ol></section>`);
+    }<ol class="entries">${rows}</ol></section>`);
   }
   return html`${out}`;
 }
@@ -155,19 +176,19 @@ ${shareRow(ctx, head)}
     content = html`<div class="list-layout">
 <nav class="toc toc-rail sheet" id="_contents" aria-label="${m.list.contents}"><h2>${m.list.contents}</h2>${sheetHead(loc, m.list.contents, 'entries')}${toc(loc, contents)}</nav>
 <div class="list-body">
-<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a> <button type="button" class="btn" id="collapse-all" data-collapse="${m.list.collapseAll}" data-expand="${m.list.expandAll}">${m.list.collapseAll}</button>${itemRowsHead(loc)}</div>
-<div id="entries">${body(loc, sections, entries)}</div>
+<div class="list-filter"><span class="filter-field"><input id="list-filter" type="search" placeholder="${m.list.filterThisList}" aria-label="${m.list.filterThisList}" autocomplete="off"><output id="list-count" for="list-filter" data-of="${m.count.shownOf}">${loc.t(m.count.shownOf, { n, m: n })}</output></span> <a class="btn to-sheet" href="#_contents">${m.list.contents}</a></div>
+<div id="entries">${body(loc, sections, entries, dataYearOf(ctx), mainLang(entries)?.[0] ?? null)}</div>
 </div></div>`;
   }
 
-  // The lists most like it, as cards; then more of its category by stars (ctx.lists is in that order), as rows.
+  // The lists most like it; then more of its category by stars (ctx.lists is in that order).
   const shown = related.slice(0, RELATED_CARDS);
-  const relatedHtml = shown.length === 0 ? '' : html`<section class="related"><h2>${m.list.related}</h2><ul class="cards">${shown.map(
-    (r) => listCard(ctx, r.l, loc.plural(m.list.inCommon, r.n)),
-  )}</ul></section>`;
+  const relatedHtml = shown.length === 0 ? '' : html`<section class="related"><h2>${m.list.related}</h2><ol class="entries lists">${shown.map(
+    (r) => listEntry(ctx, r.l, { extra: loc.plural(m.list.inCommon, r.n) }),
+  )}</ol></section>`;
   const taken = new Set([list.id, ...shown.map((r) => r.l.id)]);
   const more = cat === undefined ? [] : ctx.lists.filter((l) => l.categoryId === cat.id && !taken.has(l.id)).slice(0, MORE_IN_CATEGORY);
-  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listRows(ctx, more, { noCategory: true })}</section>`;
+  const moreHtml = cat === undefined || more.length === 0 ? '' : html`<section class="more-in"><h2>${loc.h(m.list.moreIn, { category: categoryName(loc, cat) })}</h2>${listEntries(ctx, more, { noCategory: true })}</section>`;
 
   const main = html`<article class="list-page">${top}${content}${relatedHtml}${moreHtml}${attributionOfList(loc, list, ctx.meta.dataFinished)}</article>`;
 

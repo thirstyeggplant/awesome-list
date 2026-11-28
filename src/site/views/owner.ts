@@ -2,7 +2,7 @@
 import type { Db, OwnerRow } from '../db.js';
 import { html, outbound } from '../html.js';
 import { encodeParam } from '../query.js';
-import { absolute, itemRows, link, listRows, webSite } from './components.js';
+import { absolute, entries, link, listEntries, webSite } from './components.js';
 
 /** Projects of an owner named in the page's structured data. */
 const OWNER_LD_ITEMS = 20;
@@ -32,8 +32,8 @@ export async function ownerPage(ctx: Ctx, db: Db, owner: OwnerRow): Promise<View
 <p class="repo-link">${outbound(`https://github.com/${owner.display}`, `github.com/${owner.display}`, { cls: 'mono' })}</p>
 <p class="owner-line">${loc.t(m.owner.line, { lists: loc.plural(m.count.lists, owner.listCount), projects: loc.plural(m.count.projects, owner.itemCount) })}</p>
 ${shareRow(ctx, head)}
-${lists.length > 0 ? html`<section><h2>${m.owner.listsTheyKeep}</h2>${listRows(ctx, lists)}</section>` : ''}
-${items.length > 0 ? html`<section><h2>${m.owner.theirProjects}</h2>${itemRows(loc, items, true)}<p class="more">${link(loc, `/items?owner=${encodeParam(owner.login)}`, loc.plural(m.owner.allInItems, owner.itemCount))}</p></section>` : ''}
+${lists.length > 0 ? html`<section><h2>${m.owner.listsTheyKeep}</h2>${listEntries(ctx, lists)}</section>` : ''}
+${items.length > 0 ? html`<section><h2>${m.owner.theirProjects}</h2>${entries(ctx, items, { topics: true })}<p class="more">${link(loc, `/items?owner=${encodeParam(owner.login)}`, loc.plural(m.owner.allInItems, owner.itemCount))}</p></section>` : ''}
 </div>`;
   return page(
     layout(ctx, {

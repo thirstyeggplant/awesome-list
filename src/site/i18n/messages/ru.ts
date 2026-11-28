@@ -126,10 +126,15 @@ export const ru: Messages = {
     searchChip: '«{q}»',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: 'Название', language: 'Язык', stars: 'Звёзды', lists: 'Списки', updated: 'Обновлено', items: 'Элементы' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: 'Страница {page} из {pages}',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: 'обновлено в {year}',
   },
   facts: {
     stars: 'Звёзды',
@@ -176,8 +181,6 @@ export const ru: Messages = {
   list: {
     contents: 'Содержание',
     filterThisList: 'Фильтр по этому списку',
-    collapseAll: 'Свернуть всё',
-    expandAll: 'Развернуть всё',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: 'Ссылка на этот раздел',
     readOriginal: 'Оригинал на GitHub',

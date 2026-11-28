@@ -7,7 +7,7 @@ import { ITEM_KINDS, REPO_STATUSES } from '../../enums.js';
 import { filterCount, IN_STEPS, ITEM_SORTS, serialiseItems, STAR_STEPS, type ItemsQuery } from '../query.js';
 import { itemIds } from '../search.js';
 import type { Terms } from '../terms.js';
-import { itemListLd, itemRows, link, pager, sortLine, sheetHead } from './components.js';
+import { entries, itemListLd, link, pager, sortLine, sheetHead } from './components.js';
 import type { Ctx } from './context.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
@@ -241,7 +241,7 @@ ${shareable ? shareRow(ctx, head) : ''}
 ${chips.length > 0 ? html`<p class="chips filters">${chips} ${link(loc, '/items', m.common.clearAll, { cls: 'clear' })}</p>` : ''}
 <p class="result-count">${sortLine(loc, html`${loc.plural(m.count.items, result.total)}${q.q !== null && f.matches !== null && f.matches.length >= MAX_MATCHES ? m.items.bestOnly : ''}`, sorts)}</p>
 ${beyond ? html`<p class="narrow-down">${loc.t(m.common.pagingStops, { n: loc.n(MAX_PAGE) })}</p>` : ''}
-${beyond ? '' : itemRows(loc, items, true)}
+${beyond ? '' : entries(ctx, items, { topics: true })}
 ${pager(loc, prev, next, pagerRel, { page: q.page, pages: Math.min(pages, MAX_PAGE) })}
 </div></div>`;
   return page(

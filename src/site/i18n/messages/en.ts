@@ -135,10 +135,15 @@ export const en = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: 'Name', language: 'Language', stars: 'Stars', lists: 'Lists', updated: 'Updated', items: 'Items' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: 'Page {page} of {pages}',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: 'updated {year}',
   },
   facts: {
     stars: 'Stars',
@@ -180,8 +185,6 @@ export const en = {
   list: {
     contents: 'Contents',
     filterThisList: 'Filter this list',
-    collapseAll: 'Collapse all',
-    expandAll: 'Expand all',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: 'Link to this section',
     readOriginal: 'Read the original on GitHub',

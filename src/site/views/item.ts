@@ -2,9 +2,8 @@
 import type { Db, ItemDetail, ItemListing, ItemRow, ListRow } from '../db.js';
 import { html, join, outbound, safeHref, type Html } from '../html.js';
 import type { Loc } from '../i18n/loc.js';
-import { absolute, breadcrumbLd, crumbs, facts, itemRot, itemRows, link, rot, tag } from './components.js';
+import { absolute, breadcrumbLd, webSite, crumbs, facts, entries, itemRot, link, rot, tag } from './components.js';
 import type { Ctx } from './context.js';
-import { webSite } from './home.js';
 import { layout } from './layout.js';
 import { page, type ViewResult } from './result.js';
 import { shareRow } from './share.js';
@@ -166,8 +165,8 @@ ${rotSentence(loc, item)}
 ${side}
 <div class="item-main">
 <section><h2>${loc.plural(m.item.inLists, listCount)}</h2><ol class="listings">${rows}</ol></section>
-${along.length > 0 ? html`<section><h2>${m.item.alongside}</h2>${itemRows(loc, along, true)}</section>` : ''}
-${fromOwner.length > 0 && ownerRow !== null ? html`<section><h2>${loc.h(m.item.moreFrom, { owner: ownerName })}</h2>${itemRows(loc, fromOwner, true)}<p class="more">${link(
+${along.length > 0 ? html`<section><h2>${m.item.alongside}</h2>${entries(ctx, along, { topics: true })}</section>` : ''}
+${fromOwner.length > 0 && ownerRow !== null ? html`<section><h2>${loc.h(m.item.moreFrom, { owner: ownerName })}</h2>${entries(ctx, fromOwner, { topics: true })}<p class="more">${link(
     loc, `/gh/${ownerRow.login}`, loc.plural(m.item.allFrom, ownerRow.itemCount, { owner: display }),
   )}</p></section>` : ''}
 <p class="attribution">${m.item.attribution}</p>

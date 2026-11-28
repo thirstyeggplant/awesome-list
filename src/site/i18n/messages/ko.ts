@@ -127,10 +127,15 @@ export const ko: Messages = {
     searchChip: '“{q}”',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: '이름', language: '언어', stars: '스타', lists: '목록', updated: '업데이트', items: '항목' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: '{pages}페이지 중 {page}페이지',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: '{year}년 업데이트',
   },
   facts: {
     stars: '스타',
@@ -172,8 +177,6 @@ export const ko: Messages = {
   list: {
     contents: '목차',
     filterThisList: '이 목록 필터',
-    collapseAll: '모두 접기',
-    expandAll: '모두 펼치기',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: '이 섹션 링크',
     readOriginal: 'GitHub에서 원본 읽기',

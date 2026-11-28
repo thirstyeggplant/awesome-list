@@ -13,6 +13,10 @@ import {
 } from '../../src/site/query.js';
 import { ftsQuery, quickFtsQuery } from '../../src/site/search.js';
 import { LOCALES } from '../../src/site/i18n/locales.js';
+import { ENGLISH } from '../../src/site/i18n/loc.js';
+import type { ItemRow } from '../../src/site/db.js';
+import { entryParts } from '../../src/site/views/components.js';
+import { mainLang } from '../../src/site/views/list.js';
 
 describe('item keys', () => {
   it('goes from an item to a path and back', () => {
@@ -255,5 +259,44 @@ describe('relatedLists and topOf', () => {
     const top = topOf({ terms: [...terms, { id: 99, ns: 'topic', slug: 't', label: 't', itemCount: 999 }] });
     expect(top.langs).toHaveLength(12);
     expect(top.langs[0]).toEqual(['l14', 'L14', 14]);
+  });
+});
+
+describe('an entry', () => {
+  const day = (iso: string): number => Math.floor(Date.parse(iso) / 86_400_000);
+  const base: ItemRow = {
+    id: 1, key: 'gh/gin-gonic/gin', url: 'https://github.com/gin-gonic/gin', kind: 'repo', host: 'github.com', name: 'gin', aka: [],
+    owner: 'gin-gonic', repoName: 'gin', stars: 89600, pushedDay: day('2022-03-01'), archived: false, fork: false, langId: 1, licenseId: null,
+    status: 'active', renamedFrom: null, listCount: 2, listId: null, indexable: true,
+    tags: { lang: ['go', 'Go'], license: null, topics: [['web', 'web'], ['hacktoberfest', 'hacktoberfest'], ['go', 'go'], ['http', 'http'], ['api', 'api'], ['rest', 'rest']] },
+  };
+  const text = (item: ItemRow, o: Partial<Parameters<typeof entryParts>[2]> = {}): string =>
+    entryParts(ENGLISH, item, { dataYear: 2026, ...o }).map((p) => String(p)).join(' · ');
+
+  it('says who, the language, the stars, the lists from two and an old year, in that order', () => {
+    expect(text(base)).toBe('gin-gonic · Go · ★ 89,600 · in 2 lists · updated 2022');
+  });
+
+  it('leaves out each part that has nothing to say', () => {
+    // A push in the data's own year is the unmarked case; one list is not said; no stars, no language.
+    expect(text({ ...base, pushedDay: day('2026-05-01'), listCount: 1, stars: null, tags: { ...base.tags, lang: null } })).toBe('gin-gonic');
+    // The list's main language is said once by the page.
+    expect(text(base, { hideLang: 'go' })).toBe('gin-gonic · ★ 89,600 · in 2 lists · updated 2022');
+    // A thing that is not a repository says its host, and its kind when it is not a site.
+    expect(text({ ...base, owner: null, host: 'youtube.com', kind: 'video', stars: null, pushedDay: null, tags: { lang: null, license: null, topics: [] } })).toBe('youtube.com · video · in 2 lists');
+    expect(text({ ...base, owner: null, host: 'nodejs.org', kind: 'site', stars: null, pushedDay: null, tags: { lang: null, license: null, topics: [] } })).toBe('nodejs.org · in 2 lists');
+  });
+
+  it('shows up to three topics only when asked, none that says nothing or is its language', () => {
+    expect(text(base)).not.toContain('#');
+    expect(text(base, { topics: true })).toContain('<span translate="no">#web #http #api</span>');
+  });
+
+  it('finds the main language of a list: the one at least half of those with a language have', () => {
+    const e = (lang: [string, string] | null): { item: { tags: { lang: [string, string] | null } } } => ({ item: { tags: { lang } } });
+    expect(mainLang([e(['go', 'Go']), e(['go', 'Go']), e(['rust', 'Rust']), e(null), e(null)])).toEqual(['go', 'Go']);
+    expect(mainLang([e(['go', 'Go']), e(['rust', 'Rust']), e(['c', 'C'])])).toBeNull();
+    expect(mainLang([e(['go', 'Go']), e(['rust', 'Rust'])])).toEqual(['go', 'Go']);
+    expect(mainLang([e(null)])).toBeNull();
   });
 });

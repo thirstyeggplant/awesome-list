@@ -127,10 +127,15 @@ export const de: Messages = {
     searchChip: '„{q}“',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: ', ',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: 'Name', language: 'Sprache', stars: 'Sterne', lists: 'Listen', updated: 'Aktualisiert', items: 'Einträge' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: 'Seite {page} von {pages}',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: 'aktualisiert {year}',
   },
   facts: {
     stars: 'Sterne',
@@ -172,8 +177,6 @@ export const de: Messages = {
   list: {
     contents: 'Inhalt',
     filterThisList: 'Diese Liste filtern',
-    collapseAll: 'Alle einklappen',
-    expandAll: 'Alle ausklappen',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: 'Link zu diesem Abschnitt',
     readOriginal: 'Original auf GitHub lesen',

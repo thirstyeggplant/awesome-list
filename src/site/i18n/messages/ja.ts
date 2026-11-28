@@ -127,10 +127,15 @@ export const ja: Messages = {
     searchChip: '「{q}」',
     /** Between names in a short list, as in "Widgets, Gadgets, Tools" (Chinese and Japanese: '、'). */
     separator: '、',
-    /** The labels over the columns of a listing's rows. */
-    columns: { name: '名前', language: '言語', stars: 'スター', lists: 'リスト', updated: '更新', items: '項目' },
     /** Between the pager's two buttons: where the reader is. */
     pageOf: '{page} / {pages} ページ',
+    /** Between the parts of an entry's line of facts, as in "gin-gonic · Go · ★ 89,600". */
+    dot: ' · ',
+  },
+  /** The parts of an entry's line of facts that need words: its stars, and the year of its last push. */
+  entry: {
+    stars: '★ {n}',
+    updated: '{year}年に更新',
   },
   facts: {
     stars: 'スター',
@@ -172,8 +177,6 @@ export const ja: Messages = {
   list: {
     contents: '目次',
     filterThisList: 'このリストを絞り込む',
-    collapseAll: 'すべて折りたたむ',
-    expandAll: 'すべて展開',
     /** The label of the "#" link beside a section heading (for screen readers). */
     sectionLink: 'このセクションへのリンク',
     readOriginal: 'GitHubで原文を読む',

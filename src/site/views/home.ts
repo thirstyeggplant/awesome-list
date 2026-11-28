@@ -2,7 +2,7 @@
 import type { Db, ListRow } from '../db.js';
 import { html, join, type Html } from '../html.js';
 import { EMPTY_ITEMS, encodeParam, serialiseItems } from '../query.js';
-import { categoryName, itemRows, link, searchBox, webSite } from './components.js';
+import { categoryName, entries, link, listEntries, searchBox, webSite } from './components.js';
 import type { Ctx } from './context.js';
 import { itemsNoindex } from './items.js';
 import { layout } from './layout.js';
@@ -31,23 +31,10 @@ function categoryLists(ctx: Ctx, lists: readonly ListRow[]): Html {
 
 export { webSite } from './components.js';
 
-/** Lists shown as cards under "Start here". */
-const START_HERE = 12;
+/** Lists shown under "Start here". */
+const START_HERE = 8;
 /** Items named by the most lists, as rows. */
 const MOST_NAMED = 8;
-
-/** A list as a card: its name (the link, over the whole card), our summary, its size and category. */
-export function listCard(ctx: Ctx, l: ListRow, extra?: string): Html {
-  const { loc } = ctx;
-  const cat = l.categoryId === null ? undefined : ctx.categoryById.get(l.categoryId);
-  const summary = loc.summary(l);
-  const facts: Html[] = [html`${loc.plural(loc.m.count.items, l.itemsMade)}`];
-  if (cat) facts.push(categoryName(loc, cat));
-  if (extra !== undefined) facts.push(html`${extra}`);
-  return html`<li class="card"><a class="card-name serif" href="${loc.href(`/lists/${l.slug}`)}" translate="no">${l.name}</a>${
-    summary ? html`<p class="card-summary"${summary.en ? html` lang="en"` : ''}>${summary.text}</p>` : ''
-  }<p class="card-meta">${join(facts, ' · ')}</p></li>`;
-}
 
 export async function homePage(ctx: Ctx, db: Db): Promise<ViewResult> {
   const { loc } = ctx;
@@ -90,9 +77,9 @@ ${langs.length > 0 ? html`<p class="by-lang"><span class="label">${m.home.browse
 ${shareRow(ctx, head)}
 </header>
 <section class="home-part"><h2>${m.home.startHere}</h2>
-<ul class="cards">${start.map((l) => listCard(ctx, l))}</ul>
+${listEntries(ctx, start)}
 <p class="more">${link(loc, '/lists', loc.plural(m.home.allLists, lists))}</p></section>
-<section class="home-part most"><h2>${m.home.mostNamed}</h2>${itemRows(loc, top, true)}
+<section class="home-part most"><h2>${m.home.mostNamed}</h2>${entries(ctx, top, { topics: true })}
 <p class="more">${link(loc, `/items${serialiseItems(twoOrMore)}`, m.home.namedByTwo, itemsNoindex(twoOrMore) ? { rel: 'nofollow' } : {})}</p></section>
 <h2 class="home-part-title">${m.home.byCategory}</h2>
 <div class="list-layout">
