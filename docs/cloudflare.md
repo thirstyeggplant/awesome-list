@@ -32,6 +32,7 @@ The site runs as a Cloudflare Worker on the Workers Paid plan ($5 a month), with
 - `/_data/i18n/{lang}.json`: translated summaries and category names, one per language but English.
 - `/favicon.ico`, `/favicon.svg`, `/apple-touch-icon.png`, `/site.webmanifest`.
 - `/robots.txt`, `/sitemap.xml`, `/sitemaps/*.xml`: written at build with `SITE_ORIGIN`.
+- `/llms.txt` and `/lists/{owner}/{repo}.md` (671 files, about 20 MB): for answer engines, written at build. A request for a list page (`/lists/{owner}/{repo}`, no `.md`) matches no file and reaches the Worker as before.
 
 There is no R2 and no KV.
 
@@ -69,7 +70,7 @@ Nothing in the shared path uses Node: no gzip, `Buffer`, LRU, `node:fs` or `node
 - Workers Caching does the caching, with no Cache API code. `Cache-Control` is unchanged.
 - The ETag is the build id; the Worker answers 304 before any query.
 - Cloudflare compresses, so `Content-Encoding`, `Content-Length` and `Vary` are dropped.
-- CSP, `nosniff`, the referrer policy and HSTS are on every Worker response. `_headers` covers assets: `/assets/*` immutable for a year; sitemaps and robots `max-age=3600, s-maxage=86400`; `nosniff` on everything.
+- CSP, `nosniff`, the referrer policy and HSTS are on every Worker response. `_headers` covers assets: `/assets/*` immutable for a year; sitemaps, robots, `/llms.txt` and `/lists/*` `max-age=3600, s-maxage=86400`; `/llms.txt` and `/lists/*` `Content-Type: text/markdown; charset=utf-8`, and `/lists/*` `X-Robots-Tag: noindex` (rules in `_headers` reach static files only, so the Worker's list pages carry neither); `nosniff` on everything. To check on the first deploy: that Cloudflare sends those `.md` files with the `_headers` type.
 - Redirects stay in the Worker.
 - **Plain http goes to https.** The Worker's first step, before the method or anything in the database: a request whose address is `http:` to any host but `localhost`, `127.0.0.1` or `[::1]` is answered 301 to the same address with `https:` (no port), `Cache-Control: public, max-age=3600` (`httpsAddress` in `src/site/http.ts`). Static files are served before the Worker, so a plain-http request for one of them never reaches it: Cloudflare's "Always Use HTTPS" setting for the zone covers those.
 - **www goes to the site's host.** `www.weeklymatcha.com` is a second custom domain of the same Worker (`routes` in `wrangler.json`, which makes its DNS record and certificate). The same first step answers any request to `www.` before the host of `SITE_ORIGIN`, over http or https, 301 to the same path and query on `SITE_ORIGIN`, in one hop. Static files on www are served before the Worker and are not sent on; every page's canonical address names the site's host. Measured on 2026-11-27: Workers Caching keys a page by path and query, not by host, so a page already cached for `weeklymatcha.com` is answered 200 on `www.` from the cache without reaching the Worker; a 301 is not cached (`BYPASS`), so no loop can form. The zone's Redirect Rule "www to root" (Rules → Redirect Rules, the owner's, in the dashboard) runs before the cache and sends every www request on; the Worker's step stays as the fallback.

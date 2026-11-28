@@ -83,7 +83,7 @@ Crawlers will still find the localized item addresses through links on localized
 
 - Names of lists, items and owners; `aka` names; addresses.
 - Section headings (the curators' words). Subcategory labels on the home page (they are list names).
-- Tag chips: `lang:go`, `kind:paper`, `status:archived`. They are query syntax, the same thing a person types into search, so they stay as typed in every language. The facet rail beside them shows translated labels.
+- Topic chips show the topic's label (GitHub's slug), the same in every language. A filter that is on is said in words with the facet's translated title ("Language: Go", `common.filterChip`).
 - Language, licence and topic labels (`terms.json`). They are proper names or GitHub's topic slugs.
 - The word "awesome" in "awesome list". It names the genre.
 - Query parameter names and values.
@@ -220,17 +220,18 @@ JSON-LD in one `<script type="application/ld+json">`. The CSP does not block it:
 
 | Page | Types |
 | --- | --- |
-| Home | `WebSite` (`name`, `url`, `inLanguage`, `potentialAction`: a `SearchAction` on `{origin}{prefix}/search?q={search_term_string}`). Google no longer draws a search box from this; it costs nothing |
-| `/lists`, category pages | `CollectionPage` with `mainEntity`: an `ItemList` of the rows on the page (`position`, `url`, `name`), and `BreadcrumbList` on a category page |
-| List | `BreadcrumbList` (Lists › Category › name, as the visible crumbs); `CollectionPage` with `name`, `description` (our summary), `url`, `inLanguage`, `isPartOf` (the `WebSite`), `isBasedOn` (the GitHub address), `mainEntity`: an `ItemList` with `numberOfItems` only. No 3,000 `ListItem`s: they would double the page |
-| Item (repo) | `BreadcrumbList` (Lists › the list with the most stars › the item); `SoftwareSourceCode`: `name`, `codeRepository`, `programmingLanguage` when known, `license` as `https://spdx.org/licenses/{id}` only for an SPDX id, `keywords` (the topics), `isPartOf` (up to 5 lists as `CollectionPage`), `isAccessibleForFree` left out |
-| Item (other), indexable | `BreadcrumbList`; `WebPage` with `isPartOf` (the `WebSite`) and `about`: a `Thing` with its name only (its own address is a third party's) |
-| Owner (indexable) | `CollectionPage` with `about` a `Thing` (the login and its GitHub address; not `ProfilePage`, which needs a `Person` or `Organization` the data cannot tell) and an `ItemList` of the lists they keep, then their first 20 projects |
-| `/items`, bare and one filter, page 1 | `CollectionPage` with an `ItemList` of the 50 rows (`itemListElement` from `itemListLd` in `components.ts`, as `/lists`) |
+| Home | `WebSite` (`name`, `url`, `inLanguage`, `description`: the home's summary sentence, `dateModified`: the data date, `potentialAction`: a `SearchAction` on `{origin}{prefix}/search?q={search_term_string}`). Google no longer draws a search box from this; it costs nothing |
+| `/lists`, category pages | `CollectionPage` with `mainEntity`: an `ItemList` of the rows on the page (`position`, `url`, `name`), and `BreadcrumbList` on a category page; a category's adds `description` (its summary sentences) |
+| List | `BreadcrumbList` (Lists › Category › name, as the visible crumbs); `CollectionPage` with `name`, `description` (our summary), `url`, `inLanguage`, `isPartOf` (the `WebSite`), `isBasedOn` (the GitHub address), `mainEntity`: an `ItemList` with `numberOfItems` only, `dateModified` (the list's last push, never after the data date) and `encoding` (a `MediaObject`, `text/markdown`, its `.md` copy). No 3,000 `ListItem`s: they would double the page |
+| Item (repo) | `BreadcrumbList` (Lists › the list with the most stars › the item); `SoftwareSourceCode`: `name`, `codeRepository`, `programmingLanguage` when known, `license` as `https://spdx.org/licenses/{id}` only for an SPDX id, `keywords` (the topics), `isPartOf` (up to 5 lists as `CollectionPage`), `description` (the plain text of the first two summary sentences: ours, made of facts), `dateModified` (its last push), `isAccessibleForFree` left out |
+| Item (other), indexable | `BreadcrumbList`; `WebPage` with `isPartOf` (the `WebSite`), `description` (as above) and `about`: a `Thing` with its name only (its own address is a third party's) |
+| Owner (indexable) | `CollectionPage` with `description` (its summary sentence), `about` a `Thing` (the login and its GitHub address; not `ProfilePage`, which needs a `Person` or `Organization` the data cannot tell) and an `ItemList` of the lists they keep, then their first 20 projects |
+| `/items`, bare and one filter, page 1 | `CollectionPage` with an `ItemList` of the 50 rows (`itemListElement` from `itemListLd` in `components.ts`, as `/lists`); one language, topic, licence or kind adds `description` (its summary sentences) |
 | List (also) | `hasPart`: up to 30 top-level sections as `WebPageElement` (name, the page's address with the anchor) |
-| About, search, 404 | none |
+| About | `FAQPage`: the first five questions of the page with its own answers as plain text. The only `FAQPage` on the site: no item page has one, and no page has a `QAPage` |
+| Search, 404 | none |
 
-Never: `description` on an item (we have none), `author` (we do not know whether an owner is a person), `aggregateRating` or any rating from stars, `dateModified` we cannot stand behind, `Organization` for the site.
+Never: a curator's or an owner's description (an item's `description` is our own sentence made of facts), `author` (we do not know whether an owner is a person), `aggregateRating` or any rating from stars, `dateModified` we cannot stand behind, `Organization` for the site.
 
 ### Canonical and noindex for query pages
 
@@ -261,7 +262,9 @@ Added, in English and so in every language:
 ### robots.txt
 
 ```
+# Shelf welcomes search engines, answer engines and AI crawlers. See /llms.txt.
 User-agent: *
+User-agent: GPTBot               … and the twelve others of AI_CRAWLERS, in one group
 Allow: /
 Disallow: /api/
 Disallow: /_data/
@@ -271,7 +274,11 @@ Disallow: /zh/search      one line per language
 Sitemap: {origin}/sitemap.xml
 ```
 
-Written from the locale table.
+Written from the locale table and `AI_CRAWLERS` in `src/site/config.ts`: GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended, CCBot, Amazonbot, meta-externalagent. One group, because a crawler that finds its own name ignores the `*` group, so they must share its rules. Each name was checked on 2026-11-27 against its operator's page: developers.openai.com/api/docs/bots, support.claude.com/en/articles/8896518, docs.perplexity.ai/guides/bots, developers.google.com/search/docs/crawling-indexing/google-common-crawlers, support.apple.com/en-us/119829, commoncrawl.org/ccbot, developer.amazon.com/amazonbot, developers.facebook.com/docs/sharing/webmasters/web-crawlers. In the Cloudflare dashboard, "Block AI bots" and a managed `robots.txt` must stay off, or they override this file.
+
+### For answer engines
+
+`/llms.txt` (the llms.txt form: an `h1`, a blockquote, how to read the addresses and cite the site, then each category's lists linking to their Markdown copies) and `/lists/{owner}/{repo}.md` are static files, English only, our summaries and the facts. The copies are `X-Robots-Tag: noindex` so they are not indexed as duplicates of the HTML; crawlers may still read them, which is their purpose. No `llms-full.txt` (it would be over 15 MB) and no Markdown copy of an item.
 
 ### The rest
 
@@ -373,6 +380,7 @@ Groups A, B and C (steps 1 to 16) and the smoke checks of step 22 are in the cod
 - **A category page's `h1` is the category's name.** The JSON-LD of an item also has `url`. A list whose reason for being read in part is the pipeline's "N items from M links" says it in words (`count.itemsFromLinks`); any other reason is shown in English, marked `lang="en"`.
 - **The manifest is written by the build** from `SITE_NAME`, with two icons (`/favicon.svg` and the 180-pixel `/apple-touch-icon.png`). The other three root files and `og.png` are in `src/site/assets/`.
 - **Not byte for byte (step 11).** Dates now come from `Intl.DateTimeFormat` (`Jun 2, 2026` in English, not `2 Jun 2026`), an apostrophe inside a message is written `&#39;`, and names carry `translate="no"`.
+- **Summary sentences (design v4).** Each is one message under `sum.*`, `item.q.*` and `item.a.*` (with `item.alongsideNote`, `entry.*`, `common.dot`, `common.filterChip`, `items.mostlyIn`, `list.aboutTitle`, `facts.owner`, `facts.markdown` and `about.fresh*`, `about.ai*`), in all ten languages and stamped. A sentence is never assembled from fragments, so each language orders its own words; a short list of names inside one uses `common.separator`, so "A, B, C" has no "and". `common.dot`, `entry.stars`, `common.filterChip` and `facts.markdown` may be the same as the English. The words "the lists' own descriptions" and "description" in them mean the curators'; the sentences describe only facts.
 - **Not done:** step 17 (the glossary), the messages of step 18, step 21's "add the nine locales" (they are already registered), and steps 23 and 24 beyond what `docs/site.md` now says.
 
 ## Not in this design

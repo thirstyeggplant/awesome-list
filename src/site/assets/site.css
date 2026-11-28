@@ -211,9 +211,8 @@ html:has(.sheet:target){overflow:hidden}
 .hero .search-box .btn{padding:0 var(--s5)}
 .run{list-style:none;margin:0;padding:0;line-height:1.9}
 .run li{display:inline}
-.run li+li::before{content:"\a0· ";color:var(--muted)}
+.run li:not(:last-child,.sub,:has(+ .sub))::after{content:"\a0· ";color:var(--muted)}
 .run li.sub{display:block;color:var(--muted)}
-.run li.sub::before,.run li.sub+li::before{content:none}
 .run a{color:var(--ink)}
 .run a:hover{color:var(--accent)}
 .run .n{color:var(--muted);font-size:var(--f-sm);font-variant-numeric:tabular-nums}
@@ -310,9 +309,9 @@ h1{margin-top:var(--s5)}
 .entries .m{display:block;margin:0}
 .entries .extra{display:inline-block;margin:0 var(--s3) 0 0;padding-block:.625rem}
 .entries.lists>li{padding-block:var(--s1) var(--s3)}
-.run{line-height:1.6}
-.run a{display:inline-block;padding-block:.625rem}
-.repo-link a,.more a,.about-list a,.see-also a{display:inline-block;padding-block:.625rem}
+.run{line-height:2.75}
+
+.repo-link a,.more a{display:inline-block;padding-block:.625rem}
 .repo-link{margin-top:calc(-1 * var(--s2))}
 h1 .dim{display:inline-block;padding-block:var(--s1)}
 .facts dd a{display:inline-block;margin-block:-.625rem;padding-block:.625rem}
